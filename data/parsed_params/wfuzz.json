@@ -1,0 +1,128 @@
+[
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Path to wordlist file",
+    "aliases": ["-w"]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL with FUZZ keyword",
+    "aliases": ["-u"]
+  },
+  {
+    "name": "method",
+    "template_key": "method",
+    "type": "string",
+    "required": false,
+    "default_value": "GET",
+    "description": "HTTP method to use",
+    "aliases": ["-X"]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Additional HTTP headers",
+    "aliases": ["-H"]
+  },
+  {
+    "name": "post-data",
+    "template_key": "post-data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "POST data payload",
+    "aliases": ["-d"]
+  },
+  {
+    "name": "cookies",
+    "template_key": "cookies",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Cookie string",
+    "aliases": ["-c"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Number of concurrent threads",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy to use",
+    "aliases": ["-p"]
+  },
+  {
+    "name": "hide-codes",
+    "template_key": "hide-codes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Hide responses with these HTTP codes",
+    "aliases": ["--hc"]
+  },
+  {
+    "name": "show-codes",
+    "template_key": "show-codes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show only responses with these HTTP codes",
+    "aliases": ["--sc"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": ["-v"]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Recursive scan depth",
+    "aliases": ["-R"]
+  },
+  {
+    "name": "follow-redirects",
+    "template_key": "follow-redirects",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Follow HTTP redirects",
+    "aliases": ["--follow"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file",
+    "aliases": ["-o"]
+  }
+]

@@ -1,0 +1,26 @@
+Usage: r2 [-A|-a arch|-b bits|-d|-w|-i script|-c cmd] [file]
+  -A             run analysis after loading the binary
+  -d             start in debug mode
+  -q             quiet mode (no banner)
+  -w             open file in write mode for patching
+  -i <script>    run commands from script file
+  -c <cmd>       run a single command then quit
+  -p <project>   use project file
+  -s <addr>      seek to address
+  -b <bits>      set cpu bits (32/64)
+  -a <arch>      set architecture (x86, arm, mips, etc.)
+  -e <k=v>       set config variable
+  -H             display help
+  -v             show version
+  -L             list supported plugins/architectures
+  -n             no analysis (raw mode)
+  -r <gui>       use ragui (web/gtk)
+
+Environment:
+  R2_PLUGINS     plugins path
+  R2_HOME        home directory
+
+Examples:
+  r2 -A /bin/ls            analyze and open
+  r2 -A -q -c "afl" /bin/ls  analyze and list functions
+  r2 -d /bin/ls            debug mode

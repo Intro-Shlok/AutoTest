@@ -1,0 +1,165 @@
+[
+  {
+    "name": "flag-4",
+    "template_key": "flag-4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(use IPv4 query transport only)",
+    "aliases": [
+      "-4"
+    ]
+  },
+  {
+    "name": "flag-6",
+    "template_key": "flag-6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(use IPv6 query transport only)",
+    "aliases": [
+      "-6"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(bind to source address/port)",
+    "aliases": [
+      "-b"
+    ],
+    "enum": [
+      "bind to source address",
+      "port"
+    ]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(specify query class)",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(batch mode)",
+    "aliases": [
+      "-f"
+    ]
+  },
+  {
+    "name": "flag-k",
+    "template_key": "flag-k",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(specify tsig key file)",
+    "aliases": [
+      "-k"
+    ]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(enable memory usage debugging)",
+    "aliases": [
+      "-m"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "(specify port number)",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(specify query name)",
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(do not read ~/.digrc)",
+    "aliases": [
+      "-r"
+    ],
+    "enum": [
+      "do not read ~",
+      ".digrc"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(specify query type)",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(display times in usec instead of msec)",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "flag-x",
+    "template_key": "flag-x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(shortcut for reverse lookups)",
+    "aliases": [
+      "-x",
+      "-n"
+    ]
+  },
+  {
+    "name": "flag-y",
+    "template_key": "flag-y",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "d-opt is of the form +keyword[=value], where keyword is: +[no]aaflag (Set AA flag in query (+[no]aaflag)) +[no]aaonly (Set AA flag in query (+[no]aaflag)) +[no]additional (Control display of additional section) +[no]adflag (Set AD flag in query (default on)) +[no]all (Set or clear all display flags) +[no]answer (Control display of answer section) +[no]authority (Control display of authority section) +[no]badcookie (Retry BADCOOKIE responses) +[no]besteffort (Try to parse even illegal messages) +bufsize[=###] (Set EDNS0 Max UDP packet size) +[no]cdflag (Set checking disabled flag in query) +[no]class (Control display of class in records) +[no]cmd (Control display of command line - global option) +[no]coflag (Set compact denial of existence ok flag) in query) +[no]comments (Control display of packet header and section name comments) +[no]cookie (Add a COOKIE option to the request) +[no]crypto (Control display of cryptographic fields in records) +[no]defname (Use search list (+[no]search)) +[no]dns64prefix (Get the DNS64 prefixes from ipv4only.arpa) +[no]dnssec (Request DNSSEC records) +domain=### (Set default domainname) +[no]edns[=###] (Set EDNS version) [0] +ednsflags=### (Set undefined EDNS flag bits) +[no]ednsnegotiation (Set EDNS version negotiation) +ednsopt=###[:value] (Send specified EDNS option) +noednsopt (Clear list of +ednsopt options) +[no]expandaaaa (Expand AAAA records) +[no]expire (Request time to expire) +[no]fail (Don't try next server on SERVFAIL) +[no]header-only (Send query without a question section) +[no]https[=###] (DNS-over-HTTPS mode) [/] +[no]https-get (Use GET instead of default POST method while using HTTPS) +[no]http-plain[=###] (DNS over plain HTTP mode) [/] +[no]http-plain-get (Use GET instead of default POST method while using plain HTTP) +[no]identify (ID responders in short answers) +[no]idn (convert international domain names) +[no]ignore (Don't revert to TCP for TC responses.) +[no]keepalive (Request EDNS TCP keepalive) +[no]keepopen (Keep the TCP socket open between queries) +[no]multiline (Print records in an expanded format) +ndots=### (Set search NDOTS value) +[no]nsid (Request Name Server ID) +[no]nssearch (Search all authoritative nameservers) +[no]onesoa (AXFR prints only one soa record) +[no]opcode=### (Set the opcode of the request) +padding=### (Set padding block size [0]) +[no]proxy[=src_addr[#src_port]-dst_addr[#dst_port]] (Add PROXYv2 headers to the queries. If addresses are omitted, LOCAL PROXYv2 headers are added) +[no]proxy-plain[=src_addr[#src_port]-dst_addr[#dst_port]] (The same as'+[no]proxy', but send PROXYv2 headers ahead of any encryption if an encrypted transport is used) +qid=### (Specify the query ID to use when sending queries) +[no]qr (Print question before sending) +[no]question (Control display of question section) +[no]raflag (Set RA flag in query (+[no]raflag)) +[no]rdflag (Recursive mode (+[no]recurse)) +[no]recurse (Recursive mode (+[no]rdflag)) +retry=### (Set number of UDP retries) [2] +[no]rrcomments (Control display of per-record comments) +[no]search (Set whether to use searchlist) +[no]short (Display nothing except short form of answers - global option) +[no]showbadcookie (Show BADCOOKIE message) +[no]showbadvers (Show BADVERS message) +[no]showsearch (Search with intermediate results) +[no]split=## (Split hex/base64 fields into chunks) +[no]stats (Control display of statistics) +subnet=addr (Set edns-client-subnet option) +[no]tcflag (Set TC flag in query (+[no]tcflag)) +[no]tcp (TCP mode (+[no]vc)) +timeout=### (Set query timeout) [5] +[no]tls (DNS-over-TLS mode) +[no]tls-ca[=file] (Enable remote server's TLS certificate validation) +[no]tls-hostname=hostname (Explicitly set the expected TLS hostname) +[no]tls-certfile=file (Load client TLS certificate chain from file) +[no]tls-keyfile=file (Load client TLS private key from file) +[no]trace (Trace delegation down from root [implies +dnssec]) +tries=### (Set number of UDP attempts) [3] +[no]ttlid (Control display of ttls in records) +[no]ttlunits (Display TTLs in human-readable units) +[no]unknownformat (Print RDATA in RFC 3597 \"unknown\" format) +[no]vc (TCP mode (+[no]tcp)) +[no]yaml (Present the results as YAML) +[no]zflag (Set Z flag in query) global d-opts and servers (before host name) affect all queries. local d-opts and servers (after host name) affect only that lookup. -h (print help and exit) -v (print version and exit)",
+    "aliases": [
+      "-y"
+    ]
+  }
+]

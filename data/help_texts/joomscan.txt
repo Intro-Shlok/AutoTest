@@ -1,0 +1,19 @@
+Usage: joomscan [options]
+
+  -u, --url <URL>              Target Joomla URL
+  -t, --threads <int>          Number of threads (default: 10)
+  -v, --verbose                Enable verbose output
+  -o, --output <file>          Save scan report to file
+  --cookie <cookie>            HTTP cookie for authenticated scanning
+  --user-agent <agent>         Custom User-Agent header
+  --proxy <proxy>              HTTP proxy address
+  --timeout <seconds>          Request timeout (default: 30)
+  --follow-redirects           Follow HTTP redirects
+  --no-check-certificate       Skip SSL certificate validation
+  --version                    Show version information
+  --help                       Show this help message
+
+Examples:
+  joomscan -u http://target.com/joomla
+  joomscan -u http://target.com/joomla --cookie "session=abc123"
+  joomscan -u http://target.com/joomla -o report.html

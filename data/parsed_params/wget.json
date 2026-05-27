@@ -1,0 +1,1711 @@
+[
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display the version of Wget and exit",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print this help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "background",
+    "template_key": "background",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "go to background after startup",
+    "aliases": [
+      "-b",
+      "--background"
+    ]
+  },
+  {
+    "name": "execute",
+    "template_key": "execute",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "execute a `.wgetrc'-style command",
+    "aliases": [
+      "-e",
+      "--execute"
+    ]
+  },
+  {
+    "name": "output-file",
+    "template_key": "output-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "log messages to FILE",
+    "aliases": [
+      "-o",
+      "--output-file"
+    ]
+  },
+  {
+    "name": "append-output",
+    "template_key": "append-output",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "append messages to FILE",
+    "aliases": [
+      "-a",
+      "--append-output"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print lots of debugging information",
+    "aliases": [
+      "-d",
+      "--debug"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "quiet (no output)",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "be verbose (this is the default)",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "no-verbose",
+    "template_key": "no-verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn off verboseness, without being quiet",
+    "aliases": [
+      "-n",
+      "--no-verbose"
+    ]
+  },
+  {
+    "name": "report-speed",
+    "template_key": "report-speed",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output bandwidth as TYPE. TYPE can be bits",
+    "aliases": [
+      "--report-speed"
+    ]
+  },
+  {
+    "name": "input-file",
+    "template_key": "input-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "download URLs found in local or external FILE",
+    "aliases": [
+      "-i",
+      "--input-file"
+    ]
+  },
+  {
+    "name": "force-html",
+    "template_key": "force-html",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "treat input file as HTML",
+    "aliases": [
+      "-F",
+      "--force-html"
+    ]
+  },
+  {
+    "name": "base",
+    "template_key": "base",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "resolves HTML input-file links (-i -F)",
+    "aliases": [
+      "-B",
+      "--base"
+    ]
+  },
+  {
+    "name": "config",
+    "template_key": "config",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "specify config file to use",
+    "aliases": [
+      "--config"
+    ]
+  },
+  {
+    "name": "no-config",
+    "template_key": "no-config",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not read any config file",
+    "aliases": [
+      "--no-config"
+    ]
+  },
+  {
+    "name": "rejected-log",
+    "template_key": "rejected-log",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "log reasons for URL rejection to FILE",
+    "aliases": [
+      "--rejected-log"
+    ]
+  },
+  {
+    "name": "tries",
+    "template_key": "tries",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set number of retries to NUMBER (0 unlimits)",
+    "aliases": [
+      "-t",
+      "--tries"
+    ]
+  },
+  {
+    "name": "retry-connrefused",
+    "template_key": "retry-connrefused",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "retry even if connection is refused",
+    "aliases": [
+      "--retry-connrefused"
+    ]
+  },
+  {
+    "name": "retry-on-host-error",
+    "template_key": "retry-on-host-error",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "consider host errors as non-fatal, transient errors",
+    "aliases": [
+      "--retry-on-host-error"
+    ]
+  },
+  {
+    "name": "retry-on-http-error",
+    "template_key": "retry-on-http-error",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of HTTP errors to retry",
+    "aliases": [
+      "--retry-on-http-error"
+    ]
+  },
+  {
+    "name": "output-document",
+    "template_key": "output-document",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "write documents to FILE",
+    "aliases": [
+      "-O",
+      "--output-document"
+    ]
+  },
+  {
+    "name": "no-clobber",
+    "template_key": "no-clobber",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip downloads that would download to",
+    "aliases": [
+      "-n",
+      "--no-clobber"
+    ]
+  },
+  {
+    "name": "no-netrc",
+    "template_key": "no-netrc",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't try to obtain credentials from .netrc",
+    "aliases": [
+      "--no-netrc"
+    ]
+  },
+  {
+    "name": "continue",
+    "template_key": "continue",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "resume getting a partially-downloaded file",
+    "aliases": [
+      "-c",
+      "--continue"
+    ]
+  },
+  {
+    "name": "start-pos",
+    "template_key": "start-pos",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "start downloading from zero-based position OFFSET",
+    "aliases": [
+      "--start-pos"
+    ]
+  },
+  {
+    "name": "progress",
+    "template_key": "progress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "select progress gauge type",
+    "aliases": [
+      "--progress"
+    ]
+  },
+  {
+    "name": "show-progress",
+    "template_key": "show-progress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display the progress bar in any verbosity mode",
+    "aliases": [
+      "--show-progress"
+    ]
+  },
+  {
+    "name": "timestamping",
+    "template_key": "timestamping",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't re-retrieve files unless newer than",
+    "aliases": [
+      "-N",
+      "--timestamping"
+    ]
+  },
+  {
+    "name": "no-if-modified-since",
+    "template_key": "no-if-modified-since",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't use conditional if-modified-since get",
+    "aliases": [
+      "--no-if-modified-since"
+    ]
+  },
+  {
+    "name": "no-use-server-timestamps",
+    "template_key": "no-use-server-timestamps",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "the one on the server",
+    "aliases": [
+      "--no-use-server-timestamps"
+    ]
+  },
+  {
+    "name": "server-response",
+    "template_key": "server-response",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print server response",
+    "aliases": [
+      "-S",
+      "--server-response"
+    ]
+  },
+  {
+    "name": "spider",
+    "template_key": "spider",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't download anything",
+    "aliases": [
+      "--spider"
+    ]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set all timeout values to SECONDS",
+    "aliases": [
+      "-T",
+      "--timeout"
+    ]
+  },
+  {
+    "name": "dns-timeout",
+    "template_key": "dns-timeout",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "set the DNS lookup timeout to SECS",
+    "aliases": [
+      "--dns-timeout"
+    ]
+  },
+  {
+    "name": "connect-timeout",
+    "template_key": "connect-timeout",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "set the connect timeout to SECS",
+    "aliases": [
+      "--connect-timeout"
+    ]
+  },
+  {
+    "name": "read-timeout",
+    "template_key": "read-timeout",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "set the read timeout to SECS",
+    "aliases": [
+      "--read-timeout"
+    ]
+  },
+  {
+    "name": "wait",
+    "template_key": "wait",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "wait SECONDS between retrievals",
+    "aliases": [
+      "-w",
+      "--wait"
+    ]
+  },
+  {
+    "name": "waitretry",
+    "template_key": "waitretry",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "wait 1..SECONDS between retries of a retrieval",
+    "aliases": [
+      "--waitretry"
+    ]
+  },
+  {
+    "name": "random-wait",
+    "template_key": "random-wait",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "wait from 0.5*WAIT...1.5*WAIT secs between retrievals",
+    "aliases": [
+      "--random-wait"
+    ]
+  },
+  {
+    "name": "no-proxy",
+    "template_key": "no-proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "explicitly turn off proxy",
+    "aliases": [
+      "--no-proxy"
+    ]
+  },
+  {
+    "name": "quota",
+    "template_key": "quota",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set retrieval quota to NUMBER",
+    "aliases": [
+      "-Q",
+      "--quota"
+    ]
+  },
+  {
+    "name": "bind-address",
+    "template_key": "bind-address",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "bind to ADDRESS (hostname or IP) on local host",
+    "aliases": [
+      "--bind-address"
+    ]
+  },
+  {
+    "name": "limit-rate",
+    "template_key": "limit-rate",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "limit download rate to RATE",
+    "aliases": [
+      "--limit-rate"
+    ]
+  },
+  {
+    "name": "no-dns-cache",
+    "template_key": "no-dns-cache",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable caching DNS lookups",
+    "aliases": [
+      "--no-dns-cache"
+    ]
+  },
+  {
+    "name": "restrict-file-names",
+    "template_key": "restrict-file-names",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "restrict chars in file names to ones OS allows",
+    "aliases": [
+      "--restrict-file-names"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore case when matching files/directories",
+    "aliases": [
+      "--ignore-case"
+    ]
+  },
+  {
+    "name": "inet4-only",
+    "template_key": "inet4-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "connect only to IPv4 addresses",
+    "aliases": [
+      "-4",
+      "--inet4-only"
+    ]
+  },
+  {
+    "name": "inet6-only",
+    "template_key": "inet6-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "connect only to IPv6 addresses",
+    "aliases": [
+      "-6",
+      "--inet6-only"
+    ]
+  },
+  {
+    "name": "prefer-family",
+    "template_key": "prefer-family",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "connect first to addresses of specified family",
+    "aliases": [
+      "--prefer-family"
+    ]
+  },
+  {
+    "name": "user",
+    "template_key": "user",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "set both ftp and http user to USER",
+    "aliases": [
+      "--user"
+    ]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "set both ftp and http password to PASS",
+    "aliases": [
+      "--password"
+    ]
+  },
+  {
+    "name": "ask-password",
+    "template_key": "ask-password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "prompt for passwords",
+    "aliases": [
+      "--ask-password"
+    ]
+  },
+  {
+    "name": "use-askpass",
+    "template_key": "use-askpass",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "specify credential handler for requesting",
+    "aliases": [
+      "--use-askpass"
+    ]
+  },
+  {
+    "name": "no-iri",
+    "template_key": "no-iri",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn off IRI support",
+    "aliases": [
+      "--no-iri"
+    ]
+  },
+  {
+    "name": "local-encoding",
+    "template_key": "local-encoding",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use ENC as the local encoding for IRIs",
+    "aliases": [
+      "--local-encoding"
+    ]
+  },
+  {
+    "name": "remote-encoding",
+    "template_key": "remote-encoding",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use ENC as the default remote encoding",
+    "aliases": [
+      "--remote-encoding"
+    ]
+  },
+  {
+    "name": "unlink",
+    "template_key": "unlink",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "remove file before clobber",
+    "aliases": [
+      "--unlink"
+    ]
+  },
+  {
+    "name": "xattr",
+    "template_key": "xattr",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn on storage of metadata in extended file attributes",
+    "aliases": [
+      "--xattr"
+    ]
+  },
+  {
+    "name": "no-directories",
+    "template_key": "no-directories",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't create directories",
+    "aliases": [
+      "-n",
+      "--no-directories"
+    ]
+  },
+  {
+    "name": "force-directories",
+    "template_key": "force-directories",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "force creation of directories",
+    "aliases": [
+      "-x",
+      "--force-directories"
+    ]
+  },
+  {
+    "name": "no-host-directories",
+    "template_key": "no-host-directories",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't create host directories",
+    "aliases": [
+      "-n",
+      "--no-host-directories"
+    ]
+  },
+  {
+    "name": "protocol-directories",
+    "template_key": "protocol-directories",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use protocol name in directories",
+    "aliases": [
+      "--protocol-directories"
+    ]
+  },
+  {
+    "name": "directory-prefix",
+    "template_key": "directory-prefix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "save files to PREFIX/",
+    "aliases": [
+      "-P",
+      "--directory-prefix"
+    ]
+  },
+  {
+    "name": "cut-dirs",
+    "template_key": "cut-dirs",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "ignore NUMBER remote directory components",
+    "aliases": [
+      "--cut-dirs"
+    ]
+  },
+  {
+    "name": "http-user",
+    "template_key": "http-user",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "set http user to USER",
+    "aliases": [
+      "--http-user"
+    ]
+  },
+  {
+    "name": "http-password",
+    "template_key": "http-password",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "set http password to PASS",
+    "aliases": [
+      "--http-password"
+    ]
+  },
+  {
+    "name": "no-cache",
+    "template_key": "no-cache",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disallow server-cached data",
+    "aliases": [
+      "--no-cache"
+    ]
+  },
+  {
+    "name": "default-page",
+    "template_key": "default-page",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "change the default page name (normally",
+    "aliases": [
+      "--default-page"
+    ]
+  },
+  {
+    "name": "adjust-extension",
+    "template_key": "adjust-extension",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "save HTML/CSS documents with proper extensions",
+    "aliases": [
+      "-E",
+      "--adjust-extension"
+    ]
+  },
+  {
+    "name": "ignore-length",
+    "template_key": "ignore-length",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore 'Content-Length' header field",
+    "aliases": [
+      "--ignore-length"
+    ]
+  },
+  {
+    "name": "header",
+    "template_key": "header",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "insert STRING among the headers",
+    "aliases": [
+      "--header"
+    ]
+  },
+  {
+    "name": "compression",
+    "template_key": "compression",
+    "type": "string",
+    "required": false,
+    "default_value": "none",
+    "description": "choose compression, one of auto, gzip and none",
+    "aliases": [
+      "--compression"
+    ]
+  },
+  {
+    "name": "max-redirect",
+    "template_key": "max-redirect",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "maximum redirections allowed per page",
+    "aliases": [
+      "--max-redirect"
+    ]
+  },
+  {
+    "name": "proxy-user",
+    "template_key": "proxy-user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set USER as proxy username",
+    "aliases": [
+      "--proxy-user"
+    ]
+  },
+  {
+    "name": "proxy-password",
+    "template_key": "proxy-password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set PASS as proxy password",
+    "aliases": [
+      "--proxy-password"
+    ]
+  },
+  {
+    "name": "referer",
+    "template_key": "referer",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "include 'Referer: URL' header in HTTP request",
+    "aliases": [
+      "--referer"
+    ]
+  },
+  {
+    "name": "save-headers",
+    "template_key": "save-headers",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "save the HTTP headers to file",
+    "aliases": [
+      "--save-headers"
+    ]
+  },
+  {
+    "name": "user-agent",
+    "template_key": "user-agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "identify as AGENT instead of Wget/VERSION",
+    "aliases": [
+      "-U",
+      "--user-agent"
+    ]
+  },
+  {
+    "name": "no-http-keep-alive",
+    "template_key": "no-http-keep-alive",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "disable HTTP keep-alive (persistent connections)",
+    "aliases": [
+      "--no-http-keep-alive"
+    ]
+  },
+  {
+    "name": "no-cookies",
+    "template_key": "no-cookies",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't use cookies",
+    "aliases": [
+      "--no-cookies"
+    ]
+  },
+  {
+    "name": "load-cookies",
+    "template_key": "load-cookies",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "load cookies from FILE before session",
+    "aliases": [
+      "--load-cookies"
+    ]
+  },
+  {
+    "name": "save-cookies",
+    "template_key": "save-cookies",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "save cookies to FILE after session",
+    "aliases": [
+      "--save-cookies"
+    ]
+  },
+  {
+    "name": "keep-session-cookies",
+    "template_key": "keep-session-cookies",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "load and save session (non-permanent) cookies",
+    "aliases": [
+      "--keep-session-cookies"
+    ]
+  },
+  {
+    "name": "post-data",
+    "template_key": "post-data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use the POST method; send STRING as the data",
+    "aliases": [
+      "--post-data"
+    ]
+  },
+  {
+    "name": "post-file",
+    "template_key": "post-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "use the POST method; send contents of FILE",
+    "aliases": [
+      "--post-file"
+    ]
+  },
+  {
+    "name": "method",
+    "template_key": "method",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "use method \"HTTPMethod\" in the request",
+    "aliases": [
+      "--method"
+    ]
+  },
+  {
+    "name": "body-data",
+    "template_key": "body-data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "send STRING as data. --method MUST be set",
+    "aliases": [
+      "--body-data"
+    ]
+  },
+  {
+    "name": "body-file",
+    "template_key": "body-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "send contents of FILE. --method MUST be set",
+    "aliases": [
+      "--body-file"
+    ]
+  },
+  {
+    "name": "content-disposition",
+    "template_key": "content-disposition",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "honor the Content-Disposition header when",
+    "aliases": [
+      "--content-disposition"
+    ]
+  },
+  {
+    "name": "content-on-error",
+    "template_key": "content-on-error",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output the received content on server errors",
+    "aliases": [
+      "--content-on-error"
+    ]
+  },
+  {
+    "name": "auth-no-challenge",
+    "template_key": "auth-no-challenge",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "send Basic HTTP authentication information",
+    "aliases": [
+      "--auth-no-challenge"
+    ]
+  },
+  {
+    "name": "secure-protocol",
+    "template_key": "secure-protocol",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "choose secure protocol, one of auto, SSLv2",
+    "aliases": [
+      "--secure-protocol"
+    ]
+  },
+  {
+    "name": "https-only",
+    "template_key": "https-only",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "only follow secure HTTPS links",
+    "aliases": [
+      "--https-only"
+    ]
+  },
+  {
+    "name": "no-check-certificate",
+    "template_key": "no-check-certificate",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't validate the server's certificate",
+    "aliases": [
+      "--no-check-certificate"
+    ]
+  },
+  {
+    "name": "certificate",
+    "template_key": "certificate",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "client certificate file",
+    "aliases": [
+      "--certificate"
+    ]
+  },
+  {
+    "name": "certificate-type",
+    "template_key": "certificate-type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "client certificate type, PEM or DER",
+    "aliases": [
+      "--certificate-type"
+    ]
+  },
+  {
+    "name": "private-key",
+    "template_key": "private-key",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "private key file",
+    "aliases": [
+      "--private-key"
+    ]
+  },
+  {
+    "name": "private-key-type",
+    "template_key": "private-key-type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "private key type, PEM or DER",
+    "aliases": [
+      "--private-key-type"
+    ]
+  },
+  {
+    "name": "ca-certificate",
+    "template_key": "ca-certificate",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "file with the bundle of CAs",
+    "aliases": [
+      "--ca-certificate"
+    ]
+  },
+  {
+    "name": "ca-directory",
+    "template_key": "ca-directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "directory where hash list of CAs is stored",
+    "aliases": [
+      "--ca-directory"
+    ]
+  },
+  {
+    "name": "crl-file",
+    "template_key": "crl-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "file with bundle of CRLs",
+    "aliases": [
+      "--crl-file"
+    ]
+  },
+  {
+    "name": "pinnedpubkey",
+    "template_key": "pinnedpubkey",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "of base64 encoded sha256 hashes preceded by 'sha256//' and separated by ';', to verify peer against",
+    "aliases": [
+      "--pinnedpubkey"
+    ]
+  },
+  {
+    "name": "ciphers",
+    "template_key": "ciphers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set the priority string (GnuTLS) or cipher list string (OpenSSL) directly",
+    "aliases": [
+      "--ciphers"
+    ]
+  },
+  {
+    "name": "no-hsts",
+    "template_key": "no-hsts",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable HSTS",
+    "aliases": [
+      "--no-hsts"
+    ]
+  },
+  {
+    "name": "hsts-file",
+    "template_key": "hsts-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "path of HSTS database (will override default)",
+    "aliases": [
+      "--hsts-file"
+    ]
+  },
+  {
+    "name": "ftp-user",
+    "template_key": "ftp-user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set ftp user to USER",
+    "aliases": [
+      "--ftp-user"
+    ]
+  },
+  {
+    "name": "ftp-password",
+    "template_key": "ftp-password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set ftp password to PASS",
+    "aliases": [
+      "--ftp-password"
+    ]
+  },
+  {
+    "name": "no-remove-listing",
+    "template_key": "no-remove-listing",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't remove '.listing' files",
+    "aliases": [
+      "--no-remove-listing"
+    ]
+  },
+  {
+    "name": "no-glob",
+    "template_key": "no-glob",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn off FTP file name globbing",
+    "aliases": [
+      "--no-glob"
+    ]
+  },
+  {
+    "name": "no-passive-ftp",
+    "template_key": "no-passive-ftp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable the \"passive\" transfer mode",
+    "aliases": [
+      "--no-passive-ftp"
+    ]
+  },
+  {
+    "name": "preserve-permissions",
+    "template_key": "preserve-permissions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve remote file permissions",
+    "aliases": [
+      "--preserve-permissions"
+    ]
+  },
+  {
+    "name": "retr-symlinks",
+    "template_key": "retr-symlinks",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "when recursing, get linked-to files (not dir)",
+    "aliases": [
+      "--retr-symlinks"
+    ]
+  },
+  {
+    "name": "ftps-implicit",
+    "template_key": "ftps-implicit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use implicit FTPS (default port is 990)",
+    "aliases": [
+      "--ftps-implicit"
+    ]
+  },
+  {
+    "name": "ftps-resume-ssl",
+    "template_key": "ftps-resume-ssl",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "resume the SSL/TLS session started in the control connection when",
+    "aliases": [
+      "--ftps-resume-ssl"
+    ]
+  },
+  {
+    "name": "ftps-clear-data-connection",
+    "template_key": "ftps-clear-data-connection",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "cipher the control channel only; all the data will be in plaintext",
+    "aliases": [
+      "--ftps-clear-data-connection"
+    ]
+  },
+  {
+    "name": "ftps-fallback-to-ftp",
+    "template_key": "ftps-fallback-to-ftp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "fall back to FTP if FTPS is not supported in the target server",
+    "aliases": [
+      "--ftps-fallback-to-ftp"
+    ]
+  },
+  {
+    "name": "warc-file",
+    "template_key": "warc-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "save request/response data to a .warc.gz file",
+    "aliases": [
+      "--warc-file"
+    ]
+  },
+  {
+    "name": "warc-header",
+    "template_key": "warc-header",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "insert STRING into the warcinfo record",
+    "aliases": [
+      "--warc-header"
+    ]
+  },
+  {
+    "name": "warc-max-size",
+    "template_key": "warc-max-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set maximum size of WARC files to NUMBER",
+    "aliases": [
+      "--warc-max-size"
+    ]
+  },
+  {
+    "name": "warc-cdx",
+    "template_key": "warc-cdx",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "write CDX index files",
+    "aliases": [
+      "--warc-cdx"
+    ]
+  },
+  {
+    "name": "warc-dedup",
+    "template_key": "warc-dedup",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not store records listed in this CDX file",
+    "aliases": [
+      "--warc-dedup"
+    ]
+  },
+  {
+    "name": "no-warc-compression",
+    "template_key": "no-warc-compression",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not compress WARC files with GZIP",
+    "aliases": [
+      "--no-warc-compression"
+    ]
+  },
+  {
+    "name": "no-warc-digests",
+    "template_key": "no-warc-digests",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not calculate SHA1 digests",
+    "aliases": [
+      "--no-warc-digests"
+    ]
+  },
+  {
+    "name": "no-warc-keep-log",
+    "template_key": "no-warc-keep-log",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not store the log file in a WARC record",
+    "aliases": [
+      "--no-warc-keep-log"
+    ]
+  },
+  {
+    "name": "warc-tempdir",
+    "template_key": "warc-tempdir",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "location for temporary files created by the",
+    "aliases": [
+      "--warc-tempdir"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "specify recursive download",
+    "aliases": [
+      "-r",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "level",
+    "template_key": "level",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "maximum recursion depth (inf or 0 for infinite)",
+    "aliases": [
+      "-l",
+      "--level"
+    ]
+  },
+  {
+    "name": "delete-after",
+    "template_key": "delete-after",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "delete files locally after downloading them",
+    "aliases": [
+      "--delete-after"
+    ]
+  },
+  {
+    "name": "convert-links",
+    "template_key": "convert-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make links in downloaded HTML or CSS point to",
+    "aliases": [
+      "-k",
+      "--convert-links"
+    ]
+  },
+  {
+    "name": "convert-file-only",
+    "template_key": "convert-file-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "convert the file part of the URLs only (usually known as the basename)",
+    "aliases": [
+      "--convert-file-only"
+    ]
+  },
+  {
+    "name": "backups",
+    "template_key": "backups",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "before writing file X, rotate up to N backup files",
+    "aliases": [
+      "--backups"
+    ]
+  },
+  {
+    "name": "backup-converted",
+    "template_key": "backup-converted",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "before converting file X, back up as X.orig",
+    "aliases": [
+      "-K",
+      "--backup-converted"
+    ]
+  },
+  {
+    "name": "mirror",
+    "template_key": "mirror",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "shortcut for -N -r -l inf --no-remove-listing",
+    "aliases": [
+      "-m",
+      "--mirror"
+    ]
+  },
+  {
+    "name": "page-requisites",
+    "template_key": "page-requisites",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "get all images, etc. needed to display HTML page",
+    "aliases": [
+      "-p",
+      "--page-requisites"
+    ]
+  },
+  {
+    "name": "strict-comments",
+    "template_key": "strict-comments",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn on strict (SGML) handling of HTML comments",
+    "aliases": [
+      "--strict-comments"
+    ]
+  },
+  {
+    "name": "accept",
+    "template_key": "accept",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of accepted extensions",
+    "aliases": [
+      "-A",
+      "--accept"
+    ]
+  },
+  {
+    "name": "reject",
+    "template_key": "reject",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of rejected extensions",
+    "aliases": [
+      "-R",
+      "--reject"
+    ]
+  },
+  {
+    "name": "accept-regex",
+    "template_key": "accept-regex",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "regex matching accepted URLs",
+    "aliases": [
+      "--accept-regex"
+    ]
+  },
+  {
+    "name": "reject-regex",
+    "template_key": "reject-regex",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "regex matching rejected URLs",
+    "aliases": [
+      "--reject-regex"
+    ]
+  },
+  {
+    "name": "regex-type",
+    "template_key": "regex-type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "regex type (posix|pcre)",
+    "aliases": [
+      "--regex-type"
+    ],
+    "enum": [
+      "posix",
+      "pcre"
+    ]
+  },
+  {
+    "name": "domains",
+    "template_key": "domains",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of accepted domains",
+    "aliases": [
+      "-D",
+      "--domains"
+    ]
+  },
+  {
+    "name": "exclude-domains",
+    "template_key": "exclude-domains",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of rejected domains",
+    "aliases": [
+      "--exclude-domains"
+    ]
+  },
+  {
+    "name": "follow-ftp",
+    "template_key": "follow-ftp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "follow FTP links from HTML documents",
+    "aliases": [
+      "--follow-ftp"
+    ]
+  },
+  {
+    "name": "follow-tags",
+    "template_key": "follow-tags",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of followed HTML tags",
+    "aliases": [
+      "--follow-tags"
+    ]
+  },
+  {
+    "name": "ignore-tags",
+    "template_key": "ignore-tags",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of ignored HTML tags",
+    "aliases": [
+      "--ignore-tags"
+    ]
+  },
+  {
+    "name": "span-hosts",
+    "template_key": "span-hosts",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "go to foreign hosts when recursive",
+    "aliases": [
+      "-H",
+      "--span-hosts"
+    ]
+  },
+  {
+    "name": "relative",
+    "template_key": "relative",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "follow relative links only",
+    "aliases": [
+      "-L",
+      "--relative"
+    ]
+  },
+  {
+    "name": "include-directories",
+    "template_key": "include-directories",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "--trust-server-names use the name specified by the redirection URL's last component",
+    "aliases": [
+      "-I",
+      "--include-directories"
+    ]
+  },
+  {
+    "name": "exclude-directories",
+    "template_key": "exclude-directories",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-X",
+      "--exclude-directories"
+    ]
+  },
+  {
+    "name": "no-parent",
+    "template_key": "no-parent",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "don't ascend to the parent directory",
+    "aliases": [
+      "-n",
+      "--no-parent"
+    ]
+  }
+]

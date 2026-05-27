@@ -1,0 +1,136 @@
+[
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress automatic printing of pattern space --debug annotate program execution",
+    "aliases": [
+      "-n",
+      "--quiet",
+      "--silent"
+    ]
+  },
+  {
+    "name": "expression",
+    "template_key": "expression",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "add the script to the commands to be executed",
+    "aliases": [
+      "-e",
+      "--expression"
+    ]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "add the contents of script-file to the commands to be executed",
+    "aliases": [
+      "-f",
+      "-f",
+      "-f",
+      "--file"
+    ]
+  },
+  {
+    "name": "follow-symlinks",
+    "template_key": "follow-symlinks",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "follow symlinks when processing in place",
+    "aliases": [
+      "--follow-symlinks"
+    ]
+  },
+  {
+    "name": "in-place",
+    "template_key": "in-place",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "edit files in place (makes backup if SUFFIX supplied)",
+    "aliases": [
+      "-i",
+      "--in-place"
+    ]
+  },
+  {
+    "name": "line-length",
+    "template_key": "line-length",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "specify the desired line-wrap length for the `l' command",
+    "aliases": [
+      "-l",
+      "--line-length"
+    ]
+  },
+  {
+    "name": "posix",
+    "template_key": "posix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable all GNU extensions",
+    "aliases": [
+      "--posix"
+    ]
+  },
+  {
+    "name": "regexp-extended",
+    "template_key": "regexp-extended",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use extended regular expressions in the script (for portability use POSIX -E)",
+    "aliases": [
+      "-E",
+      "-r",
+      "--regexp-extended"
+    ]
+  },
+  {
+    "name": "separate",
+    "template_key": "separate",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "consider files as separate rather than as a single, continuous long stream. --sandbox operate in sandbox mode (disable e/r/w commands)",
+    "aliases": [
+      "-s",
+      "--separate"
+    ]
+  },
+  {
+    "name": "unbuffered",
+    "template_key": "unbuffered",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "load minimal amounts of data from the input files and flush the output buffers more often",
+    "aliases": [
+      "-u",
+      "--unbuffered"
+    ]
+  },
+  {
+    "name": "null-data",
+    "template_key": "null-data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "separate lines by NUL characters --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-z",
+      "--null-data"
+    ]
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "name": "tool",
+    "template_key": "tool",
+    "type": "string",
+    "required": false,
+    "default_value": "Evasion",
+    "description": "Tool/payload type (Evasion, Ordnance, etc.)",
+    "aliases": ["-t", "--tool"]
+  },
+  {
+    "name": "payload",
+    "template_key": "payload",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Payload name to generate",
+    "aliases": ["-p", "--payload"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file path",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Listener payload type",
+    "aliases": ["-l", "--listener"]
+  },
+  {
+    "name": "flag-ip",
+    "template_key": "flag-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Listener IP address",
+    "aliases": ["--ip"]
+  },
+  {
+    "name": "flag-port",
+    "template_key": "flag-port",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Listener port",
+    "aliases": ["--port"]
+  },
+  {
+    "name": "flag-msfvenom",
+    "template_key": "flag-msfvenom",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use msfvenom for payload generation",
+    "aliases": ["--msfvenom"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Config file path",
+    "aliases": ["-c", "--config"]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "encrypt",
+    "template_key": "encrypt",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Encryption method (xor, aes, etc.)",
+    "aliases": ["--encrypt"]
+  },
+  {
+    "name": "evasion",
+    "template_key": "evasion",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Evasion technique",
+    "aliases": ["--evasion"]
+  }
+]

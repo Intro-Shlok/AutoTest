@@ -1,0 +1,74 @@
+[
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target for the scan",
+    "aliases": ["-s"]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": "passive",
+    "description": "Use case (all, footprint, investigate, passive)",
+    "aliases": ["-u"]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Event types to collect",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": "tab",
+    "description": "Output format (tab, csv, json)",
+    "aliases": ["-o"]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "IP and port for web UI",
+    "aliases": ["-l"]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Disable logging",
+    "aliases": ["-q"]
+  },
+  {
+    "name": "max-threads",
+    "template_key": "max-threads",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Max modules to run concurrently",
+    "aliases": ["-max-threads"]
+  },
+  {
+    "name": "flag-x",
+    "template_key": "flag-x",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Strict mode",
+    "aliases": ["-x"]
+  }
+]

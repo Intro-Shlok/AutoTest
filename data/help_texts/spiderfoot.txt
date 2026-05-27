@@ -1,0 +1,31 @@
+usage: sf.py [-h] [-d] [-l IP:port] [-m mod1,mod2,...] [-M] [-C scanID]
+             [-s TARGET] [-t type1,type2,...]
+             [-u {all,footprint,investigate,passive}] [-T] [-o {tab,csv,json}]
+             [-H] [-n] [-r] [-S LENGTH] [-D DELIMITER] [-f]
+             [-F type1,type2,...] [-x] [-q] [-V] [-max-threads MAX_THREADS]
+
+SpiderFoot 4.0.0: Open Source Intelligence Automation.
+
+options:
+  -h, --help            show this help message and exit
+  -d, --debug           Enable debug output.
+  -l IP:port            IP and port to listen on.
+  -m mod1,mod2,...      Modules to enable.
+  -M, --modules         List available modules.
+  -C, --correlate scanID  Run correlation rules against a scan ID.
+  -s TARGET             Target for the scan.
+  -t type1,type2,...    Event types to collect.
+  -u {all,footprint,investigate,passive}  Use case.
+  -T, --types           List available event types.
+  -o {tab,csv,json}     Output format.
+  -H                    Don't print field headers.
+  -n                    Strip newlines from data.
+  -r                    Include the source data field.
+  -S LENGTH             Maximum data length to display.
+  -D DELIMITER          Delimiter for CSV output.
+  -f                    Filter out other event types.
+  -F type1,type2,...    Show only a set of event types.
+  -x                    STRICT MODE.
+  -q                    Disable logging.
+  -V, --version         Display the version.
+  -max-threads MAX_THREADS  Max number of modules to run concurrently.

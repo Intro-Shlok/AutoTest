@@ -1,0 +1,38 @@
+Usage: rsmangler [options]
+
+Mangle a base wordlist to produce many word variations.
+
+Options:
+  -i FILE        Input wordlist file to mangle (required)
+  -o FILE        Output file for mangled wordlist
+  -l LENGTH      Minimum word length to output
+  -L LENGTH      Maximum word length to output
+  -m RULES       Comma-separated mangle rules (cap,leet,reverse,...)
+  -f FORMAT      Output format (txt, csv)
+  -p TEXT        Prefix to add to each word
+  -s TEXT        Suffix to add to each word
+  -c             Capitalise first letter of each word
+  -u             Convert all words to uppercase
+  -n             Append numeric sequences (00-99) to words
+  -C TEXT        Custom character set for numeric appends
+  -v             Verbose output during processing
+  -q             Quiet mode (suppress warnings)
+  -r FILE        Load mangle rules from a file
+  -t NUM         Number of processing threads
+
+Common mangle rules:
+  cap         Capitalise first letter
+  leet        Leet speak substitutions
+  reverse     Reverse the word
+  double      Double the word
+  prefix      Add prefix (-p)
+  suffix      Add suffix (-s)
+  upper       Convert to uppercase
+
+Examples:
+  rsmangler -i base.txt -o mangled.txt
+  rsmangler -i words.txt -c -n -o output.txt
+  rsmangler -i dict.txt -m cap,leet,reverse -l 6 -L 16
+  rsmangler -i passwords.txt -p "2024" -s "!" -o candidates.txt
+
+Report bugs to https://github.com/digininja/rsmangler

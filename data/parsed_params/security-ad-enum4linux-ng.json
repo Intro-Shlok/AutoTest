@@ -1,0 +1,101 @@
+[
+  {
+    "name": "target",
+    "template_key": "target",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target IP address or hostname",
+    "aliases": ["-t", "--target"]
+  },
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Run all enumeration modules",
+    "aliases": ["-A", "--all"]
+  },
+  {
+    "name": "users",
+    "template_key": "users",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate users",
+    "aliases": ["-U", "--users"]
+  },
+  {
+    "name": "shares",
+    "template_key": "shares",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate shares",
+    "aliases": ["-S", "--shares"]
+  },
+  {
+    "name": "password-policy",
+    "template_key": "password-policy",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate password policy",
+    "aliases": ["-P", "--password-policy"]
+  },
+  {
+    "name": "groups",
+    "template_key": "groups",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate groups",
+    "aliases": ["-G", "--groups"]
+  },
+  {
+    "name": "username",
+    "template_key": "username",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Username for authenticated enumeration",
+    "aliases": ["-u", "--username"]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password for authenticated enumeration",
+    "aliases": ["-p", "--password"]
+  },
+  {
+    "name": "domain",
+    "template_key": "domain",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Domain name for authentication",
+    "aliases": ["-d", "--domain"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output directory for results",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 5,
+    "description": "Timeout in seconds for network operations",
+    "aliases": ["--timeout"]
+  }
+]

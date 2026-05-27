@@ -1,0 +1,108 @@
+name: Static API Build & Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**/*.md"
+      - "schemas/*.json"
+      - "settings/convert.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate schemas
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          json-schema-file: schemas/command-schema.json
+          yaml-json-file-dir: docs
+          recursive: true
+          file-pattern: "**/*.md"
+          strict: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build JSON API from Markdown
+        run: |
+          npm install -g markdown-to-json
+          mkdir -p public/api/v1
+          markdown-to-json --config settings/convert.json --output public/api/v1/commands.json
+          echo "API build complete: $(cat public/api/v1/commands.json | wc -l) lines"
+
+      - name: Build aggregated API endpoints
+        run: |
+          # Build category index
+          python3 -c "
+import json, os, glob
+
+with open('public/api/v1/commands.json') as f:
+    commands = json.load(f)
+
+# Build registry index
+registry = {
+    'version': '1.0.0',
+    'last_updated': None,
+    'total_tools': len(commands),
+    'tools': commands
+}
+with open('public/api/v1/registry.json', 'w') as f:
+    json.dump(registry, f, indent=2)
+
+# Build namespace index
+ns_index = {}
+for cmd in commands:
+    ns = cmd.get('namespace', 'unknown')
+    parts = ns.split(':')
+    domain = parts[0] if len(parts) > 0 else 'unknown'
+    if domain not in ns_index:
+        ns_index[domain] = []
+    ns_index[domain].append({
+        'id': cmd['id'],
+        'name': cmd['name'],
+        'namespace': ns,
+        'description': cmd.get('description', '')
+    })
+with open('public/api/v1/by-domain.json', 'w') as f:
+    json.dump(ns_index, f, indent=2)
+
+print(f'Registry: {len(commands)} commands, {len(ns_index)} domains')
+"
+
+      - name: Copy API payloads
+        run: |
+          cp -r api/v1/* public/api/v1/ 2>/dev/null || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

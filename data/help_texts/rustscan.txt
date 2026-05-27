@@ -1,0 +1,15 @@
+Usage: rustscan [OPTIONS] --address <ADDRESS>...
+
+OPTIONS:
+  -a, --address <ADDRESS>...    A comma delimited list of ip addresses and ranges to scan
+  -p, --ports <PORTS>           A comma delimited list of ports to scan (default: 1-65535)
+  -b, --batch <BATCH>           The batch size for port scanning, increases (default: 4500)
+  -t, --timeout <TIMEOUT>       The time in milliseconds before a timeout occurs (default: 1500)
+  -n, --no-nmap                 Don't run Nmap after scan
+  -g, --greppable               Greppable output
+  -u, --udp                     UDP scan (experimental)
+      --accessible              Only show accessible ports
+      --range <RANGE>           CIDR range to scan
+      --tries <TRIES>           Number of tries before abandon (default: 1)
+  -h, --help                    Print help information
+  -V, --version                 Print version information

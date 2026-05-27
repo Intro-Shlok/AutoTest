@@ -1,0 +1,47 @@
+[
+  {
+    "name": "menu-1",
+    "template_key": "menu-1",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Option 1: Social-Engineering Attacks",
+    "aliases": []
+  },
+  {
+    "name": "menu-2",
+    "template_key": "menu-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Option 2: Penetration Testing",
+    "aliases": []
+  },
+  {
+    "name": "menu-3",
+    "template_key": "menu-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Option 3: Third Party Modules",
+    "aliases": []
+  },
+  {
+    "name": "menu-4",
+    "template_key": "menu-4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Option 4: Update SET",
+    "aliases": []
+  },
+  {
+    "name": "menu-99",
+    "template_key": "menu-99",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Option 99: Exit",
+    "aliases": []
+  }
+]

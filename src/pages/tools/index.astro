@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const tools = await getCollection("tools");
+const domains = [...new Set(tools.map((t) => t.data.namespace.split(":")[0]))].sort();
+
+function uniqVals(key) {
+  const set = new Set();
+  for (const t of tools) {
+    const v = t.data[key];
+    if (Array.isArray(v)) v.forEach((x) => set.add(x));
+    else if (v) set.add(v);
+  }
+  return [...set].sort();
+}
+
+const phases = uniqVals("phase");
+const items = uniqVals("items");
+const services = uniqVals("services");
+const attackTypes = uniqVals("attack_types");
+---
+
+<BaseLayout title="All Tools" description="Complete index of tools in the knowledge repository">
+  <section class="hero" style="padding: 2rem 0 1.5rem;">
+    <h1 style="font-size: 2.2rem;">All Tools</h1>
+    <p id="tool-count">{tools.length} tools</p>
+  </section>
+
+  <div class="filter-search">
+    <input type="text" id="search-input" placeholder="Search tools by name, description, or namespace..." class="search-input" />
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-label">Domain</span>
+    <button data-filter="domain" data-value="" class="active">All</button>
+    {domains.map((d) => (
+      <button data-filter="domain" data-value={d}>{d}</button>
+    ))}
+  </div>
+
+  {phases.length > 0 && (
+    <div class="filter-bar">
+      <span class="filter-label">Phase</span>
+      <button data-filter="phase" data-value="" class="active">All</button>
+      {phases.map((p) => (
+        <button data-filter="phase" data-value={p}>{p}</button>
+      ))}
+    </div>
+  )}
+
+  {items.length > 0 && (
+    <div class="filter-bar">
+      <span class="filter-label">Items</span>
+      <button data-filter="items" data-value="" class="active">All</button>
+      {items.map((i) => (
+        <button data-filter="items" data-value={i}>{i}</button>
+      ))}
+    </div>
+  )}
+
+  {services.length > 0 && (
+    <div class="filter-bar">
+      <span class="filter-label">Services</span>
+      <button data-filter="services" data-value="" class="active">All</button>
+      {services.map((s) => (
+        <button data-filter="services" data-value={s}>{s}</button>
+      ))}
+    </div>
+  )}
+
+  {attackTypes.length > 0 && (
+    <div class="filter-bar">
+      <span class="filter-label">Attack Types</span>
+      <button data-filter="attack_types" data-value="" class="active">All</button>
+      {attackTypes.map((a) => (
+        <button data-filter="attack_types" data-value={a}>{a}</button>
+      ))}
+    </div>
+  )}
+
+  <div class="card-grid" id="tool-grid">
+    {tools.sort((a, b) => a.data.namespace.localeCompare(b.data.namespace)).map((tool) => {
+      const { data } = tool;
+      const domain = data.namespace.split(":")[0];
+      const riskCls = data.risk_level ? `tag-risk-${data.risk_level}` : "";
+      return (
+        <a href={`/tools/${data.id}`} class="card" style="text-decoration: none;"
+          data-domain={domain}
+          data-phase={data.phase || ""}
+          data-items={(data.items || []).join(" ")}
+          data-services={(data.services || []).join(" ")}
+          data-attack-types={(data.attack_types || []).join(" ")}
+          data-name={data.name.toLowerCase()}
+          data-description={(data.description || "").toLowerCase()}
+          data-namespace={data.namespace.toLowerCase()}
+        >
+          <div class="card-meta" style="margin-top: 0;">
+            <span class="tag tag-domain">{domain}</span>
+            {data.phase && <span class="tag">{data.phase}</span>}
+            {data.trust_level && <span class="tag tag-trust">{data.trust_level}</span>}
+            {data.execution_policy && <span class="tag">{data.execution_policy}</span>}
+          </div>
+          <div class="card-title" style="margin-top: 0.5rem;">{data.name}</div>
+          <div class="card-desc">{data.description}</div>
+          <div class="card-meta">
+            <span class="tag">{data.namespace}</span>
+            {data.risk_level && <span class={`tag ${riskCls}`}>{data.risk_level}</span>}
+            <span class="tag">v{data.version}</span>
+          </div>
+          {(data.items && data.items.length > 0) && (
+            <div class="card-meta" style="margin-top: 0.4rem;">
+              {data.items.map((item) => <span class="tag tag-item">{item}</span>)}
+            </div>
+          )}
+        </a>
+      );
+    })}
+  </div>
+</BaseLayout>
+
+<script is:inline>
+(function() {
+  var grid = document.getElementById("tool-grid");
+  var count = document.getElementById("tool-count");
+  var searchInput = document.getElementById("search-input");
+  if (!grid) return;
+
+  var cards = Array.from(grid.querySelectorAll(".card"));
+  var filters = { domain: "", phase: "", items: "", services: "", attack_types: "" };
+  var searchQuery = "";
+
+  function applyFilters() {
+    var visible = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      var domain = card.dataset.domain || "";
+      var phase = card.dataset.phase || "";
+      var items = (card.dataset.items || "").split(" ").filter(Boolean);
+      var services = (card.dataset.services || "").split(" ").filter(Boolean);
+      var attackTypes = (card.dataset.attackTypes || "").split(" ").filter(Boolean);
+      var name = card.dataset.name || "";
+      var desc = card.dataset.description || "";
+      var ns = card.dataset.namespace || "";
+
+      var show = true;
+
+      if (filters.domain && domain !== filters.domain) show = false;
+      if (show && filters.phase && phase !== filters.phase) show = false;
+      if (show && filters.items && items.indexOf(filters.items) === -1) show = false;
+      if (show && filters.services && services.indexOf(filters.services) === -1) show = false;
+      if (show && filters.attack_types && attackTypes.indexOf(filters.attack_types) === -1) show = false;
+
+      if (show && searchQuery) {
+        var q = searchQuery.toLowerCase();
+        if (name.indexOf(q) === -1 && desc.indexOf(q) === -1 && ns.indexOf(q) === -1) show = false;
+      }
+
+      card.style.display = show ? "" : "none";
+      if (show) visible++;
+    }
+    if (count) count.textContent = visible + " of " + cards.length + " tools";
+  }
+
+  document.querySelectorAll("[data-filter]").forEach(function(btn) {
+    btn.addEventListener("click", function(e) {
+      var key = btn.dataset.filter;
+      var val = btn.dataset.value;
+      filters[key] = val;
+
+      var group = document.querySelectorAll("[data-filter='" + key + "']");
+      group.forEach(function(b) { b.classList.remove("active"); });
+      if (val) btn.classList.add("active");
+      else {
+        group.forEach(function(b) { if (b.dataset.value === "") b.classList.add("active"); });
+      }
+
+      applyFilters();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function() {
+      searchQuery = searchInput.value;
+      applyFilters();
+    });
+  }
+})();
+</script>

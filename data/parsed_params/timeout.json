@@ -1,0 +1,62 @@
+[
+  {
+    "name": "foreground",
+    "template_key": "foreground",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "when not running timeout directly from a shell prompt, allow COMMAND to read from the TTY and get TTY signals; in this mode, children of COMMAND will not be timed out",
+    "aliases": [
+      "-f",
+      "--foreground"
+    ]
+  },
+  {
+    "name": "kill-after",
+    "template_key": "kill-after",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "also send a KILL signal if COMMAND is still running this long after the initial signal was sent",
+    "aliases": [
+      "-k",
+      "--kill-after"
+    ]
+  },
+  {
+    "name": "preserve-status",
+    "template_key": "preserve-status",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exit with the same status as COMMAND, even when the command times out",
+    "aliases": [
+      "-p",
+      "--preserve-status"
+    ]
+  },
+  {
+    "name": "signal",
+    "template_key": "signal",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "specify the signal to be sent on timeout; SIGNAL may be a name like 'HUP' or a number; see 'kill -l' for a list of signals",
+    "aliases": [
+      "-s",
+      "--signal"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "diagnose to standard error any signal sent upon timeout --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  }
+]

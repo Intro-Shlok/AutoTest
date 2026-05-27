@@ -1,0 +1,192 @@
+[
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": issue warnings about converting bytes/bytearray to str and comparing",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": turn on parser debugging output (for experts only, only works on",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": print this help message and exit (also -? or --help)",
+    "aliases": [
+      "-h"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": inspect interactively after running script; forces a prompt even",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-m"
+    ]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": don't print version and copyright messages on interactive startup",
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": ": don't add user site directory to sys.path; also PYTHONNOUSERSITE=x",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": force the stdout and stderr streams to be unbuffered",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": verbose (trace import statements); also PYTHONVERBOSE=x",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-W",
+    "template_key": "flag-w",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "also PYTHONWARNINGS=arg",
+    "aliases": [
+      "-W"
+    ]
+  },
+  {
+    "name": "flag-x",
+    "template_key": "flag-x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": ": skip first line of source, allowing use of non-Unix forms of #!cmd",
+    "aliases": [
+      "-x"
+    ]
+  },
+  {
+    "name": "flag-X",
+    "template_key": "flag-x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-X",
+      "-s"
+    ]
+  },
+  {
+    "name": "check-hash-based-pycs",
+    "template_key": "check-hash-based-pycs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "control how Python invalidates hash-based .pyc files",
+    "aliases": [
+      "--check-hash-based-pycs"
+    ]
+  },
+  {
+    "name": "help-env",
+    "template_key": "help-env",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--help-env"
+    ]
+  },
+  {
+    "name": "help-xoptions",
+    "template_key": "help-xoptions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-s",
+      "-X",
+      "--help-xoptions"
+    ]
+  },
+  {
+    "name": "help-all",
+    "template_key": "help-all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--help-all"
+    ]
+  }
+]

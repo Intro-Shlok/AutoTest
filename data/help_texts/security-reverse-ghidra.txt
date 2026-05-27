@@ -1,0 +1,24 @@
+usage: ghidra [--import <file>] [--process <program>] [options]
+       ghidraHeadless <project_path> <project_name> [options]
+
+GUI mode:
+  ghidra                              Launch the Ghidra GUI
+
+Headless analyzer (ghidraHeadless):
+  <project_path> <project_name>       Project location and name
+  -import <file|dir>                  Import binary file(s) into project
+  -process <program>                  Process an existing program
+  -recursive                          Recursively process directories
+  -readOnly                           Open project read-only
+  -analysisTimeoutPerFile <sec>       Analysis timeout per file
+  -preScript <script>                 Run script before analysis
+  -postScript <script>                Run script after analysis
+  -scriptPath <path>                  Script search path
+  -propertiesPath <path>              Properties file path
+  -maxMemory <size>                   JVM max memory (e.g. 4G)
+  -overwrite                          Overwrite existing project
+  -okToDelete                         Confirm deletion of existing project
+
+Examples:
+  ghidraHeadless /tmp/proj MyProject -import /bin/ls
+  ghidraHeadless /tmp/proj MyProject -process /bin/ls -preScript analyze.py

@@ -1,0 +1,83 @@
+[
+  {
+    "name": "pmkid",
+    "template_key": "pmkid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output PMKID hashes (22000)",
+    "aliases": ["-z", "--pmkid"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file path",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "essid-list",
+    "template_key": "essid-list",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Extract ESSID list",
+    "aliases": ["-E", "--essid-list"]
+  },
+  {
+    "name": "identity",
+    "template_key": "identity",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Extract identities",
+    "aliases": ["-I", "--identity"]
+  },
+  {
+    "name": "username",
+    "template_key": "username",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Extract usernames",
+    "aliases": ["-U", "--username"]
+  },
+  {
+    "name": "hashcat",
+    "template_key": "hashcat",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Hashcat format output",
+    "aliases": ["-j", "--hashcat"]
+  },
+  {
+    "name": "john",
+    "template_key": "john",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "John the Ripper output",
+    "aliases": ["-J", "--john"]
+  },
+  {
+    "name": "pmkid-eapol",
+    "template_key": "pmkid-eapol",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "PMKID+EAPOL combined output",
+    "aliases": ["-k", "--pmkid-eapol"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "extract",
+    "template_key": "extract",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Extract files automatically",
+    "aliases": ["-e", "--extract"]
+  },
+  {
+    "name": "matryoshka",
+    "template_key": "matryoshka",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Recursively extract embedded filesystems",
+    "aliases": ["-M", "--matryoshka"]
+  },
+  {
+    "name": "remove",
+    "template_key": "remove",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Remove extracted file after scanning",
+    "aliases": ["-r", "--remove"]
+  },
+  {
+    "name": "depth",
+    "template_key": "depth",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum recursion depth",
+    "aliases": ["-d", "--depth"]
+  },
+  {
+    "name": "include",
+    "template_key": "include",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Only scan for matching signatures",
+    "aliases": ["-y", "--include"]
+  },
+  {
+    "name": "exclude",
+    "template_key": "exclude",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Exclude matching signatures",
+    "aliases": ["-x", "--exclude"]
+  },
+  {
+    "name": "entropy",
+    "template_key": "entropy",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Calculate file entropy",
+    "aliases": ["--entropy"]
+  },
+  {
+    "name": "opcodes",
+    "template_key": "opcodes",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Identify CPU opcodes in firmware",
+    "aliases": ["--opcodes"]
+  },
+  {
+    "name": "dd",
+    "template_key": "dd",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump region to file (type:offset:size)",
+    "aliases": ["--dd"]
+  },
+  {
+    "name": "csv",
+    "template_key": "csv",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Output in CSV format",
+    "aliases": ["-c", "--csv"]
+  },
+  {
+    "name": "json",
+    "template_key": "json",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Output in JSON format",
+    "aliases": ["-j", "--json"]
+  },
+  {
+    "name": "signature",
+    "template_key": "signature",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Perform signature scanning",
+    "aliases": ["-B", "--signature"]
+  }
+]

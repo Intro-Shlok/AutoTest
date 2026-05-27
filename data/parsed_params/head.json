@@ -1,0 +1,63 @@
+[
+  {
+    "name": "bytes",
+    "template_key": "bytes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the first NUM bytes of each file; with the leading '-', print all but the last NUM bytes of each file",
+    "aliases": [
+      "-c",
+      "--bytes"
+    ]
+  },
+  {
+    "name": "lines",
+    "template_key": "lines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the first NUM lines instead of the first 10; with the leading '-', print all but the last NUM lines of each file",
+    "aliases": [
+      "-n",
+      "--lines"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "never print headers giving file names",
+    "aliases": [
+      "-q",
+      "--quiet",
+      "--silent"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "always print headers giving file names",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "zero-terminated",
+    "template_key": "zero-terminated",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "line delimiter is NUL, not newline --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-z",
+      "--zero-terminated"
+    ]
+  }
+]

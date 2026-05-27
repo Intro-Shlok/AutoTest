@@ -1,0 +1,110 @@
+[
+  {
+    "name": "subcommand",
+    "template_key": "subcommand",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Subcommand: server, client, reset",
+    "aliases": []
+  },
+  {
+    "name": "username",
+    "template_key": "username",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Username for authentication",
+    "aliases": ["--username"]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password for authentication",
+    "aliases": ["--password"]
+  },
+  {
+    "name": "port",
+    "template_key": "port",
+    "type": "integer",
+    "required": false,
+    "default_value": 1337,
+    "description": "Server listener port",
+    "aliases": ["--port"]
+  },
+  {
+    "name": "restip",
+    "template_key": "restip",
+    "type": "string",
+    "required": false,
+    "default_value": "0.0.0.0",
+    "description": "RESTful API bind IP",
+    "aliases": ["--restip"]
+  },
+  {
+    "name": "headless",
+    "template_key": "headless",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Run without interactive console",
+    "aliases": ["--headless"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Config file path",
+    "aliases": ["-c", "--config"]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Debug mode",
+    "aliases": ["-d", "--debug"]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "launcher",
+    "template_key": "launcher",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Launcher stager type",
+    "aliases": ["--launcher"]
+  },
+  {
+    "name": "flag-ip",
+    "template_key": "flag-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Listener IP address",
+    "aliases": ["--ip"]
+  },
+  {
+    "name": "profile",
+    "template_key": "profile",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Listener profile name",
+    "aliases": ["--profile"]
+  }
+]

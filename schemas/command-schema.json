@@ -1,0 +1,453 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://autotest.repo/schemas/command-schema.json",
+  "title": "Command Tool Definition",
+  "description": "Schema for a dual-purpose CLI tool definition with YAML frontmatter for human study and machine execution.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)+$",
+      "description": "Immutable unique identifier for the tool. Must never change after publication."
+    },
+    "namespace": {
+      "type": "string",
+      "pattern": "^[a-z]+(\\.[a-z0-9]+)*:[a-z]+:[a-z0-9]+(:[a-z0-9]+)?$",
+      "description": "Hierarchical namespace: [reverse-DNS.]domain:category:tool[:action]"
+    },
+    "name": {
+      "type": "string",
+      "description": "Short display name of the tool or binary."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "One-line summary of the tool's purpose."
+    },
+    "author": {
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      ],
+      "description": "Author or maintainer of this definition."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of this tool definition."
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]+(\\.[a-z0-9-]+)*$",
+        "description": "Hierarchical capability namespace (e.g., network.scan.port, filesystem.archive.extract)."
+      },
+      "description": "Hierarchical capability identifiers using dotted notation for ontology-aware planning."
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["linux", "windows", "macos", "bsd", "cross-platform"]
+      },
+      "description": "Target operating systems."
+    },
+    "architectures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["amd64", "arm64", "arm", "riscv64", "i386", "cross-platform"]
+      },
+      "description": "Hardware architectures supported by this tool."
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Potential risk of executing this tool without safeguards."
+    },
+    "execution_policy": {
+      "type": "string",
+      "enum": ["enabled", "read-only", "disabled"],
+      "default": "enabled",
+      "description": "Controls whether this tool can be executed by MCP agents."
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["stealth", "requires-root", "network-intensive", "output-json", "output-xml", "streaming", "interactive", "batch", "encryption", "compression", "remote", "local", "pipes-stdin", "pipes-stdout", "file-system", "process-manip"]
+      },
+      "description": "Feature flags describing tool capabilities (stealth, output format, execution mode, etc.)."
+    },
+    "techniques": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["recon", "enumeration", "exfiltration", "privilege-escalation", "persistence", "lateral-movement", "discovery", "collection", "command-and-control", "credential-access", "defense-evasion", "execution", "impact", "data-manipulation", "monitoring", "backup", "forensics", "analysis", "network-manipulation", "process-discovery", "process-termination", "network-sniffing", "remote-services", "encryption", "process-manip"]
+      },
+      "description": "Security/operational techniques this tool can perform, mapped to common attack/defense frameworks."
+    },
+    "cache_policy": {
+      "type": "string",
+      "enum": ["auto", "always", "never"],
+      "default": "auto",
+      "description": "Controls whether this tool's artifacts are cached for reuse."
+    },
+    "artifact_ttl_seconds": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 3600,
+      "description": "Time-to-live in seconds for artifacts produced by this tool. 0 = no expiry."
+    },
+    "allowed-tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of execution environments permitted to run this tool (e.g., Bash, PowerShell)."
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "pattern": "^[a-z]+(\\.[a-z0-9]+)*$", "description": "Hierarchical artifact type (e.g., network.scan.nmap.xml, network.http.response)." },
+          "description": { "type": "string", "description": "Description of the artifact produced or consumed." },
+          "mime": { "type": "string", "description": "MIME type (e.g., application/xml, application/json)." },
+          "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "Schema version of the artifact type." },
+          "trust_level": { "type": "string", "enum": ["verified", "experimental", "community", "ai-generated"], "default": "community", "description": "Trust level of this artifact definition." }
+        },
+        "required": ["type", "description"],
+        "additionalProperties": false
+      },
+      "description": "Typed artifacts with semantic type hierarchy, MIME, and trust metadata."
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Other tools required by this tool (e.g., curl, jq)."
+    },
+    "related_tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Semantically related tools for recommendation and orchestration (e.g., masscan, rustscan for nmap)."
+    },
+    "resource_profile": {
+      "type": "object",
+      "properties": {
+        "cpu": { "type": "string", "enum": ["low", "medium", "high"], "default": "medium", "description": "CPU utilization profile." },
+        "memory_mb": { "type": "integer", "minimum": 1, "description": "Expected memory usage in megabytes." },
+        "network": { "type": "string", "enum": ["none", "low", "medium", "high"], "default": "low", "description": "Network bandwidth profile." },
+        "disk_io": { "type": "string", "enum": ["none", "low", "medium", "high"], "default": "low", "description": "Disk I/O profile." }
+      },
+      "additionalProperties": false,
+      "description": "Resource consumption profile for scheduling and placement decisions."
+    },
+    "trust_level": {
+      "type": "string",
+      "enum": ["verified", "experimental", "community", "ai-generated"],
+      "default": "community",
+      "description": "Confidence level in the tool definition's accuracy and safety."
+    },
+    "workflow_edges": {
+      "type": "object",
+      "properties": {
+        "produces": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Artifacts or outputs this tool produces (e.g., scan-results, pcap-file)."
+        },
+        "consumes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Artifacts or inputs this tool consumes (e.g., target-ip, filesystem-input)."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Directed workflow edges for execution DAG planning."
+    },
+    "contract": {
+      "type": "object",
+      "properties": {
+        "inputs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/contract_artifact" },
+          "description": "Typed input artifacts consumed by this tool."
+        },
+        "outputs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/contract_artifact" },
+          "description": "Typed output artifacts produced by this tool."
+        },
+        "side_effects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["network_traffic", "raw_socket_access", "filesystem_write", "process_spawn", "privilege_escalation", "none"]
+          },
+          "description": "Observable side effects of executing this tool."
+        },
+        "resource_cost": {
+          "type": "object",
+          "properties": {
+            "cpu": { "type": "string", "enum": ["low", "medium", "high"], "description": "CPU utilization." },
+            "memory_mb": { "type": "integer", "minimum": 1, "description": "Expected memory usage in MB." },
+            "network": { "type": "string", "enum": ["none", "low", "medium", "high"], "description": "Network bandwidth consumption." },
+            "disk_io": { "type": "string", "enum": ["none", "low", "medium", "high"], "description": "Disk I/O consumption." }
+          },
+          "additionalProperties": false,
+          "description": "Normalized resource cost contract for deterministic workflow compilation."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Formal resource contract: typed inputs/outputs, side effects, and resource costs."
+    },
+    "parameters": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/parameter" },
+      "description": "Typed parameter definitions for the command."
+    },
+    "cost_estimate": {
+      "type": "object",
+      "properties": {
+        "avg_execution_seconds": { "type": "number", "minimum": 0, "description": "Average wall-clock execution time in seconds from telemetry." },
+        "p99_execution_seconds": { "type": "number", "minimum": 0, "description": "P99 execution time in seconds." },
+        "typical_input_size_mb": { "type": "number", "minimum": 0, "description": "Typical input artifact size in megabytes." },
+        "typical_output_size_mb": { "type": "number", "minimum": 0, "description": "Typical output artifact size in megabytes." }
+      },
+      "additionalProperties": false,
+      "description": "Observed or estimated execution cost metrics for cost-based planning."
+    },
+    "execution": {
+      "$ref": "#/$defs/execution",
+      "description": "Execution template and runtime configuration."
+    },
+    "global_vars": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "Maps template placeholders to Cosmos global variable keys (e.g., {\"target\": \"ip\", \"port\": \"port\"}). Global vars are user-configurable via the Cosmos config bar and live-substituted into command previews.",
+      "default": {}
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "command": { "type": "string" }
+        },
+        "required": ["description", "command"]
+      },
+      "description": "Usage examples for human study."
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        },
+        "required": ["label", "url"]
+      },
+      "description": "Reference links to documentation, source code, or related tools."
+    },
+    "mitre_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^T[0-9]{4}(\\.[0-9]{3})?$" },
+      "description": "MITRE ATT&CK technique IDs mapped to this tool (e.g., T1055, T1059.001)."
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["recon", "enumeration", "exploitation", "post-exploitation", "forensics", "defense-evasion", "discovery", "collection", "lateral-movement", "exfiltration"],
+      "description": "Operational phase this tool is primarily used in."
+    },
+    "contributor": {
+      "type": "string",
+      "description": "Name or handle of the person who contributed this tool definition."
+    },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["copyCode", "mermaid", "tabs", "zoomable"]
+      },
+      "description": "Astro page plugins to enable for this tool page (e.g., copyCode for code blocks)."
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Username", "Password", "Hash", "TGS", "TGT", "PFX", "Shell", "NoCreds"]
+      },
+      "description": "What you already have to use this tool (WADComs-style taxonomy)."
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["SMB", "WMI", "DCOM", "Kerberos", "RPC", "LDAP", "NTLM", "DNS", "HTTP", "HTTPS", "FTP", "SMTP", "MSSQL", "MySQL", "PostgreSQL", "WinRM", "LLMNR", "NBT-NS", "MDNS", "ADCS", "SSH"]
+      },
+      "description": "Target services or protocols this tool interacts with."
+    },
+    "attack_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Enumeration", "Exploitation", "Persistence", "PrivilegeEscalation", "DefenseEvasion", "CredentialAccess", "Discovery", "LateralMovement", "Collection", "Exfiltration", "Execution"]
+      },
+      "description": "Attack type categories this tool supports."
+    },
+    "detections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["sigma", "elastic", "splunk", "yara", "clamav", "sysmon", "wdac", "ioc", "blockrule", "other"],
+            "description": "Detection rule format or platform."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the detection rule or reference."
+          },
+          "description": {
+            "type": "string",
+            "description": "Free-text description of the detection indicator."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Rule identifier (e.g., Sigma rule ID, Splunk SID)."
+          }
+        },
+        "required": ["type"],
+        "additionalProperties": false
+      },
+      "description": "Detection rules and indicators mapped to this tool (Sigma, Yara, Splunk, Elastic, etc.)."
+    }
+  },
+  "$defs": {
+    "contract_artifact": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "pattern": "^[a-z]+(\\.[a-z0-9]+)*$", "description": "Hierarchical artifact type (e.g., network.target.ip, network.scan.nmap.xml)." },
+        "description": { "type": "string", "description": "Description of this contract entry." },
+        "mime": { "type": "string", "description": "MIME type (e.g., application/xml)." },
+        "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "Schema version of the artifact." }
+      },
+      "required": ["type"],
+      "additionalProperties": false
+    },
+    "parameter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Parameter display name."
+        },
+        "template_key": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Key used in execution.template placeholders. Defaults to name if absent."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "integer", "number", "boolean", "array", "file", "url"],
+          "description": "Expected data type for validation."
+        },
+        "required": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this parameter must be provided."
+        },
+        "default_value": {
+          "type": ["string", "number", "boolean", "null"],
+          "description": "Default value if not explicitly provided."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable explanation of the parameter."
+        },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "CLI flag aliases (e.g., -X, --request)."
+        },
+        "enum": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Allowed values for constrained parameters."
+        },
+        "pattern": {
+          "type": "string",
+          "description": "Regex pattern for string validation."
+        },
+        "minimum": {
+          "type": "number",
+          "description": "Minimum value for numeric parameters."
+        },
+        "maximum": {
+          "type": "number",
+          "description": "Maximum value for numeric parameters."
+        }
+      },
+      "required": ["name", "type", "description"],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "template": {
+          "type": "string",
+          "description": "Command template with {parameter} placeholders for substitution."
+        },
+        "sandbox": {
+          "type": "string",
+          "enum": ["docker", "execFile", "none"],
+          "default": "execFile",
+          "description": "Sandbox execution mode for this tool."
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 30,
+          "description": "Maximum execution time in seconds."
+        },
+        "shell": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to execute through a shell interpreter (dangerous)."
+        },
+        "workdir": {
+          "type": "string",
+          "description": "Working directory for execution."
+        },
+        "env": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "description": "Environment variables scoped to this tool's execution."
+        },
+        "container": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "type": "string",
+              "description": "Docker image for reproducible sandbox execution (e.g., instrumentisto/nmap)."
+            }
+          },
+          "required": ["image"],
+          "additionalProperties": false,
+          "description": "Container image configuration for deterministic sandbox execution."
+        }
+      },
+      "required": ["template"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["id", "namespace", "name", "description", "version", "execution"],
+  "additionalProperties": false
+}

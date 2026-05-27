@@ -1,0 +1,182 @@
+[
+  {
+    "name": "beep",
+    "template_key": "beep",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "beep if command has a non-zero exit",
+    "aliases": [
+      "-b",
+      "--beep"
+    ]
+  },
+  {
+    "name": "color",
+    "template_key": "color",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "interpret ANSI color and style sequences",
+    "aliases": [
+      "-c",
+      "--color"
+    ]
+  },
+  {
+    "name": "no-color",
+    "template_key": "no-color",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not interpret ANSI color and style sequences",
+    "aliases": [
+      "-C",
+      "--no-color"
+    ]
+  },
+  {
+    "name": "differences",
+    "template_key": "differences",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "highlight changes between updates",
+    "aliases": [
+      "-d",
+      "--differences"
+    ]
+  },
+  {
+    "name": "errexit",
+    "template_key": "errexit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exit if command has a non-zero exit",
+    "aliases": [
+      "-e",
+      "--errexit"
+    ]
+  },
+  {
+    "name": "chgexit",
+    "template_key": "chgexit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exit when output from command changes",
+    "aliases": [
+      "-g",
+      "--chgexit"
+    ]
+  },
+  {
+    "name": "equexit",
+    "template_key": "equexit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exit when output from command does not change",
+    "aliases": [
+      "-q",
+      "--equexit <cycles>"
+    ]
+  },
+  {
+    "name": "interval",
+    "template_key": "interval",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-n",
+      "--interval <secs>"
+    ]
+  },
+  {
+    "name": "precise",
+    "template_key": "precise",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "attempt run command in precise intervals",
+    "aliases": [
+      "-p",
+      "--precise"
+    ]
+  },
+  {
+    "name": "no-rerun",
+    "template_key": "no-rerun",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not rerun program on window resize",
+    "aliases": [
+      "-r",
+      "--no-rerun"
+    ]
+  },
+  {
+    "name": "no-title",
+    "template_key": "no-title",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn off header",
+    "aliases": [
+      "-t",
+      "--no-title"
+    ]
+  },
+  {
+    "name": "no-wrap",
+    "template_key": "no-wrap",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn off line wrapping",
+    "aliases": [
+      "-w",
+      "--no-wrap"
+    ]
+  },
+  {
+    "name": "exec",
+    "template_key": "exec",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "pass command to exec instead of \"sh -c\"",
+    "aliases": [
+      "-x",
+      "--exec"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-v",
+      "--version"
+    ]
+  }
+]

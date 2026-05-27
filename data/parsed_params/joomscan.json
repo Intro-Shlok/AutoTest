@@ -1,0 +1,92 @@
+[
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target Joomla URL",
+    "aliases": ["-u", "--url"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Number of threads for concurrent scanning",
+    "aliases": ["-t", "--threads"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Save scan report to file",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "cookie",
+    "template_key": "cookie",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP cookie for authenticated scanning",
+    "aliases": ["--cookie"]
+  },
+  {
+    "name": "user-agent",
+    "template_key": "user-agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom User-Agent header",
+    "aliases": ["--user-agent"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP proxy address",
+    "aliases": ["--proxy"]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 30,
+    "description": "Request timeout in seconds",
+    "aliases": ["--timeout"]
+  },
+  {
+    "name": "follow-redirects",
+    "template_key": "follow-redirects",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Follow HTTP redirects",
+    "aliases": ["--follow-redirects"]
+  },
+  {
+    "name": "no-check-certificate",
+    "template_key": "no-check-certificate",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Skip SSL certificate validation",
+    "aliases": ["--no-check-certificate"]
+  }
+]

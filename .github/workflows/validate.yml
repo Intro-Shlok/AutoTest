@@ -1,0 +1,60 @@
+name: Schema Validation
+
+on:
+  pull_request:
+    paths:
+      - "docs/**/*.md"
+      - "schemas/*.json"
+  push:
+    branches: [main]
+    paths:
+      - "docs/**/*.md"
+      - "schemas/*.json"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate YAML frontmatter against JSON Schema
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          json-schema-file: schemas/command-schema.json
+          yaml-json-file-dir: docs
+          recursive: true
+          file-pattern: "**/*.md"
+          strict: true
+
+      - name: Validate metaschema conforms to JSON Schema draft
+        run: |
+          pip install check-jsonschema
+          check-jsonschema --check-metaschema schemas/*.json
+
+      - name: Validate category files against category schema
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          json-schema-file: schemas/category-schema.json
+          yaml-json-file-dir: api/v1/categories
+          file-pattern: "**/*.json"
+          fail-on-first: true
+
+      - name: Check for missing required frontmatter fields
+        run: |
+          for file in $(find docs -name "*.md"); do
+            head -50 "$file" | python3 -c "
+import sys, yaml
+content = sys.stdin.read()
+parts = content.split('---', 2)
+if len(parts) < 3:
+    print(f'FAIL: $file missing YAML frontmatter')
+    sys.exit(1)
+metadata = yaml.safe_load(parts[1])
+required = ['id', 'namespace', 'name', 'description', 'version', 'execution']
+for field in required:
+    if field not in metadata:
+        print(f'FAIL: $file missing required field: {field}')
+        sys.exit(1)
+print(f'OK: $file')
+"
+          done

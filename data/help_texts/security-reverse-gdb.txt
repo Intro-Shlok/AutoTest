@@ -1,0 +1,28 @@
+Usage: gdb [options] [executable [core dump or PID]]
+  -q              suppress introductory banner
+  -ex <command>   execute single GDB command
+  -x <file>       execute GDB commands from file
+  -p <pid>        attach to running process
+  -batch          run in batch mode (no interactive shell)
+  -return-child-result
+  -s <file>       read symbol table from file
+  --exec <file>   use file as executable
+  --core <file>   use file as core dump
+  --cd <dir>      change directory
+  --tty <tty>     set I/O terminal
+  -nx             do not read .gdbinit
+  -nh             do not read .gdbearlyinit
+  --args          pass remaining args to program
+
+Common commands:
+  run [args]         run the program
+  bt                 print backtrace
+  disassemble [fn]   disassemble function
+  info registers     show register values
+  break *addr        set breakpoint
+  x/16xw $rsp        examine memory
+  si/ni              step into/next instruction
+
+Examples:
+  gdb -q -batch -ex "disassemble main" /bin/ls
+  gdb -p 1234

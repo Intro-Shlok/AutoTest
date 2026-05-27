@@ -1,0 +1,37 @@
+[
+  {
+    "name": "append",
+    "template_key": "append",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "append to the given FILEs, do not overwrite",
+    "aliases": [
+      "-a",
+      "--append"
+    ]
+  },
+  {
+    "name": "ignore-interrupts",
+    "template_key": "ignore-interrupts",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore interrupt signals",
+    "aliases": [
+      "-i",
+      "--ignore-interrupts"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "operate in a more appropriate MODE with pipes --output-error[=MODE] set behavior on write error. See MODE below --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-p"
+    ]
+  }
+]

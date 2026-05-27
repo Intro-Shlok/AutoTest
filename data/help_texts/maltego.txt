@@ -1,0 +1,11 @@
+Maltego is a graphical link analysis tool for OSINT investigations.
+
+Usage: maltego [options]
+
+Options:
+  -g <graph_file>    Open graph file on launch
+  -c <transform>     Run a transform from command line
+  -i <config>        Import configuration
+  -e <output>        Export graph to file
+  -h, --help         Show help message
+  -v, --version      Show version

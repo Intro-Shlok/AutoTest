@@ -1,0 +1,144 @@
+[
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "include pseudo, duplicate, inaccessible file systems",
+    "aliases": [
+      "-a",
+      "--all"
+    ]
+  },
+  {
+    "name": "block-size",
+    "template_key": "block-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "scale sizes by SIZE before printing them; see SIZE format below; E.g., '-BM' prints sizes in units of 1,048,576 bytes",
+    "aliases": [
+      "-B",
+      "--block-size"
+    ]
+  },
+  {
+    "name": "human-readable",
+    "template_key": "human-readable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print sizes in powers of 1024 (e.g., 1023M)",
+    "aliases": [
+      "-h",
+      "--human-readable"
+    ]
+  },
+  {
+    "name": "si",
+    "template_key": "si",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print sizes in powers of 1000 (e.g., 1.1G)",
+    "aliases": [
+      "-H",
+      "--si"
+    ]
+  },
+  {
+    "name": "inodes",
+    "template_key": "inodes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "list inode information instead of block usage",
+    "aliases": [
+      "-i",
+      "--inodes"
+    ]
+  },
+  {
+    "name": "flag-k",
+    "template_key": "flag-k",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --block-size=1K",
+    "aliases": [
+      "-k"
+    ]
+  },
+  {
+    "name": "local",
+    "template_key": "local",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "limit listing to local file systems --no-sync do not invoke sync before getting usage info (default) --output[=FIELD_LIST] use the output format defined by FIELD_LIST, or print all fields if FIELD_LIST is omitted",
+    "aliases": [
+      "-l",
+      "--local"
+    ]
+  },
+  {
+    "name": "portability",
+    "template_key": "portability",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use the POSIX output format --sync invoke sync before getting usage info --total elide all entries insignificant to available space, and produce a grand total",
+    "aliases": [
+      "-P",
+      "--portability"
+    ]
+  },
+  {
+    "name": "type",
+    "template_key": "type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "limit listing to file systems of type TYPE",
+    "aliases": [
+      "-t",
+      "--type"
+    ]
+  },
+  {
+    "name": "print-type",
+    "template_key": "print-type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print file system type",
+    "aliases": [
+      "-T",
+      "--print-type"
+    ]
+  },
+  {
+    "name": "exclude-type",
+    "template_key": "exclude-type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "limit listing to file systems not of type TYPE",
+    "aliases": [
+      "-x",
+      "--exclude-type"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(ignored) --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-v"
+    ]
+  }
+]

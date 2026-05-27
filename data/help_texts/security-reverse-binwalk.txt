@@ -1,0 +1,33 @@
+Usage: binwalk [options] <file>
+
+Scanning:
+  -B, --signature          scan for known file signatures
+  -I, --invalid            show invalid/partial results
+  -W, --warn               warn about suspicious signatures
+  -y <filter>              only scan for matching signatures
+  -x <filter>              exclude matching signatures
+
+Extraction:
+  -e, --extract            extract discovered files
+  -M, --matryoshka         recursive extraction
+  -r, --remove             remove extracted files after scan
+  -d <depth>               max recursion depth (default 8)
+  --dd <type:off:size>     dump region to file
+
+Analysis:
+  --entropy                calculate file entropy
+  --opcodes                identify CPU opcodes
+  -T <type>                only show results of given type
+
+Output:
+  -c, --csv                output as CSV
+  -j, --json               output as JSON
+  -l <length>              limit scanning to length bytes
+  -v, --verbose            verbose output
+  -q, --quiet              suppress banner
+
+Examples:
+  binwalk firmware.bin              scan for signatures
+  binwalk -e firmware.bin           extract files
+  binwalk -Me firmware.bin          recursive extraction
+  binwalk --entropy firmware.bin    entropy analysis

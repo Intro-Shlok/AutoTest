@@ -1,0 +1,92 @@
+[
+  {
+    "name": "checksec",
+    "template_key": "checksec",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Check binary security hardening",
+    "aliases": ["checksec"]
+  },
+  {
+    "name": "asm",
+    "template_key": "asm",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Assemble instructions to bytes",
+    "aliases": ["asm"]
+  },
+  {
+    "name": "disasm",
+    "template_key": "disasm",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disassemble bytes to instructions",
+    "aliases": ["disasm"]
+  },
+  {
+    "name": "cyclic",
+    "template_key": "cyclic",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Generate cyclic pattern of given length",
+    "aliases": ["cyclic"]
+  },
+  {
+    "name": "hex",
+    "template_key": "hex",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Convert bytes to hex string",
+    "aliases": ["hex"]
+  },
+  {
+    "name": "unhex",
+    "template_key": "unhex",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Convert hex string to bytes",
+    "aliases": ["unhex"]
+  },
+  {
+    "name": "constgrep",
+    "template_key": "constgrep",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Search for constants by regex",
+    "aliases": ["constgrep"]
+  },
+  {
+    "name": "errno",
+    "template_key": "errno",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Look up errno values",
+    "aliases": ["errno"]
+  },
+  {
+    "name": "update",
+    "template_key": "update",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Update pwntools to latest version",
+    "aliases": ["update"]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Binary file to analyze",
+    "aliases": ["--file"]
+  }
+]

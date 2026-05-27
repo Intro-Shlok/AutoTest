@@ -1,0 +1,137 @@
+[
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Single username to try",
+    "aliases": ["-l", "--login"]
+  },
+  {
+    "name": "flag-L",
+    "template_key": "flag-L",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File with list of usernames",
+    "aliases": ["-L", "--login-list"]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Single password to try",
+    "aliases": ["-p", "--password"]
+  },
+  {
+    "name": "flag-P",
+    "template_key": "flag-P",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File with list of passwords",
+    "aliases": ["-P", "--password-list"]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Target port number",
+    "aliases": ["-s", "--port"]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "integer",
+    "required": false,
+    "default_value": 16,
+    "description": "Number of parallel tasks per target",
+    "aliases": ["-t", "--tasks"]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "flag-V",
+    "template_key": "flag-V",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show each login attempt",
+    "aliases": ["-V", "--verbose-login"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for results",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Exit after first found login/password pair",
+    "aliases": ["-f", "--found"]
+  },
+  {
+    "name": "flag-M",
+    "template_key": "flag-M",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File with list of target servers",
+    "aliases": ["-M", "--server-list"]
+  },
+  {
+    "name": "flag-w",
+    "template_key": "flag-w",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Wait time in seconds between attempts",
+    "aliases": ["-w", "--wait"]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Extra checks (n=null, s=same-as-login, r=reverse-login)",
+    "aliases": ["-e", "--extra"]
+  },
+  {
+    "name": "flag-x",
+    "template_key": "flag-x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password generation pattern",
+    "aliases": ["-x", "--password-generation"]
+  },
+  {
+    "name": "flag-S",
+    "template_key": "flag-S",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Connect via SSL",
+    "aliases": ["-S", "--ssl"]
+  }
+]

@@ -1,0 +1,38 @@
+Gobuster v3.6
+Usage: gobuster <mode> [options]
+
+Modes:
+  dir                            Directory/file discovery mode
+  dns                            DNS subdomain enumeration mode
+  vhost                          Virtual host enumeration mode
+  s3                             S3 bucket enumeration mode
+
+Global Flags:
+  -t, --threads <num>            Number of concurrent threads (default 10)
+  -o, --output <file>            Output file path
+  -q, --quiet                    Quiet mode (no banner or progress)
+  -z, --no-progress              Do not display progress
+  --timeout <secs>               HTTP request timeout
+
+Dir Mode Flags:
+  -u, --url <url>                Target URL
+  -w, --wordlist <file>          Path to wordlist file
+  -x, --extensions <exts>        File extensions to search
+  -s, --status-codes <codes>     Status codes to include (positive)
+  -k, --insecure                 Skip TLS certificate verification
+  -n, --no-redirect              Do not follow redirects
+  -r, --follow-redirect          Follow HTTP redirects
+  -c, --cookies <cookies>        Cookies to include in requests
+  -H, --headers <headers>        Custom HTTP headers
+  --wildcard                     Force wildcard detection
+  --exclude-length <num>         Exclude results of given content length
+
+DNS Mode Flags:
+  -d, --domain <domain>          Target domain
+  -w, --wordlist <file>          Path to wordlist file
+  -r, --resolver <ip>            Custom DNS resolver IP
+
+Examples:
+  gobuster dir -u https://example.com -w /usr/share/wordlists/dirb/common.txt -t 50
+  gobuster dns -d example.com -w subdomains.txt
+  gobuster vhost -u https://example.com -w vhosts.txt

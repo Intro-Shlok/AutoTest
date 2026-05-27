@@ -1,0 +1,85 @@
+[
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-d",
+      "-f",
+      "-n",
+      "-r",
+      "-w"
+    ]
+  },
+  {
+    "name": "flag-d-2",
+    "template_key": "flag-d-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-mount -noleaf -xdev -ignore_readdir_race -noignore_readdir_race",
+    "aliases": [
+      "-d",
+      "-f",
+      "-f",
+      "-m",
+      "-m"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname PATTERN -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN -readable -writable -executable -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N -used N -user NAME -xtype [bcdpfls]",
+    "aliases": [
+      "-a",
+      "-a",
+      "-a",
+      "-c",
+      "-c",
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-d-3",
+    "template_key": "flag-d-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ; -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND",
+    "aliases": [
+      "-d",
+      "-p",
+      "-p",
+      "-f",
+      "-p"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output version information and exit",
+    "aliases": [
+      "--version"
+    ]
+  }
+]

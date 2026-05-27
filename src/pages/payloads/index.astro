@@ -1,0 +1,517 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import payloads from "../../../data/enrichment/revshells-payloads.json" with { type: "json" };
+import listeners from "../../../data/enrichment/revshells-listeners.json" with { type: "json" };
+
+const cats = ["reverse-shell", "bind-shell", "msfvenom", "hoaxshell", "assembled"];
+const catLabels: Record<string, string> = {
+  "reverse-shell": "Reverse Shell",
+  "bind-shell": "Bind Shell",
+  "msfvenom": "MSFVenom",
+  "hoaxshell": "HoaxShell",
+  "assembled": "Assembled Shellcode",
+};
+const defaultCat = "reverse-shell";
+const shells = ["sh", "/bin/sh", "bash", "/bin/bash", "cmd", "powershell", "pwsh", "ash", "bsh", "csh", "ksh", "zsh", "pdksh", "tcsh", "mksh", "dash"];
+---
+
+<BaseLayout title="Payload Generator" description="Interactive reverse shell generator with live command preview">
+  <div class="rsg-hero">
+    <h2>Reverse Shell Generator</h2>
+  </div>
+
+  <!-- Top row: IP/Port + Listener -->
+  <div class="rsg-top-row">
+    <div class="rsg-card">
+      <div class="rsg-card-body">
+        <h5 class="rsg-card-title"><b>IP & Port</b></h5>
+        <div class="rsg-config-row">
+          <div class="rsg-input-group">
+            <span class="rsg-input-prepend">IP</span>
+            <input id="rsg-ip" type="text" class="rsg-input" size="12" aria-label="IP" />
+          </div>
+          <div class="rsg-input-group">
+            <span class="rsg-input-prepend">Port</span>
+            <input id="rsg-port" type="text" class="rsg-input" size="4" maxlength="5" aria-label="Port" />
+            <button id="rsg-inc-port" class="rsg-inc-btn" type="button">+1</button>
+          </div>
+        </div>
+        <div id="rsg-port-warning" class="rsg-warning" style="visibility:hidden"><span class="rsg-warning-text">root</span> privileges required.</div>
+      </div>
+    </div>
+
+    <div class="rsg-card">
+      <div class="rsg-card-body">
+        <div class="rsg-listener-head">
+          <h5 class="rsg-card-title"><b>Listener</b></h5>
+          <label class="rsg-toggle-label">
+            <input type="checkbox" id="rsg-listener-advanced" checked />
+            Advanced
+          </label>
+        </div>
+        <div class="rsg-listener-cmd-wrap">
+          <span class="rsg-prompt-sign">&#128640;</span>
+          <pre id="rsg-listener-output" class="rsg-code rsg-code-listener" contenteditable="true" spellcheck="false"></pre>
+        </div>
+        <div class="rsg-listener-advanced" id="rsg-listener-advanced-panel">
+          <label for="rsg-listener-select">Type</label>
+          <select id="rsg-listener-select" class="rsg-select">
+            {listeners.map((l) => (
+              <option value={l.command}>{l.name}</option>
+            ))}
+          </select>
+        </div>
+        <button id="rsg-copy-listener" class="rsg-btn" type="button">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <ul class="rsg-tabs" role="tablist">
+    {cats.map((cat, i) => (
+      <li class="rsg-tab-item" role="presentation">
+        <button class={`rsg-tab ${i === 0 ? "active" : ""}`} id={`rsg-tab-${cat}`} data-category={cat} role="tab" onclick="switchTab(this)">
+          {catLabels[cat]}
+        </button>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Main card -->
+  <div class="rsg-main-card">
+    <div class="rsg-card-body">
+      <!-- Filter bar -->
+      <div class="rsg-filter-bar">
+        <label for="rsg-filter-os" class="rsg-filter-label">OS</label>
+        <select id="rsg-filter-os" class="rsg-select rsg-select-sm" onchange="applyFilters()">
+          <option value="all">All</option>
+          <option value="linux">Linux</option>
+          <option value="windows">Windows</option>
+          <option value="mac">macOS</option>
+        </select>
+        <label for="rsg-filter-search" class="rsg-filter-label">Name</label>
+        <input id="rsg-filter-search" type="text" class="rsg-input rsg-input-sm" placeholder="Search..." oninput="applyFilters()" />
+        <div class="rsg-toggle-group">
+          <label class="rsg-toggle-label">
+            <input type="checkbox" id="rsg-revshell-advanced" checked onchange="toggleRevshellAdvanced()" />
+            Show Advanced
+          </label>
+          <span id="rsg-download-icon" class="rsg-download-icon" onclick="downloadCommand()" title="Download Payload">&#128190;</span>
+        </div>
+      </div>
+
+      <!-- Tab content -->
+      <div class="rsg-tab-content">
+        <div class="rsg-layout">
+          <div class="rsg-sidebar">
+            <div class="rsg-list" id="rsg-list" role="listbox">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div class="rsg-main">
+            <div class="rsg-cmd-wrap">
+              <span class="rsg-prompt-sign">&#128640;</span>
+              <pre id="rsg-command-output" class="rsg-code rsg-code-cmd" contenteditable="true" spellcheck="false"></pre>
+            </div>
+            <div class="rsg-revshell-advanced" id="rsg-revshell-advanced-panel">
+              <div class="rsg-advanced-row">
+                <div class="rsg-field">
+                  <label for="rsg-shell">Shell</label>
+                  <select id="rsg-shell" class="rsg-select">
+                    {shells.map((s) => (
+                      <option value={s} selected={s === "/bin/sh"}>{s}</option>
+                    ))}
+                  </select>
+                </div>
+                <div class="rsg-field">
+                  <label for="rsg-encoding">Encoding</label>
+                  <select id="rsg-encoding" class="rsg-select">
+                    <option value="none">None</option>
+                    <option value="url">URL Encode</option>
+                    <option value="doubleurl">Double URL Encode</option>
+                    <option value="base64">Base64</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="rsg-actions">
+              <button id="rsg-copy-cmd" class="rsg-btn" type="button">Copy</button>
+              <button class="rsg-btn raw-listener" type="button">Raw</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ payloads, listeners, cats, catLabels, defaultCat, shells }}>
+  (function () {
+    // ── State ──
+    var ALL_PAYLOADS = payloads;
+    var ALL_LISTENERS = listeners;
+    var CAT_ORDER = cats;
+    var currentCategory = defaultCat;
+    var currentPayload = null;
+
+    // ── Utilities ──
+    function escHtml(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+    function getVal(key, fallback) {
+      try { return localStorage.getItem("rsg-" + key) || fallback; } catch (_) { return fallback; }
+    }
+    function setVal(key, val) {
+      try { localStorage.setItem("rsg-" + key, val); } catch (_) {}
+    }
+
+    // ── IP / Port ──
+    (function initConfig() {
+      var ipEl = document.getElementById("rsg-ip");
+      var portEl = document.getElementById("rsg-port");
+      if (!ipEl || !portEl) return;
+      ipEl.value = getVal("ip", "10.10.10.10");
+      portEl.value = getVal("port", "9001");
+      ipEl.addEventListener("input", function () { setVal("ip", ipEl.value); updateCommand(); updateListener(); });
+      portEl.addEventListener("input", function () { setVal("port", portEl.value); updateListeners(); });
+      document.getElementById("rsg-inc-port").addEventListener("click", function () {
+        var p = parseInt(portEl.value, 10);
+        if (!isNaN(p) && p < 65535) { portEl.value = String(p + 1); setVal("port", portEl.value); updateListeners(); }
+      });
+      function updateListeners() { updateCommand(); updateListener(); checkPortPrivs(); }
+      function checkPortPrivs() {
+        var w = document.getElementById("rsg-port-warning");
+        if (!w) return;
+        var p = parseInt(portEl.value, 10);
+        w.style.visibility = (!isNaN(p) && p < 1024) ? "visible" : "hidden";
+      }
+      checkPortPrivs();
+    })();
+
+    // ── Listener ──
+    var selectedListenerIdx = 0;
+    function updateListener() {
+      var sel = document.getElementById("rsg-listener-select");
+      var output = document.getElementById("rsg-listener-output");
+      if (!sel || !output) return;
+      var cmd = sel.value;
+      var ip = document.getElementById("rsg-ip").value;
+      var port = document.getElementById("rsg-port").value;
+      cmd = cmd.replace(/\{ip\}/g, ip).replace(/\{port\}/g, port)
+               .replace(/\{type\}/g, "http").replace(/\{payload\}/g, "generic/shell_reverse_tcp");
+      output.textContent = cmd;
+    }
+    document.getElementById("rsg-listener-select").addEventListener("change", updateListener);
+
+    document.getElementById("rsg-listener-advanced").addEventListener("change", function () {
+      var panel = document.getElementById("rsg-listener-advanced-panel");
+      panel.style.display = this.checked ? "block" : "none";
+    });
+
+    document.getElementById("rsg-copy-listener").addEventListener("click", function () {
+      var output = document.getElementById("rsg-listener-output");
+      if (!output) return;
+      navigator.clipboard.writeText(output.textContent);
+      this.textContent = "\u2705 Copied!";
+      var btn = this;
+      setTimeout(function () { btn.textContent = "Copy"; }, 2000);
+    });
+
+    // ── Revshell Advanced toggle ──
+    window.toggleRevshellAdvanced = function () {
+      var chk = document.getElementById("rsg-revshell-advanced");
+      var panel = document.getElementById("rsg-revshell-advanced-panel");
+      if (panel) panel.style.display = chk.checked ? "block" : "none";
+    };
+
+    // ── Tab switching ──
+    window.switchTab = function (btn) {
+      document.querySelectorAll(".rsg-tab").forEach(function (t) { t.classList.remove("active"); });
+      btn.classList.add("active");
+      currentCategory = btn.getAttribute("data-category");
+      document.getElementById("rsg-filter-os").value = "all";
+      document.getElementById("rsg-filter-search").value = "";
+      var first = null;
+      for (var i = 0; i < ALL_PAYLOADS.length; i++) {
+        if (ALL_PAYLOADS[i].category === currentCategory) { first = ALL_PAYLOADS[i]; break; }
+      }
+      currentPayload = first;
+      renderList();
+      updateCommand();
+    };
+
+    // ── Payload list ──
+    function renderList() {
+      var list = document.getElementById("rsg-list");
+      if (!list) return;
+      var osFilter = document.getElementById("rsg-filter-os").value;
+      var searchFilter = document.getElementById("rsg-filter-search").value.toLowerCase();
+      var filtered = ALL_PAYLOADS.filter(function (p) {
+        if (p.category !== currentCategory) return false;
+        if (osFilter !== "all" && p.platforms.length > 0 && !p.platforms.includes(osFilter)) return false;
+        if (searchFilter && p.name.toLowerCase().indexOf(searchFilter) < 0) return false;
+        return true;
+      });
+      window._rsgFiltered = filtered;
+      list.innerHTML = filtered.map(function (p) {
+        var active = currentPayload && currentPayload.name === p.name ? "active" : "";
+        return '<div class="rsg-list-item ' + active + '" tabindex="0" role="option" onclick="selectPayload(\'' + p.category + "','" + p.name.replace(/'/g, "\\'") + "')\">" +
+          escHtml(p.name) + '</div>';
+      }).join("");
+    }
+
+    window.selectPayload = function (category, name) {
+      currentCategory = category;
+      currentPayload = null;
+      for (var i = 0; i < ALL_PAYLOADS.length; i++) {
+        if (ALL_PAYLOADS[i].category === category && ALL_PAYLOADS[i].name === name) {
+          currentPayload = ALL_PAYLOADS[i];
+          break;
+        }
+      }
+      renderList();
+      updateCommand();
+    };
+
+    window.applyFilters = function () { renderList(); };
+
+    // ── Command preview ──
+    function updateCommand() {
+      var output = document.getElementById("rsg-command-output");
+      if (!output) return;
+      if (!currentPayload) { output.textContent = "Select a payload"; return; }
+      var cmd = currentPayload.command;
+      var ip = document.getElementById("rsg-ip").value;
+      var port = document.getElementById("rsg-port").value;
+      var shell = document.getElementById("rsg-shell").value;
+      var encoding = document.getElementById("rsg-encoding").value;
+      cmd = cmd.replace(/\{ip\}/g, ip).replace(/\{port\}/g, port).replace(/\{shell\}/g, shell);
+      if (encoding === "url") cmd = encodeURIComponent(cmd);
+      else if (encoding === "doubleurl") cmd = encodeURIComponent(encodeURIComponent(cmd));
+      else if (encoding === "base64") cmd = btoa(cmd);
+      output.textContent = cmd;
+    }
+
+    document.getElementById("rsg-shell").addEventListener("change", updateCommand);
+    document.getElementById("rsg-encoding").addEventListener("change", updateCommand);
+
+    // ── Copy ──
+    document.getElementById("rsg-copy-cmd").addEventListener("click", function () {
+      var output = document.getElementById("rsg-command-output");
+      if (!output) return;
+      navigator.clipboard.writeText(output.textContent);
+      this.textContent = "\u2705 Copied!";
+      var btn = this;
+      setTimeout(function () { btn.textContent = "Copy"; }, 2000);
+    });
+
+    // ── Raw ──
+    document.querySelector(".raw-listener").addEventListener("click", function () {
+      var output = document.getElementById("rsg-command-output");
+      if (!output || !output.textContent || output.textContent === "Select a payload") return;
+      var w = window.open("", "_blank");
+      w.document.write("<pre style=\"font-size:14px;background:#1a1a2e;color:#e0e0e0;padding:20px;\">" + escHtml(output.textContent) + "</pre>");
+      w.document.close();
+    });
+
+    // ── Download ──
+    window.downloadCommand = function () {
+      var output = document.getElementById("rsg-command-output");
+      if (!output) return;
+      var blob = new Blob([output.textContent], { type: "text/plain" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = (currentPayload ? currentPayload.name : "payload").replace(/[^a-zA-Z0-9]/g, "-") + ".sh";
+      a.click();
+    };
+
+    // ── Keyboard nav ──
+    document.addEventListener("keydown", function (e) {
+      if (!window._rsgFiltered) return;
+      var items = document.querySelectorAll(".rsg-list-item");
+      if (!items.length) return;
+      var focused = document.activeElement;
+      var idx = -1;
+      items.forEach(function (it, i) { if (it === focused) idx = i; });
+      if (e.key === "ArrowDown") { e.preventDefault(); var n = (idx + 1) % items.length; items[n].focus(); items[n].click(); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); var p = (idx - 1 + items.length) % items.length; items[p].focus(); items[p].click(); }
+      else if (e.key === "Enter" && idx >= 0) { e.preventDefault(); items[idx].click(); }
+    });
+
+    // ── Init on load (script runs at end of body, DOM is ready) ──
+    currentPayload = null;
+    for (var i = 0; i < ALL_PAYLOADS.length; i++) {
+      if (ALL_PAYLOADS[i].category === currentCategory) { currentPayload = ALL_PAYLOADS[i]; break; }
+    }
+    renderList();
+    updateCommand();
+    updateListener();
+  })();
+</script>
+
+<style>
+  /* ── Hero ── */
+  .rsg-hero { text-align: center; padding: 1.5rem 0 1rem; }
+  .rsg-hero h2 {
+    font-size: 1.6rem; font-weight: 700; color: var(--text-primary, #e2e8f0);
+    background: var(--accent-gradient, linear-gradient(135deg, #6c8cff, #a78bfa));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  /* ── Cards ── */
+  .rsg-card {
+    background: var(--bg-card, #1a2332);
+    border: 1px solid var(--border, #1e3a5f);
+    border-radius: var(--radius, 12px);
+  }
+  .rsg-card-body { padding: 1rem 1.25rem; }
+  .rsg-card-title { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-primary, #e2e8f0); }
+
+  /* ── Top row ── */
+  .rsg-top-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  @media (max-width: 700px) { .rsg-top-row { grid-template-columns: 1fr; } }
+
+  .rsg-config-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-start; }
+  .rsg-input-group { display: flex; align-items: stretch; margin-top: 0.5rem; }
+  .rsg-input-prepend {
+    padding: 0.4rem 0.65rem; background: var(--bg-secondary, #111827);
+    border: 1px solid var(--border, #1e3a5f); border-right: none;
+    border-radius: 4px 0 0 4px; font-size: 0.8rem; color: var(--text-secondary, #94a3b8);
+    font-weight: 500; display: flex; align-items: center;
+  }
+  .rsg-input {
+    padding: 0.4rem 0.55rem; background: var(--bg-secondary, #111827);
+    border: 1px solid var(--border, #1e3a5f); border-radius: 0 4px 4px 0;
+    color: var(--text-primary, #e2e8f0); font-size: 0.85rem; font-family: var(--font-mono, monospace);
+    outline: none; transition: border-color 0.15s;
+  }
+  .rsg-input:focus { border-color: var(--accent, #6c8cff); }
+  .rsg-input-sm { padding: 0.3rem 0.45rem; font-size: 0.78rem; }
+  .rsg-input[type="text"] { font-family: var(--font-mono, monospace); }
+
+  .rsg-inc-btn {
+    padding: 0.4rem 0.6rem; background: var(--bg-secondary, #111827);
+    border: 1px solid var(--border, #1e3a5f); border-left: none;
+    border-radius: 0 4px 4px 0; color: var(--text-secondary, #94a3b8);
+    cursor: pointer; font-size: 0.8rem; transition: color 0.15s;
+  }
+  .rsg-inc-btn:hover { color: var(--text-primary, #e2e8f0); background: var(--bg-card-hover, #1e293b); }
+
+  .rsg-warning { font-size: 0.75rem; color: var(--red, #f87171); margin-top: 0.4rem; text-align: center; }
+  .rsg-warning-text { font-weight: 700; }
+
+  /* ── Listener ── */
+  .rsg-listener-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+  .rsg-listener-head .rsg-card-title { margin-bottom: 0; }
+  .rsg-listener-cmd-wrap { position: relative; margin-bottom: 0.5rem; }
+  .rsg-prompt-sign {
+    position: absolute; top: 12px; left: 12px; font-size: 1em; pointer-events: none; z-index: 1;
+  }
+  .rsg-code {
+    margin: 0; padding: 0.75rem 0.75rem 0.75rem 2.2rem;
+    background: var(--bg-code, #0f172a); border: 1px solid var(--border, #1e3a5f);
+    border-radius: var(--radius-sm, 8px); overflow-x: auto;
+    font-family: var(--font-mono, monospace); font-size: 0.82rem; line-height: 1.5;
+    color: var(--text-primary, #e2e8f0); white-space: pre-wrap; word-break: break-all; min-height: 40px;
+    outline: none; transition: border-color 0.15s;
+    box-shadow: rgba(0, 0, 0, 0.27) 0px -1px 10px, rgba(0, 0, 0, 0.36) 0px 6px 6px;
+  }
+  .rsg-code:focus { border-color: var(--accent, #6c8cff); }
+  .rsg-code-listener { min-height: 36px; padding-top: 0.65rem; padding-bottom: 0.65rem; }
+  .rsg-code-cmd { min-height: 50px; }
+
+  .rsg-listener-advanced { margin-bottom: 0.5rem; }
+  .rsg-listener-advanced label { font-size: 0.78rem; color: var(--text-secondary, #94a3b8); margin-right: 0.5rem; }
+
+  /* ── Toggle ── */
+  .rsg-toggle-label {
+    font-size: 0.78rem; color: var(--text-secondary, #94a3b8);
+    display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer;
+  }
+  .rsg-toggle-label input { accent-color: var(--accent, #6c8cff); cursor: pointer; }
+
+  /* ── Tabs ── */
+  .rsg-tabs {
+    display: flex; list-style: none; padding: 0; margin: 0 0 0 0;
+    border-bottom: none;
+  }
+  .rsg-tab-item { margin-bottom: -1px; }
+  .rsg-tab {
+    padding: 0.5rem 1rem; background: var(--bg-card, #1a2332);
+    border: 1px solid var(--border, #1e3a5f); border-bottom: none;
+    border-radius: 6px 6px 0 0; color: var(--text-secondary, #94a3b8);
+    cursor: pointer; font-size: 0.85rem; font-family: inherit; transition: all 0.15s;
+    margin-right: 2px; font-weight: 500;
+  }
+  .rsg-tab:hover { background: var(--bg-card-hover, #1e293b); color: var(--text-primary, #e2e8f0); }
+  .rsg-tab.active { background: var(--bg-card, #1a2332); color: var(--accent, #6c8cff); border-color: var(--border, #1e3a5f); border-bottom-color: var(--bg-card, #1a2332); }
+
+  /* ── Main card ── */
+  .rsg-main-card {
+    background: var(--bg-card, #1a2332); border: 1px solid var(--border, #1e3a5f); border-radius: 0 var(--radius, 12px) var(--radius, 12px) var(--radius, 12px);
+    box-shadow: rgba(0, 0, 0, 0.27) 0px -1px 10px, rgba(0, 0, 0, 0.36) 0px 6px 6px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Filter bar ── */
+  .rsg-filter-bar {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--border, #1e3a5f);
+    flex-wrap: wrap; margin-bottom: 0.75rem;
+  }
+  .rsg-filter-label {
+    font-size: 0.78rem; color: var(--text-secondary, #94a3b8); font-weight: 500;
+  }
+  .rsg-select {
+    padding: 0.35rem 0.5rem; background: var(--bg-secondary, #111827);
+    border: 1px solid var(--border, #1e3a5f); border-radius: 4px;
+    color: var(--text-primary, #e2e8f0); font-size: 0.82rem; font-family: inherit;
+    cursor: pointer; transition: border-color 0.15s;
+  }
+  .rsg-select:focus { outline: none; border-color: var(--accent, #6c8cff); }
+  .rsg-select-sm { font-size: 0.78rem; padding: 0.25rem 0.4rem; }
+
+  .rsg-toggle-group { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; }
+  .rsg-download-icon {
+    font-size: 1.1rem; cursor: pointer; opacity: 0.7; transition: opacity 0.15s;
+    filter: invert(80%) sepia(0%) saturate(0%) brightness(90%);
+  }
+  .rsg-download-icon:hover { opacity: 1; }
+
+  /* ── Layout ── */
+  .rsg-tab-content { }
+  .rsg-layout { display: grid; grid-template-columns: 260px 1fr; gap: 1rem; min-height: 50vh; }
+  @media (max-width: 800px) { .rsg-layout { grid-template-columns: 1fr; } }
+
+  .rsg-sidebar { }
+  .rsg-list {
+    max-height: 55vh; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 1px;
+    scrollbar-width: thin; scrollbar-color: var(--border, #1e3a5f) transparent;
+  }
+  .rsg-list-item {
+    padding: 0.45rem 0.7rem; cursor: pointer;
+    background: var(--bg-secondary, #111827); border: 1px solid transparent;
+    border-radius: 3px; font-size: 0.82rem; color: var(--text-secondary, #94a3b8);
+    transition: all 0.1s;
+  }
+  .rsg-list-item:hover { background: var(--bg-card-hover, #1e293b); color: var(--text-primary, #e2e8f0); }
+  .rsg-list-item.active { background: rgba(108, 140, 255, 0.12); color: var(--accent, #6c8cff); border-color: var(--accent, #6c8cff); font-weight: 500; }
+  .rsg-list-item:focus { outline: none; box-shadow: inset 0 0 0 1px rgba(108, 140, 255, 0.3); }
+
+  .rsg-main { display: flex; flex-direction: column; gap: 0.75rem; }
+  .rsg-cmd-wrap { position: relative; }
+
+  .rsg-revshell-advanced { }
+  .rsg-advanced-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .rsg-field { display: flex; align-items: center; gap: 0.4rem; }
+  .rsg-field label { font-size: 0.78rem; color: var(--text-secondary, #94a3b8); white-space: nowrap; }
+
+  .rsg-actions { display: flex; gap: 0.4rem; }
+  .rsg-btn {
+    padding: 0.45rem 0.9rem; background: #375a7f; border: none;
+    border-radius: 4px; color: #fff; font-size: 0.82rem; cursor: pointer;
+    font-family: inherit; transition: background 0.15s;
+  }
+  .rsg-btn:hover { background: #4a7ca8; }
+  .rsg-btn:active { transform: scale(0.97); }
+</style>

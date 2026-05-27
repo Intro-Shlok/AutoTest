@@ -1,0 +1,110 @@
+[
+  {
+    "name": "count",
+    "template_key": "count",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Count library calls and print summary",
+    "aliases": ["-c"]
+  },
+  {
+    "name": "follow",
+    "template_key": "follow",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Trace child processes (fork)",
+    "aliases": ["-f"]
+  },
+  {
+    "name": "library",
+    "template_key": "library",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Only trace calls from specific library",
+    "aliases": ["-l"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write trace to file",
+    "aliases": ["-o"]
+  },
+  {
+    "name": "pid",
+    "template_key": "pid",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Attach to a running process by PID",
+    "aliases": ["-p"]
+  },
+  {
+    "name": "syscalls",
+    "template_key": "syscalls",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show system calls in addition to library calls",
+    "aliases": ["-S"]
+  },
+  {
+    "name": "timestamp",
+    "template_key": "timestamp",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Prefix with absolute timestamp",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "timecalls",
+    "template_key": "timecalls",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show time spent inside each call",
+    "aliases": ["-T"]
+  },
+  {
+    "name": "filter",
+    "template_key": "filter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter calls by name pattern",
+    "aliases": ["-e"]
+  },
+  {
+    "name": "strsize",
+    "template_key": "strsize",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum string display size",
+    "aliases": ["-s"]
+  },
+  {
+    "name": "relative",
+    "template_key": "relative",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show relative timestamps",
+    "aliases": ["-r"]
+  },
+  {
+    "name": "indent",
+    "template_key": "indent",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Indent output by nesting depth",
+    "aliases": ["-n"]
+  }
+]

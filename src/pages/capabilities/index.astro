@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const tools = await getCollection("tools");
+
+// Extract all capabilities -> tool mapping
+const capMap: Record<string, { id: string; name: string; namespace: string }[]> = {};
+for (const tool of tools) {
+  const caps = tool.data.capabilities || [];
+  for (const cap of caps) {
+    if (!capMap[cap]) capMap[cap] = [];
+    capMap[cap].push({
+      id: tool.data.id,
+      name: tool.data.name,
+      namespace: tool.data.namespace,
+    });
+  }
+}
+
+const sortedCaps = Object.keys(capMap).sort();
+const capDomains = [...new Set(sortedCaps.map((c) => c.split(".")[0]))].sort();
+
+const domainFilter = Astro.url.searchParams.get("domain");
+const filtered = domainFilter
+  ? sortedCaps.filter((c) => c.startsWith(domainFilter + "."))
+  : sortedCaps;
+
+const totalCaps = sortedCaps.length;
+const totalTools = tools.length;
+---
+
+<BaseLayout title="Capabilities" description="Complete index of capabilities across all tools">
+  <section class="hero" style="padding: 2rem 0 1.5rem;">
+    <h1 style="font-size: 2.2rem;">Capabilities</h1>
+    <p>{filtered.length} of {totalCaps} capabilities{domainFilter ? ` in domain "${domainFilter}"` : ""} across {totalTools} tools</p>
+  </section>
+
+  <div class="filter-bar">
+    <a href="/capabilities" aria-current={!domainFilter ? "page" : undefined}>All</a>
+    {capDomains.map((d) => (
+      <a href={`/capabilities?domain=${d}`} aria-current={domainFilter === d ? "page" : undefined}>{d}</a>
+    ))}
+  </div>
+
+  <div class="card-grid cols-2">
+    {filtered.map((cap) => {
+      const toolsWithCap = capMap[cap];
+      return (
+        <div class="card" style="animation:none;">
+          <div class="card-meta" style="margin-top:0;">
+            <span class="tag tag-domain">{cap.split(".")[0]}</span>
+            <span class="tag">{toolsWithCap.length} tool{toolsWithCap.length !== 1 ? "s" : ""}</span>
+          </div>
+          <div class="card-title" style="font-size:0.95rem;margin-top:0.5rem;font-family:var(--font-mono);">
+            <code style="font-size:0.9rem;">{cap}</code>
+          </div>
+          <div class="card-desc" style="margin-top:0.6rem;">
+            {toolsWithCap.map((t) => (
+              <a href={`/tools/${t.id}`} style="display:inline-block;margin:0.15rem 0.2rem;">
+                <span class="tag" style="font-size:0.7rem;">{t.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  {filtered.length === 0 && (
+    <p style="text-align:center;color:var(--text-muted);padding:3rem 0;">No capabilities found for this domain.</p>
+  )}
+</BaseLayout>

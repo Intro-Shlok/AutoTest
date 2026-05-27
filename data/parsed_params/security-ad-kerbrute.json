@@ -1,0 +1,92 @@
+[
+  {
+    "name": "domain",
+    "template_key": "domain",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Domain FQDN (e.g. evilcorp.local)",
+    "aliases": ["-d", "--domain"]
+  },
+  {
+    "name": "user",
+    "template_key": "user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Single username for testing",
+    "aliases": ["-u", "--user"]
+  },
+  {
+    "name": "userlist",
+    "template_key": "userlist",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "File containing list of usernames",
+    "aliases": ["-U", "--userlist"]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Single password for spraying",
+    "aliases": ["-p", "--password"]
+  },
+  {
+    "name": "passwordlist",
+    "template_key": "passwordlist",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "File containing list of passwords",
+    "aliases": ["-P", "--passwordlist"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Number of concurrent threads",
+    "aliases": ["-t", "--threads"]
+  },
+  {
+    "name": "dc-ip",
+    "template_key": "dc-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Domain controller IP address",
+    "aliases": ["--dc", "--dc-ip"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for results",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "delay",
+    "template_key": "delay",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Delay in milliseconds between requests",
+    "aliases": ["--delay"]
+  }
+]

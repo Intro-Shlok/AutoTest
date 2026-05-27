@@ -1,0 +1,33 @@
+bluetoothctl 5.66 - Bluetooth controller
+Copyright (c) 2022, BlueZ project
+http://www.bluez.org/
+
+Usage: bluetoothctl [options]
+
+Options:
+  --agent=<capabilities>      Register agent
+  --monitor                   Monitor events
+  --timeout=<secs>            Timeout in seconds
+  --version                   Show version
+
+Interactive Commands:
+  scan on/off                 Enable/disable scanning
+  advertise on/off            Enable/disable advertising
+  discoverable on/off         Enable/disable discoverable
+  pairable on/off             Enable/disable pairable
+  power on/off                Power adapter on/off
+  pair <device>               Pair with device
+  trust <device>              Trust device
+  untrust <device>            Untrust device
+  connect <device>            Connect to device
+  disconnect <device>         Disconnect device
+  info <device>               Show device info
+  devices                     List known devices
+  show                        Show adapter info
+  list                        List available adapters
+  agent on/off                Register agent
+  default-agent               Set as default agent
+
+Example:
+  bluetoothctl
+  echo -e "power on\nscan on" | bluetoothctl

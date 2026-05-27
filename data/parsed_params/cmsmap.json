@@ -1,0 +1,137 @@
+[
+  {
+    "name": "target",
+    "template_key": "target",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL or hostname",
+    "aliases": ["-t", "--target"]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Full URL to scan",
+    "aliases": ["-u", "--url"]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Force scan even if CMS detection fails",
+    "aliases": ["-f", "--force"]
+  },
+  {
+    "name": "force-ssl",
+    "template_key": "force-ssl",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Force HTTPS connection",
+    "aliases": ["-F", "--force-ssl"]
+  },
+  {
+    "name": "user-agent",
+    "template_key": "user-agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom User-Agent header",
+    "aliases": ["-a", "--user-agent"]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Additional HTTP headers (comma-separated)",
+    "aliases": ["-H", "--headers"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP proxy address",
+    "aliases": ["-p", "--proxy"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for results",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "input-file",
+    "template_key": "input-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "File containing list of target URLs",
+    "aliases": ["-i", "--input-file"]
+  },
+  {
+    "name": "detect",
+    "template_key": "detect",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Detect CMS type only (no deep scan)",
+    "aliases": ["-d", "--detect"]
+  },
+  {
+    "name": "enumerate",
+    "template_key": "enumerate",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable enumeration of users and components",
+    "aliases": ["-E", "--enumerate"]
+  },
+  {
+    "name": "extensions",
+    "template_key": "extensions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File extensions to check (comma-separated)",
+    "aliases": ["-x", "--extensions"]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Custom wordlist for brute force",
+    "aliases": ["-w", "--wordlist"]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Recursive directory enumeration",
+    "aliases": ["-r", "--recursive"]
+  }
+]

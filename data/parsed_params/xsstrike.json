@@ -1,0 +1,128 @@
+[
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL",
+    "aliases": ["-u"]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "POST data string",
+    "aliases": ["--data"]
+  },
+  {
+    "name": "json",
+    "template_key": "json",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Treat POST data as JSON",
+    "aliases": ["--json"]
+  },
+  {
+    "name": "path",
+    "template_key": "path",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Inject payloads into path",
+    "aliases": ["--path"]
+  },
+  {
+    "name": "crawl",
+    "template_key": "crawl",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Crawl the target URL",
+    "aliases": ["--crawl"]
+  },
+  {
+    "name": "depth",
+    "template_key": "depth",
+    "type": "integer",
+    "required": false,
+    "default_value": 2,
+    "description": "Crawl depth level",
+    "aliases": ["-l"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Number of threads",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 30,
+    "description": "Request timeout in seconds",
+    "aliases": ["--timeout"]
+  },
+  {
+    "name": "delay",
+    "template_key": "delay",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Delay between requests in seconds",
+    "aliases": ["-d"]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": ["--headers"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy URL",
+    "aliases": ["--proxy"]
+  },
+  {
+    "name": "skip-dom",
+    "template_key": "skip-dom",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Skip DOM XSS scanner",
+    "aliases": ["--skip-dom"]
+  },
+  {
+    "name": "fuzzer",
+    "template_key": "fuzzer",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable payload fuzzer",
+    "aliases": ["--fuzzer"]
+  },
+  {
+    "name": "blind",
+    "template_key": "blind",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable blind XSS detection",
+    "aliases": ["--blind"]
+  }
+]

@@ -1,0 +1,678 @@
+[
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "read packets from a network interface. It can also be run with the -V flag, which causes it to read a list of saved packet files. In all cases, only packets that match expression will be processed by tcpdump",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the AS number in BGP packets in ASDOT notation rather than",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "flag-B",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--buffer-size=buffer_size Set the operating system capture buffer size to buffer_size, in units of KiB (1024 bytes)",
+    "aliases": [
+      "-B"
+    ]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Exit after receiving count packets",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "count",
+    "template_key": "count",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print only on stdout the packet count when reading capture file(s) instead of parsing/printing the packets. If a filter is specified on the command line, tcpdump counts only packets that were matched by the filter expression",
+    "aliases": [
+      "--count"
+    ]
+  },
+  {
+    "name": "flag-C",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Before writing a raw packet to a savefile, check whether the file is currently larger than file_size and, if so, close the current savefile and open a new one. Savefiles after the first savefile will have the name specified with the -w flag, with a number af\u2010 ter it, starting at 1 and continuing upward. The default unit of file_size is millions of bytes (1,000,000 bytes, not 1,048,576 bytes)",
+    "aliases": [
+      "-C"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump the compiled packet-matching code in a human readable form",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "In this case the DLT defaults to EN10MB and can be set to",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-d-2",
+    "template_key": "flag-d-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump packet-matching code as a C program fragment",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "flag-d-3",
+    "template_key": "flag-d-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump packet-matching code as decimal numbers (preceded with a",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "flag-D",
+    "template_key": "flag-d",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "--list-interfaces Print the list of the network interfaces available on the system and on which tcpdump can capture packets. For each network in\u2010 terface, a number and an interface name, possibly followed by a text description of the interface, are printed. The interface name or the number can be supplied to the -i flag to specify an interface on which to capture",
+    "aliases": [
+      "-D"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "where the interface name is a somewhat complex string",
+    "aliases": [
+      "-a"
+    ]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the link-level header on each dump line. This can be used",
+    "aliases": [
+      "-e"
+    ]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Print `foreign' IPv4 addresses numerically rather than symboli\u2010",
+    "aliases": [
+      "-f"
+    ]
+  },
+  {
+    "name": "flag-F",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use file as input for the filter expression. An additional ex\u2010 pression given on the command line is ignored",
+    "aliases": [
+      "-F"
+    ]
+  },
+  {
+    "name": "flag-g",
+    "template_key": "flag-g",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--ip-oneline Do not insert a line break after the IP header in verbose mode",
+    "aliases": [
+      "-g"
+    ]
+  },
+  {
+    "name": "flag-G",
+    "template_key": "flag-g",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "If specified, rotates the dump file specified with the -w option every rotate_seconds seconds. Savefiles will have the name spec\u2010 ified by -w which should include a time format as defined by strftime(3). If no time format is specified, each new file will overwrite the previous. Whenever a generated filename is not unique, tcpdump will overwrite the preexisting data; providing a time specification that is coarser than the capture period is therefore not advised",
+    "aliases": [
+      "-G"
+    ]
+  },
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--help Print the tcpdump and libpcap version strings, print a usage mes\u2010 sage, and exit",
+    "aliases": [
+      "-h"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the tcpdump and libpcap version strings and exit",
+    "aliases": [
+      "--version"
+    ]
+  },
+  {
+    "name": "flag-i-2",
+    "template_key": "flag-i-2",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "--interface=interface Listen, report the list of link-layer types, report the list of time stamp types, or report the results of compiling a filter ex\u2010 pression on interface. If unspecified and if the -d flag is not given, tcpdump searches the system interface list for the lowest numbered, configured up interface (excluding loopback), which may turn out to be, for example, ``eth0''",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-I",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--monitor-mode Put the interface in \"monitor mode\"; this is supported only on IEEE 802.11 Wi-Fi interfaces, and supported only on some operat\u2010 ing systems",
+    "aliases": [
+      "-I"
+    ]
+  },
+  {
+    "name": "immediate-mode",
+    "template_key": "immediate-mode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Capture in \"immediate mode\". In this mode, packets are delivered to tcpdump as soon as they arrive, rather than being buffered for efficiency. This is the default when printing packets rather than saving packets to a ``savefile'' if the packets are being printed to a terminal rather than to a file or pipe",
+    "aliases": [
+      "--immediate-mode"
+    ]
+  },
+  {
+    "name": "flag-j",
+    "template_key": "flag-j",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--time-stamp-type=tstamp_type Set the time stamp type for the capture to tstamp_type. The names to use for the time stamp types are given in pcap-tstamp(7); not all the types listed there will necessarily be valid for any given interface",
+    "aliases": [
+      "-j"
+    ]
+  },
+  {
+    "name": "flag-J",
+    "template_key": "flag-j",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--list-time-stamp-types List the supported time stamp types for the interface and exit. If the time stamp type cannot be set for the interface, no time stamp types are listed",
+    "aliases": [
+      "-J"
+    ]
+  },
+  {
+    "name": "time-stamp-precision",
+    "template_key": "time-stamp-precision",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "When capturing, set the time stamp precision for the capture to tstamp_precision. Note that availability of high precision time stamps (nanoseconds) and their actual accuracy is platform and hardware dependent. Also note that when writing captures made with nanosecond accuracy to a savefile, the time stamps are writ\u2010 ten with nanosecond resolution, and the file is written with a different magic number, to indicate that the time stamps are in seconds and nanoseconds; not all programs that read pcap save\u2010 files will be able to read those captures",
+    "aliases": [
+      "--time-stamp-precision"
+    ]
+  },
+  {
+    "name": "micro",
+    "template_key": "micro",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "--nano Shorthands for --time-stamp-precision=micro or --time-stamp-pre\u2010 cision=nano, adjusting the time stamp precision accordingly. When reading packets from a savefile, using --micro truncates time stamps if the savefile was created with nanosecond preci\u2010 sion. In contrast, a savefile created with microsecond precision will have trailing zeroes added to the time stamp when --nano is used",
+    "aliases": [
+      "--micro"
+    ]
+  },
+  {
+    "name": "flag-K",
+    "template_key": "flag-k",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--dont-verify-checksums Don't attempt to verify IP, TCP, or UDP checksums. This is use\u2010 ful for interfaces that perform some or all of those checksum calculation in hardware; otherwise, all outgoing TCP checksums will be flagged as bad",
+    "aliases": [
+      "-K"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Make stdout line buffered. Useful if you want to see the data",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-U",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "be ``packet-buffered'', so that the output is written to stdout at the end of each packet rather than at the end of each line; this is buffered on all platforms, including Windows",
+    "aliases": [
+      "-U",
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-L",
+    "template_key": "flag-l",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "--list-data-link-types List the known data link types for the interface, in the speci\u2010 fied mode, and exit. The list of known data link types may be dependent on the specified mode; for example, on some platforms, a Wi-Fi interface might support one set of data link types when not in monitor mode (for example, it might support only fake Eth\u2010 ernet headers, or might support 802.11 headers but not support 802.11 headers with radio information) and another set of data link types when in monitor mode (for example, it might support 802.11 headers, or 802.11 headers with radio information, only in monitor mode)",
+    "aliases": [
+      "-L"
+    ]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Load SMI MIB module definitions from file module. This option can be used several times to load several MIB modules into tcp\u2010 dump",
+    "aliases": [
+      "-m"
+    ]
+  },
+  {
+    "name": "flag-M",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use secret as a shared secret for validating the digests found in TCP segments with the TCP-MD5 option (RFC 2385), if present",
+    "aliases": [
+      "-M"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Don't convert addresses (i.e., host addresses, port numbers",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "number",
+    "template_key": "number",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print a packet number at the beginning of the line",
+    "aliases": [
+      "--number"
+    ]
+  },
+  {
+    "name": "flag-O",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--no-optimize Do not run the packet-matching code optimizer. This is useful only if you suspect a bug in the optimizer",
+    "aliases": [
+      "-O"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--no-promiscuous-mode Don't put the interface into promiscuous mode. Note that the in\u2010 terface might be in promiscuous mode for some other reason; hence, `-p' cannot be used as an abbreviation for `ether host {local-hw-addr} or ether broadcast'",
+    "aliases": [
+      "-p"
+    ],
+    "enum": [
+      "local-hw-addr"
+    ]
+  },
+  {
+    "name": "print",
+    "template_key": "print",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print parsed packet output, even if the raw packets are being saved to a file with the -w flag",
+    "aliases": [
+      "--print"
+    ]
+  },
+  {
+    "name": "flag-Q",
+    "template_key": "flag-q",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--direction=direction Choose send/receive direction direction for which packets should be captured. Possible values are `in', `out' and `inout'. Not available on all platforms",
+    "aliases": [
+      "-Q"
+    ]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Quick (quiet?) output. Print less protocol information so output",
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "flag-r-2",
+    "template_key": "flag-r-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Read packets from file (which was created with the -w option or by other tools that write pcap or pcapng files). Standard input is used if file is ``-''",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "flag-S",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--absolute-tcp-sequence-numbers Print absolute, rather than relative, TCP sequence numbers",
+    "aliases": [
+      "-S"
+    ]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--snapshot-length=snaplen Snarf snaplen bytes of data from each packet rather than the de\u2010 fault of 262144 bytes. Packets truncated because of a limited snapshot are indicated in the output with ``[|proto]'', where proto is the name of the protocol level at which the truncation has occurred",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-T",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Force packets selected by \"expression\" to be interpreted the specified type. Currently known types are aodv (Ad-hoc On-demand Distance Vector protocol), carp (Common Address Redundancy Proto\u2010 col), cnfp (Cisco NetFlow protocol), domain (Domain Name System), lmp (Link Management Protocol), pgm (Pragmatic General Multi\u2010 cast), pgm_zmtp1 (ZMTP/1.0 inside PGM/EPGM), ptp (Precision Time Protocol), radius (RADIUS), resp (REdis Serialization Protocol), rpc (Remote Procedure Call), rtcp (Real-Time Applications control protocol), rtp (Real-Time Applications protocol), snmp (Simple Network Management Protocol), someip (SOME/IP), tftp (Trivial File Transfer Protocol), vat (Visual Audio Tool), vxlan (Virtual eXtensible Local Area Network), wb (distributed White Board) and zmtp1 (ZeroMQ Message Transport Protocol 1.0)",
+    "aliases": [
+      "-T"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't print a timestamp on each dump line",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-t-2",
+    "template_key": "flag-t-2",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "Print the timestamp, as seconds since January 1, 1970, 00:00:00",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-t-3",
+    "template_key": "flag-t-3",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "Print a delta (microsecond or nanosecond resolution depending on",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-t-4",
+    "template_key": "flag-t-4",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "second since midnight, preceded by the date, on each dump line",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-t-5",
+    "template_key": "flag-t-5",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "the --time-stamp-precision option) between current and first line on each dump line. The default is microsecond resolution",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print undecoded NFS handles",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "flag-U-2",
+    "template_key": "flag-u-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--packet-buffered If the -w option is not specified, or if it is specified but the --print flag is also specified, make the printed packet output ``packet-buffered''; i.e., as the description of the contents of each packet is printed, it will be written to the standard out\u2010 put, rather than, when not writing to a terminal, being written only when the output buffer fills",
+    "aliases": [
+      "-U"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "When parsing and printing, produce (slightly more) verbose out\u2010",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-v-2",
+    "template_key": "flag-v-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Even more verbose output. For example, additional fields are",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-v-3",
+    "template_key": "flag-v-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Even more verbose output. For example, telnet SB ... SE options",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-V",
+    "template_key": "flag-v",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Read a list of filenames from file. Standard input is used if file is ``-''",
+    "aliases": [
+      "-V"
+    ]
+  },
+  {
+    "name": "flag-w",
+    "template_key": "flag-w",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write the raw packets to file rather than parsing and printing them out. They can later be printed with the -r option. Stan\u2010 dard output is used if file is ``-''",
+    "aliases": [
+      "-w"
+    ]
+  },
+  {
+    "name": "flag-W",
+    "template_key": "flag-w",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Used in conjunction with the -C option, this will limit the num\u2010 ber of files created to the specified number, and begin overwrit\u2010 ing files from the beginning, thus creating a 'rotating' buffer. In addition, it will name the files with enough leading 0s to support the maximum number of files, allowing them to sort cor\u2010 rectly",
+    "aliases": [
+      "-W"
+    ]
+  },
+  {
+    "name": "flag-x",
+    "template_key": "flag-x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "When parsing and printing, in addition to printing the headers of",
+    "aliases": [
+      "-x"
+    ]
+  },
+  {
+    "name": "flag-x-2",
+    "template_key": "flag-x-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "When parsing and printing, in addition to printing the headers of",
+    "aliases": [
+      "-x"
+    ]
+  },
+  {
+    "name": "flag-y",
+    "template_key": "flag-y",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--linktype=datalinktype Set the data link type to use while capturing packets (see -L) or just compiling and dumping packet-matching code (see -d) to datalinktype",
+    "aliases": [
+      "-y"
+    ]
+  },
+  {
+    "name": "flag-z",
+    "template_key": "flag-z",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Used in conjunction with the -C or -G options, this will make tcpdump run \" postrotate-command file \" where file is the save\u2010 file being closed after each rotation. For example, specifying -z gzip or -z bzip2 will compress each savefile using gzip or bzip2",
+    "aliases": [
+      "-z",
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-Z",
+    "template_key": "flag-z",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--relinquish-privileges=user If tcpdump is running as root, after opening the capture device or input savefile, but before opening any savefiles for output, change the user ID to user and the group ID to the primary group of user",
+    "aliases": [
+      "-Z"
+    ]
+  }
+]

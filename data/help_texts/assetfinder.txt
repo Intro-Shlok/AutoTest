@@ -1,0 +1,6 @@
+assetfinder [--subs-only] [--filter] <domain>
+
+Options:
+  --subs-only   only show subdomains, exclude related domains
+  --filter      filter out unverified domains
+  -f, --filter  filter out unverified domains

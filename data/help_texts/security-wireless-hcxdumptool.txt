@@ -1,0 +1,26 @@
+hcxdumptool 6.3.3 - WLAN capture tool
+Copyright (c) 2023, ZerBea
+https://github.com/ZerBea/hcxdumptool
+
+Usage: hcxdumptool -i <interface> -o <output> [options]
+
+Required Arguments:
+  -i, --interface=<iface>     Wireless interface in monitor mode
+  -o, --output=<file>         Output pcapng file
+
+Optional Arguments:
+  -c, --channel=<channels>    Channel list (e.g. 1,6,11)
+  -t, --timeout=<secs>        Capture timeout
+  -w, --write=<file>          Write raw packets
+  -r, --read=<file>           Read from capture file
+      --enable_status         Show real-time status
+      --disable_deauth        Disable deauth detection
+      --disable_assoc         Disable assoc detection
+      --disable_probe         Disable probe capture
+  -E, --essid=<essid>         Filter by ESSID
+  -B, --bssid=<bssid>         Filter by BSSID
+  -v, --verbose               Verbose output
+
+Example:
+  hcxdumptool -i wlan0mon -o capture.pcapng
+  hcxdumptool -i wlan0mon -o capture.pcapng -c 1,6,11

@@ -1,0 +1,932 @@
+[
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-i-2",
+    "template_key": "flag-i-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "exclude",
+    "template_key": "exclude",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--exclude <host1[,host2][,host3],...>"
+    ]
+  },
+  {
+    "name": "excludefile",
+    "template_key": "excludefile",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--excludefile <exclude_file>"
+    ]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "List Scan - simply list targets to scan",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-s-2",
+    "template_key": "flag-s-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ping Scan - disable port scan",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-P",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Treat all hosts as online -- skip host discovery",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "flag-P-2",
+    "template_key": "flag-p-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TCP SYN, TCP ACK, UDP or SCTP discovery to given ports",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "flag-P-3",
+    "template_key": "flag-p-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ICMP echo, timestamp, and netmask request discovery probes",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "flag-P-4",
+    "template_key": "flag-p-4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": "sometimes",
+    "description": "Never do DNS resolution/Always resolve",
+    "aliases": [
+      "-n",
+      "-R"
+    ]
+  },
+  {
+    "name": "dns-servers",
+    "template_key": "dns-servers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--dns-servers <serv1[,serv2],...>"
+    ]
+  },
+  {
+    "name": "system-dns",
+    "template_key": "system-dns",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--system-dns"
+    ]
+  },
+  {
+    "name": "traceroute",
+    "template_key": "traceroute",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--traceroute"
+    ]
+  },
+  {
+    "name": "flag-s-3",
+    "template_key": "flag-s-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TCP SYN/Connect()/ACK/Window/Maimon scans",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-s-4",
+    "template_key": "flag-s-4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "UDP Scan",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-s-5",
+    "template_key": "flag-s-5",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TCP Null, FIN, and Xmas scans",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "scanflags",
+    "template_key": "scanflags",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--scanflags <flags>"
+    ]
+  },
+  {
+    "name": "flag-s-6",
+    "template_key": "flag-s-6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-s-7",
+    "template_key": "flag-s-7",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SCTP INIT/COOKIE-ECHO scans",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-s-8",
+    "template_key": "flag-s-8",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "IP protocol scan",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "exclude-ports",
+    "template_key": "exclude-ports",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--exclude-ports <port ranges>"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Scan ports sequentially - don't randomize",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "top-ports",
+    "template_key": "top-ports",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--top-ports <number>"
+    ]
+  },
+  {
+    "name": "port-ratio",
+    "template_key": "port-ratio",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--port-ratio <ratio>"
+    ]
+  },
+  {
+    "name": "flag-s-9",
+    "template_key": "flag-s-9",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Probe open ports to determine service/version info",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "version-intensity",
+    "template_key": "version-intensity",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--version-intensity <level>"
+    ]
+  },
+  {
+    "name": "version-light",
+    "template_key": "version-light",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--version-light"
+    ]
+  },
+  {
+    "name": "version-all",
+    "template_key": "version-all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--version-all"
+    ]
+  },
+  {
+    "name": "version-trace",
+    "template_key": "version-trace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--version-trace"
+    ]
+  },
+  {
+    "name": "flag-s-10",
+    "template_key": "flag-s-10",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to --script=default",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "script",
+    "template_key": "script",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "directories, script-files or script-categories",
+    "aliases": [
+      "--script"
+    ]
+  },
+  {
+    "name": "script-args",
+    "template_key": "script-args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--script-args"
+    ]
+  },
+  {
+    "name": "script-args-file",
+    "template_key": "script-args-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--script-args-file"
+    ]
+  },
+  {
+    "name": "script-trace",
+    "template_key": "script-trace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--script-trace"
+    ]
+  },
+  {
+    "name": "script-updatedb",
+    "template_key": "script-updatedb",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--script-updatedb"
+    ]
+  },
+  {
+    "name": "script-help",
+    "template_key": "script-help",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "<Lua scripts> is a comma-separated list of script-files or script-categories",
+    "aliases": [
+      "--script-help"
+    ]
+  },
+  {
+    "name": "osscan-limit",
+    "template_key": "osscan-limit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--osscan-limit"
+    ]
+  },
+  {
+    "name": "osscan-guess",
+    "template_key": "osscan-guess",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--osscan-guess"
+    ]
+  },
+  {
+    "name": "flag-T",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set timing template (higher is faster)",
+    "aliases": [
+      "-T",
+      "-5"
+    ]
+  },
+  {
+    "name": "min-hostgroup",
+    "template_key": "min-hostgroup",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-h",
+      "--min-hostgroup"
+    ]
+  },
+  {
+    "name": "min-parallelism",
+    "template_key": "min-parallelism",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-p",
+      "--min-parallelism"
+    ]
+  },
+  {
+    "name": "min-rtt-timeout",
+    "template_key": "min-rtt-timeout",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "probe round trip time",
+    "aliases": [
+      "-r",
+      "-t",
+      "-r",
+      "-t",
+      "--min-rtt-timeout"
+    ]
+  },
+  {
+    "name": "max-retries",
+    "template_key": "max-retries",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--max-retries <tries>"
+    ]
+  },
+  {
+    "name": "host-timeout",
+    "template_key": "host-timeout",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--host-timeout <time>"
+    ]
+  },
+  {
+    "name": "scan-delay",
+    "template_key": "scan-delay",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--scan-delay",
+      "--max-scan-delay <time>"
+    ]
+  },
+  {
+    "name": "min-rate",
+    "template_key": "min-rate",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--min-rate <number>"
+    ]
+  },
+  {
+    "name": "max-rate",
+    "template_key": "max-rate",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--max-rate <number>"
+    ]
+  },
+  {
+    "name": "mtu",
+    "template_key": "mtu",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-f",
+      "--mtu <val>"
+    ]
+  },
+  {
+    "name": "flag-D",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-D"
+    ]
+  },
+  {
+    "name": "flag-S",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-S"
+    ]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-e"
+    ]
+  },
+  {
+    "name": "source-port",
+    "template_key": "source-port",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-g",
+      "--source-port <portnum>"
+    ]
+  },
+  {
+    "name": "proxies",
+    "template_key": "proxies",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--proxies <url1,[url2],...>"
+    ]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--data <hex string>"
+    ]
+  },
+  {
+    "name": "data-string",
+    "template_key": "data-string",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--data-string <string>"
+    ]
+  },
+  {
+    "name": "data-length",
+    "template_key": "data-length",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--data-length <num>"
+    ]
+  },
+  {
+    "name": "ip-options",
+    "template_key": "ip-options",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--ip-options <options>"
+    ]
+  },
+  {
+    "name": "ttl",
+    "template_key": "ttl",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-t",
+      "-l",
+      "--ttl <val>"
+    ]
+  },
+  {
+    "name": "spoof-mac",
+    "template_key": "spoof-mac",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--spoof-mac <mac address/prefix/vendor name>"
+    ]
+  },
+  {
+    "name": "badsum",
+    "template_key": "badsum",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--badsum"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "and Grepable format, respectively, to the given filename",
+    "aliases": [
+      "-o",
+      "-o",
+      "-o",
+      "-o"
+    ]
+  },
+  {
+    "name": "flag-o-2",
+    "template_key": "flag-o-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-o"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Increase verbosity level (use -vv or more for greater effect)",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Increase debugging level (use -dd or more for greater effect)",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "reason",
+    "template_key": "reason",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--reason"
+    ]
+  },
+  {
+    "name": "open",
+    "template_key": "open",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--open"
+    ]
+  },
+  {
+    "name": "packet-trace",
+    "template_key": "packet-trace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--packet-trace"
+    ]
+  },
+  {
+    "name": "iflist",
+    "template_key": "iflist",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--iflist"
+    ]
+  },
+  {
+    "name": "append-output",
+    "template_key": "append-output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--append-output"
+    ]
+  },
+  {
+    "name": "resume",
+    "template_key": "resume",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--resume <filename>"
+    ]
+  },
+  {
+    "name": "noninteractive",
+    "template_key": "noninteractive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--noninteractive"
+    ]
+  },
+  {
+    "name": "stylesheet",
+    "template_key": "stylesheet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--stylesheet <path/URL>"
+    ]
+  },
+  {
+    "name": "webxml",
+    "template_key": "webxml",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--webxml"
+    ]
+  },
+  {
+    "name": "no-stylesheet",
+    "template_key": "no-stylesheet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--no-stylesheet"
+    ]
+  },
+  {
+    "name": "flag-6",
+    "template_key": "flag-6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable IPv6 scanning",
+    "aliases": [
+      "-6"
+    ]
+  },
+  {
+    "name": "datadir",
+    "template_key": "datadir",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--datadir <dirname>"
+    ]
+  },
+  {
+    "name": "send-eth",
+    "template_key": "send-eth",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--send-eth",
+      "--send-ip"
+    ]
+  },
+  {
+    "name": "privileged",
+    "template_key": "privileged",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--privileged"
+    ]
+  },
+  {
+    "name": "unprivileged",
+    "template_key": "unprivileged",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--unprivileged"
+    ]
+  },
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print this help summary page",
+    "aliases": [
+      "-h"
+    ]
+  }
+]

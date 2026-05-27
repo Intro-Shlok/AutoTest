@@ -1,0 +1,169 @@
+[
+  {
+    "name": "backup",
+    "template_key": "backup",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make a backup of each existing destination file",
+    "aliases": [
+      "--backup"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --backup but does not accept an argument",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "directory",
+    "template_key": "directory",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "allow the superuser to attempt to hard link directories, if supported by the system",
+    "aliases": [
+      "-d",
+      "-F",
+      "--directory"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "remove existing destination files",
+    "aliases": [
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "interactive",
+    "template_key": "interactive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "prompt whether to remove destinations",
+    "aliases": [
+      "-i",
+      "--interactive"
+    ]
+  },
+  {
+    "name": "logical",
+    "template_key": "logical",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "dereference TARGETs that are symbolic links",
+    "aliases": [
+      "-L",
+      "--logical"
+    ]
+  },
+  {
+    "name": "no-dereference",
+    "template_key": "no-dereference",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "treat LINK_NAME as a normal file if it is a symbolic link to a directory",
+    "aliases": [
+      "-n",
+      "--no-dereference"
+    ]
+  },
+  {
+    "name": "physical",
+    "template_key": "physical",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make hard links directly to symbolic links",
+    "aliases": [
+      "-P",
+      "--physical"
+    ]
+  },
+  {
+    "name": "relative",
+    "template_key": "relative",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "with -s, create links relative to link location",
+    "aliases": [
+      "-r",
+      "--relative"
+    ]
+  },
+  {
+    "name": "symbolic",
+    "template_key": "symbolic",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make symbolic links instead of hard links",
+    "aliases": [
+      "-s",
+      "--symbolic"
+    ]
+  },
+  {
+    "name": "suffix",
+    "template_key": "suffix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "override the usual backup suffix",
+    "aliases": [
+      "-S",
+      "--suffix"
+    ]
+  },
+  {
+    "name": "target-directory",
+    "template_key": "target-directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "specify the DIRECTORY in which to create the links",
+    "aliases": [
+      "-t",
+      "--target-directory"
+    ]
+  },
+  {
+    "name": "no-target-directory",
+    "template_key": "no-target-directory",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "treat LINK_NAME as a normal file always",
+    "aliases": [
+      "-T",
+      "--no-target-directory"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print name of each linked file --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  }
+]

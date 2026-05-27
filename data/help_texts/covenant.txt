@@ -1,0 +1,28 @@
+Covenant - .NET C2 Framework
+
+Usage: covenant [options]
+
+Start the Covenant C2 server.
+
+Options:
+  --config=FILE       Config file path
+  --port=PORT         HTTP server port (default: 7443)
+  --username=USER     Admin account username (default: admin)
+  --password=PASS     Admin account password
+  --server            Run as server only (no UI)
+  --https             Enable HTTPS
+  --cert=FILE         SSL certificate file path (.pfx)
+  --verbose           Verbose logging
+  --debug             Debug mode
+  --open-browser      Open browser on startup
+  --help              Show this help message
+
+Example:
+  covenant
+  covenant --port 8443
+  covenant --https --cert /path/to/cert.pfx
+  covenant --username redteam --password SecurePass123
+  covenant --server --port 7443
+  covenant --debug --verbose
+
+Admin UI: https://localhost:7443

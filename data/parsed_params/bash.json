@@ -1,0 +1,38 @@
+[
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--debugger --dump-po-strings --dump-strings --help --init-file --login --noediting --noprofile --norc --posix --pretty-print --rcfile --restricted --verbose --version",
+    "aliases": [
+      "--debug"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(invocation only)",
+    "aliases": [
+      "-i",
+      "-c",
+      "-O"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-a",
+      "-o"
+    ]
+  }
+]

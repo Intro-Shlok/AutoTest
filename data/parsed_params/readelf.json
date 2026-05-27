@@ -1,0 +1,559 @@
+[
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Equivalent to: -h -l -S -s -r -d -V -A -I --got-contents",
+    "aliases": [
+      "-a",
+      "--all"
+    ]
+  },
+  {
+    "name": "file-header",
+    "template_key": "file-header",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the ELF file header",
+    "aliases": [
+      "-h",
+      "--file-header"
+    ]
+  },
+  {
+    "name": "program-headers",
+    "template_key": "program-headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the program headers",
+    "aliases": [
+      "-l",
+      "--program-headers"
+    ]
+  },
+  {
+    "name": "segments",
+    "template_key": "segments",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "An alias for --program-headers",
+    "aliases": [
+      "--segments"
+    ]
+  },
+  {
+    "name": "section-headers",
+    "template_key": "section-headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the sections' header",
+    "aliases": [
+      "-S",
+      "--section-headers"
+    ]
+  },
+  {
+    "name": "sections",
+    "template_key": "sections",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "An alias for --section-headers",
+    "aliases": [
+      "--sections"
+    ]
+  },
+  {
+    "name": "section-groups",
+    "template_key": "section-groups",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the section groups",
+    "aliases": [
+      "-g",
+      "--section-groups"
+    ]
+  },
+  {
+    "name": "section-details",
+    "template_key": "section-details",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the section details",
+    "aliases": [
+      "-t",
+      "--section-details"
+    ]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Equivalent to: -h -l -S",
+    "aliases": [
+      "-e",
+      "--headers"
+    ]
+  },
+  {
+    "name": "syms",
+    "template_key": "syms",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the symbol table",
+    "aliases": [
+      "-s",
+      "--syms"
+    ]
+  },
+  {
+    "name": "symbols",
+    "template_key": "symbols",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "An alias for --syms",
+    "aliases": [
+      "--symbols"
+    ]
+  },
+  {
+    "name": "dyn-syms",
+    "template_key": "dyn-syms",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the dynamic symbol table",
+    "aliases": [
+      "--dyn-syms"
+    ]
+  },
+  {
+    "name": "lto-syms",
+    "template_key": "lto-syms",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display LTO symbol tables",
+    "aliases": [
+      "--lto-syms"
+    ]
+  },
+  {
+    "name": "sym-base",
+    "template_key": "sym-base",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Force base for symbol sizes. The options are mixed (the default), octal, decimal, hexadecimal",
+    "aliases": [
+      "--sym-base"
+    ]
+  },
+  {
+    "name": "demangle",
+    "template_key": "demangle",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "STYLE can be \"none\", \"auto\", \"gnu-v3\", \"java\", \"gnat\", \"dlang\", \"rust\" --no-demangle Do not demangle low-level symbol names. (default) --recurse-limit Enable a demangling recursion limit. (default) --no-recurse-limit Disable a demangling recursion limit -U[dlexhi] --unicode=[default|locale|escape|hex|highlight|invalid] Display unicode characters as determined by the current locale (default), escape sequences, \"<hex sequences>\", highlighted escape sequences, or treat them as invalid and display as \"{hex sequences}\" -X --extra-sym-info Display extra information when showing symbols --no-extra-sym-info Do not display extra information when showing symbols (default)",
+    "aliases": [
+      "-C",
+      "--demangle"
+    ],
+    "enum": [
+      "hex sequences"
+    ]
+  },
+  {
+    "name": "notes",
+    "template_key": "notes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the contents of note sections (if present)",
+    "aliases": [
+      "-n",
+      "--notes"
+    ]
+  },
+  {
+    "name": "relocs",
+    "template_key": "relocs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the relocations (if present)",
+    "aliases": [
+      "-r",
+      "--relocs"
+    ]
+  },
+  {
+    "name": "unwind",
+    "template_key": "unwind",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the unwind info (if present)",
+    "aliases": [
+      "-u",
+      "--unwind"
+    ]
+  },
+  {
+    "name": "dynamic",
+    "template_key": "dynamic",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the dynamic section (if present)",
+    "aliases": [
+      "-d",
+      "--dynamic"
+    ]
+  },
+  {
+    "name": "version-info",
+    "template_key": "version-info",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the version sections (if present)",
+    "aliases": [
+      "-V",
+      "--version-info"
+    ]
+  },
+  {
+    "name": "arch-specific",
+    "template_key": "arch-specific",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display architecture specific information (if any)",
+    "aliases": [
+      "-A",
+      "--arch-specific"
+    ]
+  },
+  {
+    "name": "archive-index",
+    "template_key": "archive-index",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the symbol/file index in an archive",
+    "aliases": [
+      "-c",
+      "--archive-index"
+    ]
+  },
+  {
+    "name": "use-dynamic",
+    "template_key": "use-dynamic",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use the dynamic section info when displaying symbols",
+    "aliases": [
+      "-D",
+      "--use-dynamic"
+    ]
+  },
+  {
+    "name": "lint",
+    "template_key": "lint",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display warning messages for possible problems",
+    "aliases": [
+      "-L",
+      "--lint",
+      "--enable-checks"
+    ]
+  },
+  {
+    "name": "hex-dump",
+    "template_key": "hex-dump",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump the contents of section <number|name> as bytes",
+    "aliases": [
+      "-x",
+      "--hex-dump"
+    ]
+  },
+  {
+    "name": "string-dump",
+    "template_key": "string-dump",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump the contents of section <number|name> as strings",
+    "aliases": [
+      "-p",
+      "--string-dump"
+    ]
+  },
+  {
+    "name": "relocated-dump",
+    "template_key": "relocated-dump",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump the relocated contents of section <number|name>",
+    "aliases": [
+      "-R",
+      "--relocated-dump"
+    ]
+  },
+  {
+    "name": "decompress",
+    "template_key": "decompress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Decompress section before dumping it",
+    "aliases": [
+      "-z",
+      "--decompress"
+    ]
+  },
+  {
+    "name": "display-section",
+    "template_key": "display-section",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the contents of the indicated section. Can be repeated",
+    "aliases": [
+      "-j",
+      "--display-section"
+    ]
+  },
+  {
+    "name": "debug-dump",
+    "template_key": "debug-dump",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "f/=frames, F/=frames-interp, g/=gdb_index, i/=info, o/=loc, m/=macro, p/=pubnames, t/=pubtypes, R/=Ranges, l/=rawline, s/=str, O/=str-offsets, u/=trace_abbrev, T/=trace_aranges, U/=trace_info] Display the contents of DWARF debug sections",
+    "aliases": [
+      "-w",
+      "--debug-dump"
+    ]
+  },
+  {
+    "name": "debug-dump-2",
+    "template_key": "debug-dump-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "debuginfo files",
+    "aliases": [
+      "-w",
+      "--debug-dump"
+    ]
+  },
+  {
+    "name": "process-links",
+    "template_key": "process-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the contents of non-debug sections in separate",
+    "aliases": [
+      "-P",
+      "--process-links"
+    ]
+  },
+  {
+    "name": "debug-dump-3",
+    "template_key": "debug-dump-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Follow links to separate debug info files (default)",
+    "aliases": [
+      "-w",
+      "-l",
+      "--debug-dump"
+    ]
+  },
+  {
+    "name": "debug-dump-4",
+    "template_key": "debug-dump-4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not follow links to separate debug info files",
+    "aliases": [
+      "-w",
+      "-f",
+      "-l",
+      "--debug-dump"
+    ]
+  },
+  {
+    "name": "dwarf-depth",
+    "template_key": "dwarf-depth",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Do not display DIEs at depth N or greater",
+    "aliases": [
+      "--dwarf-depth"
+    ]
+  },
+  {
+    "name": "dwarf-start",
+    "template_key": "dwarf-start",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Display DIEs starting at offset N",
+    "aliases": [
+      "--dwarf-start"
+    ]
+  },
+  {
+    "name": "ctf",
+    "template_key": "ctf",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display CTF info from section <number|name>",
+    "aliases": [
+      "--ctf"
+    ]
+  },
+  {
+    "name": "ctf-parent",
+    "template_key": "ctf-parent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use CTF archive member <name> as the CTF parent",
+    "aliases": [
+      "--ctf-parent"
+    ]
+  },
+  {
+    "name": "ctf-symbols",
+    "template_key": "ctf-symbols",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use section <number|name> as the CTF external symtab",
+    "aliases": [
+      "--ctf-symbols"
+    ]
+  },
+  {
+    "name": "ctf-strings",
+    "template_key": "ctf-strings",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use section <number|name> as the CTF external strtab",
+    "aliases": [
+      "--ctf-strings"
+    ]
+  },
+  {
+    "name": "sframe",
+    "template_key": "sframe",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display SFrame info from section NAME, (default '.sframe')",
+    "aliases": [
+      "--sframe"
+    ]
+  },
+  {
+    "name": "histogram",
+    "template_key": "histogram",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display histogram of bucket list lengths",
+    "aliases": [
+      "-I",
+      "--histogram"
+    ]
+  },
+  {
+    "name": "got-contents",
+    "template_key": "got-contents",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display GOT section contents",
+    "aliases": [
+      "--got-contents"
+    ]
+  },
+  {
+    "name": "wide",
+    "template_key": "wide",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Allow output width to exceed 80 characters",
+    "aliases": [
+      "-W",
+      "--wide"
+    ]
+  },
+  {
+    "name": "silent-truncation I",
+    "template_key": "silent-truncation-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-T",
+      "--silent-truncation I"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display this information",
+    "aliases": [
+      "-H",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Display the version number of readelf",
+    "aliases": [
+      "-v",
+      "--version"
+    ]
+  }
+]

@@ -1,0 +1,115 @@
+[
+  {
+    "name": "count",
+    "template_key": "count",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "prefix lines by the number of occurrences",
+    "aliases": [
+      "-c",
+      "--count"
+    ]
+  },
+  {
+    "name": "repeated",
+    "template_key": "repeated",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "only print duplicate lines, one for each group",
+    "aliases": [
+      "-d",
+      "--repeated"
+    ]
+  },
+  {
+    "name": "flag-D",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print all duplicate lines --all-repeated[=METHOD] like -D, but allow separating groups with an empty line; METHOD={none(default),prepend,separate}",
+    "aliases": [
+      "-D"
+    ],
+    "enum": [
+      "none(default),prepend,separate"
+    ]
+  },
+  {
+    "name": "skip-fields",
+    "template_key": "skip-fields",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "avoid comparing the first N fields --group[=METHOD] show all items, separating groups with an empty line; METHOD={separate(default),prepend,append,both}",
+    "aliases": [
+      "-f",
+      "--skip-fields"
+    ],
+    "enum": [
+      "separate(default),prepend,append,both"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore differences in case when comparing",
+    "aliases": [
+      "-i",
+      "--ignore-case"
+    ]
+  },
+  {
+    "name": "skip-chars",
+    "template_key": "skip-chars",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "avoid comparing the first N characters",
+    "aliases": [
+      "-s",
+      "--skip-chars"
+    ]
+  },
+  {
+    "name": "unique",
+    "template_key": "unique",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "only print unique lines",
+    "aliases": [
+      "-u",
+      "--unique"
+    ]
+  },
+  {
+    "name": "zero-terminated",
+    "template_key": "zero-terminated",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "line delimiter is NUL, not newline",
+    "aliases": [
+      "-z",
+      "--zero-terminated"
+    ]
+  },
+  {
+    "name": "check-chars",
+    "template_key": "check-chars",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "compare no more than N characters in lines --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-w",
+      "--check-chars"
+    ]
+  }
+]

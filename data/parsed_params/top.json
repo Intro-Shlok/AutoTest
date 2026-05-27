@@ -1,0 +1,230 @@
+[
+  {
+    "name": "batch-mode",
+    "template_key": "batch-mode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "run in non-interactive batch mode",
+    "aliases": [
+      "-b",
+      "--batch-mode"
+    ]
+  },
+  {
+    "name": "cmdline-toggle",
+    "template_key": "cmdline-toggle",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "reverse last remembered 'c' state",
+    "aliases": [
+      "-c",
+      "--cmdline-toggle"
+    ]
+  },
+  {
+    "name": "delay",
+    "template_key": "delay",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "iterative delay as SECS [.TENTHS]",
+    "aliases": [
+      "-d",
+      "--delay"
+    ]
+  },
+  {
+    "name": "scale-summary-mem",
+    "template_key": "scale-summary-mem",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-E",
+      "--scale-summary-mem"
+    ]
+  },
+  {
+    "name": "scale-task-mem",
+    "template_key": "scale-task-mem",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set mem with: k,m,g,t,p for SCALE",
+    "aliases": [
+      "-e",
+      "--scale-task-mem"
+    ]
+  },
+  {
+    "name": "threads-show",
+    "template_key": "threads-show",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show tasks plus all their threads",
+    "aliases": [
+      "-H",
+      "--threads-show"
+    ]
+  },
+  {
+    "name": "idle-toggle",
+    "template_key": "idle-toggle",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "reverse last remembered 'i' state",
+    "aliases": [
+      "-i",
+      "--idle-toggle"
+    ]
+  },
+  {
+    "name": "iterations",
+    "template_key": "iterations",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exit on maximum iterations NUMBER",
+    "aliases": [
+      "-n",
+      "--iterations"
+    ]
+  },
+  {
+    "name": "list-fields",
+    "template_key": "list-fields",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output all field names, then exit",
+    "aliases": [
+      "-O",
+      "--list-fields"
+    ]
+  },
+  {
+    "name": "sort-override",
+    "template_key": "sort-override",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "force sorting on this named FIELD",
+    "aliases": [
+      "-o",
+      "--sort-override"
+    ]
+  },
+  {
+    "name": "pid",
+    "template_key": "pid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "monitor only the tasks in PIDLIST",
+    "aliases": [
+      "-p",
+      "--pid"
+    ]
+  },
+  {
+    "name": "accum-time-toggle",
+    "template_key": "accum-time-toggle",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "reverse last remembered 'S' state",
+    "aliases": [
+      "-S",
+      "--accum-time-toggle"
+    ]
+  },
+  {
+    "name": "secure-mode",
+    "template_key": "secure-mode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "run with secure mode restrictions",
+    "aliases": [
+      "-s",
+      "--secure-mode"
+    ]
+  },
+  {
+    "name": "filter-any-user",
+    "template_key": "filter-any-user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show only processes owned by USER",
+    "aliases": [
+      "-U",
+      "--filter-any-user"
+    ]
+  },
+  {
+    "name": "filter-only-euser",
+    "template_key": "filter-only-euser",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show only processes owned by USER",
+    "aliases": [
+      "-u",
+      "--filter-only-euser"
+    ]
+  },
+  {
+    "name": "width",
+    "template_key": "width",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "change print width [,use COLUMNS]",
+    "aliases": [
+      "-w",
+      "--width ["
+    ]
+  },
+  {
+    "name": "single-cpu-toggle",
+    "template_key": "single-cpu-toggle",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "reverse last remembered '1' state",
+    "aliases": [
+      "-1",
+      "--single-cpu-toggle"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help text, then exit",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output version information & exit",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  }
+]

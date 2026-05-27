@@ -1,0 +1,252 @@
+[
+  {
+    "name": "null",
+    "template_key": "null",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "items are separated by a null, not whitespace",
+    "aliases": [
+      "-0",
+      "--null"
+    ]
+  },
+  {
+    "name": "arg-file",
+    "template_key": "arg-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "read arguments from FILE, not standard input",
+    "aliases": [
+      "-a",
+      "--arg-file"
+    ]
+  },
+  {
+    "name": "delimiter",
+    "template_key": "delimiter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "items in input stream are separated by CHARACTER",
+    "aliases": [
+      "-d",
+      "--delimiter"
+    ]
+  },
+  {
+    "name": "flag-E",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set logical EOF string; if END occurs as a line",
+    "aliases": [
+      "-E"
+    ]
+  },
+  {
+    "name": "eof",
+    "template_key": "eof",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to -E END if END is specified",
+    "aliases": [
+      "-e",
+      "--eof"
+    ]
+  },
+  {
+    "name": "flag-I",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "same as --replace=R",
+    "aliases": [
+      "-I"
+    ]
+  },
+  {
+    "name": "replace",
+    "template_key": "replace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "replace R in INITIAL-ARGS with names read",
+    "aliases": [
+      "-i",
+      "--replace"
+    ]
+  },
+  {
+    "name": "max-lines",
+    "template_key": "max-lines",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "use at most MAX-LINES non-blank input lines per",
+    "aliases": [
+      "-L",
+      "-L",
+      "--max-lines"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "similar to -L but defaults to at most one non-",
+    "aliases": [
+      "-l",
+      "-L"
+    ]
+  },
+  {
+    "name": "max-args",
+    "template_key": "max-args",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "use at most MAX-ARGS arguments per command line",
+    "aliases": [
+      "-n",
+      "-A",
+      "--max-args"
+    ]
+  },
+  {
+    "name": "open-tty",
+    "template_key": "open-tty",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Reopen stdin as /dev/tty in the child process",
+    "aliases": [
+      "-o",
+      "--open-tty"
+    ]
+  },
+  {
+    "name": "max-procs",
+    "template_key": "max-procs",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "run at most MAX-PROCS processes at a time",
+    "aliases": [
+      "-P",
+      "-P",
+      "--max-procs"
+    ]
+  },
+  {
+    "name": "interactive",
+    "template_key": "interactive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "prompt before running commands",
+    "aliases": [
+      "-p",
+      "--interactive"
+    ]
+  },
+  {
+    "name": "process-slot-var",
+    "template_key": "process-slot-var",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set environment variable VAR in child processes",
+    "aliases": [
+      "--process-slot-var"
+    ]
+  },
+  {
+    "name": "no-run-if-empty",
+    "template_key": "no-run-if-empty",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "if there are no arguments, then do not run COMMAND",
+    "aliases": [
+      "-r",
+      "--no-run-if-empty"
+    ]
+  },
+  {
+    "name": "max-chars",
+    "template_key": "max-chars",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "limit length of command line to MAX-CHARS",
+    "aliases": [
+      "-s",
+      "-C",
+      "--max-chars"
+    ]
+  },
+  {
+    "name": "show-limits",
+    "template_key": "show-limits",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show limits on command-line length",
+    "aliases": [
+      "--show-limits"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print commands before executing them",
+    "aliases": [
+      "-t",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "exit",
+    "template_key": "exit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exit if the size (see -s) is exceeded",
+    "aliases": [
+      "-x",
+      "--exit"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output version information and exit",
+    "aliases": [
+      "--version"
+    ]
+  }
+]

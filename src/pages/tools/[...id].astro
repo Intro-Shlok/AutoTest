@@ -1,0 +1,325 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CVSSWidget from "../../components/CVSSWidget.astro";
+import CosmosBar from "../../components/CosmosBar.astro";
+import CommandPreview from "../../components/CommandPreview.astro";
+import { getCollection } from "astro:content";
+import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
+import { marked } from "marked";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+  return tools
+    .filter((t) => t.data.id && /^[a-z0-9]+(-[a-z0-9]+)+$/.test(t.data.id))
+    .map((tool) => ({
+      params: { id: tool.data.id },
+      props: { entry: tool },
+    }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+
+let bodyHtml = "";
+let integrityHash = "";
+const rootDir = path.resolve("src/content/tools");
+const candidateNames = [
+  data.id + ".md",
+  data.name + ".md",
+  (data.namespace || "").split(":").pop() + ".md",
+];
+for (const name of [...new Set(candidateNames)]) {
+  const fp = path.join(rootDir, name);
+  if (fs.existsSync(fp)) {
+    const raw = fs.readFileSync(fp);
+    const parts = raw.toString().split("---");
+    if (parts.length >= 3) {
+      bodyHtml = marked(parts.slice(2).join("---").trim());
+    }
+    integrityHash = crypto.createHash("sha256").update(raw).digest("hex");
+    break;
+  }
+}
+
+const domain = (data.namespace || "").split(":")[0];
+const riskCls = data.risk_level ? `tag-risk-${data.risk_level}` : "";
+const inputArtifacts = (data.contract?.inputs || []).map((i: any) => i.type);
+const outputArtifacts = (data.contract?.outputs || []).map((o: any) => o.type);
+---
+
+<BaseLayout title={data.name} description={data.description} namespace={data.namespace}>
+  <div class="two-col">
+    <div>
+      <div class="meta-bar">
+        <span class="tag tag-domain">{domain}</span>
+        {data.execution_policy && <span class="tag">{data.execution_policy}</span>}
+        {data.trust_level && <span class="tag tag-trust">{data.trust_level}</span>}
+        {data.risk_level && <span class={`tag ${riskCls}`}>{data.risk_level}</span>}
+        <span class="tag">v{data.version}</span>
+      </div>
+
+      <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">{data.name}</h1>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>{data.description}</em></p>
+
+      <CosmosBar />
+      <CommandPreview
+        template={data.execution?.template || ""}
+        parameters={data.parameters || []}
+        globalVars={data.global_vars || {}}
+      />
+
+      {data.execution?.template && (
+        <div style="margin-bottom: 1.5rem;">
+          <pre><code>{data.execution.template}</code></pre>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+            Sandbox: {data.execution.sandbox} &middot; Timeout: {data.execution.timeout_seconds || 30}s
+            {data.execution.container?.image ? ` &middot; Container: ${data.execution.container.image}` : ""}
+          </p>
+        </div>
+      )}
+    </div>
+
+    <aside class="sidebar-info">
+      {data.risk_level && <CVSSWidget riskLevel={data.risk_level} />}
+      <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div>
+      <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>{data.id}</code></span></div>
+      <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>{data.namespace}</code></span></div>
+      <div class="info-row"><span class="info-label">Version</span><span class="info-value">{data.version}</span></div>
+      <div class="info-row"><span class="info-label">Risk</span><span class={`info-value ${riskCls}`}>{data.risk_level || "N/A"}</span></div>
+      <div class="info-row"><span class="info-label">Trust</span><span class="info-value">{data.trust_level || "N/A"}</span></div>
+      <div class="info-row"><span class="info-label">Policy</span><span class="info-value">{data.execution_policy || "enabled"}</span></div>
+      <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">{(data.platforms || []).join(", ") || "any"}</span></div>
+      <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">{(data.architectures || []).join(", ") || "any"}</span></div>
+      {data["allowed-tools"]?.length > 0 && (
+        <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">{data["allowed-tools"].join(", ")}</span></div>
+      )}
+      {integrityHash && (
+        <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;">
+          <span class="info-label">Integrity</span>
+          <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:{integrityHash}</span>
+        </div>
+      )}
+      {data.items?.length > 0 && (
+        <div class="info-row"><span class="info-label">Requires</span><span class="info-value" style="font-size:0.8rem;">{data.items.join(", ")}</span></div>
+      )}
+      {data.services?.length > 0 && (
+        <div class="info-row"><span class="info-label">Services</span><span class="info-value" style="font-size:0.8rem;">{data.services.join(", ")}</span></div>
+      )}
+      {data.attack_types?.length > 0 && (
+        <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">{data.attack_types.join(", ")}</span></div>
+      )}
+      {data.techniques?.length > 0 && (
+        <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">{data.techniques.join(", ")}</span></div>
+      )}
+      {data.mitre_ids?.length > 0 && (
+        <div class="info-row"><span class="info-label">MITRE IDs</span><span class="info-value" style="font-size:0.8rem;">{data.mitre_ids.join(", ")}</span></div>
+      )}
+    </aside>
+  </div>
+
+  {data.capabilities && data.capabilities.length > 0 && (
+    <div class="section">
+      <h2>Capabilities</h2>
+      <div class="card-grid cols-2" style="margin-bottom:0;">
+        {data.capabilities.map((c: string) => (
+          <div class="card" style="padding:0.75rem 1rem;animation:none;">
+            <code>{c}</code>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {data.parameters && data.parameters.length > 0 && (
+    <div class="section">
+      <h2>Parameters</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Required</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Aliases</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.parameters.map((p: any) => (
+              <tr>
+                <td><code>{p.name}</code></td>
+                <td>{p.type}</td>
+                <td>{p.required ? "Yes" : "No"}</td>
+                <td>{p.default_value ?? "-"}</td>
+                <td>{p.description}</td>
+                <td>{p.aliases?.map((a: string) => <code>{a}</code>).reduce((acc: any[], item: any, i: number) => [...acc, i > 0 ? ", " : "", item], []) || "-"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {data.artifacts && data.artifacts.length > 0 && (
+    <div class="section">
+      <h2>Artifacts</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr>
+          </thead>
+          <tbody>
+            {data.artifacts.map((a: any) => (
+              <tr><td><code>{a.type}</code></td><td>{a.description}</td><td>{a.mime || "-"}</td><td>{a.schema_version || "-"}</td><td>{a.trust_level || "community"}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {data.contract && ((data.contract.inputs?.length || 0) + (data.contract.outputs?.length || 0)) > 0 && (
+    <div class="section">
+      <h2>Contract</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        {data.contract.inputs?.length > 0 && (
+          <div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p>
+            {data.contract.inputs.map((i: any) => (
+              <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;">
+                <code>{i.type}</code>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">{i.description || ""}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {data.contract.outputs?.length > 0 && (
+          <div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p>
+            {data.contract.outputs.map((o: any) => (
+              <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;">
+                <code>{o.type}</code>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">{o.description || ""}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      {data.contract.side_effects && (
+        <div class="card" style="margin-top:0.75rem;animation:none;">
+          <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span>
+          <code style="font-size:0.8rem;">{data.contract.side_effects}</code>
+        </div>
+      )}
+    </div>
+  )}
+
+  {(inputArtifacts.length > 0 || outputArtifacts.length > 0) && (
+    <div class="section">
+      <h2>Workflow Edges</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        {outputArtifacts.length > 0 && (
+          <div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p>
+            {outputArtifacts.map((art: string) => <span class="tag" style="margin:0.15rem;">{art}</span>)}
+          </div>
+        )}
+        {inputArtifacts.length > 0 && (
+          <div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p>
+            {inputArtifacts.map((art: string) => <span class="tag" style="margin:0.15rem;">{art}</span>)}
+          </div>
+        )}
+      </div>
+    </div>
+  )}
+
+  {data.resource_profile && (
+    <div class="section">
+      <h2>Resource Profile</h2>
+      <div class="table-wrap" style="max-width:400px;">
+        <table>
+          <thead><tr><th>Resource</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>CPU</td><td>{data.resource_profile.cpu}</td></tr>
+            {data.resource_profile.memory_mb && <tr><td>Memory</td><td>{data.resource_profile.memory_mb} MB</td></tr>}
+            <tr><td>Network</td><td>{data.resource_profile.network}</td></tr>
+            <tr><td>Disk I/O</td><td>{data.resource_profile.disk_io}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {data.examples && data.examples.length > 0 && (
+    <div class="section">
+      <h2>Examples</h2>
+      {data.examples.map((ex: any) => (
+        <div class="example">
+          <p><strong>{ex.description}</strong></p>
+          <pre><code>{ex.command}</code></pre>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {data.detections && data.detections.length > 0 && (
+    <div class="section">
+      <h2>Detection</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Rule / Indicator</th></tr>
+          </thead>
+          <tbody>
+            {data.detections.map((d: any) => (
+              <tr>
+                <td><span class="tag tag-detection">{d.type}</span></td>
+                <td>
+                  {d.url ? <a href={d.url} target="_blank" style="font-size:0.85rem;">{d.rule_id || d.url}</a> : ""}
+                  {d.description ? <span style="font-size:0.85rem;color:var(--text-secondary);">{d.description}</span> : ""}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {bodyHtml && (
+    <div class="section">
+      <h2>Documentation</h2>
+      <div class="body-content" set:html={bodyHtml} />
+    </div>
+  )}
+
+  {data.dependencies && data.dependencies.length > 0 && (
+    <div class="section">
+      <h2>Dependencies</h2>
+      {data.dependencies.map((d: string) => <span class="tag" style="margin:0.15rem;">{d}</span>)}
+    </div>
+  )}
+
+  {data.related_tools && data.related_tools.length > 0 && (
+    <div class="section">
+      <h2>Related Tools</h2>
+      {data.related_tools.map((t: string) => <span class="tag" style="margin:0.15rem;">{t}</span>)}
+    </div>
+  )}
+
+  {data.references && data.references.length > 0 && (
+    <div class="section">
+      <h2>References</h2>
+      <ul>
+        {data.references.map((ref: any) => (
+          <li><a href={ref.url} target="_blank">{ref.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  )}
+</BaseLayout>

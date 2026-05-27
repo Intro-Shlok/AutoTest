@@ -1,0 +1,182 @@
+[
+  {
+    "name": "one-byte-octal",
+    "template_key": "one-byte-octal",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "one-byte octal display",
+    "aliases": [
+      "-b",
+      "--one-byte-octal"
+    ]
+  },
+  {
+    "name": "one-byte-hex",
+    "template_key": "one-byte-hex",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "one-byte hexadecimal display",
+    "aliases": [
+      "-X",
+      "--one-byte-hex"
+    ]
+  },
+  {
+    "name": "one-byte-char",
+    "template_key": "one-byte-char",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "one-byte character display",
+    "aliases": [
+      "-c",
+      "--one-byte-char"
+    ]
+  },
+  {
+    "name": "canonical",
+    "template_key": "canonical",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "canonical hex+ASCII display",
+    "aliases": [
+      "-C",
+      "--canonical"
+    ]
+  },
+  {
+    "name": "two-bytes-decimal",
+    "template_key": "two-bytes-decimal",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "two-byte decimal display",
+    "aliases": [
+      "-d",
+      "--two-bytes-decimal"
+    ]
+  },
+  {
+    "name": "two-bytes-octal",
+    "template_key": "two-bytes-octal",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "two-byte octal display",
+    "aliases": [
+      "-o",
+      "--two-bytes-octal"
+    ]
+  },
+  {
+    "name": "two-bytes-hex",
+    "template_key": "two-bytes-hex",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "two-byte hexadecimal display",
+    "aliases": [
+      "-x",
+      "--two-bytes-hex"
+    ]
+  },
+  {
+    "name": "color",
+    "template_key": "color",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "interpret color formatting specifiers",
+    "aliases": [
+      "-L",
+      "--color"
+    ]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "format string to be used for displaying data",
+    "aliases": [
+      "-e",
+      "--format <format>"
+    ]
+  },
+  {
+    "name": "format-file",
+    "template_key": "format-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-f",
+      "--format-file <file>"
+    ]
+  },
+  {
+    "name": "length",
+    "template_key": "length",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "interpret only length bytes of input",
+    "aliases": [
+      "-n",
+      "--length <length>"
+    ]
+  },
+  {
+    "name": "skip",
+    "template_key": "skip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip offset bytes from the beginning",
+    "aliases": [
+      "-s",
+      "--skip <offset>"
+    ]
+  },
+  {
+    "name": "no-squeezing",
+    "template_key": "no-squeezing",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output identical lines",
+    "aliases": [
+      "-v",
+      "--no-squeezing"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display version",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  }
+]

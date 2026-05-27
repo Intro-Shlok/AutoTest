@@ -1,0 +1,45 @@
+John the Ripper 1.9.0-jumbo-1 OMP [linux-gnu 64-bit x86_64]
+Copyright (c) 1996-2023 by Solar Designer and others
+
+Usage: john [OPTIONS] [PASSWORD-FILES]
+
+Cracking modes:
+  --single             "single crack" mode
+  --wordlist=FILE      wordlist mode, read words from FILE
+  --incremental[=MODE] incremental mode [using section MODE]
+  --external=MODE      external mode or word filter
+  --stdin              read plaintexts from stdin
+  --mask=MASK          mask attack using MASK
+  --markov             Markov mode
+  --prince=FILE        PRINCE mode (read candidates from FILE)
+
+Wordlist and rules:
+  --rules[=SECTION]    enable wordlist rules [with SECTION]
+  --rules-stack=RULE   stack additional rule(s)
+  --rules-logic=LABEL  apply logic rules
+
+Session management:
+  --session=NAME       give a new session a NAME
+  --restore[=NAME]     restore an interrupted session
+  --status[=NAME]      print status of a running session
+
+Configuration:
+  --config=FILE        use FILE instead of john.conf or john.ini
+  --pot=FILE           pot file to use
+  --encoding=NAME      input encoding (eg utf-8, cp1251)
+  --format=NAME        hash format (eg raw-md5, bcrypt)
+  --user=LOGIN[,...]   crack specific user(s) only
+  --groups=GRP[,...]   crack specific group(s) only
+
+Performance:
+  --fork=N             fork N processes
+  --node=MIN[-MAX]/TOTAL  set node for distributed cracking
+  --mem-file-size=SIZE  max memory per file buffer (MB)
+  --max-candidates=N   max candidates per second
+  --max-run-time=N     max runtime in seconds
+  --progress-every=N   emit status line every N seconds
+
+Output:
+  --show[=LEFT]        show cracked passwords [also uncracked]
+  --make-charset=FILE  generate charset file
+  --list=WHAT          list capabilities (formats, modes, etc)

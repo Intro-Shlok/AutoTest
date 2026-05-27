@@ -1,0 +1,323 @@
+[
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output version information and exit",
+    "aliases": [
+      "-v",
+      "--version"
+    ]
+  },
+  {
+    "name": "magic-file LIST",
+    "template_key": "magic-file-list",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "use LIST as a colon-separated list of magic",
+    "aliases": [
+      "-m",
+      "--magic-file LIST"
+    ]
+  },
+  {
+    "name": "uncompress",
+    "template_key": "uncompress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "try to look inside compressed files",
+    "aliases": [
+      "-z",
+      "--uncompress"
+    ]
+  },
+  {
+    "name": "uncompress-noreport",
+    "template_key": "uncompress-noreport",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-Z",
+      "--uncompress-noreport"
+    ]
+  },
+  {
+    "name": "brief",
+    "template_key": "brief",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "do not prepend filenames to output lines",
+    "aliases": [
+      "-b",
+      "--brief"
+    ]
+  },
+  {
+    "name": "checking-printout",
+    "template_key": "checking-printout",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the parsed form of the magic file, use in",
+    "aliases": [
+      "-c",
+      "--checking-printout"
+    ]
+  },
+  {
+    "name": "exclude TEST",
+    "template_key": "exclude-test",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "exclude TEST from the list of test to be",
+    "aliases": [
+      "-e",
+      "--exclude TEST"
+    ]
+  },
+  {
+    "name": "exclude-quiet TEST",
+    "template_key": "exclude-quiet-test",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like exclude, but ignore unknown tests",
+    "aliases": [
+      "--exclude-quiet TEST"
+    ]
+  },
+  {
+    "name": "files-from FILE",
+    "template_key": "files-from-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "read the filenames to be examined from FILE",
+    "aliases": [
+      "-f",
+      "--files-from FILE"
+    ]
+  },
+  {
+    "name": "separator STRING",
+    "template_key": "separator-string",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use string as separator instead of `:'",
+    "aliases": [
+      "-F",
+      "--separator STRING"
+    ]
+  },
+  {
+    "name": "mime",
+    "template_key": "mime",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output MIME type strings (--mime-type and",
+    "aliases": [
+      "-i",
+      "--mime"
+    ]
+  },
+  {
+    "name": "mime-encoding",
+    "template_key": "mime-encoding",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "--apple output the Apple CREATOR/TYPE --extension output a slash-separated list of extensions --mime-type output the MIME type --mime-encoding output the MIME encoding",
+    "aliases": [
+      "--mime-encoding"
+    ]
+  },
+  {
+    "name": "keep-going",
+    "template_key": "keep-going",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't stop at the first match",
+    "aliases": [
+      "-k",
+      "--keep-going"
+    ]
+  },
+  {
+    "name": "list",
+    "template_key": "list",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "list magic strength",
+    "aliases": [
+      "-l",
+      "--list"
+    ]
+  },
+  {
+    "name": "dereference",
+    "template_key": "dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "follow symlinks (default if POSIXLY_CORRECT is set)",
+    "aliases": [
+      "-L",
+      "--dereference"
+    ]
+  },
+  {
+    "name": "no-dereference",
+    "template_key": "no-dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't follow symlinks (default if POSIXLY_CORRECT is not set) (default)",
+    "aliases": [
+      "-h",
+      "--no-dereference"
+    ]
+  },
+  {
+    "name": "no-buffer",
+    "template_key": "no-buffer",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not buffer output",
+    "aliases": [
+      "-n",
+      "--no-buffer"
+    ]
+  },
+  {
+    "name": "no-pad",
+    "template_key": "no-pad",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not pad output",
+    "aliases": [
+      "-N",
+      "--no-pad"
+    ]
+  },
+  {
+    "name": "print0",
+    "template_key": "print0",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "terminate filenames with ASCII NUL",
+    "aliases": [
+      "-0",
+      "--print0"
+    ]
+  },
+  {
+    "name": "preserve-date",
+    "template_key": "preserve-date",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve access times on files",
+    "aliases": [
+      "-p",
+      "--preserve-date"
+    ]
+  },
+  {
+    "name": "parameter",
+    "template_key": "parameter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set file engine parameter limits",
+    "aliases": [
+      "-P",
+      "--parameter"
+    ]
+  },
+  {
+    "name": "raw",
+    "template_key": "raw",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't translate unprintable chars to \\ooo",
+    "aliases": [
+      "-r",
+      "--raw"
+    ]
+  },
+  {
+    "name": "special-files",
+    "template_key": "special-files",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "treat special (block/char devices) files as",
+    "aliases": [
+      "-s",
+      "--special-files"
+    ]
+  },
+  {
+    "name": "no-sandbox",
+    "template_key": "no-sandbox",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable system call sandboxing",
+    "aliases": [
+      "-S",
+      "--no-sandbox"
+    ]
+  },
+  {
+    "name": "compile",
+    "template_key": "compile",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compile file specified by -m",
+    "aliases": [
+      "-C",
+      "--compile"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print debugging messages",
+    "aliases": [
+      "-d",
+      "--debug"
+    ]
+  }
+]

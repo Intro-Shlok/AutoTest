@@ -1,0 +1,146 @@
+[
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL with FUZZ keyword",
+    "aliases": ["-u"]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": true,
+    "default_value": null,
+    "description": "Path to wordlist file",
+    "aliases": ["-w"]
+  },
+  {
+    "name": "method",
+    "template_key": "method",
+    "type": "string",
+    "required": false,
+    "default_value": "GET",
+    "description": "HTTP method (GET, POST, PUT, etc.)",
+    "aliases": ["-X"]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": ["-H"]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "POST request body",
+    "aliases": ["-d"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy URL",
+    "aliases": ["-p"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 40,
+    "description": "Number of concurrent threads",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Output file path",
+    "aliases": ["-o"]
+  },
+  {
+    "name": "output-format",
+    "template_key": "output-format",
+    "type": "string",
+    "required": false,
+    "default_value": "json",
+    "description": "Output format: json, csv, html, md",
+    "aliases": ["-of"]
+  },
+  {
+    "name": "filter-code",
+    "template_key": "filter-code",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by HTTP status codes",
+    "aliases": ["-fc"]
+  },
+  {
+    "name": "filter-size",
+    "template_key": "filter-size",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by response size",
+    "aliases": ["-fs"]
+  },
+  {
+    "name": "filter-words",
+    "template_key": "filter-words",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by word count",
+    "aliases": ["-fw"]
+  },
+  {
+    "name": "filter-lines",
+    "template_key": "filter-lines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by line count",
+    "aliases": ["-fl"]
+  },
+  {
+    "name": "follow-redirect",
+    "template_key": "follow-redirect",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Follow HTTP redirects",
+    "aliases": ["-r"]
+  },
+  {
+    "name": "recursion",
+    "template_key": "recursion",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable recursion",
+    "aliases": ["-recursion"]
+  },
+  {
+    "name": "auto-calibration",
+    "template_key": "auto-calibration",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Auto-calibrate filtering",
+    "aliases": ["-ac"]
+  }
+]

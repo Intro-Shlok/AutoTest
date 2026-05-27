@@ -1,0 +1,30 @@
+BeEF - Browser Exploitation Framework
+
+Usage: beef [options]
+
+Start the BeEF server with the specified configuration.
+
+Options:
+  -x, --config=FILE       Configuration file (default: config.yaml)
+  -p, --port=PORT         Bind port (default: 3000)
+  -H, --host=ADDR         Bind address (default: 0.0.0.0)
+  -P, --password=PASS     Admin UI password
+  -c, --cmd=CMD           Execute command
+  -d, --debug             Enable debug mode
+  -v, --verbose           Verbose output
+  -r, --restful           Enable RESTful API
+  -s, --ssl               Enable SSL/TLS
+  -D, --daemon            Daemonize (run in background)
+  -l, --log=FILE          Log file path
+  --ui=PORT               UI server port
+  --ui-host=ADDR          UI server bind address
+  -h, --help              Show this help message
+
+Example:
+  beef -x config.yaml
+  beef -x config.yaml -p 8080 -s
+  beef -x config.yaml -D
+  beef -x config.yaml -H 10.0.0.1 -p 3000
+
+Admin UI: https://localhost:3000/ui/panel
+Default credentials: beef:beef

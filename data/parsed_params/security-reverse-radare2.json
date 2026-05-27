@@ -1,0 +1,110 @@
+[
+  {
+    "name": "analyze",
+    "template_key": "analyze",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Automatically analyze the binary after loading",
+    "aliases": ["-A"]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Start in debug mode",
+    "aliases": ["-d"]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Quiet mode (suppress banners)",
+    "aliases": ["-q"]
+  },
+  {
+    "name": "write",
+    "template_key": "write",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Open file in write mode for patching",
+    "aliases": ["-w"]
+  },
+  {
+    "name": "script",
+    "template_key": "script",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Run commands from script file",
+    "aliases": ["-i"]
+  },
+  {
+    "name": "command",
+    "template_key": "command",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Run a single command and exit",
+    "aliases": ["-c"]
+  },
+  {
+    "name": "project",
+    "template_key": "project",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use a project file",
+    "aliases": ["-p"]
+  },
+  {
+    "name": "seek",
+    "template_key": "seek",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Seek to a specific address",
+    "aliases": ["-s"]
+  },
+  {
+    "name": "bits",
+    "template_key": "bits",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set CPU bits (32 or 64)",
+    "aliases": ["-b"]
+  },
+  {
+    "name": "arch",
+    "template_key": "arch",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set target architecture",
+    "aliases": ["-a"]
+  },
+  {
+    "name": "eval",
+    "template_key": "eval",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Evaluate a configuration variable",
+    "aliases": ["-e"]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Binary file to analyze",
+    "aliases": []
+  }
+]

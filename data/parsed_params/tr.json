@@ -1,0 +1,62 @@
+[
+  {
+    "name": "complement",
+    "template_key": "complement",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use the complement of ARRAY1",
+    "aliases": [
+      "-c",
+      "-C",
+      "--complement"
+    ]
+  },
+  {
+    "name": "delete",
+    "template_key": "delete",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "delete characters in ARRAY1, do not translate",
+    "aliases": [
+      "-d",
+      "--delete"
+    ]
+  },
+  {
+    "name": "squeeze-repeats",
+    "template_key": "squeeze-repeats",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "replace each sequence of a repeated character that is listed in the last specified ARRAY, with a single occurrence of that character",
+    "aliases": [
+      "-s",
+      "--squeeze-repeats"
+    ]
+  },
+  {
+    "name": "truncate-set1",
+    "template_key": "truncate-set1",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "first truncate ARRAY1 to length of ARRAY2 --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-t",
+      "--truncate-set1"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-t"
+    ]
+  }
+]

@@ -1,0 +1,131 @@
+{
+  "transforms": [
+    {
+      "source": "*",
+      "target": "filesystem.directory.contents",
+      "method": "redirect",
+      "lossy": false,
+      "fidelity": {
+        "score": 1.0,
+        "loss_type": "lossless",
+        "breakdown": {
+          "structural": 1.0,
+          "semantic": 1.0,
+          "content": 1.0
+        },
+        "degradation_notes": []
+      },
+      "description": "Any stdout can be redirected to a file on disk"
+    },
+    {
+      "source": "network.http.response",
+      "target": "filesystem.directory.contents",
+      "method": "redirect",
+      "lossy": false,
+      "fidelity": {
+        "score": 1.0,
+        "loss_type": "lossless",
+        "breakdown": {
+          "structural": 1.0,
+          "semantic": 1.0,
+          "content": 1.0
+        },
+        "degradation_notes": []
+      },
+      "command_template": "cat > {output}",
+      "description": "Redirect HTTP response body to file via stdout capture"
+    },
+    {
+      "source": "network.scan.nmap.xml",
+      "target": "filesystem.archive.tar",
+      "method": "convert",
+      "lossy": false,
+      "fidelity": {
+        "score": 1.0,
+        "loss_type": "lossless",
+        "breakdown": {
+          "structural": 1.0,
+          "semantic": 1.0,
+          "content": 1.0
+        },
+        "degradation_notes": []
+      },
+      "converter_tool": "system:archive:tar",
+      "description": "Tar the nmap XML output file into an archive"
+    },
+    {
+      "source": "network.scan.nmap.json",
+      "target": "filesystem.archive.tar",
+      "method": "convert",
+      "lossy": false,
+      "fidelity": {
+        "score": 1.0,
+        "loss_type": "lossless",
+        "breakdown": {
+          "structural": 1.0,
+          "semantic": 1.0,
+          "content": 1.0
+        },
+        "degradation_notes": []
+      },
+      "converter_tool": "system:archive:tar",
+      "description": "Tar the nmap JSON output file into an archive"
+    },
+    {
+      "source": "network.http.response",
+      "target": "network.http.headers",
+      "method": "pipe",
+      "lossy": true,
+      "fidelity": {
+        "score": 0.15,
+        "loss_type": "truncation",
+        "breakdown": {
+          "structural": 1.0,
+          "semantic": 0.1,
+          "content": 0.15
+        },
+        "degradation_notes": ["Truncates to first 1024 bytes: most of body discarded, only initial portion preserved"]
+      },
+      "command_template": "head -c 1024",
+      "description": "Extract a sample from HTTP response body"
+    },
+    {
+      "source": "application.json",
+      "target": "text.plain",
+      "method": "convert",
+      "lossy": true,
+      "fidelity": {
+        "score": 0.7,
+        "loss_type": "structural",
+        "breakdown": {
+          "structural": 0.3,
+          "semantic": 1.0,
+          "content": 1.0
+        },
+        "degradation_notes": ["JSON structure (keys, nesting, types) is lost in plain text rendering; semantic content preserved as readable text"]
+      },
+      "converter_tool": "text:process:jq",
+      "command_template": "jq -r '.'",
+      "description": "Pretty-print JSON to plain text using jq"
+    },
+    {
+      "source": "network.scan.nmap.xml",
+      "target": "network.scan.nmap.json",
+      "method": "convert",
+      "lossy": true,
+      "fidelity": {
+        "score": 0.85,
+        "loss_type": "structural",
+        "breakdown": {
+          "structural": 0.7,
+          "semantic": 1.0,
+          "content": 1.0
+        },
+        "degradation_notes": ["XSLT conversion may lose XML-specific constructs (processing instructions, entity references, CDATA sections); core scan data preserved"]
+      },
+      "converter_tool": "text:process:xsltproc",
+      "command_template": "xsltproc nmap-to-json.xsl {input}",
+      "description": "Convert Nmap XML output to JSON via XSLT"
+    }
+  ]
+}

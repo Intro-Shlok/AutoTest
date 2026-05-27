@@ -1,0 +1,25 @@
+Aquatone v1.7.0
+
+Usage: aquatone [options]
+
+  --domains DOMAINS              Space/comma separated domains
+  --screenshot-timeout SECS      Screenshot timeout (default: 30)
+  --scan-timeout SECS            HTTP scan timeout (default: 10)
+  --resolve-timeout SECS         DNS resolve timeout (default: 5)
+  --threads N                    Concurrent threads (default: 5)
+  --chrome-path PATH             Chrome/Chromium binary path
+  --proxy URL                    HTTP proxy
+  --ports PORTS                  Ports to scan (default: 80,443)
+  --http-port PORT               HTTP port override (default: 80)
+  --https-port PORT              HTTPS port override (default: 443)
+  --fallback-http                Fallback HTTP on HTTPS failure
+  --output-dir DIR               Output directory (default: aquatone)
+  -out DIR                       Output directory
+  --quiet                        Quiet mode
+  --sites FILE                   File with list of sites
+  --version                      Show version
+
+Examples:
+  cat domains.txt | aquatone -out screenshots
+  cat domains.txt | aquatone -ports 80,443,8080 -threads 10
+  cat domains.txt | aquatone -proxy http://127.0.0.1:8080

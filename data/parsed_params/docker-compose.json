@@ -1,0 +1,125 @@
+[
+  {
+    "name": "all-resources",
+    "template_key": "all-resources",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Include all resources, even those not",
+    "aliases": [
+      "--all-resources"
+    ]
+  },
+  {
+    "name": "ansi",
+    "template_key": "ansi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Control when to print ANSI control",
+    "aliases": [
+      "--ansi"
+    ]
+  },
+  {
+    "name": "compatibility",
+    "template_key": "compatibility",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Run compose in backward compatibility mode",
+    "aliases": [
+      "--compatibility"
+    ]
+  },
+  {
+    "name": "dry-run",
+    "template_key": "dry-run",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Execute command in dry run mode",
+    "aliases": [
+      "--dry-run"
+    ]
+  },
+  {
+    "name": "env-file",
+    "template_key": "env-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify an alternate environment file",
+    "aliases": [
+      "--env-file"
+    ]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Compose configuration files",
+    "aliases": [
+      "-f",
+      "--file"
+    ]
+  },
+  {
+    "name": "parallel",
+    "template_key": "parallel",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Control max parallelism, -1 for",
+    "aliases": [
+      "--parallel"
+    ]
+  },
+  {
+    "name": "profile",
+    "template_key": "profile",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Specify a profile to enable",
+    "aliases": [
+      "--profile"
+    ]
+  },
+  {
+    "name": "progress",
+    "template_key": "progress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set type of progress output (auto",
+    "aliases": [
+      "--progress"
+    ]
+  },
+  {
+    "name": "project-directory",
+    "template_key": "project-directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Specify an alternate working directory",
+    "aliases": [
+      "--project-directory"
+    ]
+  },
+  {
+    "name": "project-name",
+    "template_key": "project-name",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Project name",
+    "aliases": [
+      "-p",
+      "--project-name"
+    ]
+  }
+]

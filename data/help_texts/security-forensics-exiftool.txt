@@ -1,0 +1,28 @@
+exiftool version 12.60
+Perl-based metadata reader/writer for images, audio, video, and documents
+https://exiftool.org/
+
+Usage: exiftool [options] FILE [FILE...]
+
+Options:
+  -a, --duplicates           Show duplicate tags
+  -r, --recurse              Recursively process subdirectories
+  -G, --group                Print group name for each tag
+  -j, --json                 JSON output format
+  -t, --tab                  Tab-delimited output
+  -csv                       CSV output format
+  -p FMT, --print-format     Custom print format string
+  -s, --short                Short tag names (omit descriptions)
+  -n, --numeric              Numeric values not descriptions
+  -u, --unknown              Include unknown tags
+  -m, --ignore-minor-errors  Ignore minor errors
+  --overwrite_original       Overwrite original (backup as .original)
+  -o FILE, --output FILE     Write output to file
+  -ext EXT, --extension EXT  Process only files with extension
+  -d FMT, --date-format FMT  Date format (strftime syntax)
+  -v N, --verbose N          Verbose level (0-5)
+  -list                      List supported file types
+  -listx                     List file types as XML
+  -charset CHARSET           Output character set
+
+Common tag groups: EXIF, IPTC, XMP, GPS, JFIF, ICC, Photoshop

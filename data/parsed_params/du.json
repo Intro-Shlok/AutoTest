@@ -1,0 +1,239 @@
+[
+  {
+    "name": "null",
+    "template_key": "null",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "end each output line with NUL, not newline",
+    "aliases": [
+      "-0",
+      "--null"
+    ]
+  },
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "write counts for all files, not just directories",
+    "aliases": [
+      "-a",
+      "--all"
+    ]
+  },
+  {
+    "name": "apparent-size",
+    "template_key": "apparent-size",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print apparent sizes rather than device usage; although the apparent size is usually smaller, it may be larger due to holes in ('sparse') files, internal fragmentation, indirect blocks, etc",
+    "aliases": [
+      "-A",
+      "--apparent-size"
+    ]
+  },
+  {
+    "name": "block-size",
+    "template_key": "block-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "scale sizes by SIZE before printing them; See SIZE format below; E.g., '-BM' prints sizes in units of 1,048,576 bytes",
+    "aliases": [
+      "-B",
+      "--block-size"
+    ]
+  },
+  {
+    "name": "bytes",
+    "template_key": "bytes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to '--apparent-size --block-size=1'",
+    "aliases": [
+      "-b",
+      "--bytes"
+    ]
+  },
+  {
+    "name": "total",
+    "template_key": "total",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "produce a grand total",
+    "aliases": [
+      "-c",
+      "--total"
+    ]
+  },
+  {
+    "name": "dereference-args",
+    "template_key": "dereference-args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "dereference only symlinks that are listed on the command line",
+    "aliases": [
+      "-D",
+      "--dereference-args"
+    ]
+  },
+  {
+    "name": "max-depth",
+    "template_key": "max-depth",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "print the total for a directory (or file, with --all) only if it is N or fewer levels below the command line argument; --max-depth=0 is the same as --summarize --files0-from=F summarize device usage of the NUL-terminated file names specified in file F; if F is -, read names from standard input",
+    "aliases": [
+      "-d",
+      "--max-depth"
+    ]
+  },
+  {
+    "name": "flag-H",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to --dereference-args (-D)",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "human-readable",
+    "template_key": "human-readable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print sizes in human readable format (e.g., 1K 234M 2G) --inodes list inode usage information instead of block usage",
+    "aliases": [
+      "-h",
+      "--human-readable"
+    ]
+  },
+  {
+    "name": "flag-k",
+    "template_key": "flag-k",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --block-size=1K",
+    "aliases": [
+      "-k"
+    ]
+  },
+  {
+    "name": "dereference",
+    "template_key": "dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "dereference all symbolic links",
+    "aliases": [
+      "-L",
+      "--dereference"
+    ]
+  },
+  {
+    "name": "count-links",
+    "template_key": "count-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "count sizes many times if hard linked",
+    "aliases": [
+      "-l",
+      "--count-links"
+    ]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --block-size=1M",
+    "aliases": [
+      "-m"
+    ]
+  },
+  {
+    "name": "no-dereference",
+    "template_key": "no-dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't follow any symbolic links (this is the default)",
+    "aliases": [
+      "-P",
+      "--no-dereference"
+    ]
+  },
+  {
+    "name": "separate-dirs",
+    "template_key": "separate-dirs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "for directories do not include size of subdirectories --si like -h, but use powers of 1000 not 1024",
+    "aliases": [
+      "-S",
+      "--separate-dirs"
+    ]
+  },
+  {
+    "name": "summarize",
+    "template_key": "summarize",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display only a total for each argument",
+    "aliases": [
+      "-s",
+      "--summarize"
+    ]
+  },
+  {
+    "name": "threshold",
+    "template_key": "threshold",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "exclude entries smaller than SIZE if positive, or entries greater than SIZE if negative --time show time of the last modification of any file in the directory, or any of its subdirectories --time=WORD show time as WORD instead of modification time: atime, access, use, ctime or status --time-style=STYLE time/date format with --time; see TIME_STYLE below",
+    "aliases": [
+      "-t",
+      "--threshold"
+    ]
+  },
+  {
+    "name": "exclude-from",
+    "template_key": "exclude-from",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "exclude files that match any pattern in FILE --exclude=PATTERN exclude files that match PATTERN",
+    "aliases": [
+      "-X",
+      "--exclude-from"
+    ]
+  },
+  {
+    "name": "one-file-system",
+    "template_key": "one-file-system",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip directories on different file systems --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-x",
+      "--one-file-system"
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+Usage: strace [options] [command [args]]
+       strace [options] -p <pid>
+
+Trace system calls:
+  -c             count syscalls and print summary
+  -f             trace child processes (fork, vfork)
+  -F             trace vfork (legacy)
+  -e <expr>      filter syscalls (e.g. trace=open,read)
+  -o <file>      write trace to file
+  -p <pid>       attach to running process
+  -s <size>      max string size (default 32)
+  -t             prefix with timestamp
+  -tt            prefix with full timestamp (usec)
+  -ttt           prefix with epoch timestamp
+  -T             show time spent in each syscall
+  -v             verbose (decode structs)
+  -x             print non-ASCII strings in hex
+  -xx            print all strings in hex
+  -r             show relative timestamps
+  -i             print instruction pointer
+  -q             quiet (suppress attach/detach messages)
+
+Examples:
+  strace -c /bin/ls                    count syscalls
+  strace -e trace=open,read /bin/ls    filter syscalls
+  strace -p 1234                       attach to PID
+  strace -f -o trace.log ./server      follow forks

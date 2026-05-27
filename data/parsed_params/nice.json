@@ -1,0 +1,25 @@
+[
+  {
+    "name": "flag-2",
+    "template_key": "flag-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-2"
+    ]
+  },
+  {
+    "name": "adjustment",
+    "template_key": "adjustment",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "add integer N to the niceness (default 10) --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-n",
+      "--adjustment"
+    ]
+  }
+]

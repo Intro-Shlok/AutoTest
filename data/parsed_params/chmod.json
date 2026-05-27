@@ -1,0 +1,107 @@
+[
+  {
+    "name": "changes",
+    "template_key": "changes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like verbose but report only when a change is made",
+    "aliases": [
+      "-c",
+      "--changes"
+    ]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress most error messages",
+    "aliases": [
+      "-f",
+      "--silent",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output a diagnostic for every file processed --dereference affect the referent of each symbolic link, rather than the symbolic link itself",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "no-dereference",
+    "template_key": "no-dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "affect each symbolic link, rather than the referent --no-preserve-root do not treat '/' specially (the default) --preserve-root fail to operate recursively on '/' --reference=RFILE use RFILE's mode instead of specifying MODE values. RFILE is always dereferenced if a symbolic link",
+    "aliases": [
+      "-h",
+      "--no-dereference"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "change files and directories recursively",
+    "aliases": [
+      "-R",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "flag-H",
+    "template_key": "flag-h",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "if a command line argument is a symlink to a directory, traverse it",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "flag-L",
+    "template_key": "flag-l",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "traverse every symbolic link to a directory encountered",
+    "aliases": [
+      "-L"
+    ]
+  },
+  {
+    "name": "flag-P",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not traverse any symbolic links",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit --version output version information and exit",
+    "aliases": [
+      "--help"
+    ]
+  }
+]

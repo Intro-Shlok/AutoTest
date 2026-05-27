@@ -1,0 +1,110 @@
+[
+  {
+    "name": "count",
+    "template_key": "count",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Count syscalls and print summary",
+    "aliases": ["-c"]
+  },
+  {
+    "name": "follow",
+    "template_key": "follow",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Trace child processes (fork, vfork)",
+    "aliases": ["-f"]
+  },
+  {
+    "name": "expr",
+    "template_key": "expr",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter syscalls by expression (e.g. trace=open,read)",
+    "aliases": ["-e"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write trace to file",
+    "aliases": ["-o"]
+  },
+  {
+    "name": "pid",
+    "template_key": "pid",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Attach to running process by PID",
+    "aliases": ["-p"]
+  },
+  {
+    "name": "strsize",
+    "template_key": "strsize",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum string size to print",
+    "aliases": ["-s"]
+  },
+  {
+    "name": "timestamp",
+    "template_key": "timestamp",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Prefix each line with timestamp",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "timecalls",
+    "template_key": "timecalls",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show time spent in each syscall",
+    "aliases": ["-T"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose mode (decode structures)",
+    "aliases": ["-v"]
+  },
+  {
+    "name": "hex",
+    "template_key": "hex",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Print non-ASCII strings in hex",
+    "aliases": ["-x"]
+  },
+  {
+    "name": "relative",
+    "template_key": "relative",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show relative timestamps",
+    "aliases": ["-r"]
+  },
+  {
+    "name": "instrPointer",
+    "template_key": "instrPointer",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Print instruction pointer with each syscall",
+    "aliases": ["-i"]
+  }
+]

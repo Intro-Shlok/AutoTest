@@ -1,0 +1,130 @@
+[
+  {
+    "name": "show-all",
+    "template_key": "show-all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to -vET",
+    "aliases": [
+      "-A",
+      "--show-all"
+    ]
+  },
+  {
+    "name": "number-nonblank",
+    "template_key": "number-nonblank",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "number nonempty output lines, overrides -n",
+    "aliases": [
+      "-b",
+      "--number-nonblank"
+    ]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to -vE",
+    "aliases": [
+      "-e"
+    ]
+  },
+  {
+    "name": "show-ends",
+    "template_key": "show-ends",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display $ or ^M$ at end of each line",
+    "aliases": [
+      "-E",
+      "--show-ends"
+    ]
+  },
+  {
+    "name": "number",
+    "template_key": "number",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "number all output lines",
+    "aliases": [
+      "-n",
+      "--number"
+    ]
+  },
+  {
+    "name": "squeeze-blank",
+    "template_key": "squeeze-blank",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress repeated empty output lines",
+    "aliases": [
+      "-s",
+      "--squeeze-blank"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to -vT",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "show-tabs",
+    "template_key": "show-tabs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display TAB characters as ^I",
+    "aliases": [
+      "-T",
+      "--show-tabs"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(ignored)",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "show-nonprinting",
+    "template_key": "show-nonprinting",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use ^ and M- notation, except for LFD and TAB",
+    "aliases": [
+      "-v",
+      "--show-nonprinting"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit --version output version information and exit",
+    "aliases": [
+      "--help"
+    ]
+  }
+]

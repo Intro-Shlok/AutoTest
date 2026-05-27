@@ -1,0 +1,368 @@
+[
+  {
+    "name": "flag-A",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "all processes",
+    "aliases": [
+      "-A",
+      "-e"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "all with tty, except session leaders",
+    "aliases": [
+      "-a"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "all except session leaders",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "deselect",
+    "template_key": "deselect",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "negate selection",
+    "aliases": [
+      "-N",
+      "--deselect"
+    ]
+  },
+  {
+    "name": "flag-C",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "command name",
+    "aliases": [
+      "-C"
+    ]
+  },
+  {
+    "name": "Group",
+    "template_key": "group",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "real group id or name",
+    "aliases": [
+      "-G",
+      "--Group <GID>"
+    ]
+  },
+  {
+    "name": "group",
+    "template_key": "group",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-g",
+      "--group <group>"
+    ]
+  },
+  {
+    "name": "pid",
+    "template_key": "pid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "process id",
+    "aliases": [
+      "-p",
+      "--pid <PID>"
+    ]
+  },
+  {
+    "name": "ppid",
+    "template_key": "ppid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--ppid <PID>"
+    ]
+  },
+  {
+    "name": "quick-pid",
+    "template_key": "quick-pid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "process id (quick mode)",
+    "aliases": [
+      "-q",
+      "--quick-pid <PID>"
+    ]
+  },
+  {
+    "name": "sid",
+    "template_key": "sid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-s",
+      "--sid <session>"
+    ]
+  },
+  {
+    "name": "tty",
+    "template_key": "tty",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "terminal",
+    "aliases": [
+      "-t",
+      "--tty <tty>"
+    ]
+  },
+  {
+    "name": "user",
+    "template_key": "user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-u",
+      "--user <UID>"
+    ]
+  },
+  {
+    "name": "User",
+    "template_key": "user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "real user id or name",
+    "aliases": [
+      "-U",
+      "--User <UID>"
+    ]
+  },
+  {
+    "name": "flag-D",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "date format for lstart",
+    "aliases": [
+      "-D"
+    ]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "full-format, including command lines",
+    "aliases": [
+      "-f"
+    ]
+  },
+  {
+    "name": "flag-j",
+    "template_key": "flag-j",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "jobs format",
+    "aliases": [
+      "-j"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "long format",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-M",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "add security data (for SELinux)",
+    "aliases": [
+      "-M"
+    ]
+  },
+  {
+    "name": "flag-O",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preloaded with default columns",
+    "aliases": [
+      "-O"
+    ]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "user-defined format",
+    "aliases": [
+      "-o",
+      "--format <format>"
+    ]
+  },
+  {
+    "name": "flag-y",
+    "template_key": "flag-y",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not show flags, show rss vs. addr (used with -l)",
+    "aliases": [
+      "-y"
+    ]
+  },
+  {
+    "name": "context",
+    "template_key": "context",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display security context (for SELinux)",
+    "aliases": [
+      "--context"
+    ]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "repeat header lines, one per page",
+    "aliases": [
+      "--headers"
+    ]
+  },
+  {
+    "name": "no-headers",
+    "template_key": "no-headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not print header at all",
+    "aliases": [
+      "--no-headers"
+    ]
+  },
+  {
+    "name": "cols",
+    "template_key": "cols",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set screen width --rows, --lines <num> set screen height --signames display signal masks using signal names",
+    "aliases": [
+      "--cols",
+      "--columns",
+      "--width <num>"
+    ]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "after processes",
+    "aliases": [
+      "-m"
+    ]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show scheduling class with -l option",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-y-2",
+    "template_key": "flag-y-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not show flags, show rss (only with -l)",
+    "aliases": [
+      "-y"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display version information and exit",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "flag-w",
+    "template_key": "flag-w",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "unlimited output width",
+    "aliases": [
+      "-w"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display help and exit",
+    "aliases": [
+      "--help <simple|list|output|threads|misc|all>"
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://autotest.repo/schemas/metaschema.json",
+  "title": "Meta-Schema for Schema Validation",
+  "description": "Validates that custom schemas in this repository conform to JSON Schema draft 2020-12.",
+  "$ref": "https://json-schema.org/draft/2020-12/schema"
+}

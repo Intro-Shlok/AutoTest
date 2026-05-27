@@ -1,0 +1,24 @@
+Usage: python3 -c "from pwn import *; ..."
+       python3 -m pwn [tool] [args]
+
+CLI tools:
+  checksec [--file=]   check binary security mitigations
+  asm [code]           assemble instructions to bytes
+  disasm [bytes]       disassemble bytes to instructions
+  cyclic [n]           generate cyclic pattern of length n
+  hex [bytes]          convert bytes to hex string
+  unhex [hex]          convert hex string to bytes
+  constgrep [pattern]  search constants by regex
+  errno [name]         look up errno value
+  update               update pwntools to latest version
+  phd [data]           pretty hex dump
+
+Common pwntools modules:
+  pwn.elf              ELF binary parsing
+  pwn.rop              ROP chain building
+  pwn.shellcraft       shellcode generation
+  pwn.ssh              SSH connections
+
+Example:
+  python3 -c "from pwn import *; e = ELF('/bin/ls'); print(e.checksec())"
+  python3 -m pwn checksec --file=/bin/ls

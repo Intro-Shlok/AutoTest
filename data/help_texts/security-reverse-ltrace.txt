@@ -1,0 +1,26 @@
+Usage: ltrace [options] [command [args]]
+       ltrace [options] -p <pid>
+
+Trace library calls:
+  -c             count library calls and print summary
+  -f             trace child processes (fork)
+  -l <library>   only trace calls from named library
+  -o <file>      write trace output to file
+  -p <pid>       attach to running process
+  -S             show system calls (like strace)
+  -t             prefix with absolute timestamp
+  -tt            prefix with full timestamp (usec)
+  -T             show time spent in each call
+  -e <filter>    filter calls by name or library
+  -n <indent>    indent output by nesting depth
+  -s <size>      max string display size
+  -r             show relative timestamps
+  -L             do NOT trace library calls
+  -u <user>      run command as user
+
+Examples:
+  ltrace -c /bin/ls                    count library calls
+  ltrace -l libc.so.6 /bin/ls          trace only libc
+  ltrace -S /bin/ls                    show syscalls too
+  ltrace -p 1234                       attach to PID
+  ltrace -t -T /bin/ls                 timestamps + durations

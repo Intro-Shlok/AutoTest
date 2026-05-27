@@ -1,0 +1,51 @@
+hashcat (v6.2.6) starting in benchmark mode
+
+Usage: hashcat [options]... hash|hashfile|hccapxfile [dictionary|mask|directory]...
+
+Cracking Modes:
+  -m, --hash-type=NUM       Hash-type, see references below
+  -a, --attack-mode=NUM     Attack-mode, see references below
+  -V, --version             Print version
+  -h, --help                Print help
+  --quiet                   Suppress output
+  --runtime=NUM             Runtime limit in seconds
+
+Output:
+  -o, --output=FILE         Output-cracked passwords to FILE
+  --outfile-format=NUM      Output format (1=hash[:salt]:plain, 2=plain)
+  --outfile-autohex-disable Disable auto hex encode of plaintext
+  --show                    Show cracked passwords from potfile
+  --left                    Show left (uncracked) hashes
+  --username                Enable ignoring usernames in hashfile
+  --remove                  Remove cracked hashes from hashfile
+  --stdout                  Print candidates to stdout (not cracking)
+
+Resources:
+  -d, --device=STR          OpenCL/GPU device(s)
+  -w, --workload-profile=NUM  Workload profile (1-4)
+  -O, --optimized-kernel    Enable optimized kernel
+  -n, --threads=NUM         Threads per GPU device
+  -p, --separator=CHAR      Separator for hashlist
+  --backend-devices=STR     Backend devices for multi-device
+  --backend-vector-width=NUM Backend vector width
+
+Rules and Filters:
+  -r, --rule-file=FILE      Rules file for wordlist attack
+  -g, --generate-rules=NUM  Generate N random rules
+  -j, --rule-left=RULE      Single rule applied to left word
+  -k, --rule-right=RULE     Single rule applied to right word
+
+Mask:
+  -1, --custom-charset1=CS  User-defined charset ?1
+  -2, --custom-charset2=CS  User-defined charset ?2
+  -3, --custom-charset3=CS  User-defined charset ?3
+  -4, --custom-charset4=CS  User-defined charset ?4
+  -i, --increment           Enable incremental mask mode
+  --increment-min=NUM        Start mask at length NUM
+  --increment-max=NUM        Stop mask at length NUM
+
+Reference:
+  -b, --benchmark           Run benchmark
+  --benchmark-all           Run benchmark for all modes
+  --example-hashes          Print example hashes for all modes
+  --keyspace                Show keyspace for current attack

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ports to scan (e.g. -p80, -p1-65535)",
+    "aliases": ["-p", "--ports"]
+  },
+  {
+    "name": "rate",
+    "template_key": "rate",
+    "type": "integer",
+    "required": false,
+    "default_value": 100,
+    "description": "Packets per second",
+    "aliases": ["--rate"]
+  },
+  {
+    "name": "flag-oJ",
+    "template_key": "flag-oJ",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output to JSON file",
+    "aliases": ["-oJ", "--output-json"]
+  },
+  {
+    "name": "flag-oX",
+    "template_key": "flag-oX",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output to XML file",
+    "aliases": ["-oX", "--output-xml"]
+  },
+  {
+    "name": "flag-oB",
+    "template_key": "flag-oB",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output to binary file",
+    "aliases": ["-oB", "--output-binary"]
+  },
+  {
+    "name": "adapter-ip",
+    "template_key": "adapter-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "IP address of the network adapter",
+    "aliases": ["--adapter-ip"]
+  },
+  {
+    "name": "adapter-mac",
+    "template_key": "adapter-mac",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "MAC address of the network adapter",
+    "aliases": ["--adapter-mac"]
+  },
+  {
+    "name": "router-mac",
+    "template_key": "router-mac",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "MAC address of the gateway router",
+    "aliases": ["--router-mac"]
+  },
+  {
+    "name": "exclude",
+    "template_key": "exclude",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "IP addresses to exclude from scan",
+    "aliases": ["--exclude"]
+  },
+  {
+    "name": "banners",
+    "template_key": "banners",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Grab banners from open ports",
+    "aliases": ["--banners"]
+  }
+]

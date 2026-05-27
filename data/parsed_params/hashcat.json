@@ -1,0 +1,146 @@
+[
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Hash type number (e.g. 0=MD5, 1000=NTLM, 3200=bcrypt)",
+    "aliases": ["-m", "--hash-type"]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Attack mode (0=Straight, 1=Combination, 3=Brute-force, 6=Hybrid, 7=PRINCE)",
+    "aliases": ["-a", "--attack-mode"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for cracked passwords",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "outfile-format",
+    "template_key": "outfile-format",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Output format for cracked passwords",
+    "aliases": ["--outfile-format"]
+  },
+  {
+    "name": "potfile-path",
+    "template_key": "potfile-path",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom potfile path",
+    "aliases": ["--potfile-path"]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Ignore warnings and force startup",
+    "aliases": ["--force"]
+  },
+  {
+    "name": "show",
+    "template_key": "show",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show cracked passwords from potfile",
+    "aliases": ["--show"]
+  },
+  {
+    "name": "benchmark",
+    "template_key": "benchmark",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Run benchmark for all hash modes",
+    "aliases": ["--benchmark"]
+  },
+  {
+    "name": "status",
+    "template_key": "status",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable automatic status screen updates",
+    "aliases": ["--status"]
+  },
+  {
+    "name": "session",
+    "template_key": "session",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Session name for save/restore",
+    "aliases": ["--session"]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Rule file for wordlist attack",
+    "aliases": ["-r", "--rule-file"]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable incremental mask mode",
+    "aliases": ["-i", "--increment"]
+  },
+  {
+    "name": "flag-w",
+    "template_key": "flag-w",
+    "type": "integer",
+    "required": false,
+    "default_value": 2,
+    "description": "Workload profile (1=Low, 2=Default, 3=High, 4=Nightmare)",
+    "aliases": ["-w", "--workload-profile"]
+  },
+  {
+    "name": "flag-O",
+    "template_key": "flag-O",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable optimized kernel (limits password length)",
+    "aliases": ["-O", "--optimized-kernel"]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "OpenCL device to use",
+    "aliases": ["-d", "--device"]
+  },
+  {
+    "name": "example-hashes",
+    "template_key": "example-hashes",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Print example hashes for all hash modes",
+    "aliases": ["--example-hashes"]
+  }
+]

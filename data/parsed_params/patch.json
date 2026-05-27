@@ -1,0 +1,454 @@
+[
+  {
+    "name": "strip",
+    "template_key": "strip",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-p",
+      "--strip"
+    ]
+  },
+  {
+    "name": "fuzz LINES",
+    "template_key": "fuzz-lines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-F",
+      "--fuzz LINES"
+    ]
+  },
+  {
+    "name": "ignore-whitespace",
+    "template_key": "ignore-whitespace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-l",
+      "--ignore-whitespace"
+    ]
+  },
+  {
+    "name": "context",
+    "template_key": "context",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-c",
+      "--context"
+    ]
+  },
+  {
+    "name": "ed",
+    "template_key": "ed",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-e",
+      "--ed"
+    ]
+  },
+  {
+    "name": "normal",
+    "template_key": "normal",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-n",
+      "--normal"
+    ]
+  },
+  {
+    "name": "unified",
+    "template_key": "unified",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-u",
+      "--unified"
+    ]
+  },
+  {
+    "name": "forward",
+    "template_key": "forward",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-N",
+      "--forward"
+    ]
+  },
+  {
+    "name": "reverse",
+    "template_key": "reverse",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-R",
+      "--reverse"
+    ]
+  },
+  {
+    "name": "input",
+    "template_key": "input",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-i",
+      "--input"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "reject-file",
+    "template_key": "reject-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-r",
+      "--reject-file"
+    ]
+  },
+  {
+    "name": "ifdef",
+    "template_key": "ifdef",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-D",
+      "-t",
+      "-e",
+      "--ifdef"
+    ]
+  },
+  {
+    "name": "merge",
+    "template_key": "merge",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--merge"
+    ]
+  },
+  {
+    "name": "remove-empty-files",
+    "template_key": "remove-empty-files",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-E",
+      "--remove-empty-files"
+    ]
+  },
+  {
+    "name": "set-utc",
+    "template_key": "set-utc",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-Z",
+      "--set-utc"
+    ]
+  },
+  {
+    "name": "set-time",
+    "template_key": "set-time",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-T",
+      "--set-time"
+    ]
+  },
+  {
+    "name": "quoting-style",
+    "template_key": "quoting-style",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "output file names using quoting style WORD",
+    "aliases": [
+      "--quoting-style"
+    ]
+  },
+  {
+    "name": "backup",
+    "template_key": "backup",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-b",
+      "--backup"
+    ]
+  },
+  {
+    "name": "backup-if-mismatch",
+    "template_key": "backup-if-mismatch",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--backup-if-mismatch"
+    ]
+  },
+  {
+    "name": "no-backup-if-mismatch",
+    "template_key": "no-backup-if-mismatch",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--no-backup-if-mismatch"
+    ]
+  },
+  {
+    "name": "version-control",
+    "template_key": "version-control",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "STYLE is either 'simple', 'numbered', or 'existing'",
+    "aliases": [
+      "-V",
+      "--version-control"
+    ]
+  },
+  {
+    "name": "prefix",
+    "template_key": "prefix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-B",
+      "--prefix"
+    ]
+  },
+  {
+    "name": "basename-prefix",
+    "template_key": "basename-prefix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-Y",
+      "--basename-prefix"
+    ]
+  },
+  {
+    "name": "suffix",
+    "template_key": "suffix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-z",
+      "--suffix"
+    ]
+  },
+  {
+    "name": "get",
+    "template_key": "get",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-g",
+      "--get"
+    ]
+  },
+  {
+    "name": "batch",
+    "template_key": "batch",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-t",
+      "-P",
+      "--batch"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-f",
+      "-t",
+      "-P",
+      "--force"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-s",
+      "--quiet",
+      "--silent"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--verbose"
+    ]
+  },
+  {
+    "name": "dry-run",
+    "template_key": "dry-run",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--dry-run"
+    ]
+  },
+  {
+    "name": "posix",
+    "template_key": "posix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--posix"
+    ]
+  },
+  {
+    "name": "directory",
+    "template_key": "directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-d",
+      "--directory"
+    ]
+  },
+  {
+    "name": "reject-format",
+    "template_key": "reject-format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--reject-format"
+    ]
+  },
+  {
+    "name": "binary",
+    "template_key": "binary",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--binary"
+    ]
+  },
+  {
+    "name": "read-only",
+    "template_key": "read-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "are read-only, 'warn' (default), or 'fail'",
+    "aliases": [
+      "-o",
+      "--read-only"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-v",
+      "--version"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  }
+]

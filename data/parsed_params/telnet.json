@@ -1,0 +1,241 @@
+[
+  {
+    "name": "ipv4",
+    "template_key": "ipv4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use only IPv4",
+    "aliases": [
+      "-4",
+      "--ipv4"
+    ]
+  },
+  {
+    "name": "ipv6",
+    "template_key": "ipv6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use only IPv6",
+    "aliases": [
+      "-6",
+      "--ipv6"
+    ]
+  },
+  {
+    "name": "binary",
+    "template_key": "binary",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use an 8-bit data transmission",
+    "aliases": [
+      "-8",
+      "--binary"
+    ]
+  },
+  {
+    "name": "login",
+    "template_key": "login",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "attempt automatic login",
+    "aliases": [
+      "-a",
+      "--login"
+    ]
+  },
+  {
+    "name": "bind",
+    "template_key": "bind",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "bind to specific local ADDRESS",
+    "aliases": [
+      "-b",
+      "--bind"
+    ]
+  },
+  {
+    "name": "no-rc",
+    "template_key": "no-rc",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not read the user's .telnetrc file",
+    "aliases": [
+      "-c",
+      "--no-rc"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn on debugging",
+    "aliases": [
+      "-d",
+      "--debug"
+    ]
+  },
+  {
+    "name": "escape",
+    "template_key": "escape",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use CHAR as an escape character",
+    "aliases": [
+      "-e",
+      "--escape"
+    ]
+  },
+  {
+    "name": "no-escape",
+    "template_key": "no-escape",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use no escape character",
+    "aliases": [
+      "-E",
+      "--no-escape"
+    ]
+  },
+  {
+    "name": "no-login",
+    "template_key": "no-login",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not automatically login to the remote system",
+    "aliases": [
+      "-K",
+      "--no-login"
+    ]
+  },
+  {
+    "name": "user",
+    "template_key": "user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "attempt automatic login as USER",
+    "aliases": [
+      "-l",
+      "--user"
+    ]
+  },
+  {
+    "name": "binary-output",
+    "template_key": "binary-output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use an 8-bit data transmission for output only",
+    "aliases": [
+      "-L",
+      "--binary-output"
+    ]
+  },
+  {
+    "name": "trace",
+    "template_key": "trace",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "record trace information into FILE",
+    "aliases": [
+      "-n",
+      "--trace"
+    ]
+  },
+  {
+    "name": "rlogin",
+    "template_key": "rlogin",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use a user-interface similar to rlogin",
+    "aliases": [
+      "-r",
+      "--rlogin"
+    ]
+  },
+  {
+    "name": "encrypt",
+    "template_key": "encrypt",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "encrypt the data stream, if possible",
+    "aliases": [
+      "-x",
+      "--encrypt"
+    ]
+  },
+  {
+    "name": "realm",
+    "template_key": "realm",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "obtain tickets for the remote host in REALM",
+    "aliases": [
+      "-k",
+      "--realm"
+    ]
+  },
+  {
+    "name": "disable-auth",
+    "template_key": "disable-auth",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable type ATYPE authentication",
+    "aliases": [
+      "-X",
+      "--disable-auth"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "give this help list",
+    "aliases": [
+      "-?",
+      "--help"
+    ]
+  },
+  {
+    "name": "usage",
+    "template_key": "usage",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "give a short usage message",
+    "aliases": [
+      "--usage"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print program version",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  }
+]

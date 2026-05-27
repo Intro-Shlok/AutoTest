@@ -1,0 +1,25 @@
+Usage: ROPgadget [options] --binary <file>
+
+Options:
+  --binary <file>     specify binary to search for gadgets
+  --rawArch <arch>    specify raw architecture (x86, arm, mips)
+  --rawMode <bits>    specify raw mode (32, 64)
+  --opcode <hex>      only search for specific opcodes
+  --all               show all gadgets (not just unique)
+  --badbytes <bytes>  bytes to exclude from results
+  --depth <n>         maximum gadget depth in instructions
+  --thumb             use ARM Thumb mode
+  --console           use interactive console
+  --range <start-end> limit search to address range
+  --nojop             exclude JOP gadgets
+  --nosys             exclude SYS gadgets
+  --output <file>     write results to file
+  --json              output in JSON format
+  --rawEndian <e>     set endianness (big/little)
+  --rawVendor <v>     set CPU vendor
+
+Examples:
+  ROPgadget --binary /bin/ls
+  ROPgadget --binary /bin/ls --badbytes 0a
+  ROPgadget --binary /bin/ls --json
+  ROPgadget --rawArch arm --rawMode 32 --binary fw.bin

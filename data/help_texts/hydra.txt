@@ -1,0 +1,46 @@
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak
+
+Usage: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr]
+  [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-f] [-s PORT] [-S] [-vV]
+  server service [OPTIONS]
+
+Options:
+  -l LOGIN or -L FILE     login with LOGIN name or load logins from FILE
+  -p PASS  or -P FILE     try password PASS or load passwords from FILE
+  -C FILE                 colon separated "login:pass" format file
+  -M FILE                 list of servers to attack (one per line)
+  -t TASKS                run TASKS connections in parallel (per target, default: 16)
+  -T TASKS                run TASKS connections in parallel (global)
+  -U TASKS                run TASKS login attempts in parallel (per module)
+  -s PORT                 target port (default depends on service)
+  -S                      connect via SSL
+  -v / -V                 verbose / show each login attempt
+  -o FILE                 write results to FILE
+  -b TEXT|JSON|CSV        output format (default: text)
+  -f / -F                 exit when login/pass pair found (-f) or per service (-F)
+  -t TASKS                run TASKS connections in parallel
+  -w TIME                 wait TIME between requests (seconds)
+  -e nsr                  try "n" null, "s" same as login, "r" reverse login
+  -u                      loop around users, not passwords
+  -r                      no reset of connection after each attempt
+  -R                      restore a previous aborted session
+  -I                      ignore restore file (don't wait 3s)
+  -x MIN:MAX:CHARSET      password generation (-x 6:8:a1)
+  -y                      disable use of symbols in -x generation
+  -q                      do not print connection messages
+  -d                      debug mode
+  -4 / -6                 prefer IPv4 or IPv6 (default: auto)
+  -m OPT                  module-specific option (e.g. -m AUTH=SHARED for smb)
+  -h                      print help screen
+  -H                      print extended help screen
+  -P                      print module help screen
+  -U                      print module usage screen
+  -z                      display comprehensive module information
+
+Supported services:
+  adam6500 asterisk cisco cisco-enable cvs firebird ftp[s] http[s]-{head|get|post}
+  http[s]-{get|post}-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s]
+  ldap3[s] mssql mysql ncp nntp oracle-listener oracle-sid pcanywhere pcnfs
+  pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sctp
+  sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s]
+  vmauthd vnc xmpp

@@ -1,0 +1,27 @@
+Kismet 2023-07-R1 - Wireless Network Detector
+Copyright (c) 2023, Kismet Wireless
+https://www.kismetwireless.net/
+
+Usage: kismet [options]
+
+Options:
+  -c, --config=<file>         Path to configuration file
+  -s, --server=<host>         Kismet server hostname/IP
+  -p, --port=<port>           Kismet server port (default: 2501)
+  -v, --verbose               Increase verbosity
+  -f, --file=<file>           Write logs to file
+  -n, --no-gps                Disable GPS support
+  -l, --logging=<types>       Enable specific log types
+      --daemonize             Run as background daemon
+      --server-args=<args>    Extra server arguments
+  
+Sources are configured via kismet.conf or the
+KISMET_SOURCES environment variable.
+
+Available log types: pcap, alert, gps, dotview, netxml,
+nettxt, wiglecsv, log
+
+Example:
+  kismet
+  kismet -c /etc/kismet/kismet.conf
+  kismet -l pcap,alert -f /tmp/kismet.log

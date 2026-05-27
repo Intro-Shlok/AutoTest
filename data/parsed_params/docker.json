@@ -1,0 +1,128 @@
+[
+  {
+    "name": "config",
+    "template_key": "config",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Location of client config files (default",
+    "aliases": [
+      "--config"
+    ]
+  },
+  {
+    "name": "context",
+    "template_key": "context",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Name of the context to use to connect to the",
+    "aliases": [
+      "-c",
+      "--context"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable debug mode",
+    "aliases": [
+      "-D",
+      "--debug"
+    ]
+  },
+  {
+    "name": "host",
+    "template_key": "host",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Daemon socket to connect to",
+    "aliases": [
+      "-H",
+      "--host"
+    ]
+  },
+  {
+    "name": "log-level",
+    "template_key": "log-level",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set the logging level (\"debug\", \"info\"",
+    "aliases": [
+      "-l",
+      "--log-level"
+    ]
+  },
+  {
+    "name": "tls",
+    "template_key": "tls",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use TLS; implied by --tlsverify",
+    "aliases": [
+      "--tls"
+    ]
+  },
+  {
+    "name": "tlscacert",
+    "template_key": "tlscacert",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Trust certs signed only by this CA (default",
+    "aliases": [
+      "--tlscacert"
+    ]
+  },
+  {
+    "name": "tlscert",
+    "template_key": "tlscert",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Path to TLS certificate file (default",
+    "aliases": [
+      "--tlscert"
+    ]
+  },
+  {
+    "name": "tlskey",
+    "template_key": "tlskey",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Path to TLS key file (default",
+    "aliases": [
+      "--tlskey"
+    ]
+  },
+  {
+    "name": "tlsverify",
+    "template_key": "tlsverify",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use TLS and verify the remote",
+    "aliases": [
+      "--tlsverify"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print version information and quit",
+    "aliases": [
+      "-v",
+      "--version"
+    ]
+  }
+]

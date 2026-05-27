@@ -1,0 +1,44 @@
+{
+  "$schema": "./command-schema.json",
+  "title": "Artifact Transformation Registry",
+  "description": "Known artifact type conversions for pipeline composition. Maps source types to target types with execution method and fidelity metadata.",
+  "type": "object",
+  "properties": {
+    "transforms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string", "description": "Source artifact type (exact or prefix wildcard, e.g., network.*)." },
+          "target": { "type": "string", "description": "Target artifact type." },
+          "method": { "type": "string", "enum": ["pipe", "redirect", "convert", "copy", "passthrough"], "description": "Execution method." },
+          "lossy": { "type": "boolean", "description": "Deprecated: use fidelity instead. If present, auto-converted: lossy=true → fidelity.score=0.0, lossy=false → fidelity.score=1.0." },
+          "fidelity": {
+            "type": "object",
+            "description": "Structured fidelity metadata for this transform.",
+            "properties": {
+              "score": { "type": "number", "minimum": 0, "maximum": 1, "description": "Overall fidelity 0.0 (total loss) to 1.0 (perfect preservation)." },
+              "loss_type": { "type": "string", "enum": ["lossless", "truncation", "structural", "semantic", "full"], "description": "Kind of degradation this transform introduces." },
+              "breakdown": {
+                "type": "object",
+                "description": "Per-dimension fidelity scores.",
+                "properties": {
+                  "structural": { "type": "number", "minimum": 0, "maximum": 1, "description": "Preservation of data structure (format, schema, nesting)." },
+                  "semantic": { "type": "number", "minimum": 0, "maximum": 1, "description": "Preservation of meaning and interpretability." },
+                  "content": { "type": "number", "minimum": 0, "maximum": 1, "description": "Preservation of original data values (truncation/cropping)." }
+                }
+              },
+              "degradation_notes": { "type": "string", "description": "Human-readable description of what information is lost." }
+            },
+            "required": ["score", "loss_type"]
+          },
+          "converter_tool": { "type": "string", "description": "Optional tool namespace to perform the conversion." },
+          "command_template": { "type": "string", "description": "Shell command template using {input} and {output} placeholders." },
+          "description": { "type": "string", "description": "Human-readable description." }
+        },
+        "required": ["source", "target", "method"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

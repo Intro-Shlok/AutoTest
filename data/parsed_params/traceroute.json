@@ -1,0 +1,389 @@
+[
+  {
+    "name": "flag-4",
+    "template_key": "flag-4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use IPv4",
+    "aliases": [
+      "-4"
+    ]
+  },
+  {
+    "name": "flag-6",
+    "template_key": "flag-6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use IPv6",
+    "aliases": [
+      "-6"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable socket level debugging",
+    "aliases": [
+      "-d",
+      "--debug"
+    ]
+  },
+  {
+    "name": "dont-fragment",
+    "template_key": "dont-fragment",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not fragment packets",
+    "aliases": [
+      "-F",
+      "--dont-fragment"
+    ]
+  },
+  {
+    "name": "first",
+    "template_key": "first",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Start from the first_ttl hop (instead from 1)",
+    "aliases": [
+      "-f",
+      "--first"
+    ]
+  },
+  {
+    "name": "gateway",
+    "template_key": "gateway",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Route packets through the specified gateway (maximum 8 for IPv4 and 127 for IPv6)",
+    "aliases": [
+      "-g",
+      "--gateway"
+    ]
+  },
+  {
+    "name": "icmp",
+    "template_key": "icmp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use ICMP ECHO for tracerouting",
+    "aliases": [
+      "-I",
+      "--icmp"
+    ]
+  },
+  {
+    "name": "tcp",
+    "template_key": "tcp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use TCP SYN for tracerouting (default port is 80)",
+    "aliases": [
+      "-T",
+      "--tcp"
+    ]
+  },
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify a network interface to operate with",
+    "aliases": [
+      "-i",
+      "--interface"
+    ]
+  },
+  {
+    "name": "max-hops",
+    "template_key": "max-hops",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set the max number of hops (max TTL to be reached). Default is 30",
+    "aliases": [
+      "-m",
+      "--max-hops"
+    ]
+  },
+  {
+    "name": "sim-queries",
+    "template_key": "sim-queries",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set the number of probes to be tried simultaneously (default is 16)",
+    "aliases": [
+      "-N",
+      "--sim-queries"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not resolve IP addresses to their domain names",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "port",
+    "template_key": "port",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set the destination port to use. It is either",
+    "aliases": [
+      "-p",
+      "--port"
+    ]
+  },
+  {
+    "name": "tos",
+    "template_key": "tos",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set the TOS (IPv4 type of service) or TC (IPv6",
+    "aliases": [
+      "-t",
+      "--tos"
+    ]
+  },
+  {
+    "name": "flowlabel",
+    "template_key": "flowlabel",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use specified flow_label for IPv6 packets",
+    "aliases": [
+      "-l",
+      "--flowlabel"
+    ]
+  },
+  {
+    "name": "wait",
+    "template_key": "wait",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Wait for a probe no more than HERE (default 3) times longer than a response from the same hop, or no more than NEAR (default 10) times than some next hop, or MAX (default 5.0) seconds (float point values allowed too)",
+    "aliases": [
+      "-w",
+      "--wait"
+    ]
+  },
+  {
+    "name": "queries",
+    "template_key": "queries",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set the number of probes per each hop. Default is 3",
+    "aliases": [
+      "-q",
+      "--queries"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Bypass the normal routing and send directly to a",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "source",
+    "template_key": "source",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use source src_addr for outgoing packets",
+    "aliases": [
+      "-s",
+      "--source"
+    ]
+  },
+  {
+    "name": "sendwait",
+    "template_key": "sendwait",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Minimal time interval between probes (default 0). If the value is more than 10, then it specifies a number in milliseconds, else it is a number of seconds (float point values allowed too)",
+    "aliases": [
+      "-z",
+      "--sendwait"
+    ]
+  },
+  {
+    "name": "extensions",
+    "template_key": "extensions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show ICMP extensions (if present), including MPLS",
+    "aliases": [
+      "-e",
+      "--extensions"
+    ]
+  },
+  {
+    "name": "as-path-lookups",
+    "template_key": "as-path-lookups",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Perform AS path lookups in routing registries and",
+    "aliases": [
+      "-A",
+      "--as-path-lookups"
+    ]
+  },
+  {
+    "name": "module",
+    "template_key": "module",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use specified module (either builtin or external)",
+    "aliases": [
+      "-M",
+      "--module"
+    ]
+  },
+  {
+    "name": "options",
+    "template_key": "options",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use module-specific option OPTS for the traceroute module. Several OPTS allowed, separated by comma. If OPTS is \"help\", print info about available options",
+    "aliases": [
+      "-O",
+      "--options"
+    ]
+  },
+  {
+    "name": "sport",
+    "template_key": "sport",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use source port num for outgoing packets. Implies",
+    "aliases": [
+      "--sport"
+    ]
+  },
+  {
+    "name": "fwmark",
+    "template_key": "fwmark",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set firewall mark for outgoing packets",
+    "aliases": [
+      "--fwmark"
+    ]
+  },
+  {
+    "name": "udp",
+    "template_key": "udp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use UDP to particular port for tracerouting",
+    "aliases": [
+      "-U",
+      "--udp"
+    ]
+  },
+  {
+    "name": "dccp",
+    "template_key": "dccp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use DCCP Request for tracerouting (default port",
+    "aliases": [
+      "-D",
+      "--dccp"
+    ]
+  },
+  {
+    "name": "protocol",
+    "template_key": "protocol",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use raw packet of protocol prot for tracerouting",
+    "aliases": [
+      "-P",
+      "--protocol"
+    ]
+  },
+  {
+    "name": "mtu",
+    "template_key": "mtu",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Discover MTU along the path being traced. Implies",
+    "aliases": [
+      "--mtu"
+    ]
+  },
+  {
+    "name": "back",
+    "template_key": "back",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Guess the number of hops in the backward path and",
+    "aliases": [
+      "--back"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print version info and exit",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Read this help and exit",
+    "aliases": [
+      "--help"
+    ]
+  }
+]

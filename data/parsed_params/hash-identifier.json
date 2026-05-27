@@ -1,0 +1,20 @@
+[
+  {
+    "name": "hash",
+    "template_key": "hash",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Hash string to identify (positional argument)",
+    "aliases": []
+  },
+  {
+    "name": "stdin",
+    "template_key": "stdin",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Read hash from stdin pipe",
+    "aliases": []
+  }
+]

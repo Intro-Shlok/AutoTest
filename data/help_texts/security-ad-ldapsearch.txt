@@ -1,0 +1,37 @@
+ldapsearch v2.6.3 — LDAP Search Tool
+
+Usage: ldapsearch [options] [filter [attributes...]]
+
+Authentication:
+  -x                        Simple authentication (not SASL)
+  -D, --bind-dn <dn>        Bind DN for authentication
+  -w, --password <pass>     Password for bind DN
+  -W                        Prompt for password
+  -Y, --authzid <zid>       SASL authorization identity
+
+Connection:
+  -H, --uri <uri>           LDAP URI (ldap://host:port)
+  -h, --host <host>         LDAP server hostname
+  -p, --port <port>         LDAP server port (default 389)
+  -Z, --starttls            Use STARTTLS
+
+Search:
+  -b, --base-dn <dn>        Base DN for search
+  -s, --scope <scope>       Search scope (base|one|sub|children)
+  -f, --filter <filter>     RFC 4515 search filter
+  -l, --time-limit <sec>    Time limit for search
+  -z, --size-limit <num>    Max number of entries
+
+Output:
+  -LLL                      LDIF format (no comments/version)
+  -v, --verbose             Verbose output
+  -d, --debug <level>       Debug level
+
+Security:
+  -E, --extensions <ext>    LDAP extensions
+  -O, --security <props>    Security properties
+  -o, --options <opts>      General options
+
+Examples:
+  ldapsearch -x -H ldap://10.10.10.1 -b dc=evilcorp,dc=local
+  ldapsearch -x -H ldap://10.10.10.1 -D admin@evilcorp.local -w Pass123 -b dc=evilcorp,dc=local "(objectClass=user)"

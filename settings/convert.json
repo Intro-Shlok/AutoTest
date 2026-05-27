@@ -1,0 +1,36 @@
+{
+  "src": "docs",
+  "filePattern": "**/*.md",
+  "metadata": true,
+  "deterministicOrder": true,
+  "dist": "public/api/v1/commands.json",
+  "exclude": ["**/drafts/**", "**/templates/**", "**/ARCHIVE/**"],
+  "output": {
+    "format": "json",
+    "structure": "array",
+    "includeBody": true,
+    "bodyFormat": "raw"
+  },
+  "transforms": [
+    {
+      "field": "namespace",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "execution",
+      "type": "object",
+      "required": true
+    }
+  ]
+}

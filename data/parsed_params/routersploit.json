@@ -1,0 +1,92 @@
+[
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target IP address",
+    "aliases": ["-t", "--target"]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "integer",
+    "required": false,
+    "default_value": 80,
+    "description": "Target port",
+    "aliases": ["-p", "--port"]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Module to use",
+    "aliases": ["-m", "--module"]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Scanner module",
+    "aliases": ["-s", "--scanner"]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Exploit module",
+    "aliases": ["-e", "--exploit"]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Fuzzer module",
+    "aliases": ["-f", "--fuzzer"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Credentials (user:pass)",
+    "aliases": ["-c", "--credentials"]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Quiet mode",
+    "aliases": ["-q", "--quiet"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file",
+    "aliases": ["-o", "--output"]
+  }
+]

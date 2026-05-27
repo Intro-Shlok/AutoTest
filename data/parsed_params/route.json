@@ -1,0 +1,62 @@
+[
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "be verbose",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "numeric",
+    "template_key": "numeric",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't resolve names",
+    "aliases": [
+      "-n",
+      "--numeric"
+    ]
+  },
+  {
+    "name": "extend",
+    "template_key": "extend",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display other/more information",
+    "aliases": [
+      "-e",
+      "--extend"
+    ]
+  },
+  {
+    "name": "fib",
+    "template_key": "fib",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display Forwarding Information Base (default)",
+    "aliases": [
+      "-F",
+      "--fib"
+    ]
+  },
+  {
+    "name": "cache",
+    "template_key": "cache",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display routing cache instead of FIB",
+    "aliases": [
+      "-C",
+      "--cache"
+    ]
+  }
+]

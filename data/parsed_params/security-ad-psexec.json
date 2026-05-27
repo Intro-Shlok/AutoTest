@@ -1,0 +1,110 @@
+[
+  {
+    "name": "hashes",
+    "template_key": "hashes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "NTLM hash (LM:NT format) for pass-the-hash",
+    "aliases": ["--hashes"]
+  },
+  {
+    "name": "kerberos",
+    "template_key": "kerberos",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use Kerberos authentication",
+    "aliases": ["-k", "--kerberos"]
+  },
+  {
+    "name": "aesKey",
+    "template_key": "aesKey",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "AES256/128 key for Kerberos auth",
+    "aliases": ["--aesKey"]
+  },
+  {
+    "name": "dc-ip",
+    "template_key": "dc-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Domain controller IP for Kerberos",
+    "aliases": ["--dc-ip"]
+  },
+  {
+    "name": "target-ip",
+    "template_key": "target-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target IP address",
+    "aliases": ["--target-ip"]
+  },
+  {
+    "name": "port",
+    "template_key": "port",
+    "type": "integer",
+    "required": false,
+    "default_value": 445,
+    "description": "SMB port number",
+    "aliases": ["--port"]
+  },
+  {
+    "name": "service-name",
+    "template_key": "service-name",
+    "type": "string",
+    "required": false,
+    "default_value": "BTOBTO",
+    "description": "Name of the service to create",
+    "aliases": ["--service-name"]
+  },
+  {
+    "name": "codec",
+    "template_key": "codec",
+    "type": "string",
+    "required": false,
+    "default_value": "utf-8",
+    "description": "Output encoding codec",
+    "aliases": ["--codec"]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable debug output",
+    "aliases": ["--debug"]
+  },
+  {
+    "name": "no-pass",
+    "template_key": "no-pass",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Do not prompt for password",
+    "aliases": ["--no-pass"]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Local file to execute remotely",
+    "aliases": ["--file"]
+  },
+  {
+    "name": "share",
+    "template_key": "share",
+    "type": "string",
+    "required": false,
+    "default_value": "ADMIN$",
+    "description": "SMB share for file upload",
+    "aliases": ["--share"]
+  }
+]

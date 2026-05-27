@@ -1,0 +1,101 @@
+[
+  {
+    "name": "host",
+    "template_key": "host",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target IP address or hostname",
+    "aliases": ["-H", "--host"]
+  },
+  {
+    "name": "username",
+    "template_key": "username",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Username for SMB authentication",
+    "aliases": ["-u", "--username"]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password or NTLM hash for authentication",
+    "aliases": ["-p", "--password"]
+  },
+  {
+    "name": "domain",
+    "template_key": "domain",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Domain name for authentication",
+    "aliases": ["-d", "--domain"]
+  },
+  {
+    "name": "port",
+    "template_key": "port",
+    "type": "integer",
+    "required": false,
+    "default_value": 445,
+    "description": "SMB port number",
+    "aliases": ["-P", "--port"]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Recursive directory listing",
+    "aliases": ["-r", "--recursive"]
+  },
+  {
+    "name": "command",
+    "template_key": "command",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Command to execute via SMB",
+    "aliases": ["-x", "--command"]
+  },
+  {
+    "name": "content",
+    "template_key": "content",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show file contents",
+    "aliases": ["-C", "--content"]
+  },
+  {
+    "name": "download",
+    "template_key": "download",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Download file by path",
+    "aliases": ["--download"]
+  },
+  {
+    "name": "upload",
+    "template_key": "upload",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Upload file (local:remote)",
+    "aliases": ["--upload"]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Network timeout in seconds",
+    "aliases": ["--timeout"]
+  }
+]

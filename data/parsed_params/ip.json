@@ -1,0 +1,24 @@
+[
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "-f[amily] { inet | inet6 | mpls | bridge | link } | -4 | -6 | -M | -B | -0 | -l[oops] { maximum-addr-flush-attempts } | -echo | -br[ief] | -o[neline] | -t[imestamp] | -ts[hort] | -b[atch] [filename] | -rc[vbuf] [size] | -n[etns] name | -N[umeric] | -a[ll] | -c[olor]}",
+    "aliases": [
+      "-h",
+      "-r",
+      "-i",
+      "-j",
+      "-p"
+    ],
+    "enum": [
+      "inet",
+      "inet6",
+      "mpls",
+      "bridge",
+      "link"
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+Burp Suite Community Edition v2024.1
+Usage: burpsuite [options]
+
+Options:
+  --collaborator-config <file>   Collaborator server configuration file
+  --project-file <file>          Load the specified project file
+  --use-defaults                 Start Burp with default configuration
+  --diagnostics                  Show diagnostics information
+  --help, -h                     Show this help message
+
+Examples:
+  burpsuite --use-defaults
+  burpsuite --project-file project.burp
+  burpsuite --collaborator-config collab.config
+
+Note: Burp Suite is primarily a GUI application.
+For automated/headless scanning, use the REST API or Burp Extender APIs.

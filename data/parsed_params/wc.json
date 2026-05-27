@@ -1,0 +1,62 @@
+[
+  {
+    "name": "bytes",
+    "template_key": "bytes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the byte counts",
+    "aliases": [
+      "-c",
+      "--bytes"
+    ]
+  },
+  {
+    "name": "chars",
+    "template_key": "chars",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the character counts",
+    "aliases": [
+      "-m",
+      "--chars"
+    ]
+  },
+  {
+    "name": "lines",
+    "template_key": "lines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the newline counts --debug indicate what line count acceleration is used --files0-from=F read input from the files specified by NUL-terminated names in file F; If F is -, read names from standard input",
+    "aliases": [
+      "-l",
+      "--lines"
+    ]
+  },
+  {
+    "name": "max-line-length",
+    "template_key": "max-line-length",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the maximum display width",
+    "aliases": [
+      "-L",
+      "--max-line-length"
+    ]
+  },
+  {
+    "name": "words",
+    "template_key": "words",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the word counts --total=WHEN when to print a line with total counts; WHEN can be: auto, always, only, never --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-w",
+      "--words"
+    ]
+  }
+]

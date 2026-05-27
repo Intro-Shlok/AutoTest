@@ -1,0 +1,110 @@
+[
+  {
+    "name": "scan",
+    "template_key": "scan",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Scan for Bluetooth devices",
+    "aliases": ["scan", "--scan"]
+  },
+  {
+    "name": "advertise",
+    "template_key": "advertise",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Enable advertising",
+    "aliases": ["advertise", "--advertise"]
+  },
+  {
+    "name": "discoverable",
+    "template_key": "discoverable",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Make adapter discoverable",
+    "aliases": ["discoverable", "--discoverable"]
+  },
+  {
+    "name": "pairable",
+    "template_key": "pairable",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Make adapter pairable",
+    "aliases": ["pairable", "--pairable"]
+  },
+  {
+    "name": "power",
+    "template_key": "power",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Power control (on/off)",
+    "aliases": ["power", "--power"]
+  },
+  {
+    "name": "agent",
+    "template_key": "agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Register agent type",
+    "aliases": ["agent", "--agent"]
+  },
+  {
+    "name": "pair",
+    "template_key": "pair",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Pair with device by MAC",
+    "aliases": ["pair", "--pair"]
+  },
+  {
+    "name": "trust",
+    "template_key": "trust",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Trust device by MAC",
+    "aliases": ["trust", "--trust"]
+  },
+  {
+    "name": "connect",
+    "template_key": "connect",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Connect to device by MAC",
+    "aliases": ["connect", "--connect"]
+  },
+  {
+    "name": "info",
+    "template_key": "info",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show device info by MAC",
+    "aliases": ["info", "--info"]
+  },
+  {
+    "name": "list",
+    "template_key": "list",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "List available adapters",
+    "aliases": ["list", "--list"]
+  },
+  {
+    "name": "show",
+    "template_key": "show",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Show adapter info",
+    "aliases": ["show", "--show"]
+  }
+]

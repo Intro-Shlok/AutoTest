@@ -1,0 +1,20 @@
+[
+  {
+    "name": "command",
+    "template_key": "command",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Shodan command (search, host, count, download, etc.)",
+    "aliases": []
+  },
+  {
+    "name": "args",
+    "template_key": "args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Arguments for the subcommand",
+    "aliases": []
+  }
+]

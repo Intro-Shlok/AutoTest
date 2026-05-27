@@ -1,0 +1,233 @@
+[
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "as `-e'; use /bin/sh to exec [dangerous!!]",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "program to exec after connect [dangerous!!]",
+    "aliases": [
+      "-e"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "allow broadcasts",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "flag-g",
+    "template_key": "flag-g",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "source-routing hop point[s], up to 8",
+    "aliases": [
+      "-g"
+    ]
+  },
+  {
+    "name": "flag-G",
+    "template_key": "flag-g",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "source-routing pointer: 4, 8, 12",
+    "aliases": [
+      "-G"
+    ]
+  },
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "this cruft",
+    "aliases": [
+      "-h"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "delay interval for lines sent, ports scanned",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-k",
+    "template_key": "flag-k",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set keepalive option on socket",
+    "aliases": [
+      "-k"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "listen mode, for inbound connects",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "numeric-only IP addresses, no DNS",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "hex dump of traffic",
+    "aliases": [
+      "-o"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "local port number",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "randomize local and remote ports",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "quit after EOF on stdin and delay of secs",
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "local source address",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-T",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set Type Of Service",
+    "aliases": [
+      "-T"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "answer TELNET negotiation",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "UDP mode",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "verbose [use twice to be more verbose]",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-w",
+    "template_key": "flag-w",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "timeout for connects and final net reads",
+    "aliases": [
+      "-w"
+    ]
+  },
+  {
+    "name": "flag-z",
+    "template_key": "flag-z",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "zero-I/O mode [used for scanning]",
+    "aliases": [
+      "-z"
+    ]
+  }
+]

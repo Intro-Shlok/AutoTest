@@ -1,0 +1,74 @@
+[
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Company name or domain to search",
+    "aliases": ["-d", "--domain"]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": true,
+    "default_value": "all",
+    "description": "Data source to use",
+    "aliases": ["-b", "--source"]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "integer",
+    "required": false,
+    "default_value": 500,
+    "description": "Limit search results",
+    "aliases": ["-l", "--limit"]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Save results to XML and JSON file",
+    "aliases": ["-f", "--filename"]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Check for takeovers",
+    "aliases": ["-t", "--take-over"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "DNS brute force",
+    "aliases": ["-c", "--dns-brute"]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use Shodan to query discovered hosts",
+    "aliases": ["-s", "--shodan"]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Suppress missing API key warnings",
+    "aliases": ["-q", "--quiet"]
+  }
+]

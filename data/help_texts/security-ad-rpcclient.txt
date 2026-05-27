@@ -1,0 +1,41 @@
+rpcclient v4.17.0 — MS-RPC Client
+
+Usage: rpcclient [options] <server>
+
+Server:
+  <server>                  Target IP or hostname
+
+Authentication:
+  -U, --user <user[%pass]>  Username (and optional password)
+  -N, --no-pass             Null session
+  -W, --workgroup <wg>      Workgroup or domain
+  -A, --auth-file <file>    Credentials file
+  -k, --kerberos            Use Kerberos authentication
+
+Connection:
+  -I, --ip <address>        Target IP address
+  -p, --port <port>         SMB/RPC port (default 445)
+  -t, --timeout <sec>       Connection timeout
+
+Debug:
+  -d, --debug <level>       Debug level (0-10)
+  -s, --config <file>       Config file path
+  -e, --encrypt             Require encryption
+
+Execution:
+  -c, --command <cmds>      Execute semicolon-separated RPC commands
+
+Common RPC Commands:
+  enumdomusers              List domain users
+  enumdomgroups             List domain groups
+  queryuser <rid>           Query user by RID
+  querygroup <rid>          Query group by RID
+  getdompwinfo              Get password policy
+  netshareenumall           List all shares
+  lookupsids <sid>          Resolve SID to name
+  lookupnames <name>        Resolve name to SID
+  lsaquery                  Query LSA policies
+
+Examples:
+  rpcclient -U "" -N 10.10.10.1
+  rpcclient -U jdoe 10.10.10.1 -c "enumdomusers;getdompwinfo"

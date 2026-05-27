@@ -1,0 +1,28 @@
+RouterSploit - Embedded Device Exploitation Framework
+
+Usage: routersploit [options]
+
+Options:
+  -t, --target=IP     Target IP address
+  -p, --port=PORT     Target port (default: 80)
+  -m, --module=MOD    Module to use
+  -s, --scanner=MOD   Scanner module
+  -e, --exploit=MOD   Exploit module
+  -f, --fuzzer=MOD    Fuzzer module
+  -c, --creds=CRED    Credentials (user:pass format)
+  -v, --verbose       Verbose output
+  -q, --quiet         Quiet mode
+  -o, --output=FILE   Output file
+  -h, --help          Show this help message
+
+Modes:
+  Interactive:    routersploit
+  Direct scan:    routersploit -t 192.168.1.1 -s
+  Direct exploit: routersploit -t 192.168.1.1 -e exploits/routers/dlink/dir_815_creds
+  Fuzz:           routersploit -t 192.168.1.1 -p 8080 -f
+
+Example:
+  routersploit -t 192.168.1.1 -s
+  routersploit -t 192.168.1.1 -e exploits/routers/dlink/dir_859_exec
+  routersploit -t 192.168.1.1 -c admin:admin
+  routersploit -t 192.168.1.1 -m scanners/autopwn -v

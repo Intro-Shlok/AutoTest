@@ -1,0 +1,74 @@
+[
+  {
+    "name": "autoAnalyze",
+    "template_key": "autoAnalyze",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Automatically analyze the binary on open",
+    "aliases": ["-A"]
+  },
+  {
+    "name": "noSave",
+    "template_key": "noSave",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Do not save project on exit",
+    "aliases": ["-z"]
+  },
+  {
+    "name": "writeMode",
+    "template_key": "writeMode",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Open file in write mode for patching",
+    "aliases": ["-w"]
+  },
+  {
+    "name": "arch",
+    "template_key": "arch",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set target architecture",
+    "aliases": ["-a"]
+  },
+  {
+    "name": "bits",
+    "template_key": "bits",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set CPU bits (32 or 64)",
+    "aliases": ["-b"]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Display help message",
+    "aliases": ["-h"]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show version information",
+    "aliases": ["-v"]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Binary file to open",
+    "aliases": []
+  }
+]

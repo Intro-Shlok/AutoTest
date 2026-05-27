@@ -1,0 +1,36 @@
+Dirsearch v0.4.3
+Usage: dirsearch -u <target> [options]
+
+Target:
+  -u, --url <url>                Target URL
+  -l, --url-list <file>          URL list file
+
+Dictionary:
+  -w, --wordlist <file>          Path to wordlist file
+  -e, --extensions <exts>        File extensions (comma-separated)
+  -f, --force-extensions         Force extensions on all words
+
+Settings:
+  -t, --threads <num>            Number of threads (default 30)
+  -r, --recursive                Enable recursive brute-force
+  -R, --recursive-depth <num>    Maximum recursion depth
+  --min-response-size <size>     Minimum response length
+  --max-response-size <size>     Maximum response length
+  --timeout <secs>               Request timeout in seconds
+  --follow-redirects             Follow HTTP redirects
+  --random-agent                 Use random User-Agent headers
+  --proxy <url>                  Proxy URL (e.g. http://127.0.0.1:8080)
+
+Filter:
+  -x, --exclude-status <codes>   Exclude status codes (comma-separated)
+  --exclude-sizes <sizes>        Exclude response sizes
+  --exclude-texts <texts>        Exclude response texts
+
+Output:
+  --format <fmt>                 Output format (json, xml, csv, plain)
+  -o, --output <file>            Output file path
+
+Examples:
+  dirsearch -u https://example.com -w /usr/share/wordlists/dirb/common.txt
+  dirsearch -u https://example.com -e php,html -t 50
+  dirsearch -u https://example.com --format json -o results.json

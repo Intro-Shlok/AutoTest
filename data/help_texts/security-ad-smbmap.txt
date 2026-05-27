@@ -1,0 +1,38 @@
+smbmap v1.10.0 — SMB Share Enumeration
+
+Usage: smbmap [options] -H <target>
+
+Target:
+  -H, --host <host>         Target IP or hostname (required)
+
+Authentication:
+  -u, --username <user>     Username (default: null)
+  -p, --password <pass>     Password or NTLM hash
+  -d, --domain <domain>     Domain name
+
+Enumeration:
+  -s, --share <share>       Specify a share
+  -r, --recursive           Recursive directory listing
+  -R, --depth <num>         Recursion depth (default 10)
+  -C, --content             Show file contents (text)
+  -q, --quiet               Quiet mode
+
+File Operations:
+  --download <path>         Download file by path
+  --upload <local:remote>   Upload file
+  --delete <path>           Delete file
+
+Execution:
+  -x, --command <cmd>       Execute command via SMB
+
+Advanced:
+  -P, --port <port>         SMB port (default 445)
+  --timeout <sec>           Network timeout (default 10)
+  -S, --ssl                 Force SMB over SSL
+  --no-banner               Suppress banner
+  --no-color                Disable color output
+
+Examples:
+  smbmap -H 10.10.10.1 -u jdoe -p Pass123 -r
+  smbmap -H 10.10.10.1 -u jdoe -p Pass123 --download C$/Users/Admin/notes.txt
+  smbmap -H 10.10.10.1 -u jdoe -p Pass123 -x "ipconfig"

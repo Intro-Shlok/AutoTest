@@ -1,0 +1,92 @@
+[
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Path to dictionary file for WPA/WPA2-PSK cracking",
+    "aliases": ["-w", "--wordlist"]
+  },
+  {
+    "name": "attack-mode",
+    "template_key": "attack-mode",
+    "type": "enum",
+    "required": false,
+    "default_value": null,
+    "description": "Attack mode (1=WEP, 2=WPA-PSK)",
+    "aliases": ["-a", "--attack-mode"]
+  },
+  {
+    "name": "essid",
+    "template_key": "essid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target network ESSID",
+    "aliases": ["-e", "--essid"]
+  },
+  {
+    "name": "bssid",
+    "template_key": "bssid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target network BSSID",
+    "aliases": ["-b", "--bssid"]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "WPA password to test",
+    "aliases": ["-p", "--password"]
+  },
+  {
+    "name": "show",
+    "template_key": "show",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Show known keys in capture",
+    "aliases": ["-s", "--show"]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Quiet mode",
+    "aliases": ["-q", "--quiet"]
+  },
+  {
+    "name": "korps",
+    "template_key": "korps",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "KoreK attacks for WEP",
+    "aliases": ["-K", "--korps"]
+  },
+  {
+    "name": "strength",
+    "template_key": "strength",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "WEP key strength (40/104)",
+    "aliases": ["-S", "--strength"]
+  },
+  {
+    "name": "fudge",
+    "template_key": "fudge",
+    "type": "integer",
+    "required": false,
+    "default_value": "2",
+    "description": "PTW fudge factor",
+    "aliases": ["-f", "--fudge"]
+  }
+]

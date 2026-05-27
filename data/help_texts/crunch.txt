@@ -1,0 +1,32 @@
+Usage: crunch <min> <max> [charset] [options]
+
+Generate wordlists from character sets.
+
+Options:
+  -o FILE        Output file to write wordlist
+  -b SIZE        Size limit (e.g. 50MB, 1GB)
+  -c NUM         Number of words per output file (file splitting)
+  -d LIMIT       Limit duplicate characters (e.g. 2@)
+  -e STRING      Stop generating at this word
+  -f FILE PATH   Read charset from file
+  -i             Invert output order
+  -l             Treat @,%^ as literal characters
+  -p WORD ...    Generate permutations (no min/max needed)
+  -q FILE        Read input file for permutations
+  -r             Resume from last generated position
+  -s STRING      Start generating from this word
+  -t PATTERN     Use pattern with @,%^ placeholders
+  -u             Unique mode (no duplicate lines)
+  -z FORMAT      Compress output (gzip, bzip2, lzma)
+
+Pattern placeholders:
+  @ = lowercase   , = uppercase   % = numbers   ^ = symbols
+
+Examples:
+  crunch 6 8 abcdefghijklmnopqrstuvwxyz -o wordlist.txt
+  crunch 4 4 -t @@%%
+  crunch 0 0 -p word1 word2 word3
+  crunch 6 8 -f /usr/share/crunch/charset.lst mixalpha-numeric
+  crunch 8 8 abcdefghijklmnopqrstuvwxyz -s aaaabbbb
+
+Report bugs to https://github.com/crunchsec/crunch

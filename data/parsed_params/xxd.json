@@ -1,0 +1,212 @@
+[
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "toggle autoskip: A single '*' replaces nul-lines. Default off",
+    "aliases": [
+      "-a"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "binary digit dump (incompatible with -ps). Default hex",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "format <cols> octets per line. Default 16 (-i: 12, -ps: 30)",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "little-endian dump (incompatible with -ps,-i,-r)",
+    "aliases": [
+      "-e"
+    ]
+  },
+  {
+    "name": "flag-g",
+    "template_key": "flag-g",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "number of octets per group in normal output. Default 2 (-e: 4)",
+    "aliases": [
+      "-g"
+    ]
+  },
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print this summary",
+    "aliases": [
+      "-h"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output in C include file style",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "append terminating zero to C include output (-i)",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "stop after <len> octets",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set the variable name used in C include output (-i)",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "add <off> to the displayed file position",
+    "aliases": [
+      "-o"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output in postscript plain hexdump style",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "reverse operation: convert (or patch) hexdump into binary",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "flag-r-2",
+    "template_key": "flag-r-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "revert with <off> added to file positions found in hexdump",
+    "aliases": [
+      "-r",
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show offset in decimal instead of hex",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use upper case hex letters",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "flag-R",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": "'auto'",
+    "description": "colorize the output; <when> can be 'always', 'auto' or 'never'",
+    "aliases": [
+      "-R"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show version: \"xxd 2026-03-19 by Juergen Weigert et al.\"",
+    "aliases": [
+      "-v"
+    ]
+  }
+]

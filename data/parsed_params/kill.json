@@ -1,0 +1,35 @@
+[
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SIG is a signal name",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SIG is a signal number",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "list the signal names; if arguments follow `-l' they are",
+    "aliases": [
+      "-l"
+    ]
+  }
+]

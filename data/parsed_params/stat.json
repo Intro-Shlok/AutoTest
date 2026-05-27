@@ -1,0 +1,73 @@
+[
+  {
+    "name": "dereference",
+    "template_key": "dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "follow links",
+    "aliases": [
+      "-L",
+      "--dereference"
+    ]
+  },
+  {
+    "name": "file-system",
+    "template_key": "file-system",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display file system status instead of file status --cached=MODE specify how to use cached attributes; useful on remote file systems. See MODE below",
+    "aliases": [
+      "-f",
+      "--file-system"
+    ]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use the specified FORMAT instead of the default; output a newline after each use of FORMAT --printf=FORMAT like --format, but interpret backslash escapes, and do not output a mandatory trailing newline; if you want a newline, include \\n in FORMAT",
+    "aliases": [
+      "-c",
+      "--format"
+    ]
+  },
+  {
+    "name": "terse",
+    "template_key": "terse",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the information in terse form --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-t",
+      "--terse"
+    ]
+  },
+  {
+    "name": "terse-2",
+    "template_key": "terse-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--terse"
+    ]
+  },
+  {
+    "name": "terse-3",
+    "template_key": "terse-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--terse",
+      "--file-system"
+    ]
+  }
+]

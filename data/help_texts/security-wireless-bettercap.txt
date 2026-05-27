@@ -1,0 +1,33 @@
+bettercap v2.32.0 - MITM Framework
+Copyright (c) 2023, Simone Margaritelli
+https://www.bettercap.org/
+
+Usage: bettercap [options]
+
+Options:
+  -I, --interface=<iface>     Network interface to use
+  -T, --target=<ip>           Target IP address
+  -G, --gateway=<ip>          Gateway IP address
+  -S, --spoof                 Enable ARP spoofing
+  -X, --sniffer               Enable sniffer
+  -P, --proxy                 Enable HTTP/HTTPS proxy
+  -L, --log=<file>            Log events to file
+  -O, --output=<dir>          Save captures to directory
+      --eval=<command>        Evaluate a command
+      --caplet=<file>         Execute caplet script
+      --no-http               Disable HTTP server
+      --no-https              Disable HTTPS server
+  -M, --module=<name>         Start specific module
+  -D, --debug                 Enable debug mode
+  -v, --verbose               Verbose output
+      --proxy-port=<port>     Proxy listen port
+      --dns=<domain=ip>       Spoof DNS record
+      --no-color              Disable colored output
+  
+Interactive Commands:
+  help, net.sniff, arp.spoof, dns.spoof,
+  http.proxy, wifi, ble, ticker
+
+Example:
+  bettercap -I eth0 -X
+  bettercap -I eth0 -T 192.168.1.100 -S

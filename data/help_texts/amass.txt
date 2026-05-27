@@ -1,0 +1,16 @@
+OWASP Amass Project - @owaspamass
+In-depth Attack Surface Mapping and Asset Discovery
+
+Usage: amass [assoc|engine|enum|subs|track|viz] [options]
+
+  -h      Show the program usage message
+  -help   Show the program usage message
+  -version Print the Amass version number
+
+Subcommands:
+  assoc   Query the OAM along the walk defined by the triples
+  engine  Run the Amass collection engine to populate the OAM database
+  enum    Interface with the engine that performs enumerations
+  subs    Analyze and present discovered subdomains and associated data
+  track   Analyze OAM data to identify newly discovered assets
+  viz     Analyze OAM data to generate graph visualizations

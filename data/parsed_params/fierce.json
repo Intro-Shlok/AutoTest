@@ -1,0 +1,83 @@
+[
+  {
+    "name": "domain",
+    "template_key": "domain",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Domain name to test",
+    "aliases": ["--domain"]
+  },
+  {
+    "name": "connect",
+    "template_key": "connect",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Attempt HTTP connection to non-RFC 1918 hosts",
+    "aliases": ["--connect"]
+  },
+  {
+    "name": "wide",
+    "template_key": "wide",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Scan entire class C of discovered records",
+    "aliases": ["--wide"]
+  },
+  {
+    "name": "range",
+    "template_key": "range",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Scan an internal IP range in CIDR",
+    "aliases": ["--range"]
+  },
+  {
+    "name": "subdomain-file",
+    "template_key": "subdomain-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Subdomains wordlist file",
+    "aliases": ["--subdomain-file"]
+  },
+  {
+    "name": "dns-servers",
+    "template_key": "dns-servers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "DNS servers for reverse lookups",
+    "aliases": ["--dns-servers"]
+  },
+  {
+    "name": "traverse",
+    "template_key": "traverse",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Scan N IPs before and after discovered records",
+    "aliases": ["--traverse"]
+  },
+  {
+    "name": "delay",
+    "template_key": "delay",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Time to wait between lookups",
+    "aliases": ["--delay"]
+  },
+  {
+    "name": "tcp",
+    "template_key": "tcp",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use TCP instead of UDP",
+    "aliases": ["--tcp"]
+  }
+]

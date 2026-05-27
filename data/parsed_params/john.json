@@ -1,0 +1,137 @@
+[
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Wordlist file for dictionary attack",
+    "aliases": ["--wordlist"]
+  },
+  {
+    "name": "rules",
+    "template_key": "rules",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Wordlist mangling rules section",
+    "aliases": ["--rules"]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Hash format (e.g. raw-md5, bcrypt, sha512crypt)",
+    "aliases": ["--format"]
+  },
+  {
+    "name": "incremental",
+    "template_key": "incremental",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Incremental (brute-force) mode with optional charset",
+    "aliases": ["--incremental"]
+  },
+  {
+    "name": "mask",
+    "template_key": "mask",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Mask for brute-force attack (e.g. ?l?l?l?d?d)",
+    "aliases": ["--mask"]
+  },
+  {
+    "name": "session",
+    "template_key": "session",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Session name for save/restore",
+    "aliases": ["--session"]
+  },
+  {
+    "name": "restore",
+    "template_key": "restore",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Restore a previous cracking session",
+    "aliases": ["--restore"]
+  },
+  {
+    "name": "show",
+    "template_key": "show",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show cracked passwords from pot file",
+    "aliases": ["--show"]
+  },
+  {
+    "name": "pot",
+    "template_key": "pot",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Pot file path for cracked passwords",
+    "aliases": ["--pot"]
+  },
+  {
+    "name": "node",
+    "template_key": "node",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Node/distribution for cluster cracking",
+    "aliases": ["--node"]
+  },
+  {
+    "name": "fork",
+    "template_key": "fork",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Number of forked processes",
+    "aliases": ["--fork"]
+  },
+  {
+    "name": "mem-file-size",
+    "template_key": "mem-file-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Max memory per file buffer in MB",
+    "aliases": ["--mem-file-size"]
+  },
+  {
+    "name": "max-candidates",
+    "template_key": "max-candidates",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Max candidates per second per thread",
+    "aliases": ["--max-candidates"]
+  },
+  {
+    "name": "single",
+    "template_key": "single",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Single crack mode using login/GECOS info",
+    "aliases": ["--single"]
+  },
+  {
+    "name": "stdin",
+    "template_key": "stdin",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Read password candidates from stdin",
+    "aliases": ["--stdin"]
+  }
+]

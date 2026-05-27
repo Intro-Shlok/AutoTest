@@ -1,0 +1,128 @@
+[
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL to fingerprint",
+    "aliases": ["-u"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output including all plugins",
+    "aliases": ["-v"]
+  },
+  {
+    "name": "aggression",
+    "template_key": "aggression",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Aggression level 1-5",
+    "aliases": ["-a"]
+  },
+  {
+    "name": "log-verbose",
+    "template_key": "log-verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Log verbose output to file",
+    "aliases": ["-l"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file",
+    "aliases": ["-o"]
+  },
+  {
+    "name": "user-agent",
+    "template_key": "user-agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom User-Agent header",
+    "aliases": ["-U"]
+  },
+  {
+    "name": "input-file",
+    "template_key": "input-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Read targets from file",
+    "aliases": ["-i"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Number of threads",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy URL",
+    "aliases": ["--proxy"]
+  },
+  {
+    "name": "cookie",
+    "template_key": "cookie",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Cookie string",
+    "aliases": ["--cookie"]
+  },
+  {
+    "name": "header",
+    "template_key": "header",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP header",
+    "aliases": ["--header"]
+  },
+  {
+    "name": "plugins",
+    "template_key": "plugins",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Comma-separated plugin list",
+    "aliases": ["--plugins"]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Suppress banner output",
+    "aliases": ["--quiet"]
+  },
+  {
+    "name": "no-errors",
+    "template_key": "no-errors",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Suppress error messages",
+    "aliases": ["--no-errors"]
+  }
+]

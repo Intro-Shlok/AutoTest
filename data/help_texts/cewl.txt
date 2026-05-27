@@ -1,0 +1,52 @@
+CeWL 6.1 (Custom Word List) - Copyright 2023, Digininja
+
+Usage: cewl [OPTIONS] <url>
+
+Where <url> is the target URL to spider.
+
+Options:
+  -h, --help              Show this help message
+  -k, --keep              Keep the downloaded file
+  -d, --depth DEPTH       Spider depth (default: 2)
+  -m, --min_word_length   Minimum word length (default: 3)
+  -x, --max_word_length   Maximum word length (default: 100)
+  -w, --write FILE        Write output to FILE
+  -o, --offsite           Allow spidering offsite links
+  -n, --no_count          Don't show word count in output
+  -c, --count             Show word count in output
+  -u, --user-agent AGENT  Use custom user agent
+  -v, --verbose           Verbose output
+  --debug                 Debug output
+  --quiet                 Quiet mode (no banner)
+  --with-numbers          Include words that contain numbers
+  --convert-umlauts       Convert umlauts to ASCII
+  --lowercase             Convert all words to lowercase
+
+Authentication:
+  -a, --meta              Extract metadata from documents
+  -e, --email             Extract email addresses
+  --email_file FILE       Write emails to FILE
+
+Proxy:
+  --proxy HOST:PORT       Use proxy
+  --proxy-auth CREDS      Proxy authentication credentials
+  --proxy-protocol PROTO  Proxy protocol (http/socks)
+
+HTTP Options:
+  --auth_type TYPE        Authentication type (basic, digest, ntlm)
+  --auth_user USER        Authentication username
+  --auth_pass PASS        Authentication password
+  --cookie COOKIE         Cookie string for session
+  --cookies FILE          File containing cookies
+  --header HEADER         Custom header (multi-allowed)
+  --timeout SECONDS       Connection timeout (default: 10)
+  --max_retries NUM       Maximum retries (default: 3)
+  --no_check_certificate  Don't check SSL certificate validity
+  --user_agent AGENT      Custom user agent
+
+Examples:
+  cewl https://example.com -w words.txt
+  cewl https://example.com -d 3 -m 5 -w words.txt
+  cewl https://example.com -e --email_file emails.txt
+  cewl https://example.com -a -w words.txt
+  cewl https://example.com --lowercase --with-numbers -w words.txt

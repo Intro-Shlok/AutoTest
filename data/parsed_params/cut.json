@@ -1,0 +1,85 @@
+[
+  {
+    "name": "bytes",
+    "template_key": "bytes",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "select only these bytes",
+    "aliases": [
+      "-b",
+      "--bytes"
+    ]
+  },
+  {
+    "name": "characters",
+    "template_key": "characters",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "select only these characters",
+    "aliases": [
+      "-c",
+      "--characters"
+    ]
+  },
+  {
+    "name": "delimiter",
+    "template_key": "delimiter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use DELIM instead of TAB for field delimiter",
+    "aliases": [
+      "-d",
+      "--delimiter"
+    ]
+  },
+  {
+    "name": "fields",
+    "template_key": "fields",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "select only these fields; also print any line that contains no delimiter character, unless the -s option is specified",
+    "aliases": [
+      "-f",
+      "--fields"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(ignored) --complement complement the set of selected bytes, characters or fields",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "only-delimited",
+    "template_key": "only-delimited",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not print lines not containing delimiters --output-delimiter=STRING use STRING as the output delimiter; the default is to use the input delimiter",
+    "aliases": [
+      "-s",
+      "--only-delimited"
+    ]
+  },
+  {
+    "name": "zero-terminated",
+    "template_key": "zero-terminated",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "line delimiter is NUL, not newline --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-z",
+      "--zero-terminated"
+    ]
+  }
+]

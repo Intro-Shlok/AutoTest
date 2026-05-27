@@ -1,0 +1,35 @@
+WPScan v3.8.25 - WordPress Vulnerability Scanner
+Sponsored by Automatic - https://wpscan.com/
+
+Usage: wpscan [options]
+
+Basic:
+  --url <URL>                Target WordPress URL
+  -e, --enumerate <OPTS>     Enumeration (vp,vt,u,ap,at,cb,dbe,tt)
+  --plugins-detection <MODE> Plugin detection (passive/aggressive/mixed)
+  --api-token <TOKEN>        API token for vulnerability DB
+
+Discovery:
+  --passwords <FILE>         Password file for brute force
+  --usernames <FILE>         Username file
+  -t, --threads <NUM>        Number of threads (default: 5)
+
+Output:
+  -v, --verbose              Verbose output
+  --batch                    Never ask for user input
+  --random-user-agent        Random User-Agent header
+
+Request:
+  --proxy <PROXY>            Proxy URL
+  --cookie <COOKIE>          Cookie string
+  --headers <HEADERS>        Custom headers
+  --user-agent <AGENT>       Custom User-Agent
+
+Detection:
+  --detection-mode <MODE>    Detection mode (passive/aggressive/mixed)
+  --ignore-main-redirect     Ignore redirect to main site
+  --exclude-content-based    Exclude by content regex
+  --plugins-version-detection  Plugin version detection mode
+  --force                    Force scan (even if not WP)
+  --stealthy                 Stealthy mode (low and slow)
+  -h, --help                 Show this help

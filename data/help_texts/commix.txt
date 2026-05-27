@@ -1,0 +1,28 @@
+Commix v3.8 - Command Injection Exploiter
+Developed by Anastasios Stasinopoulos (@ancst)
+
+Usage: commix [option(s)]
+
+Options:
+  -u, --url <URL>           Target URL
+  --data=<DATA>             POST data string
+  -H, --header=<HEADER>     Custom HTTP header
+  --cookie=<COOKIE>         HTTP Cookie header
+  --user-agent=<AGENT>      Custom User-Agent
+  --referer=<REFERER>       HTTP Referer header
+  --os=<OS>                 Target OS (linux/windows)
+  --method=<METHOD>         HTTP method (GET/POST)
+  --payload=<PAYLOAD>       Custom injection payload
+  --technique=<TECH>        Injection technique
+  --level=<LEVEL>           Level of tests (1-3, default 1)
+  --batch                   Never ask for user input
+  --output-dir=<DIR>        Output directory
+  --volume=<VOL>            Volume of output (0-3)
+  --shell                   Obtain interactive shell
+  --all                     Retrieve all information
+  --encoding=<ENC>          Payload encoding
+  --tamper=<TAMPER>         Tamper script
+  --delay=<SEC>             Delay between requests
+  --timeout=<SEC>           Request timeout
+  --proxy=<PROXY>           Proxy URL
+  -h, --help                Show this help

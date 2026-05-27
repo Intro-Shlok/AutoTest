@@ -1,0 +1,27 @@
+bully 1.1 - WPS brute-force attack tool
+Copyright (c) 2015, Brian Purcell
+https://github.com/aanarchyy/bully
+
+Usage: bully <interface> -b <bssid> [options]
+
+Required Arguments:
+  -i, --interface=<iface>     Wireless interface in monitor mode
+  -b, --bssid=<bssid>         Target AP BSSID
+
+Optional Arguments:
+  -c, --channel=<channel>     Set the wireless channel
+  -p, --pin=<pin>             WPS PIN to test
+  -l, --lock-delay=<secs>     Delay after WPS lockout
+  -t, --timeout=<secs>        Receive timeout period
+  -d, --delay=<secs>          Delay between PIN attempts
+  -s, --session=<file>        Restore session from file
+  -o, --output=<file>         Output to file
+  -v, --verbose               Verbose output
+  -q, --quiet                 Quiet output
+  -F, --force                 Force attack when locked
+  -S, --step=<num>            PIN increment step
+  -w, --workdelay=<secs>      Work delay between cycles
+  -B, --bruteforce            Brute-force full PIN space
+
+Example:
+  bully -i wlan0mon -b 00:11:22:33:44:55 -c 6 -v

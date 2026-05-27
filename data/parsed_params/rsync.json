@@ -1,0 +1,1617 @@
+[
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "increase verbosity",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "info",
+    "template_key": "info",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "fine-grained informational verbosity",
+    "aliases": [
+      "--info"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "fine-grained debug verbosity",
+    "aliases": [
+      "--debug"
+    ]
+  },
+  {
+    "name": "stderr",
+    "template_key": "stderr",
+    "type": "string",
+    "required": false,
+    "default_value": "errors",
+    "description": "change stderr output mode",
+    "aliases": [
+      "--stderr"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress non-error messages",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "no-motd",
+    "template_key": "no-motd",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress daemon-mode MOTD",
+    "aliases": [
+      "--no-motd"
+    ]
+  },
+  {
+    "name": "checksum",
+    "template_key": "checksum",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip based on checksum, not mod-time & size",
+    "aliases": [
+      "-c",
+      "--checksum"
+    ]
+  },
+  {
+    "name": "archive",
+    "template_key": "archive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "archive mode is -rlptgoD (no -A,-X,-U,-N,-H)",
+    "aliases": [
+      "-a",
+      "--archive"
+    ],
+    "enum": [
+      "no -A",
+      "-X",
+      "-U",
+      "-N",
+      "-H"
+    ]
+  },
+  {
+    "name": "no-OPTION",
+    "template_key": "no-option",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn off an implied OPTION (e.g. --no-D)",
+    "aliases": [
+      "--no-OPTION"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "recurse into directories",
+    "aliases": [
+      "-r",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "relative",
+    "template_key": "relative",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use relative path names",
+    "aliases": [
+      "-R",
+      "--relative"
+    ]
+  },
+  {
+    "name": "no-implied-dirs",
+    "template_key": "no-implied-dirs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't send implied dirs with --relative",
+    "aliases": [
+      "--no-implied-dirs"
+    ]
+  },
+  {
+    "name": "backup",
+    "template_key": "backup",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make backups (see --suffix & --backup-dir)",
+    "aliases": [
+      "-b",
+      "--backup"
+    ]
+  },
+  {
+    "name": "backup-dir",
+    "template_key": "backup-dir",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "make backups into hierarchy based in DIR",
+    "aliases": [
+      "--backup-dir"
+    ]
+  },
+  {
+    "name": "suffix",
+    "template_key": "suffix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "backup suffix (default ~ w/o --backup-dir)",
+    "aliases": [
+      "--suffix"
+    ]
+  },
+  {
+    "name": "update",
+    "template_key": "update",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip files that are newer on the receiver",
+    "aliases": [
+      "-u",
+      "--update"
+    ]
+  },
+  {
+    "name": "inplace",
+    "template_key": "inplace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "update destination files in-place",
+    "aliases": [
+      "--inplace"
+    ]
+  },
+  {
+    "name": "append",
+    "template_key": "append",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "append data onto shorter files",
+    "aliases": [
+      "--append"
+    ]
+  },
+  {
+    "name": "append-verify",
+    "template_key": "append-verify",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--append w/old data in file checksum",
+    "aliases": [
+      "--append-verify"
+    ]
+  },
+  {
+    "name": "dirs",
+    "template_key": "dirs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "transfer directories without recursing",
+    "aliases": [
+      "-d",
+      "--dirs"
+    ]
+  },
+  {
+    "name": "old-dirs",
+    "template_key": "old-dirs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "works like --dirs when talking to old rsync",
+    "aliases": [
+      "--old-dirs",
+      "--old-d"
+    ]
+  },
+  {
+    "name": "mkpath",
+    "template_key": "mkpath",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "create destination's missing path components",
+    "aliases": [
+      "--mkpath"
+    ]
+  },
+  {
+    "name": "links",
+    "template_key": "links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "copy symlinks as symlinks",
+    "aliases": [
+      "-l",
+      "--links"
+    ]
+  },
+  {
+    "name": "copy-links",
+    "template_key": "copy-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "transform symlink into referent file/dir",
+    "aliases": [
+      "-L",
+      "--copy-links"
+    ]
+  },
+  {
+    "name": "copy-unsafe-links",
+    "template_key": "copy-unsafe-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "only \"unsafe\" symlinks are transformed",
+    "aliases": [
+      "--copy-unsafe-links"
+    ]
+  },
+  {
+    "name": "safe-links",
+    "template_key": "safe-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore symlinks that point outside the tree",
+    "aliases": [
+      "--safe-links"
+    ]
+  },
+  {
+    "name": "munge-links",
+    "template_key": "munge-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "munge symlinks to make them safe & unusable",
+    "aliases": [
+      "--munge-links"
+    ]
+  },
+  {
+    "name": "copy-dirlinks",
+    "template_key": "copy-dirlinks",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "transform symlink to dir into referent dir",
+    "aliases": [
+      "-k",
+      "--copy-dirlinks"
+    ]
+  },
+  {
+    "name": "keep-dirlinks",
+    "template_key": "keep-dirlinks",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "treat symlinked dir on receiver as dir",
+    "aliases": [
+      "-K",
+      "--keep-dirlinks"
+    ]
+  },
+  {
+    "name": "hard-links",
+    "template_key": "hard-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve hard links",
+    "aliases": [
+      "-H",
+      "--hard-links"
+    ]
+  },
+  {
+    "name": "perms",
+    "template_key": "perms",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve permissions",
+    "aliases": [
+      "-p",
+      "--perms"
+    ]
+  },
+  {
+    "name": "executability",
+    "template_key": "executability",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve executability",
+    "aliases": [
+      "-E",
+      "--executability"
+    ]
+  },
+  {
+    "name": "chmod",
+    "template_key": "chmod",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "affect file and/or directory permissions",
+    "aliases": [
+      "--chmod"
+    ]
+  },
+  {
+    "name": "acls",
+    "template_key": "acls",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve ACLs (implies --perms)",
+    "aliases": [
+      "-A",
+      "--acls"
+    ]
+  },
+  {
+    "name": "xattrs",
+    "template_key": "xattrs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve extended attributes",
+    "aliases": [
+      "-X",
+      "--xattrs"
+    ]
+  },
+  {
+    "name": "owner",
+    "template_key": "owner",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve owner (super-user only)",
+    "aliases": [
+      "-o",
+      "--owner"
+    ]
+  },
+  {
+    "name": "group",
+    "template_key": "group",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve group",
+    "aliases": [
+      "-g",
+      "--group"
+    ]
+  },
+  {
+    "name": "devices",
+    "template_key": "devices",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve device files (super-user only)",
+    "aliases": [
+      "--devices"
+    ]
+  },
+  {
+    "name": "copy-devices",
+    "template_key": "copy-devices",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "copy device contents as a regular file",
+    "aliases": [
+      "--copy-devices"
+    ]
+  },
+  {
+    "name": "write-devices",
+    "template_key": "write-devices",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "write to devices as files (implies --inplace)",
+    "aliases": [
+      "--write-devices"
+    ]
+  },
+  {
+    "name": "specials",
+    "template_key": "specials",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve special files",
+    "aliases": [
+      "--specials"
+    ]
+  },
+  {
+    "name": "times",
+    "template_key": "times",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve modification times",
+    "aliases": [
+      "-t",
+      "--times"
+    ]
+  },
+  {
+    "name": "atimes",
+    "template_key": "atimes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve access (use) times",
+    "aliases": [
+      "-U",
+      "--atimes"
+    ]
+  },
+  {
+    "name": "open-noatime",
+    "template_key": "open-noatime",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "avoid changing the atime on opened files",
+    "aliases": [
+      "--open-noatime"
+    ]
+  },
+  {
+    "name": "crtimes",
+    "template_key": "crtimes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "preserve create times (newness)",
+    "aliases": [
+      "-N",
+      "--crtimes"
+    ]
+  },
+  {
+    "name": "omit-dir-times",
+    "template_key": "omit-dir-times",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "omit directories from --times",
+    "aliases": [
+      "-O",
+      "--omit-dir-times"
+    ]
+  },
+  {
+    "name": "omit-link-times",
+    "template_key": "omit-link-times",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "omit symlinks from --times",
+    "aliases": [
+      "-J",
+      "--omit-link-times"
+    ]
+  },
+  {
+    "name": "super",
+    "template_key": "super",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "receiver attempts super-user activities",
+    "aliases": [
+      "--super"
+    ]
+  },
+  {
+    "name": "fake-super",
+    "template_key": "fake-super",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "store/recover privileged attrs using xattrs",
+    "aliases": [
+      "--fake-super"
+    ]
+  },
+  {
+    "name": "sparse",
+    "template_key": "sparse",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn sequences of nulls into sparse blocks",
+    "aliases": [
+      "-S",
+      "--sparse"
+    ]
+  },
+  {
+    "name": "preallocate",
+    "template_key": "preallocate",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "allocate dest files before writing them",
+    "aliases": [
+      "--preallocate"
+    ]
+  },
+  {
+    "name": "dry-run",
+    "template_key": "dry-run",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "perform a trial run with no changes made",
+    "aliases": [
+      "-n",
+      "--dry-run"
+    ]
+  },
+  {
+    "name": "whole-file",
+    "template_key": "whole-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "copy files whole (w/o delta-xfer algorithm)",
+    "aliases": [
+      "-W",
+      "--whole-file"
+    ],
+    "enum": [
+      "w",
+      "o delta-xfer algorithm"
+    ]
+  },
+  {
+    "name": "checksum-choice",
+    "template_key": "checksum-choice",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "choose the checksum algorithm (aka --cc)",
+    "aliases": [
+      "--checksum-choice"
+    ]
+  },
+  {
+    "name": "one-file-system",
+    "template_key": "one-file-system",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't cross filesystem boundaries",
+    "aliases": [
+      "-x",
+      "--one-file-system"
+    ]
+  },
+  {
+    "name": "block-size",
+    "template_key": "block-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "force a fixed checksum block-size",
+    "aliases": [
+      "-B",
+      "--block-size"
+    ]
+  },
+  {
+    "name": "rsh",
+    "template_key": "rsh",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "specify the remote shell to use",
+    "aliases": [
+      "-e",
+      "--rsh"
+    ]
+  },
+  {
+    "name": "rsync-path",
+    "template_key": "rsync-path",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "specify the rsync to run on remote machine",
+    "aliases": [
+      "--rsync-path"
+    ]
+  },
+  {
+    "name": "existing",
+    "template_key": "existing",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip creating new files on receiver",
+    "aliases": [
+      "--existing"
+    ]
+  },
+  {
+    "name": "ignore-existing",
+    "template_key": "ignore-existing",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip updating files that exist on receiver",
+    "aliases": [
+      "--ignore-existing"
+    ]
+  },
+  {
+    "name": "remove-source-files",
+    "template_key": "remove-source-files",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "sender removes synchronized files (non-dir)",
+    "aliases": [
+      "--remove-source-files"
+    ]
+  },
+  {
+    "name": "del",
+    "template_key": "del",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "an alias for --delete-during",
+    "aliases": [
+      "--del"
+    ]
+  },
+  {
+    "name": "delete",
+    "template_key": "delete",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "delete extraneous files from dest dirs",
+    "aliases": [
+      "--delete"
+    ]
+  },
+  {
+    "name": "delete-before",
+    "template_key": "delete-before",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "receiver deletes before xfer, not during",
+    "aliases": [
+      "--delete-before"
+    ]
+  },
+  {
+    "name": "delete-during",
+    "template_key": "delete-during",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "receiver deletes during the transfer",
+    "aliases": [
+      "--delete-during"
+    ]
+  },
+  {
+    "name": "delete-delay",
+    "template_key": "delete-delay",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "find deletions during, delete after",
+    "aliases": [
+      "--delete-delay"
+    ]
+  },
+  {
+    "name": "delete-after",
+    "template_key": "delete-after",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "receiver deletes after transfer, not during",
+    "aliases": [
+      "--delete-after"
+    ]
+  },
+  {
+    "name": "delete-excluded",
+    "template_key": "delete-excluded",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "also delete excluded files from dest dirs",
+    "aliases": [
+      "--delete-excluded"
+    ]
+  },
+  {
+    "name": "ignore-missing-args",
+    "template_key": "ignore-missing-args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore missing source args without error",
+    "aliases": [
+      "--ignore-missing-args"
+    ]
+  },
+  {
+    "name": "delete-missing-args",
+    "template_key": "delete-missing-args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "delete missing source args from destination",
+    "aliases": [
+      "--delete-missing-args"
+    ]
+  },
+  {
+    "name": "ignore-errors",
+    "template_key": "ignore-errors",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "delete even if there are I/O errors",
+    "aliases": [
+      "--ignore-errors"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "force deletion of dirs even if not empty",
+    "aliases": [
+      "--force"
+    ]
+  },
+  {
+    "name": "max-delete",
+    "template_key": "max-delete",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "don't delete more than NUM files",
+    "aliases": [
+      "--max-delete"
+    ]
+  },
+  {
+    "name": "max-size",
+    "template_key": "max-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "don't transfer any file larger than SIZE",
+    "aliases": [
+      "--max-size"
+    ]
+  },
+  {
+    "name": "min-size",
+    "template_key": "min-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "don't transfer any file smaller than SIZE",
+    "aliases": [
+      "--min-size"
+    ]
+  },
+  {
+    "name": "max-alloc",
+    "template_key": "max-alloc",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "change a limit relating to memory alloc",
+    "aliases": [
+      "--max-alloc"
+    ]
+  },
+  {
+    "name": "partial",
+    "template_key": "partial",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "keep partially transferred files",
+    "aliases": [
+      "--partial"
+    ]
+  },
+  {
+    "name": "partial-dir",
+    "template_key": "partial-dir",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "put a partially transferred file into DIR",
+    "aliases": [
+      "--partial-dir"
+    ]
+  },
+  {
+    "name": "delay-updates",
+    "template_key": "delay-updates",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "put all updated files into place at end",
+    "aliases": [
+      "--delay-updates"
+    ]
+  },
+  {
+    "name": "prune-empty-dirs",
+    "template_key": "prune-empty-dirs",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "prune empty directory chains from file-list",
+    "aliases": [
+      "-m",
+      "--prune-empty-dirs"
+    ]
+  },
+  {
+    "name": "numeric-ids",
+    "template_key": "numeric-ids",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't map uid/gid values by user/group name",
+    "aliases": [
+      "--numeric-ids"
+    ]
+  },
+  {
+    "name": "usermap",
+    "template_key": "usermap",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "custom username mapping",
+    "aliases": [
+      "--usermap"
+    ]
+  },
+  {
+    "name": "groupmap",
+    "template_key": "groupmap",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "custom groupname mapping",
+    "aliases": [
+      "--groupmap"
+    ]
+  },
+  {
+    "name": "chown",
+    "template_key": "chown",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "simple username/groupname mapping",
+    "aliases": [
+      "--chown"
+    ]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set I/O timeout in seconds",
+    "aliases": [
+      "--timeout"
+    ]
+  },
+  {
+    "name": "contimeout",
+    "template_key": "contimeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set daemon connection timeout in seconds",
+    "aliases": [
+      "--contimeout"
+    ]
+  },
+  {
+    "name": "ignore-times",
+    "template_key": "ignore-times",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't skip files that match size and time",
+    "aliases": [
+      "-I",
+      "--ignore-times"
+    ]
+  },
+  {
+    "name": "size-only",
+    "template_key": "size-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip files that match in size",
+    "aliases": [
+      "--size-only"
+    ]
+  },
+  {
+    "name": "modify-window",
+    "template_key": "modify-window",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-t",
+      "--modify-window"
+    ]
+  },
+  {
+    "name": "temp-dir",
+    "template_key": "temp-dir",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "create temporary files in directory DIR",
+    "aliases": [
+      "-T",
+      "--temp-dir"
+    ]
+  },
+  {
+    "name": "fuzzy",
+    "template_key": "fuzzy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "find similar file for basis if no dest file",
+    "aliases": [
+      "-y",
+      "--fuzzy"
+    ]
+  },
+  {
+    "name": "compare-dest",
+    "template_key": "compare-dest",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "also compare destination files relative to DIR",
+    "aliases": [
+      "--compare-dest"
+    ]
+  },
+  {
+    "name": "copy-dest",
+    "template_key": "copy-dest",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "and include copies of unchanged files",
+    "aliases": [
+      "--copy-dest"
+    ]
+  },
+  {
+    "name": "link-dest",
+    "template_key": "link-dest",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "hardlink to files in DIR when unchanged",
+    "aliases": [
+      "--link-dest"
+    ]
+  },
+  {
+    "name": "compress",
+    "template_key": "compress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compress file data during the transfer",
+    "aliases": [
+      "-z",
+      "--compress"
+    ]
+  },
+  {
+    "name": "compress-choice",
+    "template_key": "compress-choice",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "choose the compression algorithm (aka --zc)",
+    "aliases": [
+      "--compress-choice"
+    ]
+  },
+  {
+    "name": "compress-level",
+    "template_key": "compress-level",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "explicitly set compression level (aka --zl)",
+    "aliases": [
+      "--compress-level"
+    ]
+  },
+  {
+    "name": "skip-compress",
+    "template_key": "skip-compress",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "skip compressing files with suffix in LIST",
+    "aliases": [
+      "--skip-compress"
+    ]
+  },
+  {
+    "name": "cvs-exclude",
+    "template_key": "cvs-exclude",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "auto-ignore files in the same way CVS does",
+    "aliases": [
+      "-C",
+      "--cvs-exclude"
+    ]
+  },
+  {
+    "name": "filter",
+    "template_key": "filter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "add a file-filtering RULE",
+    "aliases": [
+      "-f",
+      "--filter"
+    ]
+  },
+  {
+    "name": "exclude",
+    "template_key": "exclude",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exclude files matching PATTERN",
+    "aliases": [
+      "--exclude"
+    ]
+  },
+  {
+    "name": "exclude-from",
+    "template_key": "exclude-from",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "read exclude patterns from FILE",
+    "aliases": [
+      "--exclude-from"
+    ]
+  },
+  {
+    "name": "include",
+    "template_key": "include",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't exclude files matching PATTERN",
+    "aliases": [
+      "--include"
+    ]
+  },
+  {
+    "name": "include-from",
+    "template_key": "include-from",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "read include patterns from FILE",
+    "aliases": [
+      "--include-from"
+    ]
+  },
+  {
+    "name": "files-from",
+    "template_key": "files-from",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "read list of source-file names from FILE",
+    "aliases": [
+      "--files-from"
+    ]
+  },
+  {
+    "name": "from0",
+    "template_key": "from0",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "all *-from/filter files are delimited by 0s",
+    "aliases": [
+      "-0",
+      "--from0"
+    ]
+  },
+  {
+    "name": "old-args",
+    "template_key": "old-args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable the modern arg-protection idiom",
+    "aliases": [
+      "--old-args"
+    ]
+  },
+  {
+    "name": "secluded-args",
+    "template_key": "secluded-args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use the protocol to safely send the args",
+    "aliases": [
+      "-s",
+      "--secluded-args"
+    ]
+  },
+  {
+    "name": "trust-sender",
+    "template_key": "trust-sender",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "trust the remote sender's file list",
+    "aliases": [
+      "--trust-sender"
+    ]
+  },
+  {
+    "name": "copy-as",
+    "template_key": "copy-as",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "specify user & optional group for the copy",
+    "aliases": [
+      "--copy-as"
+    ]
+  },
+  {
+    "name": "address",
+    "template_key": "address",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "bind address for outgoing socket to daemon",
+    "aliases": [
+      "--address"
+    ]
+  },
+  {
+    "name": "port",
+    "template_key": "port",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "specify double-colon alternate port number",
+    "aliases": [
+      "--port"
+    ]
+  },
+  {
+    "name": "sockopts",
+    "template_key": "sockopts",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "specify custom TCP options",
+    "aliases": [
+      "--sockopts"
+    ]
+  },
+  {
+    "name": "blocking-io",
+    "template_key": "blocking-io",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use blocking I/O for the remote shell",
+    "aliases": [
+      "--blocking-io"
+    ]
+  },
+  {
+    "name": "outbuf",
+    "template_key": "outbuf",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set out buffering to None, Line, or Block",
+    "aliases": [
+      "--outbuf"
+    ]
+  },
+  {
+    "name": "stats",
+    "template_key": "stats",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "give some file-transfer stats",
+    "aliases": [
+      "--stats"
+    ]
+  },
+  {
+    "name": "flag-8",
+    "template_key": "flag-8",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "leave high-bit chars unescaped in output",
+    "aliases": [
+      "-8",
+      "--8-bit-output"
+    ]
+  },
+  {
+    "name": "human-readable",
+    "template_key": "human-readable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output numbers in a human-readable format",
+    "aliases": [
+      "-h",
+      "--human-readable"
+    ]
+  },
+  {
+    "name": "progress",
+    "template_key": "progress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show progress during transfer",
+    "aliases": [
+      "--progress"
+    ]
+  },
+  {
+    "name": "itemize-changes",
+    "template_key": "itemize-changes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output a change-summary for all updates",
+    "aliases": [
+      "-i",
+      "--itemize-changes"
+    ]
+  },
+  {
+    "name": "remote-option",
+    "template_key": "remote-option",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-M",
+      "--remote-option"
+    ]
+  },
+  {
+    "name": "out-format",
+    "template_key": "out-format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output updates using the specified FORMAT",
+    "aliases": [
+      "--out-format"
+    ]
+  },
+  {
+    "name": "log-file",
+    "template_key": "log-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "log what we're doing to the specified FILE",
+    "aliases": [
+      "--log-file"
+    ]
+  },
+  {
+    "name": "log-file-format",
+    "template_key": "log-file-format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "log updates using the specified FMT",
+    "aliases": [
+      "--log-file-format"
+    ]
+  },
+  {
+    "name": "password-file",
+    "template_key": "password-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "read daemon-access password from FILE",
+    "aliases": [
+      "--password-file"
+    ]
+  },
+  {
+    "name": "early-input",
+    "template_key": "early-input",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "use FILE for daemon's early exec input",
+    "aliases": [
+      "--early-input"
+    ]
+  },
+  {
+    "name": "list-only",
+    "template_key": "list-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "list the files instead of copying them",
+    "aliases": [
+      "--list-only"
+    ]
+  },
+  {
+    "name": "bwlimit",
+    "template_key": "bwlimit",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "limit socket I/O bandwidth",
+    "aliases": [
+      "--bwlimit"
+    ]
+  },
+  {
+    "name": "stop-after",
+    "template_key": "stop-after",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Stop rsync after MINS minutes have elapsed",
+    "aliases": [
+      "--stop-after"
+    ]
+  },
+  {
+    "name": "stop-at",
+    "template_key": "stop-at",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Stop rsync at the specified point in time",
+    "aliases": [
+      "-m",
+      "-d",
+      "--stop-at"
+    ]
+  },
+  {
+    "name": "fsync",
+    "template_key": "fsync",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "fsync every written file",
+    "aliases": [
+      "--fsync"
+    ]
+  },
+  {
+    "name": "write-batch",
+    "template_key": "write-batch",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "write a batched update to FILE",
+    "aliases": [
+      "--write-batch"
+    ]
+  },
+  {
+    "name": "only-write-batch",
+    "template_key": "only-write-batch",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--only-write-batch",
+      "--write-batch"
+    ]
+  },
+  {
+    "name": "read-batch",
+    "template_key": "read-batch",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "read a batched update from FILE",
+    "aliases": [
+      "--read-batch"
+    ]
+  },
+  {
+    "name": "protocol",
+    "template_key": "protocol",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "force an older protocol version to be used",
+    "aliases": [
+      "--protocol"
+    ]
+  },
+  {
+    "name": "iconv",
+    "template_key": "iconv",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "request charset conversion of filenames",
+    "aliases": [
+      "--iconv"
+    ]
+  },
+  {
+    "name": "checksum-seed",
+    "template_key": "checksum-seed",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "set block/file checksum seed (advanced)",
+    "aliases": [
+      "--checksum-seed"
+    ]
+  },
+  {
+    "name": "ipv4",
+    "template_key": "ipv4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "prefer IPv4",
+    "aliases": [
+      "-4",
+      "--ipv4"
+    ]
+  },
+  {
+    "name": "ipv6",
+    "template_key": "ipv6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "prefer IPv6",
+    "aliases": [
+      "-6",
+      "--ipv6"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the version + other info and exit",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show this help (* -h is help only on its own)",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  }
+]

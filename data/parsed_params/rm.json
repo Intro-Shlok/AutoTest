@@ -1,0 +1,73 @@
+[
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore nonexistent files and arguments, never prompt",
+    "aliases": [
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "prompt before every removal",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-I",
+    "template_key": "flag-i",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "prompt once before removing more than three files, or when removing recursively; less intrusive than -i, while still giving protection against most mistakes --interactive[=WHEN] prompt according to WHEN: never, once (-I), or always (-i); without WHEN, prompt always --one-file-system when removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument --no-preserve-root do not treat '/' specially --preserve-root[=all] do not remove '/' (default); with 'all', reject any command line argument on a separate device from its parent",
+    "aliases": [
+      "-I"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "remove directories and their contents recursively",
+    "aliases": [
+      "-r",
+      "-R",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "dir",
+    "template_key": "dir",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "remove empty directories",
+    "aliases": [
+      "-d",
+      "--dir"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "explain what is being done --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  }
+]

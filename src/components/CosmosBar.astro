@@ -1,0 +1,190 @@
+---
+export interface Props {
+  expanded?: boolean;
+}
+
+const { expanded = false } = Astro.props;
+const defaultExpandedStr = expanded ? "true" : "false";
+---
+
+<div id="cosmos-bar" class="cosmos-bar">
+  <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config">
+    <span class="cosmos-icon">&#9881;</span>
+    <span class="cosmos-label">Cosmos</span>
+    <span class="cosmos-badge" id="cosmos-badge">10.10.10.10:9001</span>
+    <span class="cosmos-arrow" id="cosmos-arrow">&#9660;</span>
+  </button>
+  <div class="cosmos-panel" id="cosmos-panel">
+    <div class="cosmos-fields" id="cosmos-fields">
+      <!-- populated by cosmos.js -->
+    </div>
+    <div class="cosmos-actions">
+      <button class="cosmos-btn" onclick="Cosmos.reset()">Reset to defaults</button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ defaultExpandedStr }}>
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+</script>
+
+<style>
+  .cosmos-bar {
+    background: var(--bg-card, #1a1a2e);
+    border: 1px solid var(--border, #2a2a4a);
+    border-radius: var(--radius, 8px);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .cosmos-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary, #e0e0e0);
+    font-size: 0.85rem;
+    font-family: inherit;
+    text-align: left;
+  }
+  .cosmos-toggle:hover {
+    background: var(--bg-hover, rgba(255,255,255,0.05));
+  }
+  .cosmos-icon { font-size: 1rem; }
+  .cosmos-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    color: var(--text-muted, #888);
+  }
+  .cosmos-badge {
+    margin-left: auto;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    background: var(--bg-secondary, #16213e);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent, #64ffda);
+  }
+  .cosmos-arrow { font-size: 0.6rem; color: var(--text-muted, #888); }
+  .cosmos-panel {
+    display: none;
+    padding: 0.75rem 1rem 1rem;
+    border-top: 1px solid var(--border, #2a2a4a);
+  }
+  .cosmos-bar.expanded .cosmos-panel { display: block; }
+  .cosmos-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .cosmos-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 110px;
+    flex: 1 0 auto;
+  }
+  .cosmos-field label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted, #888);
+    font-weight: 600;
+  }
+  .cosmos-field input {
+    padding: 0.35rem 0.5rem;
+    background: var(--bg-secondary, #16213e);
+    border: 1px solid var(--border, #2a2a4a);
+    border-radius: 4px;
+    color: var(--text-primary, #e0e0e0);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8rem;
+  }
+  .cosmos-field input:focus {
+    outline: none;
+    border-color: var(--accent, #64ffda);
+  }
+  .cosmos-actions { display: flex; gap: 0.5rem; }
+  .cosmos-btn {
+    padding: 0.3rem 0.75rem;
+    background: var(--bg-secondary, #16213e);
+    border: 1px solid var(--border, #2a2a4a);
+    border-radius: 4px;
+    color: var(--text-secondary, #aaa);
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .cosmos-btn:hover {
+    background: var(--bg-hover, rgba(255,255,255,0.08));
+    color: var(--text-primary, #e0e0e0);
+  }
+</style>

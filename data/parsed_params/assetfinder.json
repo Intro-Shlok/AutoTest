@@ -1,0 +1,29 @@
+[
+  {
+    "name": "domain",
+    "template_key": "domain",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target domain to find assets for",
+    "aliases": []
+  },
+  {
+    "name": "subs-only",
+    "template_key": "subs-only",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show only subdomains",
+    "aliases": ["--subs-only"]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Filter out unverified domains",
+    "aliases": ["-f", "--filter"]
+  }
+]

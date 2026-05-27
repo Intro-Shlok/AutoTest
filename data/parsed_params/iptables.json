@@ -1,0 +1,309 @@
+[
+  {
+    "name": "append",
+    "template_key": "append",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Append to chain",
+    "aliases": [
+      "-A",
+      "--append"
+    ]
+  },
+  {
+    "name": "check",
+    "template_key": "check",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Check for the existence of a rule",
+    "aliases": [
+      "-C",
+      "--check"
+    ]
+  },
+  {
+    "name": "delete",
+    "template_key": "delete",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Delete matching rule from chain",
+    "aliases": [
+      "-D",
+      "--delete"
+    ]
+  },
+  {
+    "name": "delete-2",
+    "template_key": "delete-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Delete rule rulenum (1 = first) from chain",
+    "aliases": [
+      "-D",
+      "--delete"
+    ]
+  },
+  {
+    "name": "insert",
+    "template_key": "insert",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Insert in chain as rulenum (default 1=first)",
+    "aliases": [
+      "-I",
+      "--insert"
+    ]
+  },
+  {
+    "name": "replace",
+    "template_key": "replace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Replace rule rulenum (1 = first) in chain",
+    "aliases": [
+      "-R",
+      "--replace"
+    ]
+  },
+  {
+    "name": "list",
+    "template_key": "list",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-L [chain [rulenum]]",
+    "aliases": [
+      "--list"
+    ]
+  },
+  {
+    "name": "list-rules",
+    "template_key": "list-rules",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the rules in a chain or all chains",
+    "aliases": [
+      "-S",
+      "--list-rules"
+    ]
+  },
+  {
+    "name": "flush",
+    "template_key": "flush",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Delete all rules in chain or all chains",
+    "aliases": [
+      "-F",
+      "--flush"
+    ]
+  },
+  {
+    "name": "zero",
+    "template_key": "zero",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-Z [chain [rulenum]]",
+    "aliases": [
+      "--zero"
+    ]
+  },
+  {
+    "name": "new",
+    "template_key": "new",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-N chain Create a new user-defined chain",
+    "aliases": [
+      "--new"
+    ]
+  },
+  {
+    "name": "delete-chain",
+    "template_key": "delete-chain",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-X [chain] Delete a user-defined chain",
+    "aliases": [
+      "--delete-chain"
+    ]
+  },
+  {
+    "name": "policy",
+    "template_key": "policy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Change policy on chain to target",
+    "aliases": [
+      "-P",
+      "--policy"
+    ]
+  },
+  {
+    "name": "rename-chain",
+    "template_key": "rename-chain",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-E old-chain new-chain Change chain name, (moving any references)",
+    "aliases": [
+      "--rename-chain"
+    ]
+  },
+  {
+    "name": "ipv4",
+    "template_key": "ipv4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-4 Nothing (line is ignored by ip6tables-restore)",
+    "aliases": [
+      "--ipv4"
+    ]
+  },
+  {
+    "name": "ipv6",
+    "template_key": "ipv6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-6 Error (line is ignored by iptables-restore)",
+    "aliases": [
+      "--ipv6"
+    ]
+  },
+  {
+    "name": "jump",
+    "template_key": "jump",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-j target",
+    "aliases": [
+      "--jump"
+    ]
+  },
+  {
+    "name": "goto",
+    "template_key": "goto",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-g chain",
+    "aliases": [
+      "--goto"
+    ]
+  },
+  {
+    "name": "match",
+    "template_key": "match",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-m match",
+    "aliases": [
+      "--match"
+    ]
+  },
+  {
+    "name": "numeric",
+    "template_key": "numeric",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "-n numeric output of addresses and ports",
+    "aliases": [
+      "--numeric"
+    ]
+  },
+  {
+    "name": "table",
+    "template_key": "table",
+    "type": "string",
+    "required": false,
+    "default_value": "`filter'",
+    "description": "-t table table to manipulate",
+    "aliases": [
+      "--table"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-v verbose mode",
+    "aliases": [
+      "--verbose"
+    ]
+  },
+  {
+    "name": "wait",
+    "template_key": "wait",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "-w [seconds] maximum wait to acquire xtables lock before give up",
+    "aliases": [
+      "--wait"
+    ]
+  },
+  {
+    "name": "line-numbers",
+    "template_key": "line-numbers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print line numbers when listing",
+    "aliases": [
+      "--line-numbers"
+    ]
+  },
+  {
+    "name": "exact",
+    "template_key": "exact",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-x expand numbers (display exact values)",
+    "aliases": [
+      "--exact"
+    ]
+  },
+  {
+    "name": "modprobe",
+    "template_key": "modprobe",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "try to insert modules using this command",
+    "aliases": [
+      "--modprobe"
+    ]
+  },
+  {
+    "name": "set-counters",
+    "template_key": "set-counters",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set the counter during insert/append",
+    "aliases": [
+      "-c",
+      "--set-counters"
+    ]
+  }
+]

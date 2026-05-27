@@ -1,0 +1,73 @@
+[
+  {
+    "name": "binary",
+    "template_key": "binary",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "read in binary mode",
+    "aliases": [
+      "-b",
+      "--binary"
+    ]
+  },
+  {
+    "name": "check",
+    "template_key": "check",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "read checksums from the FILEs and check them --tag create a BSD-style checksum",
+    "aliases": [
+      "-c",
+      "--check"
+    ]
+  },
+  {
+    "name": "text",
+    "template_key": "text",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "read in text mode (default)",
+    "aliases": [
+      "-t",
+      "--text"
+    ]
+  },
+  {
+    "name": "zero",
+    "template_key": "zero",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "end each output line with NUL, not newline, and disable file name escaping",
+    "aliases": [
+      "-z",
+      "--zero"
+    ]
+  },
+  {
+    "name": "ignore-missing",
+    "template_key": "ignore-missing",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't fail or report status for missing files --quiet don't print OK for each successfully verified file --status don't output anything, status code shows success --strict exit non-zero for improperly formatted checksum lines",
+    "aliases": [
+      "--ignore-missing"
+    ]
+  },
+  {
+    "name": "warn",
+    "template_key": "warn",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "warn about improperly formatted checksum lines --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-w",
+      "--warn"
+    ]
+  }
+]

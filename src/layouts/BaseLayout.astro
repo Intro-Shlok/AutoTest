@@ -1,0 +1,48 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  namespace?: string;
+}
+
+const { title, description, namespace } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="alternate" type="text/markdown" href={Astro.url.pathname.replace(/\/$/, "") + ".md"} />
+    <link rel="alternate" type="application/json" href="/api/v1/commands.json" />
+    {namespace && <meta name="tool-namespace" content={namespace} />}
+    <title>{title} — AutoTest Knowledge Repository</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <a href="/" class="nav-brand">AutoTest</a>
+        <a href="/">Home</a>
+        <a href="/tools">All Tools</a>
+        <a href="/capabilities">Capabilities</a>
+        <a href="/artifacts">Artifacts</a>
+        <a href="/payloads">Payloads</a>
+        <a href="/api/v1/commands.json">API (JSON)</a>
+        <a href="/llms.txt">llms.txt</a>
+      </nav>
+      <slot />
+      <footer>
+        <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p>
+        <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p>
+      </footer>
+    </div>
+    <script>
+      import "../scripts/cosmos.js";
+    </script>
+  </body>
+</html>

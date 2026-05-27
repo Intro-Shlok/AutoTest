@@ -1,0 +1,28 @@
+dnsenum VERSION:1.3.1
+Usage: dnsenum [Options] <domain>
+[Options]:
+GENERAL OPTIONS:
+  --dnsserver <server>   Use this DNS server for A, NS and MX queries.
+  --enum                 Shortcut equivalent to --threads 5 -s 15 -w.
+  -h, --help             Print this help message.
+  --noreverse            Skip the reverse lookup operations.
+  --nocolor              Disable ANSIColor output.
+  --private              Show and save private ips in domain_ips.txt.
+  --subfile <file>       Write all valid subdomains to this file.
+  -t, --timeout <value>  TCP and UDP timeout values in seconds (default: 10s).
+  --threads <value>      Number of threads (default: 5).
+  -v, --verbose          Be verbose.
+GOOGLE SCRAPING OPTIONS:
+  -p, --pages <value>    Google search pages to process (default: 5).
+  -s, --scrap <value>    Max subdomains scraped from Google (default 15).
+BRUTE FORCE OPTIONS:
+  -f, --file <file>      Read subdomains from file to brute force.
+  -u, --update <a|g|r|z> Update file with valid subdomains.
+  -r, --recursion        Recursion on subdomains.
+WHOIS NETRANGE OPTIONS:
+  -d, --delay <value>    Max seconds between whois queries (default: 3s).
+  -w, --whois            Perform whois queries on C class networks.
+REVERSE LOOKUP OPTIONS:
+  -e, --exclude <regexp> Exclude PTR records matching regexp.
+OUTPUT OPTIONS:
+  -o --output <file>     Output in XML format.

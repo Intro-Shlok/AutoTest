@@ -1,0 +1,29 @@
+[
+  {
+    "name": "flag-g",
+    "template_key": "flag-g",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Open graph file",
+    "aliases": ["-g"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Run transform from command line",
+    "aliases": ["-c"]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Export graph to file",
+    "aliases": ["-e"]
+  }
+]

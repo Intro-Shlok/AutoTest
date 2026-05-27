@@ -1,0 +1,145 @@
+[
+  {
+    "name": "backup",
+    "template_key": "backup",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make a backup of each existing destination file",
+    "aliases": [
+      "--backup"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --backup but does not accept an argument --debug explain how a file is copied. Implies -v --exchange exchange source and destination",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not prompt before overwriting",
+    "aliases": [
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "interactive",
+    "template_key": "interactive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "prompt before overwrite",
+    "aliases": [
+      "-i",
+      "--interactive"
+    ]
+  },
+  {
+    "name": "no-clobber",
+    "template_key": "no-clobber",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not overwrite an existing file",
+    "aliases": [
+      "-n",
+      "--no-clobber"
+    ]
+  },
+  {
+    "name": "no-copy",
+    "template_key": "no-copy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not copy if renaming fails --strip-trailing-slashes remove any trailing slashes from each SOURCE argument",
+    "aliases": [
+      "--no-copy"
+    ]
+  },
+  {
+    "name": "suffix",
+    "template_key": "suffix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "override the usual backup suffix",
+    "aliases": [
+      "-S",
+      "--suffix"
+    ]
+  },
+  {
+    "name": "target-directory",
+    "template_key": "target-directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "move all SOURCE arguments into DIRECTORY",
+    "aliases": [
+      "-t",
+      "--target-directory"
+    ]
+  },
+  {
+    "name": "no-target-directory",
+    "template_key": "no-target-directory",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "treat DEST as a normal file --update[=UPDATE] control which existing files are updated; UPDATE={all,none,none-fail,older(default)}",
+    "aliases": [
+      "-T",
+      "--no-target-directory"
+    ],
+    "enum": [
+      "all,none,none-fail,older(default)"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to --update[=older]. See below",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "explain what is being done",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "context",
+    "template_key": "context",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "set SELinux security context of destination file to default type --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-Z",
+      "--context"
+    ]
+  }
+]

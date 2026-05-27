@@ -1,0 +1,33 @@
+XSStrike v3.1.5
+Advanced XSS Detection Suite
+
+Usage: python3 xsstrike.py [-u <url>] [options]
+
+Basic:
+  -u, --url <url>           Target URL
+  --data <data>             POST data
+  --json                    Treat POST data as JSON
+  --path                    Inject payloads into path
+
+Scanning:
+  --crawl                   Crawl the target
+  -l, --depth <depth>       Crawl depth (default: 2)
+  -t, --threads <threads>   Number of threads (default: 1)
+  --timeout <timeout>       Request timeout (default: 30)
+  -d, --delay <delay>       Delay between requests (seconds)
+
+Configuration:
+  --headers <headers>       Custom HTTP headers
+  --proxy <proxy>           Proxy URL
+  --skip-dom                Skip DOM scanner
+  --fuzzer                  Enable fuzzer
+  --blind                   Blind XSS detection
+  -e, --encode <encode>     Encode payloads
+  --seed <seed>             Seed for payload generation
+
+Output:
+  -s, --silent              Suppress banner
+  --console-log-level       Console log level
+  --file-log-level          File log level
+  --log-file <file>         Log file path
+  -h, --help                Show this help

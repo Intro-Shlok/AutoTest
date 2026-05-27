@@ -1,0 +1,38 @@
+Usage: telnet [OPTION...] [HOST [PORT]]
+Login to remote system HOST (optionally, on service port PORT)
+
+ General options:
+
+  -4, --ipv4                 use only IPv4
+  -6, --ipv6                 use only IPv6
+  -8, --binary               use an 8-bit data transmission
+  -a, --login                attempt automatic login
+  -b, --bind=ADDRESS         bind to specific local ADDRESS
+  -c, --no-rc                do not read the user's .telnetrc file
+  -d, --debug                turn on debugging
+  -e, --escape=CHAR          use CHAR as an escape character
+  -E, --no-escape            use no escape character
+  -K, --no-login             do not automatically login to the remote system
+  -l, --user=USER            attempt automatic login as USER
+  -L, --binary-output        use an 8-bit data transmission for output only
+  -n, --trace=FILE           record trace information into FILE
+  -r, --rlogin               use a user-interface similar to rlogin
+
+ Encryption control:
+
+  -x, --encrypt              encrypt the data stream, if possible
+
+ Authentication and Kerberos options:
+
+  -k, --realm=REALM          obtain tickets for the remote host in REALM
+                             instead of the remote host's realm
+  -X, --disable-auth=ATYPE   disable type ATYPE authentication
+
+  -?, --help                 give this help list
+      --usage                give a short usage message
+  -V, --version              print program version
+
+Mandatory or optional arguments to long options are also mandatory or optional
+for any corresponding short options.
+
+Report bugs to <bug-inetutils@gnu.org>.

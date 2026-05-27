@@ -1,0 +1,236 @@
+[
+  {
+    "name": "host HOST",
+    "template_key": "host-host",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "connect to server HOST",
+    "aliases": [
+      "-h",
+      "--host HOST"
+    ]
+  },
+  {
+    "name": "port PORT",
+    "template_key": "port-port",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "connect to PORT",
+    "aliases": [
+      "-p",
+      "--port PORT"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "explain what is being done",
+    "aliases": [
+      "--verbose"
+    ]
+  },
+  {
+    "name": "no-recursion",
+    "template_key": "no-recursion",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable recursion from registry to registrar servers",
+    "aliases": [
+      "--no-recursion"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output version information and exit",
+    "aliases": [
+      "--version"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "find the one level less specific match",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "find all one level more specific matches",
+    "aliases": [
+      "-m"
+    ]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "find the smallest match containing a mnt-irt attribute",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-x",
+    "template_key": "flag-x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "exact match",
+    "aliases": [
+      "-x"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "return brief IP address ranges with abuse contact",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "return DNS reverse delegation objects too",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do an inverse look-up for specified ATTRibutes",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-T",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "only look for objects of TYPE",
+    "aliases": [
+      "-T"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "turn off recursive look-ups for contact information",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "also search all the mirrored databases",
+    "aliases": [
+      "-a"
+    ]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-g",
+    "template_key": "flag-g",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "find updates from SOURCE from serial FIRST to LAST",
+    "aliases": [
+      "-g",
+      "-L"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "request template for object of TYPE",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "request verbose template for object of TYPE",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-q"
+    ]
+  }
+]

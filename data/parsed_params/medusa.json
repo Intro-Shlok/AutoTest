@@ -1,0 +1,146 @@
+[
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target hostname or IP address",
+    "aliases": ["-h", "--host"]
+  },
+  {
+    "name": "flag-H",
+    "template_key": "flag-H",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File with list of target hosts",
+    "aliases": ["-H", "--host-list"]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Single username to test",
+    "aliases": ["-u", "--username"]
+  },
+  {
+    "name": "flag-U",
+    "template_key": "flag-U",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File with list of usernames",
+    "aliases": ["-U", "--username-list"]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Single password to test",
+    "aliases": ["-p", "--password"]
+  },
+  {
+    "name": "flag-P",
+    "template_key": "flag-P",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File with list of passwords",
+    "aliases": ["-P", "--password-list"]
+  },
+  {
+    "name": "flag-M",
+    "template_key": "flag-M",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Service module to use (e.g. ssh, ftp, smbnt)",
+    "aliases": ["-M", "--module"]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Module-specific parameter",
+    "aliases": ["-m", "--module-parameter"]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "integer",
+    "required": false,
+    "default_value": 5,
+    "description": "Number of parallel threads",
+    "aliases": ["-t", "--threads"]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Stop after first valid credential found",
+    "aliases": ["-f", "--stop-after-first"]
+  },
+  {
+    "name": "flag-O",
+    "template_key": "flag-O",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for results",
+    "aliases": ["-O", "--output"]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Extra checks (n=null, s=same-as-login)",
+    "aliases": ["-e", "--extra"]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Target port number",
+    "aliases": ["-s", "--port"]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "integer",
+    "required": false,
+    "default_value": 3,
+    "description": "Number of retries on failure",
+    "aliases": ["-r", "--retry"]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Quiet mode (suppress banner)",
+    "aliases": ["-q", "--quiet"]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "integer",
+    "required": false,
+    "default_value": 2,
+    "description": "Verbose level (1-6)",
+    "aliases": ["-v", "--verbose"]
+  }
+]

@@ -1,0 +1,36 @@
+Usage: python sqlmap [options]
+
+Options:
+  -u URL, --url=URL        Target URL
+  --data=DATA              Data string to be sent through POST
+  --cookie=COOKIE          HTTP Cookie header value
+  --random-agent           Use randomly selected HTTP User-Agent
+  --level=LEVEL            Level of tests to perform (1-5, default 1)
+  --risk=RISK              Risk of tests to perform (1-3, default 1)
+  --dbms=DBMS              Force back-end DBMS type
+  --technique=TECH         SQL injection techniques to use (default BEUSTQ)
+  --batch                  Never ask for user input, use defaults
+  --dump                   Dump DBMS database table entries
+  --tables                 Enumerate DBMS database tables
+  --columns                Enumerate DBMS database table columns
+  -D DB                    DBMS database to enumerate
+  -T TBL                   DBMS database table to enumerate
+  -C COL                   DBMS database table column to enumerate
+  --threads=THREADS        Number of threads
+  --proxy=PROXY            Proxy to use
+  --headers=HEADERS        Extra headers (e.g. "X-Forwarded-For: 127.0.0.1")
+  --delay=DELAY            Delay in seconds between requests
+  --timeout=TIMEOUT        Seconds to wait before timeout
+  --os-shell               Prompt for an interactive OS shell
+  --os-cmd=CMD             Execute OS command
+  --file-read=FILE         Read file from DBMS file system
+  --file-write=FILE        Write file to DBMS file system
+  --tamper=TAMPER          Tamper script to bypass WAF
+  --banner                 Retrieve DBMS banner
+  --current-user           Retrieve DBMS current user
+  --current-db             Retrieve DBMS current database
+  --passwords              Enumerate DBMS users password hashes
+  --dbs                    Enumerate DBMS databases
+  --flush-session          Flush session files for current target
+  --fresh-queries          Ignore query results stored in session file
+  -h, --help               Show this help

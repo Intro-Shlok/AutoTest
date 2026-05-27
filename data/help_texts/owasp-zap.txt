@@ -1,0 +1,21 @@
+OWASP ZAP v2.14.0
+Usage: zap [options]
+
+Daemon/Headless Options:
+  -daemon                        Run ZAP in daemon mode (headless)
+  -port <port>                   Port to listen on (default 8080)
+  -host <host>                   Host address to bind to (default 127.0.0.1)
+  -config <key=value>            Set configuration key=value pairs
+  -cmd                           Run ZAP in command-line mode
+  -suppressinfo                  Suppress informational messages
+  -newsession <path>             Create new session at specified path
+  -session <file>                Open existing session file
+
+Other Options:
+  -h, -help                      Show this help message
+  -version                       Show version information
+
+Examples:
+  zap -daemon -port 8080
+  zap -cmd -config api.disablekey=true
+  zap -daemon -newsession /tmp/zap-session

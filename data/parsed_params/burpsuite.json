@@ -1,0 +1,47 @@
+[
+  {
+    "name": "collab-config",
+    "template_key": "collab-config",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Collaborator server configuration file",
+    "aliases": ["--collaborator-config"]
+  },
+  {
+    "name": "project-file",
+    "template_key": "project-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Project file to load",
+    "aliases": ["--project-file"]
+  },
+  {
+    "name": "use-defaults",
+    "template_key": "use-defaults",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Start with default configuration",
+    "aliases": ["--use-defaults"]
+  },
+  {
+    "name": "diagnostics",
+    "template_key": "diagnostics",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show diagnostics information",
+    "aliases": ["--diagnostics"]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Display help information",
+    "aliases": ["--help", "-h"]
+  }
+]

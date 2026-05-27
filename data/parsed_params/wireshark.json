@@ -1,0 +1,110 @@
+[
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Network interface or pipe name to capture on",
+    "aliases": ["-i", "--interface"]
+  },
+  {
+    "name": "read-file",
+    "template_key": "read-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Read packet data from pcap/pcapng file",
+    "aliases": ["-r", "--read-file"]
+  },
+  {
+    "name": "write-file",
+    "template_key": "write-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Write raw packets to output file",
+    "aliases": ["-w", "--write-file"]
+  },
+  {
+    "name": "start-capture",
+    "template_key": "start-capture",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Start capturing immediately",
+    "aliases": ["-k"]
+  },
+  {
+    "name": "capture-filter",
+    "template_key": "capture-filter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set capture filter expression (pcap-filter syntax)",
+    "aliases": ["-f"]
+  },
+  {
+    "name": "display-filter",
+    "template_key": "display-filter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Apply display filter before starting",
+    "aliases": ["-Y", "--display-filter"]
+  },
+  {
+    "name": "packet-count",
+    "template_key": "packet-count",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Stop after capturing count packets",
+    "aliases": ["-c"]
+  },
+  {
+    "name": "output-format",
+    "template_key": "output-format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Format packet output (fields, pdml, psml, json)",
+    "aliases": ["-T", "--output-format"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose printing of packet details",
+    "aliases": ["-V"]
+  },
+  {
+    "name": "hex",
+    "template_key": "hex",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Print hex dump of packet data",
+    "aliases": ["-x"]
+  },
+  {
+    "name": "list-interfaces",
+    "template_key": "list-interfaces",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Print list of available interfaces and exit",
+    "aliases": ["-D", "--list-interfaces"]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Quiet mode (suppress packet output)",
+    "aliases": ["-q"]
+  }
+]

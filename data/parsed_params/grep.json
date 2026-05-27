@@ -1,0 +1,492 @@
+[
+  {
+    "name": "extended-regexp",
+    "template_key": "extended-regexp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "PATTERNS are extended regular expressions",
+    "aliases": [
+      "-E",
+      "--extended-regexp"
+    ]
+  },
+  {
+    "name": "fixed-strings",
+    "template_key": "fixed-strings",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "PATTERNS are strings",
+    "aliases": [
+      "-F",
+      "--fixed-strings"
+    ]
+  },
+  {
+    "name": "basic-regexp",
+    "template_key": "basic-regexp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "PATTERNS are basic regular expressions",
+    "aliases": [
+      "-G",
+      "--basic-regexp"
+    ]
+  },
+  {
+    "name": "perl-regexp",
+    "template_key": "perl-regexp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "PATTERNS are Perl regular expressions",
+    "aliases": [
+      "-P",
+      "--perl-regexp"
+    ]
+  },
+  {
+    "name": "regexp",
+    "template_key": "regexp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use PATTERNS for matching",
+    "aliases": [
+      "-e",
+      "--regexp"
+    ]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "take PATTERNS from FILE",
+    "aliases": [
+      "-f",
+      "--file"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore case distinctions in patterns and data",
+    "aliases": [
+      "-i",
+      "--ignore-case"
+    ]
+  },
+  {
+    "name": "no-ignore-case",
+    "template_key": "no-ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not ignore case distinctions (default)",
+    "aliases": [
+      "--no-ignore-case"
+    ]
+  },
+  {
+    "name": "word-regexp",
+    "template_key": "word-regexp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "match only whole words",
+    "aliases": [
+      "-w",
+      "--word-regexp"
+    ]
+  },
+  {
+    "name": "line-regexp",
+    "template_key": "line-regexp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "match only whole lines",
+    "aliases": [
+      "-x",
+      "--line-regexp"
+    ]
+  },
+  {
+    "name": "null-data",
+    "template_key": "null-data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "a data line ends in 0 byte, not newline",
+    "aliases": [
+      "-z",
+      "--null-data"
+    ]
+  },
+  {
+    "name": "no-messages",
+    "template_key": "no-messages",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress error messages",
+    "aliases": [
+      "-s",
+      "--no-messages"
+    ]
+  },
+  {
+    "name": "invert-match",
+    "template_key": "invert-match",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "select non-matching lines",
+    "aliases": [
+      "-v",
+      "--invert-match"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display version information and exit",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help text and exit",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "max-count",
+    "template_key": "max-count",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "stop after NUM selected lines",
+    "aliases": [
+      "-m",
+      "--max-count"
+    ]
+  },
+  {
+    "name": "byte-offset",
+    "template_key": "byte-offset",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print the byte offset with output lines",
+    "aliases": [
+      "-b",
+      "--byte-offset"
+    ]
+  },
+  {
+    "name": "line-number",
+    "template_key": "line-number",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print line number with output lines",
+    "aliases": [
+      "-n",
+      "--line-number"
+    ]
+  },
+  {
+    "name": "line-buffered",
+    "template_key": "line-buffered",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "flush output on every line",
+    "aliases": [
+      "--line-buffered"
+    ]
+  },
+  {
+    "name": "with-filename",
+    "template_key": "with-filename",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print file name with output lines",
+    "aliases": [
+      "-H",
+      "--with-filename"
+    ]
+  },
+  {
+    "name": "no-filename",
+    "template_key": "no-filename",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress the file name prefix on output",
+    "aliases": [
+      "-h",
+      "--no-filename"
+    ]
+  },
+  {
+    "name": "label",
+    "template_key": "label",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "use LABEL as the standard input file name prefix",
+    "aliases": [
+      "--label"
+    ]
+  },
+  {
+    "name": "only-matching",
+    "template_key": "only-matching",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show only nonempty parts of lines that match",
+    "aliases": [
+      "-o",
+      "--only-matching"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress all normal output",
+    "aliases": [
+      "-q",
+      "--quiet",
+      "--silent"
+    ]
+  },
+  {
+    "name": "binary-files",
+    "template_key": "binary-files",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "assume that binary files are TYPE",
+    "aliases": [
+      "--binary-files"
+    ]
+  },
+  {
+    "name": "text",
+    "template_key": "text",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to --binary-files=text",
+    "aliases": [
+      "-a",
+      "--text"
+    ]
+  },
+  {
+    "name": "directories",
+    "template_key": "directories",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ACTION is 'read', 'recurse', or 'skip'",
+    "aliases": [
+      "-d",
+      "--directories"
+    ]
+  },
+  {
+    "name": "devices",
+    "template_key": "devices",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "how to handle devices, FIFOs and sockets",
+    "aliases": [
+      "-D",
+      "--devices"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --directories=recurse",
+    "aliases": [
+      "-r",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "dereference-recursive",
+    "template_key": "dereference-recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--include=GLOB search only files that match GLOB (a file pattern) --exclude=GLOB skip files that match GLOB --exclude-from=FILE skip files that match any file pattern from FILE --exclude-dir=GLOB skip directories that match GLOB",
+    "aliases": [
+      "-R",
+      "--dereference-recursive"
+    ]
+  },
+  {
+    "name": "files-without-match",
+    "template_key": "files-without-match",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-L",
+      "--files-without-match"
+    ]
+  },
+  {
+    "name": "files-with-matches",
+    "template_key": "files-with-matches",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-l",
+      "--files-with-matches"
+    ]
+  },
+  {
+    "name": "count",
+    "template_key": "count",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print only a count of selected lines per FILE",
+    "aliases": [
+      "-c",
+      "--count"
+    ]
+  },
+  {
+    "name": "initial-tab",
+    "template_key": "initial-tab",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make tabs line up (if needed)",
+    "aliases": [
+      "-T",
+      "--initial-tab"
+    ]
+  },
+  {
+    "name": "null",
+    "template_key": "null",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print 0 byte after FILE name",
+    "aliases": [
+      "-Z",
+      "--null"
+    ]
+  },
+  {
+    "name": "before-context",
+    "template_key": "before-context",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-B",
+      "--before-context"
+    ]
+  },
+  {
+    "name": "after-context",
+    "template_key": "after-context",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "print NUM lines of trailing context",
+    "aliases": [
+      "-A",
+      "--after-context"
+    ]
+  },
+  {
+    "name": "context",
+    "template_key": "context",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "print NUM lines of output context",
+    "aliases": [
+      "-C",
+      "--context"
+    ]
+  },
+  {
+    "name": "flag-N",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "same as --context=NUM",
+    "aliases": [
+      "-N"
+    ]
+  },
+  {
+    "name": "group-separator",
+    "template_key": "group-separator",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--no-group-separator do not print separator for matches with context --color[=WHEN], --colour[=WHEN] use markers to highlight the matching strings; WHEN is 'always', 'never', or 'auto'",
+    "aliases": [
+      "--group-separator"
+    ]
+  },
+  {
+    "name": "binary",
+    "template_key": "binary",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not strip CR characters at EOL (MSDOS/Windows)",
+    "aliases": [
+      "-U",
+      "--binary"
+    ],
+    "enum": [
+      "MSDOS",
+      "Windows"
+    ]
+  }
+]

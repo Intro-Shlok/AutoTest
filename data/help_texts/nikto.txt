@@ -1,0 +1,27 @@
+Nikto v2.5.0
+Usage: nikto -h <target> [options]
+
+Target Specification:
+  -h <host>                      Target hostname or IP address
+  -p <port>                      Target port (default 80)
+  -ssl                           Force SSL/TLS mode
+
+Scan Options:
+  -Tuning <1-9>                  Tuning options to control scan scope
+  -mutate <1-9>                  Mutate technique for additional checks
+  -root <path>                   Prepend root path to all requests
+  -timeout <secs>                Request timeout in seconds
+  -no404                         Disable 404 detection heuristic
+  -useragent <agent>             Custom User-Agent header value
+  -Display <1-4>                 Display verbosity level
+  -evasion <1-9>                 Evasion technique for WAF bypass
+  -idhost <host>                 Hostname to use in Host header
+
+Output:
+  -Format <fmt>                  Output format (html, xml, csv, txt, json)
+  -output <file>                 Output file for scan results
+
+Examples:
+  nikto -h example.com
+  nikto -h example.com -p 443 -ssl
+  nikto -h example.com -Format html -output report.html

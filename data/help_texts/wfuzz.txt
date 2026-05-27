@@ -1,0 +1,29 @@
+********************************************************
+* Wfuzz 3.1.0 - The Web Bruteforcer                    *
+********************************************************
+
+Target: FUZZ keyword can be placed in any part of the URL.
+
+Usage: wfuzz [options] -w wordlist URL
+
+Options:
+ -w wordlist      Specify a wordlist file (alias --file)
+ -u url           Target URL (alias --url)
+ -X method        HTTP method to use (GET, POST, etc.)
+ -H header        HTTP headers to add
+ -d postdata      POST data payload
+ -c               Display results in color
+ -b cookie        HTTP Cookie header
+ -p proxy         Proxy to use (format: protocol://user:pass@host:port)
+ -t threads       Number of concurrent threads (default: 10)
+ -f filter        Filter by response code, lines, words
+ --hc/hl/hw/hh    Hide responses by code/lines/words/chars
+ --sc/sl/sw/sh    Show responses by code/lines/words/chars
+ -v               Verbose output
+ --follow         Follow HTTP redirects
+ -R depth         Recursive scan depth
+ -z type          Payload type (file, list, range, etc.)
+ --req-delay      Delay between requests in seconds
+ -o output        Output file
+ -s               Silent mode (suppress banner)
+ -h               Show this help message

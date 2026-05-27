@@ -1,0 +1,110 @@
+[
+  {
+    "name": "import",
+    "template_key": "import",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Import a binary file into a new project",
+    "aliases": ["-import"]
+  },
+  {
+    "name": "process",
+    "template_key": "process",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Process a specific program in an existing project",
+    "aliases": ["-process"]
+  },
+  {
+    "name": "analysisTimeoutPerFile",
+    "template_key": "analysisTimeoutPerFile",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Analysis timeout in seconds per file",
+    "aliases": ["-analysisTimeoutPerFile"]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Recursively import files in directories",
+    "aliases": ["-recursive"]
+  },
+  {
+    "name": "readOnly",
+    "template_key": "readOnly",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Open project in read-only mode",
+    "aliases": ["-readOnly"]
+  },
+  {
+    "name": "preScript",
+    "template_key": "preScript",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Script to run before analysis",
+    "aliases": ["-preScript"]
+  },
+  {
+    "name": "postScript",
+    "template_key": "postScript",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Script to run after analysis",
+    "aliases": ["-postScript"]
+  },
+  {
+    "name": "scriptPath",
+    "template_key": "scriptPath",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Path to script directories",
+    "aliases": ["-scriptPath"]
+  },
+  {
+    "name": "propertiesPath",
+    "template_key": "propertiesPath",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Path to project properties file",
+    "aliases": ["-propertiesPath"]
+  },
+  {
+    "name": "maxMemory",
+    "template_key": "maxMemory",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum JVM memory (e.g. 4G)",
+    "aliases": ["-maxMemory"]
+  },
+  {
+    "name": "ghidraRun",
+    "template_key": "ghidraRun",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Path to the ghidraRun launcher script",
+    "aliases": ["ghidraRun"]
+  },
+  {
+    "name": "ghidraHeadless",
+    "template_key": "ghidraHeadless",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Path to the headless analyzer script",
+    "aliases": ["ghidraHeadless"]
+  }
+]

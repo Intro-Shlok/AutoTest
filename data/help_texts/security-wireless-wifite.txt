@@ -1,0 +1,35 @@
+wifite v2.6 - Automated Wireless Auditor
+Copyright (c) 2023, derv82
+https://github.com/derv82/wifite2
+
+Usage: wifite [options]
+
+Options:
+  -i, --interface=<iface>     Wireless interface to use
+  -e, --essid=<essid>         Target network ESSID
+  -b, --bssid=<bssid>         Target network BSSID
+  -c, --channel=<channel>     Target channel
+  -p, --power=<power>         Min signal power threshold
+  -w, --wep                   Attack only WEP networks
+  -t, --wpa                   Attack only WPA networks
+  -s, --wps                   Attack only WPS networks
+  -v, --verbose               Enable verbose output
+      --no-wps                Skip WPS attacks
+      --no-wep                Skip WEP attacks
+      --no-wpa                Skip WPA attacks
+      --no-deauth             Skip deauth attacks
+      --pmkid                 Use PMKID attack only
+      --handshake-dir=<dir>   Save handshakes to dir
+      --wordlist=<file>       Dictionary file
+      --mac=<mac>             MAC address to use
+      --kill                  Kill conflicting processes
+      --check                 Check handshakes
+      --dict                  Use dictionary attack
+  -5, --5ghz                  Scan 5GHz networks
+  -2, --2ghz                  Scan 2.4GHz networks
+      --random-mac            Randomize MAC address
+      --cloaking              Enable cloaking
+
+Example:
+  wifite -i wlan0
+  wifite -i wlan0 --wpa --no-wep

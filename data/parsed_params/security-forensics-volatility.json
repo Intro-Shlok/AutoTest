@@ -1,0 +1,101 @@
+[
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "file",
+    "required": true,
+    "default_value": null,
+    "description": "Memory dump file to analyze",
+    "aliases": ["-f", "--file"]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Additional plugin directory path",
+    "aliases": ["-p", "--plugin-path"]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "integer",
+    "required": false,
+    "default_value": "1",
+    "description": "Verbosity level (1-5)",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Quiet mode — suppress output except errors",
+    "aliases": ["-q", "--quiet"]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "List all available plugins",
+    "aliases": ["-l", "--list-plugins"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Configuration file path",
+    "aliases": ["-c", "--config"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": "text",
+    "description": "Output format (text, json, sqlite)",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "single-location",
+    "template_key": "single-location",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Single memory location to scan",
+    "aliases": ["--single-location"]
+  },
+  {
+    "name": "physical",
+    "template_key": "physical",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use physical address space",
+    "aliases": ["--physical"]
+  },
+  {
+    "name": "plugin",
+    "template_key": "plugin",
+    "type": "string",
+    "required": true,
+    "default_value": "windows.pslist",
+    "description": "Plugin to run (e.g. windows.pslist, windows.netscan)",
+    "aliases": ["windows.info", "windows.pslist", "windows.netscan", "windows.hivelist", "windows.hashdump", "linux.bash", "linux.pslist", "mac.pslist"]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Display information about the memory dump",
+    "aliases": ["-i", "--info"]
+  }
+]

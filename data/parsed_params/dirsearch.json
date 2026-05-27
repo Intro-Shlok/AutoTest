@@ -1,0 +1,119 @@
+[
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL",
+    "aliases": ["-u", "--url"]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Path to wordlist file",
+    "aliases": ["-w", "--wordlist"]
+  },
+  {
+    "name": "extensions",
+    "template_key": "extensions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File extensions to search (comma-separated)",
+    "aliases": ["-e", "--extensions"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 30,
+    "description": "Number of threads",
+    "aliases": ["-t", "--threads"]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable recursive brute-force",
+    "aliases": ["-r", "--recursive"]
+  },
+  {
+    "name": "depth",
+    "template_key": "depth",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum recursion depth",
+    "aliases": ["-R", "--recursive-depth"]
+  },
+  {
+    "name": "exclude-status",
+    "template_key": "exclude-status",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Exclude status codes (comma-separated)",
+    "aliases": ["-x", "--exclude-status"]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Request timeout in seconds",
+    "aliases": ["--timeout"]
+  },
+  {
+    "name": "follow-redirects",
+    "template_key": "follow-redirects",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Follow HTTP redirects",
+    "aliases": ["--follow-redirects"]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": "plain",
+    "description": "Output format: json, xml, csv, plain",
+    "aliases": ["--format"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Output file path",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "random-agent",
+    "template_key": "random-agent",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use random User-Agent headers",
+    "aliases": ["--random-agent"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy URL (e.g. http://127.0.0.1:8080)",
+    "aliases": ["--proxy"]
+  }
+]

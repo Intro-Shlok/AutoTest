@@ -1,0 +1,28 @@
+Usage: checksec [options]
+
+Options:
+  --file <binary>     check security of an ELF binary
+  --elf <pid>         check security of /proc/PID/exe
+  --proc <pid>        check /proc/PID/exe security
+  --kernel            check kernel security mitigations
+  --debug             enable debug output
+  --output <file>     write report to file
+  --format <fmt>      output format (json or csv)
+  --list-check        list all available security checks
+  --help              show this message
+  --version           show version
+
+Output fields:
+  RELRO               Relocation Read-Only (None/Partial/Full)
+  STACK CANARY        Stack canary presence
+  NX                  Non-executable stack
+  PIE                 Position Independent Executable
+  RPATH/RUNPATH       Library search path
+  Symbols             Number of symbols
+  FORTIFY             Fortified source functions
+
+Examples:
+  checksec --file=/bin/ls
+  checksec --file=/bin/ls --format=json
+  checksec --kernel
+  checksec --proc 1234

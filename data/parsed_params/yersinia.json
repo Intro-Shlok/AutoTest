@@ -1,0 +1,110 @@
+[
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Network interface for frame injection",
+    "aliases": ["-I"]
+  },
+  {
+    "name": "gui",
+    "template_key": "gui",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Launch GTK graphical interface",
+    "aliases": ["-G"]
+  },
+  {
+    "name": "daemon",
+    "template_key": "daemon",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Run in daemon (background) mode",
+    "aliases": ["-d"]
+  },
+  {
+    "name": "interactive",
+    "template_key": "interactive",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Interactive curses-based text mode",
+    "aliases": ["-i"]
+  },
+  {
+    "name": "show-networks",
+    "template_key": "show-networks",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "List available network interfaces",
+    "aliases": ["-s"]
+  },
+  {
+    "name": "log",
+    "template_key": "log",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Enable logging to specified file",
+    "aliases": ["-l"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable verbose messages",
+    "aliases": ["-v"]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Display help and exit",
+    "aliases": ["-h"]
+  },
+  {
+    "name": "stp-attack",
+    "template_key": "stp-attack",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "STP attack type (confusion, root, bpdu flood)",
+    "aliases": ["stp"]
+  },
+  {
+    "name": "cdp-spoof",
+    "template_key": "cdp-spoof",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "CDP table flooding or fake advertisement",
+    "aliases": ["cdp"]
+  },
+  {
+    "name": "dtp-attack",
+    "template_key": "dtp-attack",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "DTP trunk negotiation attack",
+    "aliases": ["dtp"]
+  },
+  {
+    "name": "vtp-attack",
+    "template_key": "vtp-attack",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "VTP domain takeover or revision bump",
+    "aliases": ["vtp"]
+  }
+]

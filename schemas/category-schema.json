@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://autotest.repo/schemas/category-schema.json",
+  "title": "Category Index Definition",
+  "description": "Schema for category index files that aggregate tools within a domain.",
+  "type": "object",
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "Primary domain identifier (e.g., security, network, system)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Overview of this domain category."
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon or emoji identifier for UI rendering."
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Display order for navigation."
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "namespace": { "type": "string" },
+          "description": { "type": "string" },
+          "path": { "type": "string" }
+        },
+        "required": ["id", "name", "namespace", "description", "path"]
+      },
+      "description": "List of tools belonging to this category."
+    }
+  },
+  "required": ["domain", "description", "tools"],
+  "additionalProperties": false
+}

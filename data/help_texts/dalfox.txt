@@ -1,0 +1,37 @@
+dalfox v2.9.0 - Fast XSS Scanner and Parameter Analysis
+
+Usage:
+  dalfox [command] [target] [flags]
+
+Available Commands:
+  url        Scan single URL
+  pipe       Scan URLs from stdin (line by line)
+  file       Scan URLs from file
+  version    Show version
+  help       Help about any command
+
+Flags:
+      --cookie string         Cookie for request
+      --header string         Custom headers (multiple)
+      --data string           POST data
+      --user-agent string     Custom User-Agent
+      --proxy string          Proxy URL
+  -o, --output string         Output file
+      --format string         Output format (plain/json/xml)
+      --silent                Silent mode (no banner)
+      --mass                  Mass scan mode
+      --mass-file string      File for mass targets
+      --found-action string   Command to run on XSS found
+      --not-found-action string  Command on not found
+  -w, --worker int            Number of workers (default 10)
+      --thread int            Thread count (default 1)
+      --only-custom-payload   Use only custom payloads
+      --custom-payload string Custom payload file
+      --trigger string        Trigger method (direct, dom, etc.)
+      --timeout int           Request timeout (default 10)
+      --delay int             Delay between requests (ms)
+      --blind                 Blind XSS detection
+      --mining                Enable mining mode
+      --waf-evasion           Enable WAF evasion
+      --follow-redirects      Follow redirects
+  -h, --help                  Help for dalfox

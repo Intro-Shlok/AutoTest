@@ -1,0 +1,235 @@
+[
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--file=progfile",
+    "aliases": [
+      "-f"
+    ]
+  },
+  {
+    "name": "flag-F",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--field-separator=fs",
+    "aliases": [
+      "-F"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--assign=var=val",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--characters-as-bytes",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--traditional",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--dump-variables[=file]",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "flag-D",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--debug[=file]",
+    "aliases": [
+      "-D"
+    ]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--source='program-text'",
+    "aliases": [
+      "-e",
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-E",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--exec=file",
+    "aliases": [
+      "-E"
+    ]
+  },
+  {
+    "name": "flag-g",
+    "template_key": "flag-g",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--gen-pot",
+    "aliases": [
+      "-g"
+    ]
+  },
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--help",
+    "aliases": [
+      "-h"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--include=includefile",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "flag-k",
+    "template_key": "flag-k",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--csv",
+    "aliases": [
+      "-k"
+    ]
+  },
+  {
+    "name": "flag-l",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--load=library",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-L",
+    "template_key": "flag-l",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--lint[=fatal|invalid|no-ext]",
+    "aliases": [
+      "-L",
+      "-e"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--non-decimal-data",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--pretty-print[=file]",
+    "aliases": [
+      "-o"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--profile[=file]",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "--re-interval",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--no-optimize",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--lint-old",
+    "aliases": [
+      "-t"
+    ]
+  }
+]

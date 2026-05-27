@@ -1,0 +1,429 @@
+[
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mount all filesystems mentioned in fstab",
+    "aliases": [
+      "-a",
+      "--all"
+    ]
+  },
+  {
+    "name": "no-canonicalize",
+    "template_key": "no-canonicalize",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't canonicalize paths",
+    "aliases": [
+      "-c",
+      "--no-canonicalize"
+    ]
+  },
+  {
+    "name": "fake",
+    "template_key": "fake",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "dry run; skip the mount(2) syscall",
+    "aliases": [
+      "-f",
+      "--fake"
+    ]
+  },
+  {
+    "name": "fork",
+    "template_key": "fork",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "fork off for each device (use with -a)",
+    "aliases": [
+      "-F",
+      "--fork"
+    ]
+  },
+  {
+    "name": "fstab",
+    "template_key": "fstab",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "alternative file to /etc/fstab",
+    "aliases": [
+      "-T",
+      "--fstab <path>"
+    ]
+  },
+  {
+    "name": "internal-only",
+    "template_key": "internal-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't call the mount.<type> helpers",
+    "aliases": [
+      "-i",
+      "--internal-only"
+    ]
+  },
+  {
+    "name": "show-labels",
+    "template_key": "show-labels",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show also filesystem labels",
+    "aliases": [
+      "-l",
+      "--show-labels"
+    ]
+  },
+  {
+    "name": "map-groups",
+    "template_key": "map-groups",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "add the specified GID map to an ID-mapped mount --map-users <inner>:<outer>:<count> add the specified UID map to an ID-mapped mount --map-users /proc/<pid>/ns/user specify the user namespace for an ID-mapped mount",
+    "aliases": [
+      "--map-groups <inner>"
+    ]
+  },
+  {
+    "name": "mkdir",
+    "template_key": "mkdir",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "alias to '-o X-mount.mkdir[=<mode>]'",
+    "aliases": [
+      "-m",
+      "--mkdir"
+    ]
+  },
+  {
+    "name": "no-mtab",
+    "template_key": "no-mtab",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't write to /etc/mtab",
+    "aliases": [
+      "-n",
+      "--no-mtab"
+    ]
+  },
+  {
+    "name": "options-mode",
+    "template_key": "options-mode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "what to do with options loaded from fstab --options-source <source> mount options source --options-source-force force use of options from fstab/mtab --onlyonce check if filesystem is already mounted",
+    "aliases": [
+      "--options-mode <mode>"
+    ]
+  },
+  {
+    "name": "options",
+    "template_key": "options",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "comma-separated list of mount options",
+    "aliases": [
+      "-o",
+      "--options <list>"
+    ]
+  },
+  {
+    "name": "test-opts",
+    "template_key": "test-opts",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-O",
+      "-a",
+      "--test-opts <list>"
+    ]
+  },
+  {
+    "name": "read-only",
+    "template_key": "read-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mount the filesystem read-only (same as -o ro)",
+    "aliases": [
+      "-r",
+      "--read-only"
+    ]
+  },
+  {
+    "name": "types",
+    "template_key": "types",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "limit the set of filesystem types",
+    "aliases": [
+      "-t",
+      "--types <list>"
+    ]
+  },
+  {
+    "name": "source",
+    "template_key": "source",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "explicitly specifies source (path, label, uuid)",
+    "aliases": [
+      "--source <src>"
+    ],
+    "enum": [
+      "path",
+      "label",
+      "uuid"
+    ]
+  },
+  {
+    "name": "target",
+    "template_key": "target",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "explicitly specifies mountpoint",
+    "aliases": [
+      "--target <target>"
+    ]
+  },
+  {
+    "name": "target-prefix",
+    "template_key": "target-prefix",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "specifies path used for all mountpoints",
+    "aliases": [
+      "--target-prefix <path>"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "say what is being done",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "rw",
+    "template_key": "rw",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-w",
+      "-w",
+      "--rw",
+      "--read-write"
+    ]
+  },
+  {
+    "name": "namespace",
+    "template_key": "namespace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "perform mount in another namespace",
+    "aliases": [
+      "-N",
+      "--namespace <ns>"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display version",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "label",
+    "template_key": "label",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "synonym for LABEL=<label>",
+    "aliases": [
+      "-L",
+      "--label <label>"
+    ]
+  },
+  {
+    "name": "uuid",
+    "template_key": "uuid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "synonym for UUID=<uuid>",
+    "aliases": [
+      "-U",
+      "--uuid <uuid>"
+    ]
+  },
+  {
+    "name": "bind",
+    "template_key": "bind",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mount a subtree somewhere else (same as -o bind)",
+    "aliases": [
+      "-B",
+      "--bind"
+    ]
+  },
+  {
+    "name": "move",
+    "template_key": "move",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "move a subtree to some other place",
+    "aliases": [
+      "-M",
+      "--move"
+    ]
+  },
+  {
+    "name": "rbind",
+    "template_key": "rbind",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mount a subtree and all submounts somewhere else",
+    "aliases": [
+      "-R",
+      "--rbind"
+    ]
+  },
+  {
+    "name": "make-shared",
+    "template_key": "make-shared",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mark a subtree as shared",
+    "aliases": [
+      "--make-shared"
+    ]
+  },
+  {
+    "name": "make-slave",
+    "template_key": "make-slave",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mark a subtree as slave",
+    "aliases": [
+      "--make-slave"
+    ]
+  },
+  {
+    "name": "make-private",
+    "template_key": "make-private",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mark a subtree as private",
+    "aliases": [
+      "--make-private"
+    ]
+  },
+  {
+    "name": "make-unbindable",
+    "template_key": "make-unbindable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mark a subtree as unbindable",
+    "aliases": [
+      "--make-unbindable"
+    ]
+  },
+  {
+    "name": "make-rshared",
+    "template_key": "make-rshared",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "recursively mark a whole subtree as shared",
+    "aliases": [
+      "--make-rshared"
+    ]
+  },
+  {
+    "name": "make-rslave",
+    "template_key": "make-rslave",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "recursively mark a whole subtree as slave",
+    "aliases": [
+      "--make-rslave"
+    ]
+  },
+  {
+    "name": "make-rprivate",
+    "template_key": "make-rprivate",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "recursively mark a whole subtree as private",
+    "aliases": [
+      "--make-rprivate"
+    ]
+  },
+  {
+    "name": "make-runbindable",
+    "template_key": "make-runbindable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "recursively mark a whole subtree as unbindable",
+    "aliases": [
+      "--make-runbindable"
+    ]
+  }
+]

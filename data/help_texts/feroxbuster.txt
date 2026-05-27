@@ -1,0 +1,38 @@
+Feroxbuster v2.10.4
+Usage: feroxbuster -u <url> -w <wordlist> [options]
+
+Target:
+  -u, --url <url>                Target URL
+
+Dictionary:
+  -w, --wordlist <file>          Path to wordlist file
+  -x, --extensions <exts>        File extensions to scan (comma-separated)
+
+Settings:
+  -t, --threads <num>            Number of concurrent threads (default 50)
+  -d, --depth <num>              Maximum recursion depth
+  -r, --follow-redirect          Follow HTTP redirects
+  -s, --status-codes <codes>     Status codes to include
+  -H, --headers <header>         Custom HTTP headers
+  -a, --user-agent <agent>       Custom User-Agent string
+  -P, --proxy <url>              Proxy URL
+  -T, --timeout <secs>           Request timeout in seconds
+  -v, --verbose                  Verbose output
+  --auto-tune                    Automatically tune scan parameters
+  --silent                       Silent mode (only output results)
+  --json                         Enable JSON output
+
+Filtering:
+  --filter-status <codes>        Filter by status codes
+  --filter-size <sizes>          Filter by response size
+  --filter-regex <pattern>       Filter by regex pattern
+  --filter-words <count>         Filter by word count
+  --filter-lines <count>         Filter by line count
+
+Output:
+  -o, --output <file>            Output file path
+
+Examples:
+  feroxbuster -u https://example.com -w /usr/share/wordlists/dirb/common.txt -x php
+  feroxbuster -u https://example.com -w wordlist.txt --auto-tune
+  feroxbuster -u https://example.com -w wordlist.txt -P http://127.0.0.1:8080 --json

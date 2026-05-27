@@ -1,0 +1,2475 @@
+[
+  {
+    "name": "abstract-unix-socket",
+    "template_key": "abstract-unix-socket",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "--alt-svc <filename> Enable alt-svc with this cache file --anyauth Pick any authentication method",
+    "aliases": [
+      "--abstract-unix-socket <path>"
+    ]
+  },
+  {
+    "name": "append",
+    "template_key": "append",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Append to target file when uploading",
+    "aliases": [
+      "-a",
+      "--append"
+    ]
+  },
+  {
+    "name": "aws-sigv4",
+    "template_key": "aws-sigv4",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "--basic HTTP Basic Authentication --ca-native Load CA certs from the OS --cacert <file> CA certificate to verify peer against --capath <dir> CA directory to verify peer against",
+    "aliases": [
+      "--aws-sigv4 <provider1[:prvdr2[:reg[:srv]]]>"
+    ]
+  },
+  {
+    "name": "cert",
+    "template_key": "cert",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--cert-status Verify server cert status OCSP-staple --cert-type <type> Certificate type (DER/PEM/ENG/PROV/P12) --ciphers <list> TLS 1.2 (1.1, 1.0) ciphers to use --compressed Request compressed response --compressed-ssh Enable SSH compression",
+    "aliases": [
+      "-E",
+      "--cert <certificate[:password]>"
+    ]
+  },
+  {
+    "name": "config",
+    "template_key": "config",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Read config from a file",
+    "aliases": [
+      "-K",
+      "--config <file>"
+    ]
+  },
+  {
+    "name": "connect-timeout",
+    "template_key": "connect-timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum time allowed to connect",
+    "aliases": [
+      "--connect-timeout <seconds>"
+    ]
+  },
+  {
+    "name": "connect-to",
+    "template_key": "connect-to",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--connect-to <HOST1:PORT1:HOST2:PORT2>"
+    ]
+  },
+  {
+    "name": "continue-at",
+    "template_key": "continue-at",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Resumed transfer offset",
+    "aliases": [
+      "-C",
+      "--continue-at <offset>"
+    ]
+  },
+  {
+    "name": "cookie",
+    "template_key": "cookie",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Send cookies from string/load from file",
+    "aliases": [
+      "-b",
+      "--cookie <data|filename>"
+    ]
+  },
+  {
+    "name": "cookie-jar",
+    "template_key": "cookie-jar",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Save cookies to <filename> after operation",
+    "aliases": [
+      "-c",
+      "--cookie-jar <filename>"
+    ]
+  },
+  {
+    "name": "create-dirs",
+    "template_key": "create-dirs",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Create necessary local directory hierarchy",
+    "aliases": [
+      "--create-dirs"
+    ]
+  },
+  {
+    "name": "create-file-mode",
+    "template_key": "create-file-mode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File mode for created files",
+    "aliases": [
+      "--create-file-mode <mode>"
+    ]
+  },
+  {
+    "name": "crlf",
+    "template_key": "crlf",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Convert LF to CRLF in upload",
+    "aliases": [
+      "--crlf"
+    ]
+  },
+  {
+    "name": "crlfile",
+    "template_key": "crlfile",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Certificate Revocation list",
+    "aliases": [
+      "--crlfile <file>"
+    ]
+  },
+  {
+    "name": "curves",
+    "template_key": "curves",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "(EC) TLS key exchange algorithms to request",
+    "aliases": [
+      "--curves <list>"
+    ]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP POST data",
+    "aliases": [
+      "-d",
+      "--data <data>"
+    ]
+  },
+  {
+    "name": "data-ascii",
+    "template_key": "data-ascii",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP POST ASCII data",
+    "aliases": [
+      "--data-ascii <data>"
+    ]
+  },
+  {
+    "name": "data-binary",
+    "template_key": "data-binary",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP POST binary data",
+    "aliases": [
+      "--data-binary <data>"
+    ]
+  },
+  {
+    "name": "data-raw",
+    "template_key": "data-raw",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP POST data, '@' allowed",
+    "aliases": [
+      "--data-raw <data>"
+    ]
+  },
+  {
+    "name": "data-urlencode",
+    "template_key": "data-urlencode",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP POST data URL encoded",
+    "aliases": [
+      "--data-urlencode <data>"
+    ]
+  },
+  {
+    "name": "delegation",
+    "template_key": "delegation",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "GSS-API delegation permission",
+    "aliases": [
+      "--delegation <LEVEL>"
+    ]
+  },
+  {
+    "name": "digest",
+    "template_key": "digest",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP Digest Authentication",
+    "aliases": [
+      "--digest"
+    ]
+  },
+  {
+    "name": "disable",
+    "template_key": "disable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable .curlrc",
+    "aliases": [
+      "-q",
+      "--disable"
+    ]
+  },
+  {
+    "name": "disable-eprt",
+    "template_key": "disable-eprt",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Inhibit using EPRT or LPRT",
+    "aliases": [
+      "--disable-eprt"
+    ]
+  },
+  {
+    "name": "disable-epsv",
+    "template_key": "disable-epsv",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Inhibit using EPSV",
+    "aliases": [
+      "--disable-epsv"
+    ]
+  },
+  {
+    "name": "disallow-username-in-url",
+    "template_key": "disallow-username-in-url",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disallow username in URL",
+    "aliases": [
+      "--disallow-username-in-url"
+    ]
+  },
+  {
+    "name": "dns-interface",
+    "template_key": "dns-interface",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Interface to use for DNS requests",
+    "aliases": [
+      "--dns-interface <interface>"
+    ]
+  },
+  {
+    "name": "dns-ipv4-addr",
+    "template_key": "dns-ipv4-addr",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "IPv4 address to use for DNS requests",
+    "aliases": [
+      "--dns-ipv4-addr <address>"
+    ]
+  },
+  {
+    "name": "dns-ipv6-addr",
+    "template_key": "dns-ipv6-addr",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "IPv6 address to use for DNS requests",
+    "aliases": [
+      "--dns-ipv6-addr <address>"
+    ]
+  },
+  {
+    "name": "dns-servers",
+    "template_key": "dns-servers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "DNS server addrs to use",
+    "aliases": [
+      "--dns-servers <addresses>"
+    ]
+  },
+  {
+    "name": "doh-cert-status",
+    "template_key": "doh-cert-status",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Verify DoH server cert status OCSP-staple",
+    "aliases": [
+      "--doh-cert-status"
+    ]
+  },
+  {
+    "name": "doh-insecure",
+    "template_key": "doh-insecure",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Allow insecure DoH server connections",
+    "aliases": [
+      "--doh-insecure"
+    ]
+  },
+  {
+    "name": "doh-url",
+    "template_key": "doh-url",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Resolve hostnames over DoH",
+    "aliases": [
+      "--doh-url <URL>"
+    ]
+  },
+  {
+    "name": "dump-ca-embed",
+    "template_key": "dump-ca-embed",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write the embedded CA bundle to standard output",
+    "aliases": [
+      "--dump-ca-embed"
+    ]
+  },
+  {
+    "name": "dump-header",
+    "template_key": "dump-header",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Write the received headers to <filename>",
+    "aliases": [
+      "-D",
+      "--dump-header <filename>"
+    ]
+  },
+  {
+    "name": "ech",
+    "template_key": "ech",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Configure ECH",
+    "aliases": [
+      "--ech <config>"
+    ]
+  },
+  {
+    "name": "egd-file",
+    "template_key": "egd-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "EGD socket path for random data",
+    "aliases": [
+      "--egd-file <file>"
+    ]
+  },
+  {
+    "name": "engine",
+    "template_key": "engine",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Crypto engine to use",
+    "aliases": [
+      "--engine <name>"
+    ]
+  },
+  {
+    "name": "etag-compare",
+    "template_key": "etag-compare",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Load ETag from file",
+    "aliases": [
+      "--etag-compare <file>"
+    ]
+  },
+  {
+    "name": "etag-save",
+    "template_key": "etag-save",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Parse incoming ETag and save to a file",
+    "aliases": [
+      "--etag-save <file>"
+    ]
+  },
+  {
+    "name": "expect100-timeout",
+    "template_key": "expect100-timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-c",
+      "--expect100-timeout <seconds>"
+    ]
+  },
+  {
+    "name": "fail",
+    "template_key": "fail",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Fail fast with no output on HTTP errors",
+    "aliases": [
+      "-f",
+      "--fail"
+    ]
+  },
+  {
+    "name": "fail-early",
+    "template_key": "fail-early",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Fail on first transfer error",
+    "aliases": [
+      "--fail-early"
+    ]
+  },
+  {
+    "name": "fail-with-body",
+    "template_key": "fail-with-body",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Fail on HTTP errors but save the body",
+    "aliases": [
+      "--fail-with-body"
+    ]
+  },
+  {
+    "name": "false-start",
+    "template_key": "false-start",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable TLS False Start",
+    "aliases": [
+      "--false-start"
+    ]
+  },
+  {
+    "name": "follow",
+    "template_key": "follow",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Follow redirects per spec",
+    "aliases": [
+      "--follow"
+    ]
+  },
+  {
+    "name": "form",
+    "template_key": "form",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify multipart MIME data",
+    "aliases": [
+      "-F",
+      "--form <name"
+    ]
+  },
+  {
+    "name": "form-escape",
+    "template_key": "form-escape",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Escape form fields using backslash",
+    "aliases": [
+      "--form-escape"
+    ]
+  },
+  {
+    "name": "form-string",
+    "template_key": "form-string",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify multipart MIME data",
+    "aliases": [
+      "--form-string <name"
+    ]
+  },
+  {
+    "name": "ftp-account",
+    "template_key": "ftp-account",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Account data string",
+    "aliases": [
+      "--ftp-account <data>"
+    ]
+  },
+  {
+    "name": "ftp-alternative-to-user",
+    "template_key": "ftp-alternative-to-user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--ftp-create-dirs Create the remote dirs if not present --ftp-method <method> Control CWD usage --ftp-pasv Send PASV/EPSV instead of PORT",
+    "aliases": [
+      "--ftp-alternative-to-user <command>"
+    ]
+  },
+  {
+    "name": "ftp-port",
+    "template_key": "ftp-port",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Send PORT instead of PASV",
+    "aliases": [
+      "-P",
+      "--ftp-port <address>"
+    ]
+  },
+  {
+    "name": "ftp-pret",
+    "template_key": "ftp-pret",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Send PRET before PASV",
+    "aliases": [
+      "--ftp-pret"
+    ]
+  },
+  {
+    "name": "ftp-skip-pasv-ip",
+    "template_key": "ftp-skip-pasv-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Skip the IP address for PASV",
+    "aliases": [
+      "--ftp-skip-pasv-ip"
+    ]
+  },
+  {
+    "name": "ftp-ssl-ccc",
+    "template_key": "ftp-ssl-ccc",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Send CCC after authenticating",
+    "aliases": [
+      "--ftp-ssl-ccc"
+    ]
+  },
+  {
+    "name": "ftp-ssl-ccc-mode",
+    "template_key": "ftp-ssl-ccc-mode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--ftp-ssl-control Require TLS for login, clear for transfer",
+    "aliases": [
+      "--ftp-ssl-ccc-mode <active/passive>"
+    ]
+  },
+  {
+    "name": "get",
+    "template_key": "get",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Put the post data in the URL and use GET",
+    "aliases": [
+      "-G",
+      "--get"
+    ]
+  },
+  {
+    "name": "globoff",
+    "template_key": "globoff",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Disable URL globbing with {} and []",
+    "aliases": [
+      "-g",
+      "--globoff"
+    ]
+  },
+  {
+    "name": "happy-eyeballs-timeout-ms",
+    "template_key": "happy-eyeballs-timeout-ms",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--haproxy-clientip <ip> Set address in HAProxy PROXY --haproxy-protocol Send HAProxy PROXY protocol v1 header",
+    "aliases": [
+      "--happy-eyeballs-timeout-ms <ms>"
+    ]
+  },
+  {
+    "name": "head",
+    "template_key": "head",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show document info only",
+    "aliases": [
+      "-I",
+      "--head"
+    ]
+  },
+  {
+    "name": "header",
+    "template_key": "header",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Pass custom header(s) to server",
+    "aliases": [
+      "-H",
+      "--header <header/@file>"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Get help for commands",
+    "aliases": [
+      "-h",
+      "--help <subject>"
+    ]
+  },
+  {
+    "name": "hostpubmd5",
+    "template_key": "hostpubmd5",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Acceptable MD5 hash of host public key",
+    "aliases": [
+      "--hostpubmd5 <md5>"
+    ]
+  },
+  {
+    "name": "hostpubsha256",
+    "template_key": "hostpubsha256",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Acceptable SHA256 hash of host public key",
+    "aliases": [
+      "--hostpubsha256 <sha256>"
+    ]
+  },
+  {
+    "name": "hsts",
+    "template_key": "hsts",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable HSTS with this cache file",
+    "aliases": [
+      "--hsts <filename>"
+    ]
+  },
+  {
+    "name": "http0",
+    "template_key": "http0",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Allow HTTP/0.9 responses",
+    "aliases": [
+      "--http0"
+    ]
+  },
+  {
+    "name": "http1",
+    "template_key": "http1",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use HTTP/1.0",
+    "aliases": [
+      "-0",
+      "--http1"
+    ]
+  },
+  {
+    "name": "http1-2",
+    "template_key": "http1-2",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use HTTP/1.1",
+    "aliases": [
+      "--http1"
+    ]
+  },
+  {
+    "name": "http2",
+    "template_key": "http2",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use HTTP/2",
+    "aliases": [
+      "--http2"
+    ]
+  },
+  {
+    "name": "http2-prior-knowledge",
+    "template_key": "http2-prior-knowledge",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use HTTP/2 without HTTP/1.1 Upgrade",
+    "aliases": [
+      "--http2-prior-knowledge"
+    ]
+  },
+  {
+    "name": "http3",
+    "template_key": "http3",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use HTTP/3",
+    "aliases": [
+      "--http3"
+    ]
+  },
+  {
+    "name": "http3-only",
+    "template_key": "http3-only",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use HTTP/3 only",
+    "aliases": [
+      "--http3-only"
+    ]
+  },
+  {
+    "name": "ignore-content-length",
+    "template_key": "ignore-content-length",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore the size of the remote resource",
+    "aliases": [
+      "--ignore-content-length"
+    ]
+  },
+  {
+    "name": "insecure",
+    "template_key": "insecure",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Allow insecure server connections",
+    "aliases": [
+      "-k",
+      "--insecure"
+    ]
+  },
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use network interface",
+    "aliases": [
+      "--interface <name>"
+    ]
+  },
+  {
+    "name": "ip-tos",
+    "template_key": "ip-tos",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set IP Type of Service or Traffic Class",
+    "aliases": [
+      "--ip-tos <string>"
+    ]
+  },
+  {
+    "name": "ipfs-gateway",
+    "template_key": "ipfs-gateway",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Gateway for IPFS",
+    "aliases": [
+      "--ipfs-gateway <URL>"
+    ]
+  },
+  {
+    "name": "ipv4",
+    "template_key": "ipv4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Resolve names to IPv4 addresses",
+    "aliases": [
+      "-4",
+      "--ipv4"
+    ]
+  },
+  {
+    "name": "ipv6",
+    "template_key": "ipv6",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Resolve names to IPv6 addresses",
+    "aliases": [
+      "-6",
+      "--ipv6"
+    ]
+  },
+  {
+    "name": "json",
+    "template_key": "json",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP POST JSON",
+    "aliases": [
+      "--json <data>"
+    ]
+  },
+  {
+    "name": "junk-session-cookies",
+    "template_key": "junk-session-cookies",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore session cookies read from file",
+    "aliases": [
+      "-j",
+      "--junk-session-cookies"
+    ]
+  },
+  {
+    "name": "keepalive-cnt",
+    "template_key": "keepalive-cnt",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum number of keepalive probes",
+    "aliases": [
+      "--keepalive-cnt <integer>"
+    ]
+  },
+  {
+    "name": "keepalive-time",
+    "template_key": "keepalive-time",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Interval time for keepalive probes",
+    "aliases": [
+      "--keepalive-time <seconds>"
+    ]
+  },
+  {
+    "name": "key",
+    "template_key": "key",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Private key filename",
+    "aliases": [
+      "--key <key>"
+    ]
+  },
+  {
+    "name": "key-type",
+    "template_key": "key-type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Private key file type (DER/PEM/ENG)",
+    "aliases": [
+      "--key-type <type>"
+    ],
+    "enum": [
+      "DER",
+      "PEM",
+      "ENG"
+    ]
+  },
+  {
+    "name": "knownhosts",
+    "template_key": "knownhosts",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Specify knownhosts path",
+    "aliases": [
+      "--knownhosts <file>"
+    ]
+  },
+  {
+    "name": "krb",
+    "template_key": "krb",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Enable Kerberos with security <level>",
+    "aliases": [
+      "--krb <level>"
+    ]
+  },
+  {
+    "name": "libcurl",
+    "template_key": "libcurl",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Generate libcurl code for this command line",
+    "aliases": [
+      "--libcurl <file>"
+    ]
+  },
+  {
+    "name": "limit-rate",
+    "template_key": "limit-rate",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Limit transfer speed to RATE",
+    "aliases": [
+      "--limit-rate <speed>"
+    ]
+  },
+  {
+    "name": "list-only",
+    "template_key": "list-only",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "List only mode",
+    "aliases": [
+      "-l",
+      "--list-only"
+    ]
+  },
+  {
+    "name": "local-port",
+    "template_key": "local-port",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Use a local port number within RANGE",
+    "aliases": [
+      "--local-port <range>"
+    ]
+  },
+  {
+    "name": "location",
+    "template_key": "location",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Follow redirects",
+    "aliases": [
+      "-L",
+      "--location"
+    ]
+  },
+  {
+    "name": "location-trusted",
+    "template_key": "location-trusted",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "As --location, but send secrets to other hosts",
+    "aliases": [
+      "--location-trusted"
+    ]
+  },
+  {
+    "name": "login-options",
+    "template_key": "login-options",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Server login options",
+    "aliases": [
+      "--login-options <options>"
+    ]
+  },
+  {
+    "name": "mail-auth",
+    "template_key": "mail-auth",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Originator address of the original email",
+    "aliases": [
+      "--mail-auth <address>"
+    ]
+  },
+  {
+    "name": "mail-from",
+    "template_key": "mail-from",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Mail from this address",
+    "aliases": [
+      "--mail-from <address>"
+    ]
+  },
+  {
+    "name": "mail-rcpt",
+    "template_key": "mail-rcpt",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Mail to this address",
+    "aliases": [
+      "--mail-rcpt <address>"
+    ]
+  },
+  {
+    "name": "mail-rcpt-allowfails",
+    "template_key": "mail-rcpt-allowfails",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Allow RCPT TO command to fail",
+    "aliases": [
+      "--mail-rcpt-allowfails"
+    ]
+  },
+  {
+    "name": "manual",
+    "template_key": "manual",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the full manual",
+    "aliases": [
+      "-M",
+      "--manual"
+    ]
+  },
+  {
+    "name": "max-filesize",
+    "template_key": "max-filesize",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum file size to download",
+    "aliases": [
+      "--max-filesize <bytes>"
+    ]
+  },
+  {
+    "name": "max-redirs",
+    "template_key": "max-redirs",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum number of redirects allowed",
+    "aliases": [
+      "--max-redirs <num>"
+    ]
+  },
+  {
+    "name": "max-time",
+    "template_key": "max-time",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum time allowed for transfer",
+    "aliases": [
+      "-m",
+      "--max-time <seconds>"
+    ]
+  },
+  {
+    "name": "metalink",
+    "template_key": "metalink",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Process given URLs as metalink XML file",
+    "aliases": [
+      "--metalink"
+    ]
+  },
+  {
+    "name": "mptcp",
+    "template_key": "mptcp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable Multipath TCP",
+    "aliases": [
+      "--mptcp"
+    ]
+  },
+  {
+    "name": "negotiate",
+    "template_key": "negotiate",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use HTTP Negotiate (SPNEGO) authentication",
+    "aliases": [
+      "--negotiate"
+    ]
+  },
+  {
+    "name": "netrc",
+    "template_key": "netrc",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Must read .netrc for username and password",
+    "aliases": [
+      "-n",
+      "--netrc"
+    ]
+  },
+  {
+    "name": "netrc-file",
+    "template_key": "netrc-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify FILE for netrc",
+    "aliases": [
+      "--netrc-file <filename>"
+    ]
+  },
+  {
+    "name": "netrc-optional",
+    "template_key": "netrc-optional",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use either .netrc or URL",
+    "aliases": [
+      "--netrc-optional"
+    ]
+  },
+  {
+    "name": "next",
+    "template_key": "next",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Make next URL use separate options",
+    "aliases": [
+      "--next"
+    ]
+  },
+  {
+    "name": "no-alpn",
+    "template_key": "no-alpn",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable the ALPN TLS extension",
+    "aliases": [
+      "--no-alpn"
+    ]
+  },
+  {
+    "name": "no-buffer",
+    "template_key": "no-buffer",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable buffering of the output stream",
+    "aliases": [
+      "-N",
+      "--no-buffer"
+    ]
+  },
+  {
+    "name": "no-clobber",
+    "template_key": "no-clobber",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not overwrite files that already exist",
+    "aliases": [
+      "--no-clobber"
+    ]
+  },
+  {
+    "name": "no-keepalive",
+    "template_key": "no-keepalive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable TCP keepalive on the connection",
+    "aliases": [
+      "--no-keepalive"
+    ]
+  },
+  {
+    "name": "no-npn",
+    "template_key": "no-npn",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable the NPN TLS extension",
+    "aliases": [
+      "--no-npn"
+    ]
+  },
+  {
+    "name": "no-progress-meter",
+    "template_key": "no-progress-meter",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not show the progress meter",
+    "aliases": [
+      "--no-progress-meter"
+    ]
+  },
+  {
+    "name": "no-sessionid",
+    "template_key": "no-sessionid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable SSL session-ID reusing",
+    "aliases": [
+      "--no-sessionid"
+    ]
+  },
+  {
+    "name": "noproxy",
+    "template_key": "noproxy",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "List of hosts which do not use proxy",
+    "aliases": [
+      "--noproxy <no-proxy-list>"
+    ]
+  },
+  {
+    "name": "ntlm",
+    "template_key": "ntlm",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP NTLM authentication",
+    "aliases": [
+      "--ntlm"
+    ]
+  },
+  {
+    "name": "ntlm-wb",
+    "template_key": "ntlm-wb",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP NTLM authentication with winbind",
+    "aliases": [
+      "--ntlm-wb"
+    ]
+  },
+  {
+    "name": "oauth2-bearer",
+    "template_key": "oauth2-bearer",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "OAuth 2 Bearer Token",
+    "aliases": [
+      "--oauth2-bearer <token>"
+    ]
+  },
+  {
+    "name": "out-null",
+    "template_key": "out-null",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Discard response data into the void",
+    "aliases": [
+      "--out-null"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Write to file instead of stdout",
+    "aliases": [
+      "-o",
+      "--output <file>"
+    ]
+  },
+  {
+    "name": "output-dir",
+    "template_key": "output-dir",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Directory to save files in",
+    "aliases": [
+      "--output-dir <dir>"
+    ]
+  },
+  {
+    "name": "parallel",
+    "template_key": "parallel",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Perform transfers in parallel",
+    "aliases": [
+      "-Z",
+      "--parallel"
+    ]
+  },
+  {
+    "name": "parallel-immediate",
+    "template_key": "parallel-immediate",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not wait for multiplexing",
+    "aliases": [
+      "--parallel-immediate"
+    ]
+  },
+  {
+    "name": "parallel-max",
+    "template_key": "parallel-max",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum concurrency for parallel transfers",
+    "aliases": [
+      "--parallel-max <num>"
+    ]
+  },
+  {
+    "name": "parallel-max-host",
+    "template_key": "parallel-max-host",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum connections to a single host",
+    "aliases": [
+      "--parallel-max-host <num>"
+    ]
+  },
+  {
+    "name": "pass",
+    "template_key": "pass",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Passphrase for the private key",
+    "aliases": [
+      "--pass <phrase>"
+    ]
+  },
+  {
+    "name": "path-as-is",
+    "template_key": "path-as-is",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Do not squash .. sequences in URL path",
+    "aliases": [
+      "--path-as-is"
+    ]
+  },
+  {
+    "name": "pinnedpubkey",
+    "template_key": "pinnedpubkey",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Public key to verify peer against",
+    "aliases": [
+      "--pinnedpubkey <hashes>"
+    ]
+  },
+  {
+    "name": "post301",
+    "template_key": "post301",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not switch to GET after a 301 redirect",
+    "aliases": [
+      "--post301"
+    ]
+  },
+  {
+    "name": "post302",
+    "template_key": "post302",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not switch to GET after a 302 redirect",
+    "aliases": [
+      "--post302"
+    ]
+  },
+  {
+    "name": "post303",
+    "template_key": "post303",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not switch to GET after a 303 redirect",
+    "aliases": [
+      "--post303"
+    ]
+  },
+  {
+    "name": "preproxy",
+    "template_key": "preproxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--preproxy <[protocol://]host[:port]>"
+    ]
+  },
+  {
+    "name": "progress-bar",
+    "template_key": "progress-bar",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display transfer progress as a bar",
+    "aliases": [
+      "--progress-bar"
+    ]
+  },
+  {
+    "name": "proto",
+    "template_key": "proto",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable/disable PROTOCOLS",
+    "aliases": [
+      "--proto <protocols>"
+    ]
+  },
+  {
+    "name": "proto-default",
+    "template_key": "proto-default",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Use PROTOCOL for any URL missing a scheme",
+    "aliases": [
+      "--proto-default <protocol>"
+    ]
+  },
+  {
+    "name": "proto-redir",
+    "template_key": "proto-redir",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable/disable PROTOCOLS on redirect",
+    "aliases": [
+      "--proto-redir <protocols>"
+    ]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "--proxy-anyauth Pick any proxy authentication method --proxy-basic Use Basic authentication on the proxy --proxy-ca-native Load CA certs from the OS to verify proxy --proxy-cacert <file> CA certificates to verify proxy against --proxy-capath <dir> CA directory to verify proxy against --proxy-cert <cert[:passwd]> Set client certificate for proxy --proxy-cert-type <type> Client certificate type for HTTPS proxy --proxy-ciphers <list> TLS 1.2 (1.1, 1.0) ciphers to use for proxy --proxy-crlfile <file> Set a CRL list for proxy --proxy-digest Digest auth with the proxy --proxy-header <header/@file> Pass custom header(s) to proxy --proxy-http2 Use HTTP/2 with HTTPS proxy --proxy-insecure Skip HTTPS proxy cert verification --proxy-key <key> Private key for HTTPS proxy --proxy-key-type <type> Private key file type for proxy --proxy-negotiate HTTP Negotiate (SPNEGO) auth with the proxy --proxy-ntlm NTLM authentication with the proxy --proxy-pass <phrase> Passphrase for private key for HTTPS proxy --proxy-pinnedpubkey <hashes> FILE/HASHES public key to verify proxy with --proxy-service-name <name> SPNEGO proxy service name --proxy-ssl-allow-beast Allow this security flaw for HTTPS proxy --proxy-ssl-auto-client-cert Auto client certificate for proxy --proxy-tls13-ciphers <list> TLS 1.3 proxy cipher suites --proxy-tlsauthtype <type> TLS authentication type for HTTPS proxy --proxy-tlspassword <string> TLS password for HTTPS proxy --proxy-tlsuser <name> TLS username for HTTPS proxy --proxy-tlsv1 TLSv1 for HTTPS proxy",
+    "aliases": [
+      "-x",
+      "--proxy <[protocol://]host[:port]>"
+    ]
+  },
+  {
+    "name": "proxy-user",
+    "template_key": "proxy-user",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "--proxy1.0 <host[:port]> Use HTTP/1.0 proxy on given port",
+    "aliases": [
+      "-U",
+      "--proxy-user <user:password>"
+    ]
+  },
+  {
+    "name": "proxytunnel",
+    "template_key": "proxytunnel",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP proxy tunnel (using CONNECT)",
+    "aliases": [
+      "-p",
+      "--proxytunnel"
+    ]
+  },
+  {
+    "name": "pubkey",
+    "template_key": "pubkey",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "SSH Public key filename",
+    "aliases": [
+      "--pubkey <key>"
+    ]
+  },
+  {
+    "name": "quote",
+    "template_key": "quote",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Send command(s) to server before transfer",
+    "aliases": [
+      "-Q",
+      "--quote <command>"
+    ]
+  },
+  {
+    "name": "random-file",
+    "template_key": "random-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "File for reading random data from",
+    "aliases": [
+      "--random-file <file>"
+    ]
+  },
+  {
+    "name": "range",
+    "template_key": "range",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Retrieve only the bytes within RANGE",
+    "aliases": [
+      "-r",
+      "--range <range>"
+    ]
+  },
+  {
+    "name": "rate",
+    "template_key": "rate",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Request rate for serial transfers",
+    "aliases": [
+      "--rate <max request rate>"
+    ]
+  },
+  {
+    "name": "raw",
+    "template_key": "raw",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Do HTTP raw; no transfer decoding",
+    "aliases": [
+      "--raw"
+    ]
+  },
+  {
+    "name": "referer",
+    "template_key": "referer",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Referrer URL",
+    "aliases": [
+      "-e",
+      "--referer <URL>"
+    ]
+  },
+  {
+    "name": "remote-header-name",
+    "template_key": "remote-header-name",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Use the header-provided filename",
+    "aliases": [
+      "-J",
+      "--remote-header-name"
+    ]
+  },
+  {
+    "name": "remote-name",
+    "template_key": "remote-name",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write output to file named as remote file",
+    "aliases": [
+      "-O",
+      "--remote-name"
+    ]
+  },
+  {
+    "name": "remote-name-all",
+    "template_key": "remote-name-all",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Use the remote filename for all URLs",
+    "aliases": [
+      "--remote-name-all"
+    ]
+  },
+  {
+    "name": "remote-time",
+    "template_key": "remote-time",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set remote file's time on local output",
+    "aliases": [
+      "-R",
+      "--remote-time"
+    ]
+  },
+  {
+    "name": "remove-on-error",
+    "template_key": "remove-on-error",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Remove output file on errors",
+    "aliases": [
+      "--remove-on-error"
+    ]
+  },
+  {
+    "name": "request",
+    "template_key": "request",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify request method to use",
+    "aliases": [
+      "-X",
+      "--request <method>"
+    ]
+  },
+  {
+    "name": "request-target",
+    "template_key": "request-target",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Specify the target for this request",
+    "aliases": [
+      "--request-target <path>"
+    ]
+  },
+  {
+    "name": "resolve",
+    "template_key": "resolve",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "--retry <num> Retry request if transient problems occur --retry-all-errors Retry all errors (with --retry) --retry-connrefused Retry on connection refused (with --retry) --retry-delay <seconds> Wait time between retries --retry-max-time <seconds> Retry only within this period --sasl-authzid <identity> Identity for SASL PLAIN authentication --sasl-ir Initial response in SASL authentication --service-name <name> SPNEGO service name",
+    "aliases": [
+      "--resolve <[+]host:port:addr[,addr]...>"
+    ]
+  },
+  {
+    "name": "show-error",
+    "template_key": "show-error",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show error even when -s is used",
+    "aliases": [
+      "-S",
+      "--show-error"
+    ]
+  },
+  {
+    "name": "show-headers",
+    "template_key": "show-headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show response headers in output",
+    "aliases": [
+      "-i",
+      "--show-headers"
+    ]
+  },
+  {
+    "name": "sigalgs",
+    "template_key": "sigalgs",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "TLS signature algorithms to use",
+    "aliases": [
+      "--sigalgs <list>"
+    ]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Silent mode",
+    "aliases": [
+      "-s",
+      "--silent"
+    ]
+  },
+  {
+    "name": "skip-existing",
+    "template_key": "skip-existing",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Skip download if local file already exists",
+    "aliases": [
+      "--skip-existing"
+    ]
+  },
+  {
+    "name": "socks4",
+    "template_key": "socks4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SOCKS4 proxy on given host + port",
+    "aliases": [
+      "--socks4 <host[:port]>"
+    ]
+  },
+  {
+    "name": "socks4a",
+    "template_key": "socks4a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SOCKS4a proxy on given host + port",
+    "aliases": [
+      "--socks4a <host[:port]>"
+    ]
+  },
+  {
+    "name": "socks5",
+    "template_key": "socks5",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SOCKS5 proxy on given host + port",
+    "aliases": [
+      "--socks5 <host[:port]>"
+    ]
+  },
+  {
+    "name": "socks5-basic",
+    "template_key": "socks5-basic",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Username/password auth for SOCKS5 proxies",
+    "aliases": [
+      "--socks5-basic"
+    ]
+  },
+  {
+    "name": "socks5-gssapi",
+    "template_key": "socks5-gssapi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable GSS-API auth for SOCKS5 proxies",
+    "aliases": [
+      "--socks5-gssapi"
+    ]
+  },
+  {
+    "name": "socks5-gssapi-nec",
+    "template_key": "socks5-gssapi-nec",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Compatibility with NEC SOCKS5 server",
+    "aliases": [
+      "--socks5-gssapi-nec"
+    ]
+  },
+  {
+    "name": "socks5-gssapi-service",
+    "template_key": "socks5-gssapi-service",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--socks5-hostname <host[:port]> SOCKS5 proxy, pass hostname to proxy",
+    "aliases": [
+      "-A",
+      "--socks5-gssapi-service <name>"
+    ]
+  },
+  {
+    "name": "speed-limit",
+    "template_key": "speed-limit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Stop transfers slower than this",
+    "aliases": [
+      "-Y",
+      "--speed-limit <speed>"
+    ]
+  },
+  {
+    "name": "speed-time",
+    "template_key": "speed-time",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Trigger 'speed-limit' abort after this time",
+    "aliases": [
+      "-y",
+      "--speed-time <seconds>"
+    ]
+  },
+  {
+    "name": "ssl",
+    "template_key": "ssl",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Try enabling TLS",
+    "aliases": [
+      "--ssl"
+    ]
+  },
+  {
+    "name": "ssl-allow-beast",
+    "template_key": "ssl-allow-beast",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Allow security flaw to improve interop",
+    "aliases": [
+      "--ssl-allow-beast"
+    ]
+  },
+  {
+    "name": "ssl-auto-client-cert",
+    "template_key": "ssl-auto-client-cert",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use auto client certificate (Schannel)",
+    "aliases": [
+      "--ssl-auto-client-cert"
+    ]
+  },
+  {
+    "name": "ssl-no-revoke",
+    "template_key": "ssl-no-revoke",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable cert revocation checks (Schannel)",
+    "aliases": [
+      "--ssl-no-revoke"
+    ]
+  },
+  {
+    "name": "ssl-reqd",
+    "template_key": "ssl-reqd",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Require SSL/TLS",
+    "aliases": [
+      "--ssl-reqd"
+    ]
+  },
+  {
+    "name": "ssl-revoke-best-effort",
+    "template_key": "ssl-revoke-best-effort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore missing cert CRL dist points",
+    "aliases": [
+      "--ssl-revoke-best-effort"
+    ]
+  },
+  {
+    "name": "ssl-sessions",
+    "template_key": "ssl-sessions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--ssl-sessions <filename>"
+    ]
+  },
+  {
+    "name": "sslv2",
+    "template_key": "sslv2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SSLv2",
+    "aliases": [
+      "-2",
+      "--sslv2"
+    ]
+  },
+  {
+    "name": "sslv3",
+    "template_key": "sslv3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "SSLv3",
+    "aliases": [
+      "-3",
+      "--sslv3"
+    ]
+  },
+  {
+    "name": "stderr",
+    "template_key": "stderr",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Where to redirect stderr",
+    "aliases": [
+      "--stderr <file>"
+    ]
+  },
+  {
+    "name": "styled-output",
+    "template_key": "styled-output",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Enable styled output for HTTP headers",
+    "aliases": [
+      "--styled-output"
+    ]
+  },
+  {
+    "name": "suppress-connect-headers",
+    "template_key": "suppress-connect-headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Suppress proxy CONNECT response headers",
+    "aliases": [
+      "--suppress-connect-headers"
+    ]
+  },
+  {
+    "name": "tcp-fastopen",
+    "template_key": "tcp-fastopen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use TCP Fast Open",
+    "aliases": [
+      "--tcp-fastopen"
+    ]
+  },
+  {
+    "name": "tcp-nodelay",
+    "template_key": "tcp-nodelay",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set TCP_NODELAY",
+    "aliases": [
+      "--tcp-nodelay"
+    ]
+  },
+  {
+    "name": "telnet-option",
+    "template_key": "telnet-option",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set telnet option",
+    "aliases": [
+      "-t",
+      "--telnet-option <opt"
+    ]
+  },
+  {
+    "name": "tftp-blksize",
+    "template_key": "tftp-blksize",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set TFTP BLKSIZE option",
+    "aliases": [
+      "--tftp-blksize <value>"
+    ]
+  },
+  {
+    "name": "tftp-no-options",
+    "template_key": "tftp-no-options",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not send any TFTP options",
+    "aliases": [
+      "--tftp-no-options"
+    ]
+  },
+  {
+    "name": "time-cond",
+    "template_key": "time-cond",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "Transfer based on a time condition",
+    "aliases": [
+      "-z",
+      "--time-cond <time>"
+    ]
+  },
+  {
+    "name": "tls-earlydata",
+    "template_key": "tls-earlydata",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Allow use of TLSv1.3 early data (0RTT)",
+    "aliases": [
+      "--tls-earlydata"
+    ]
+  },
+  {
+    "name": "tls-max",
+    "template_key": "tls-max",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum allowed TLS version",
+    "aliases": [
+      "--tls-max <VERSION>"
+    ]
+  },
+  {
+    "name": "tls13-ciphers",
+    "template_key": "tls13-ciphers",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "TLS 1.3 cipher suites to use",
+    "aliases": [
+      "--tls13-ciphers <list>"
+    ]
+  },
+  {
+    "name": "tlsauthtype",
+    "template_key": "tlsauthtype",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLS authentication type",
+    "aliases": [
+      "--tlsauthtype <type>"
+    ]
+  },
+  {
+    "name": "tlspassword",
+    "template_key": "tlspassword",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLS password",
+    "aliases": [
+      "--tlspassword <string>"
+    ]
+  },
+  {
+    "name": "tlsuser",
+    "template_key": "tlsuser",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLS username",
+    "aliases": [
+      "--tlsuser <name>"
+    ]
+  },
+  {
+    "name": "tlsv1",
+    "template_key": "tlsv1",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLSv1.0 or greater",
+    "aliases": [
+      "-1",
+      "--tlsv1"
+    ]
+  },
+  {
+    "name": "tlsv1-2",
+    "template_key": "tlsv1-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLSv1.0 or greater",
+    "aliases": [
+      "--tlsv1"
+    ]
+  },
+  {
+    "name": "tlsv1-3",
+    "template_key": "tlsv1-3",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLSv1.1 or greater",
+    "aliases": [
+      "--tlsv1"
+    ]
+  },
+  {
+    "name": "tlsv1-4",
+    "template_key": "tlsv1-4",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLSv1.2 or greater",
+    "aliases": [
+      "--tlsv1"
+    ]
+  },
+  {
+    "name": "tlsv1-5",
+    "template_key": "tlsv1-5",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "TLSv1.3 or greater",
+    "aliases": [
+      "--tlsv1"
+    ]
+  },
+  {
+    "name": "tr-encoding",
+    "template_key": "tr-encoding",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Request compressed transfer encoding",
+    "aliases": [
+      "--tr-encoding"
+    ]
+  },
+  {
+    "name": "trace",
+    "template_key": "trace",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Write a debug trace to FILE",
+    "aliases": [
+      "--trace <file>"
+    ]
+  },
+  {
+    "name": "trace-ascii",
+    "template_key": "trace-ascii",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Like --trace, but without hex output",
+    "aliases": [
+      "--trace-ascii <file>"
+    ]
+  },
+  {
+    "name": "trace-config",
+    "template_key": "trace-config",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Details to log in trace/verbose output",
+    "aliases": [
+      "--trace-config <string>"
+    ]
+  },
+  {
+    "name": "trace-ids",
+    "template_key": "trace-ids",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Transfer + connection ids in verbose output",
+    "aliases": [
+      "--trace-ids"
+    ]
+  },
+  {
+    "name": "trace-time",
+    "template_key": "trace-time",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Add time stamps to trace/verbose output",
+    "aliases": [
+      "--trace-time"
+    ]
+  },
+  {
+    "name": "unix-socket",
+    "template_key": "unix-socket",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Connect through this Unix domain socket",
+    "aliases": [
+      "--unix-socket <path>"
+    ]
+  },
+  {
+    "name": "upload-file",
+    "template_key": "upload-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Transfer local FILE to destination",
+    "aliases": [
+      "-T",
+      "--upload-file <file>"
+    ]
+  },
+  {
+    "name": "upload-flags",
+    "template_key": "upload-flags",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "IMAP upload behavior",
+    "aliases": [
+      "--upload-flags <flags>"
+    ]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "URL(s) to work with",
+    "aliases": [
+      "--url <url/file>"
+    ]
+  },
+  {
+    "name": "url-query",
+    "template_key": "url-query",
+    "type": "url",
+    "required": false,
+    "default_value": null,
+    "description": "Add a URL query part",
+    "aliases": [
+      "--url-query <data>"
+    ]
+  },
+  {
+    "name": "use-ascii",
+    "template_key": "use-ascii",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use ASCII/text transfer",
+    "aliases": [
+      "-B",
+      "--use-ascii"
+    ]
+  },
+  {
+    "name": "user",
+    "template_key": "user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Server user and password",
+    "aliases": [
+      "-u",
+      "--user <user:password>"
+    ]
+  },
+  {
+    "name": "user-agent",
+    "template_key": "user-agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Send User-Agent <name> to server",
+    "aliases": [
+      "-A",
+      "--user-agent <name>"
+    ]
+  },
+  {
+    "name": "variable",
+    "template_key": "variable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--variable <[%]name"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Make the operation more talkative",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show version number and quit",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "vlan-priority",
+    "template_key": "vlan-priority",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set VLAN priority",
+    "aliases": [
+      "--vlan-priority <priority>"
+    ]
+  },
+  {
+    "name": "write-out",
+    "template_key": "write-out",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output FORMAT after completion",
+    "aliases": [
+      "-w",
+      "--write-out <format>"
+    ]
+  },
+  {
+    "name": "xattr",
+    "template_key": "xattr",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Store metadata in extended file attributes",
+    "aliases": [
+      "--xattr"
+    ]
+  }
+]

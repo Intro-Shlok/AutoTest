@@ -1,0 +1,32 @@
+smbclient v4.17.0 — SMB/CIFS Client
+
+Usage: smbclient [options] <service>
+
+Service:
+  //server/share             SMB share path
+  -L, --list <server>       List available shares
+
+Common Options:
+  -U, --user <user[%pass]>  SMB username (and optional password)
+  -N, --no-pass             Null session (no password)
+  -W, --workgroup <wg>      Workgroup or domain name
+  -I, --ip <address>        Target IP address
+  -p, --port <port>         SMB port (default 445)
+
+Operation:
+  -D, --directory <dir>     Start in specified directory
+  -c, --command <cmd>       Execute semicolon-separated commands
+  -m, --max-protocol <SMB>  Max protocol (NT1, SMB2, SMB3)
+  -e, --encrypt             Require SMB encryption
+
+Debug:
+  -d, --debug <level>       Debug level (0-10)
+  -s, --config <file>       Config file path
+  -A, --auth-file <file>    Credentials file
+  -O, --options <opts>       Socket options
+  -t, --timeout <sec>       Connection timeout
+
+Examples:
+  smbclient -L 10.10.10.1 -N
+  smbclient //10.10.10.1/C$ -U administrator -c "ls"
+  smbclient //10.10.10.1/Shared -U user%pass

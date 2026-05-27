@@ -1,0 +1,27 @@
+{
+  "name": "autotest-knowledge-repo",
+  "version": "1.0.0",
+  "description": "Dual-purpose knowledge repository for human study and machine-readable static API",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "build:api": "node src/scripts/build-api.js",
+    "lint": "astro check",
+    "validate": "node scripts/validate-frontmatter.js"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/sitemap": "^3.1.0",
+    "astro": "^4.15.0",
+    "marked": "^18.0.4",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "remark": "^15.0.0",
+    "remark-frontmatter": "^5.0.0"
+  }
+}

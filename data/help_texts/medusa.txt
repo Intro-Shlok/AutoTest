@@ -1,0 +1,50 @@
+Medusa v2.2 [http://www.foofus.net] (C) JoMo-Kun / Foofus Networks
+
+Usage: medusa [options] {-h host|-H file} {-u username|-U file} {-p password|-P file} -M module [OPTIONS]
+
+Authentication:
+  -h [TEXT]        Target hostname or IP address
+  -H [FILE]        File containing target hostnames
+  -u [TEXT]        Username to test
+  -U [FILE]        File containing usernames
+  -p [TEXT]        Password to test
+  -P [FILE]        File containing passwords
+  -C [FILE]        File containing colon-separated "user:pass" combos
+  -O [FILE]        File to append log information to
+
+Module:
+  -M [TEXT]        Name of module to execute
+  -m [TEXT]        Parameter(s) to pass to module (multi-value)
+
+Connection:
+  -s [NUM]         Target port number
+  -g [NUM]         Group number for connection throttling
+  -c [NUM]         Connection timeout in seconds
+  -r [NUM]         Number of retry attempts
+  -R [NUM]         Retry period in seconds
+
+Parallelization:
+  -t [NUM]         Total number of login attempts to run in parallel (default: 5)
+  -T [NUM]         Total number of hosts to test concurrently (default: 1)
+  -n [NUM]         Use numeric UID/GUID for display
+
+Output:
+  -O [FILE]        Output log file
+  -e [n/s/ns]      Additional checks (n=null, s=same-as-login)
+  -q               Quiet mode (do not print banner)
+  -v [NUM]         Verbose level (0-6, default: 2)
+  -d               Dump all received data to display
+  -V               Display version information
+
+Behavior:
+  -f               Stop scanning after first valid credential
+  -F               Stop scanning after first valid credential on any host
+  -b               Suppress startup banner
+  -z [NUM]         Number of seconds to wait between connections
+  -Z [NUM]         Number of seconds to wait between retries
+  -w [NUM]         Error wait time in seconds
+  -W [NUM]         Fail wait time in seconds
+
+Modules:
+  Available modules are located in /usr/lib/medusa/modules/
+  Use -module-list to list all available modules

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Network interface to use",
+    "aliases": ["-I", "--interface"]
+  },
+  {
+    "name": "target",
+    "template_key": "target",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target IP address",
+    "aliases": ["-T", "--target"]
+  },
+  {
+    "name": "gateway",
+    "template_key": "gateway",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Gateway IP address",
+    "aliases": ["-G", "--gateway"]
+  },
+  {
+    "name": "spoof",
+    "template_key": "spoof",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Enable ARP spoofing",
+    "aliases": ["-S", "--spoof"]
+  },
+  {
+    "name": "sniffer",
+    "template_key": "sniffer",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Enable sniffer",
+    "aliases": ["-X", "--sniffer"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Enable HTTP/HTTPS proxy",
+    "aliases": ["-P", "--proxy"]
+  },
+  {
+    "name": "log",
+    "template_key": "log",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Log events to file",
+    "aliases": ["-L", "--log"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Save captures to directory",
+    "aliases": ["-O", "--output"]
+  },
+  {
+    "name": "caplet",
+    "template_key": "caplet",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Execute caplet script",
+    "aliases": ["--caplet"]
+  },
+  {
+    "name": "eval-command",
+    "template_key": "eval-command",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Evaluate a command",
+    "aliases": ["-eval", "--eval"]
+  },
+  {
+    "name": "no-http",
+    "template_key": "no-http",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Disable HTTP server",
+    "aliases": ["--no-http"]
+  },
+  {
+    "name": "no-https",
+    "template_key": "no-https",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Disable HTTPS server",
+    "aliases": ["--no-https"]
+  }
+]

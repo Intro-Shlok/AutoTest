@@ -1,0 +1,31 @@
+Reaver v1.6.5 WiFi Protected Setup Attack Tool
+Copyright (c) 2011, Tactical Network Solutions, Craig Heffner
+https://github.com/t6x/reaver-wps-fork-t6x
+
+Usage: reaver -i <interface> -b <bssid> [options]
+
+Required Arguments:
+  -i, --interface=<iface>     Wireless interface in monitor mode
+  -b, --bssid=<bssid>         Target AP BSSID
+
+Optional Arguments:
+  -c, --channel=<channel>     Set the wireless channel
+  -p, --pin=<pin>             WPS PIN to test
+  -l, --lock-delay=<secs>     Delay after WPS lockout
+  -t, --timeout=<secs>        Receive timeout period
+  -T, --m57-timeout=<secs>    M5/M7 timeout period
+  -r, --recurring-delay=<secs> Recurring delay
+  -d, --delay=<secs>          Delay between PIN attempts
+  -s, --session=<file>        Restore session from file
+  -o, --output=<file>         Output to file
+  -f, --fixed                 Disable channel hopping
+  -v, --verbose               Verbose output
+  -q, --quiet                 Quiet output
+  -a, --auto                  Auto select options
+  -A, --no-associate          Do not associate
+  -N, --no-nacks              Ignore NACKs
+  -X, --exhaustive            Exhaustive PIN search
+  -W, --win7-compat           Windows 7 compatibility
+
+Example:
+  reaver -i wlan0mon -b 00:11:22:33:44:55 -c 6 -vv

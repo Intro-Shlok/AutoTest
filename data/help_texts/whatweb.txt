@@ -1,0 +1,27 @@
+WhatWeb - Next generation web scanner version 0.5.5.
+Developed by Andrew Horton (urbanadventurer) and Brendan Coles.
+It identifies websites, CMSs, blogs, and javascript libraries.
+
+Usage: whatweb [options] <URL>
+
+Target:
+  -u, --url <URL>            Target URL to fingerprint
+
+Options:
+  -v, --verbose              Verbose output
+  -a, --aggression <LEVEL>   Aggression level (1-5, default: 1)
+  -l, --log-verbose <FILE>   Log verbose output
+  -o, --output <FILE>        Output file
+  -U, --user-agent <AGENT>   Custom User-Agent
+  -i, --input-file <FILE>    Read URLs from file
+  -t, --threads <NUM>        Number of threads
+  --proxy <PROXY>            Proxy to use
+  --cookie <COOKIE>          Cookie to send
+  --header <HEADER>          Custom header
+  --plugins <LIST>           Comma-separated plugin list
+  --color                    Colored output
+  --no-errors                Suppress errors
+  --quiet                    Suppress banner
+  -q, --quick                Quick scan mode
+  -I, --info-level <LEVEL>   Information level
+  -h, --help                 Show this help

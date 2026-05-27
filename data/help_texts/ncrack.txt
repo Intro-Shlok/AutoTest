@@ -1,0 +1,51 @@
+Ncrack 0.7 ( http://ncrack.org )
+Usage: ncrack [Options] {target specification}
+
+TARGET SPECIFICATION:
+  Can pass hostnames, IP addresses, networks, etc.
+  Ex: ncrack -u admin -P pass.txt ssh://192.168.1.1
+  Ex: ncrack -U users -P pass.txt rdp://192.168.1.0/24
+
+AUTHENTICATION:
+  -u, --username=STRING        Username to test
+  -U, --username-list=FILE     File of usernames
+  -p, --password=STRING        Password to test
+  -P, --password-list=FILE     File of passwords
+  -i, --input-file=FILE        Input file specification
+
+SERVICE SPECIFICATION:
+  -s, --service=STRING         Service name (ssh, rdp, ftp, etc.)
+  -m, --module-options=STRING  Module-specific options
+  --ssl                        Use SSL/TLS
+
+TIMING AND PERFORMANCE:
+  -t, --timing=0-5             Set timing template (higher is faster)
+  -T, --threads=NUM            Number of parallel threads
+  --rate=NUM                   Max authentication attempts per second
+  --connection-limit=NUM       Max simultaneous connections
+  -r, --retries=NUM            Number of retries on failure
+  -d, --delay=NUM              Delay in ms between attempts
+  -x, --generate-password=STR  Password generation pattern
+
+OUTPUT AND VERBOSITY:
+  -o, --output=FILE            Save results to file
+  -v, --verbose                Increase verbosity level
+  -N, --no-banner              Suppress Ncrack banner
+  --log=FILE                   Log messages to file
+  -6, --ipv6                   Use IPv6
+
+BEHAVIOR:
+  -f, --stop-after-first       Stop after first valid credential
+  -F, --stop-all-first         Stop all after first credential
+  --resume=FILE                Resume scan from file
+  --spec=LIST                  Service specific options
+
+CONNECTION:
+  --proxy=PROXY                Use proxy (proto://host:port)
+  --proxy-auth=AUTH            Proxy authentication credentials
+  -6, --ipv6                   Use IPv6 addressing
+
+Examples:
+  ncrack -u admin -P passwords.txt ssh://192.168.1.1
+  ncrack -U users.txt -P pass.txt ftp://192.168.1.0/24
+  ncrack -i targets.txt -U users.txt -P pass.txt -v

@@ -1,0 +1,26 @@
+Autopsy 4.21.0
+Graphical Digital Forensics Platform
+https://www.autopsy.com/
+
+Usage: autopsy [options]
+
+Options:
+  --help                  Show this help message
+  --version               Display version information
+  --no-browser            Do not open browser on startup
+  -p PORT, --port PORT    Port to bind (default: 9999)
+  -H HOST, --host HOST    Host address to bind (default: 127.0.0.1)
+  --admin-pass PASSWORD   Set initial admin password
+  --ingest-modules LIST   Comma-separated ingest module list
+  --keyword-list FILE     Keyword list file
+  --hash-db FILE          Hash database for known file matching
+
+The Autopsy web interface will start at http://127.0.0.1:9999
+
+Default Ingest Modules:
+  Recent Activity        Recover browser history, documents, etc.
+  Hash Lookup            Match files against known hash sets
+  Keyword Search         Indexed keyword searching
+  Email Parser           Extract emails from PST/OST files
+  Interesting Files      Identify files of interest
+  Picture Analysis       EXIF extraction and categorization

@@ -1,0 +1,29 @@
+Usage: searchsploit [options] <search_term>
+
+Search Exploit-DB for exploits, shellcode, and papers.
+
+Options:
+  -c, --case          Perform a case-sensitive search
+  -e, --exact         Perform an exact match search
+  -w, --www           Show Exploit-DB URLs
+  -t, --type=TYPE     Filter by type (dos, local, remote, webapps, shellcode, poc)
+  -p, --path          Show full local path to exploit file
+  -j, --json          Output results in JSON format
+  --id                Show details for specific EDB-ID
+  --title             Display titles only
+  --url               Show Exploit-DB URLs (same as -w)
+  --nmap=FILE         Search using Nmap service version output XML
+  --update            Update the local exploit database
+  --mirror=MIRROR     Mirror an exploit to current directory
+  --exclude=TERM      Exclude results matching a term
+  -o, --overflow      Display exploit title with overflow indicator
+  -s, --screenshot    Show screenshot path
+  -v, --verbose       Verbose output
+  -h, --help          Show this help message
+
+Example:
+  searchsploit eternalblue
+  searchsploit -t webapps wordpress
+  searchsploit CVE-2021-41773
+  searchsploit -p 48191
+  searchsploit -w -j apache

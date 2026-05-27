@@ -1,0 +1,188 @@
+# AutoTest Knowledge Repository — LLM Full Content
+> Complete concatenated content for one-shot retrieval by AI agents.
+> This file contains resolved schemas, parameter definitions, and essential documentation.
+
+## Repository Metadata
+
+- Version: 1.0.0
+- Total Tools: 4 (growing)
+- API Base: /api/v1/commands.json
+- Schema: /schemas/command-schema.json (JSON Schema draft 2020-12)
+
+## JSON Schema — Command Definition
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Command Tool Definition",
+  "type": "object",
+  "required": ["id", "namespace", "name", "description", "version", "execution"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)+$", "description": "Immutable unique identifier" },
+    "namespace": { "type": "string", "pattern": "^[a-z]+(\\.[a-z0-9]+)*:[a-z]+:[a-z]+(:[a-z]+)?$", "description": "Hierarchical namespace: domain:category:tool[:action]" },
+    "name": { "type": "string" },
+    "description": { "type": "string", "maxLength": 512 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "capabilities": { "type": "array", "items": { "type": "string" } },
+    "platforms": { "type": "array", "items": { "type": "string", "enum": ["linux", "windows", "macos", "bsd", "cross-platform"] } },
+    "risk_level": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "allowed-tools": { "type": "array", "items": { "type": "string" } },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "description"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "enum": ["string", "integer", "number", "boolean", "array", "file", "url"] },
+          "required": { "type": "boolean" },
+          "default_value": { "type": ["string", "number", "boolean", "null"] },
+          "description": { "type": "string" },
+          "aliases": { "type": "array", "items": { "type": "string" } },
+          "enum": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "required": ["template"],
+      "properties": {
+        "template": { "type": "string" },
+        "sandbox": { "type": "string", "enum": ["docker", "execFile", "none"], "default": "execFile" },
+        "timeout_seconds": { "type": "integer", "minimum": 1, "default": 30 },
+        "shell": { "type": "boolean", "default": false }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "command": { "type": "string" }
+        },
+        "required": ["description", "command"]
+      }
+    }
+  }
+}
+```
+
+## Tool Definitions
+
+### network:http:curl
+
+- **ID**: network-http-curl
+- **Name**: curl
+- **Description**: Transfers data from or to a server using supported protocols.
+- **Version**: 1.0.0
+- **Risk Level**: low
+- **Platforms**: linux, macos, windows, cross-platform
+- **Capabilities**: http-requests, file-download, file-upload, api-testing, header-inspection
+
+**Parameters**:
+| Name | Type | Required | Default | Aliases |
+|------|------|----------|---------|---------|
+| url | string | true | — | — |
+| method | string | false | GET | -X, --request |
+| data | string | false | — | -d, --data |
+| header | string | false | — | -H, --header |
+| output | string | false | — | -o, --output |
+| silent | boolean | false | false | -s, --silent |
+| follow-redirects | boolean | false | false | -L, --location |
+| insecure | boolean | false | false | -k, --insecure |
+| timeout | integer | false | 30 | --connect-timeout |
+
+**Execution Template**: `curl {+silent:+-s} {+follow-redirects:+-L} {+insecure:+-k} {method:+-X }{method} {data:+-d }{data} {header:+-H }{header} {output:+-o }{output} {url}`
+
+### security:recon:nmap
+
+- **ID**: security-recon-nmap
+- **Name**: nmap
+- **Description**: Network discovery and security auditing scanner.
+- **Version**: 1.0.0
+- **Risk Level**: medium
+- **Platforms**: linux, macos, windows, cross-platform
+- **Capabilities**: host-discovery, port-scanning, service-detection, os-fingerprinting, version-detection, script-auditing, firewall-evasion
+
+**Parameters**:
+| Name | Type | Required | Default | Aliases |
+|------|------|----------|---------|---------|
+| target | string | true | — | — |
+| ports | string | false | — | -p |
+| scan-type | string | false | -sS | — |
+| verbose | boolean | false | false | -v |
+| output-format | string | false | normal | -o |
+| timing | string | false | -T3 | — |
+| scripts | string | false | — | --script |
+
+**Execution Template**: `nmap {scan_type} {timing} {+verbose:+-v} {ports:+-p }{ports} {scripts:--script }{scripts} {target}`
+
+### system:archive:tar
+
+- **ID**: system-archive-tar
+- **Name**: tar
+- **Description**: Tape archive utility for creating, extracting, and manipulating archive files.
+- **Version**: 1.0.0
+- **Risk Level**: low
+- **Platforms**: linux, macos, cross-platform
+- **Capabilities**: archive-creation, archive-extraction, compression, incremental-backup, archive-listing
+
+**Parameters**:
+| Name | Type | Required | Default | Aliases |
+|------|------|----------|---------|---------|
+| operation | string | true | — | — |
+| archive | string | true | — | -f |
+| files | array | false | — | — |
+| compression | string | false | none | — |
+| verbose | boolean | false | false | -v |
+| exclude | string | false | — | --exclude |
+| directory | string | false | — | -C |
+
+**Execution Template**: `tar {operation_flag}{compression_flag}{+verbose:+v} {archive:+-f }{archive} {exclude:+--exclude }{exclude} {directory:+-C }{directory} {files}`
+
+### container:runtime:docker
+
+- **ID**: container-runtime-docker
+- **Name**: docker
+- **Description**: Container platform for developing, shipping, and running applications in isolated environments.
+- **Version**: 1.0.0
+- **Risk Level**: medium
+- **Platforms**: linux, macos, windows
+- **Capabilities**: container-management, image-building, image-publishing, compose-orchestration, volume-management, network-management
+
+**Parameters**:
+| Name | Type | Required | Default | Aliases |
+|------|------|----------|---------|---------|
+| action | string | true | — | — |
+| image | string | false | — | — |
+| command | string | false | — | — |
+| detach | boolean | false | false | -d |
+| port | string | false | — | -p |
+| volume | string | false | — | -v |
+| env | string | false | — | -e |
+| name | string | false | — | --name |
+| interactive | boolean | false | false | -i |
+| tty | boolean | false | false | -t |
+| tag | string | false | latest | -t |
+
+**Execution Template**: `docker {action} {+detach:+-d} {+interactive:+-i} {+tty:+-t} {port:+-p }{port} {volume:+-v }{volume} {env:+-e }{env} {name:+--name }{name} {tag:+-t }{tag} {image} {command}`
+
+## MCP Server Configuration
+
+The repository integrates with the Model Context Protocol (MCP) via a server that exposes:
+- **Resources**: Tool schemas retrieved from the static API by namespace
+- **Tools**: `execute_command` with schema validation, allowlist enforcement, and sandbox execution
+- **Prompts**: System prompt templates enforcing retrieval-before-execution
+
+### Security Model
+
+1. **Allowlist enforcement**: Only binaries in `allowed-tools` can be executed
+2. **Parameter type validation**: Arguments validated against schema before execution
+3. **Sandbox mode**: `execFile` (default, no shell) or `docker` (containerized isolation)
+4. **User consent**: Required for `high` and `critical` risk level tools
+5. **Audit logging**: All invocations logged with namespace, arguments, and timestamp
+
+---
+
+*This file is auto-generated from the repository's source Markdown files. Last updated: 2026-05-20.*

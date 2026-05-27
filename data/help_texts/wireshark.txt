@@ -1,0 +1,43 @@
+WIRESHARK(1)                 General Commands Manual                WIRESHARK(1)
+
+NAME
+       wireshark - Interactively dump and analyze network traffic
+
+SYNOPSIS
+       wireshark [ -i interface ] [ -r infile ] [ -w outfile ] [ -k ]
+                 [ -Y displayfilter ] [ -f capturefilter ] [ -c count ]
+                 [ -F fileformat ] [ -T format ] [ -V ] [ -x ] [ -q ]
+                 [ -D ] [ -h ] [ -v ]
+
+DESCRIPTION
+       Wireshark is a GUI network protocol analyzer. It lets you
+       interactively browse packet data from a live network or from a
+       previously saved capture file.
+
+OPTIONS
+       -i interface    Network interface or pipe name to capture on.
+       -r infile       Read packet data from infile (pcap/pcapng).
+       -w outfile      Write raw packets to outfile.
+       -k              Start capturing immediately.
+       -S              Update packet display as capture progresses.
+       -Y filter       Apply display filter before starting.
+       -f filter       Set capture filter (pcap-filter syntax).
+       -c count        Stop after capturing count packets.
+       -F format       Set output file format (pcap/pcapng).
+       -a autostop     Set autostop criteria.
+       -b ringbuf      Set ring buffer options.
+       -T format       Format packet output (fields, pdml, psml).
+       -V              Verbose printing of packet details.
+       -x              Print hex dump of packet data.
+       -q              Quiet mode (suppress packet output).
+       -D              Print list of interfaces and exit.
+       -h              Display help and exit.
+       -v              Display version and exit.
+
+EXAMPLES
+       wireshark -i eth0 -k
+       wireshark -r capture.pcap
+       wireshark -i eth0 -f "port 80" -k
+
+SEE ALSO
+       tshark(1), tcpdump(8), pcap-filter(7)

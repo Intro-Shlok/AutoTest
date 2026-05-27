@@ -1,0 +1,170 @@
+{
+  "text-process-awk": [
+    "system-file-tr",
+    "text-process-sed",
+    "text-search-grep"
+  ],
+  "system-file-cat": [
+    "system-file-comm",
+    "system-file-sort",
+    "system-file-uniq",
+    "system-file-wc"
+  ],
+  "system-file-chmod": [
+    "system-file-chown"
+  ],
+  "system-file-chown": [
+    "system-file-chmod"
+  ],
+  "system-file-comm": [
+    "system-file-cat",
+    "system-file-sort",
+    "system-file-uniq",
+    "system-file-wc"
+  ],
+  "system-file-cp": [
+    "system-file-mv",
+    "system-file-rm"
+  ],
+  "network-http-curl": [
+    "network-http-wget"
+  ],
+  "system-storage-df": [
+    "system-storage-du"
+  ],
+  "system-file-diff": [
+    "system-file-patch"
+  ],
+  "system-storage-du": [
+    "system-storage-df"
+  ],
+  "system-file-find": [
+    "system-file-xargs"
+  ],
+  "text-search-grep": [
+    "system-file-tr",
+    "text-process-awk",
+    "text-process-sed"
+  ],
+  "system-file-head": [
+    "system-file-tail"
+  ],
+  "system-file-hexdump": [
+    "system-file-od",
+    "system-file-xxd"
+  ],
+  "network-config-ifconfig": [
+    "network-config-ip"
+  ],
+  "system-process-ionice": [
+    "system-process-nice"
+  ],
+  "network-config-ip": [
+    "network-config-ifconfig"
+  ],
+  "system-service-journalctl": [
+    "system-service-systemctl"
+  ],
+  "system-process-kill": [
+    "system-process-ps"
+  ],
+  "system-file-md5sum": [
+    "system-file-sha1sum",
+    "system-file-sha256sum"
+  ],
+  "system-file-mv": [
+    "system-file-cp",
+    "system-file-rm"
+  ],
+  "network-socket-nc": [
+    "network-socket-socat"
+  ],
+  "system-process-nice": [
+    "system-process-ionice"
+  ],
+  "system-file-od": [
+    "system-file-hexdump",
+    "system-file-xxd"
+  ],
+  "system-file-patch": [
+    "system-file-diff"
+  ],
+  "system-process-ps": [
+    "system-process-kill"
+  ],
+  "system-sync-rsync": [
+    "network-remote-ssh",
+    "network-transfer-scp",
+    "network-transfer-sftp"
+  ],
+  "network-transfer-scp": [
+    "network-remote-ssh",
+    "network-transfer-sftp",
+    "system-sync-rsync"
+  ],
+  "text-process-sed": [
+    "system-file-tr",
+    "text-process-awk",
+    "text-search-grep"
+  ],
+  "network-transfer-sftp": [
+    "network-remote-ssh",
+    "network-transfer-scp",
+    "system-sync-rsync"
+  ],
+  "system-file-sha1sum": [
+    "system-file-md5sum",
+    "system-file-sha256sum"
+  ],
+  "system-file-sha256sum": [
+    "system-file-md5sum",
+    "system-file-sha1sum"
+  ],
+  "network-socket-socat": [
+    "network-socket-nc"
+  ],
+  "system-file-sort": [
+    "system-file-cat",
+    "system-file-comm",
+    "system-file-uniq",
+    "system-file-wc"
+  ],
+  "network-remote-ssh": [
+    "network-transfer-scp",
+    "network-transfer-sftp",
+    "system-sync-rsync"
+  ],
+  "system-service-systemctl": [
+    "system-service-journalctl"
+  ],
+  "system-file-tail": [
+    "system-file-head"
+  ],
+  "system-file-tr": [
+    "text-process-awk",
+    "text-process-sed",
+    "text-search-grep"
+  ],
+  "system-file-uniq": [
+    "system-file-cat",
+    "system-file-comm",
+    "system-file-sort",
+    "system-file-wc"
+  ],
+  "system-file-wc": [
+    "system-file-cat",
+    "system-file-comm",
+    "system-file-sort",
+    "system-file-uniq"
+  ],
+  "network-http-wget": [
+    "network-http-curl"
+  ],
+  "system-file-xargs": [
+    "system-file-find"
+  ],
+  "system-file-xxd": [
+    "system-file-hexdump",
+    "system-file-od"
+  ]
+}

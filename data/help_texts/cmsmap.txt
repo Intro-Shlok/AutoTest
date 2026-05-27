@@ -1,0 +1,29 @@
+usage: cmsmap.py [-h] [-s] [-f] [-F] [-t TARGET] [-u URL] [-d] [-E] [-x EXTENSIONS]
+                 [-w WORDLIST] [-r] [-a USER_AGENT] [-H HEADERS] [-p PROXY]
+                 [-v] [-o OUTPUT] [-i INPUT_FILE]
+
+CMSmap - Content Management System Security Scanner
+
+optional arguments:
+  -h, --help            Show this help message and exit
+  -t, --target TARGET   Target URL or hostname
+  -u, --url URL         Full URL to scan
+  -s, --ssl             Force SSL/HTTPS connection
+  -f, --force           Force scan even if CMS not detected
+  -F, --force-ssl       Force HTTPS connection
+  -d, --detect          Detect CMS only (no deep scan)
+  -E, --enumerate       Enable enumeration of users, components
+  -x, --extensions EXT  File extensions to check
+  -w, --wordlist FILE   Custom wordlist for brute force
+  -r, --recursive       Recursive directory enumeration
+  -a, --user-agent UA   Custom User-Agent header
+  -H, --headers HDRS    Additional HTTP headers
+  -p, --proxy PROXY     HTTP proxy address
+  -v, --verbose         Verbose output
+  -o, --output FILE     Output file for results
+  -i, --input-file FILE Input file with list of targets
+
+Examples:
+  cmsmap.py -t http://target.com
+  cmsmap.py -t http://target.com -E -v
+  cmsmap.py -i targets.txt -o results.csv

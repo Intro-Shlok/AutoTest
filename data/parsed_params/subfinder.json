@@ -1,0 +1,92 @@
+[
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target domain to find subdomains for",
+    "aliases": ["-d", "-domain"]
+  },
+  {
+    "name": "flag-dL",
+    "template_key": "flag-dL",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "File containing list of domains",
+    "aliases": ["-dL", "-list"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File to write output to",
+    "aliases": ["-o", "-output"]
+  },
+  {
+    "name": "flag-oJ",
+    "template_key": "flag-oJ",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "JSONL output format",
+    "aliases": ["-oJ", "-json"]
+  },
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use all sources for enumeration",
+    "aliases": ["-all"]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use only recursive-capable sources",
+    "aliases": ["-recursive"]
+  },
+  {
+    "name": "flag-rl",
+    "template_key": "flag-rl",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Max HTTP requests per second",
+    "aliases": ["-rl", "-rate-limit"]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Number of concurrent goroutines",
+    "aliases": ["-t"]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show only subdomains in output",
+    "aliases": ["-silent"]
+  },
+  {
+    "name": "flag-nW",
+    "template_key": "flag-nW",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Display active subdomains only",
+    "aliases": ["-nW", "-active"]
+  }
+]

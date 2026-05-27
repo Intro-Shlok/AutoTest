@@ -1,0 +1,110 @@
+[
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Wireless interface in monitor mode",
+    "aliases": ["-i", "--interface"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output pcapng file",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "channel",
+    "template_key": "channel",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Channel list (e.g. 1,6,11)",
+    "aliases": ["-c", "--channel"]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Capture timeout in seconds",
+    "aliases": ["-t", "--timeout"]
+  },
+  {
+    "name": "enable_status",
+    "template_key": "enable_status",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Show real-time status",
+    "aliases": ["--enable_status"]
+  },
+  {
+    "name": "disable_deauth",
+    "template_key": "disable_deauth",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Disable deauth detection",
+    "aliases": ["--disable_deauth"]
+  },
+  {
+    "name": "disable_assoc",
+    "template_key": "disable_assoc",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Disable assoc detection",
+    "aliases": ["--disable_assoc"]
+  },
+  {
+    "name": "disable_probe",
+    "template_key": "disable_probe",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Disable probe capture",
+    "aliases": ["--disable_probe"]
+  },
+  {
+    "name": "essid",
+    "template_key": "essid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by ESSID",
+    "aliases": ["-E", "--essid"]
+  },
+  {
+    "name": "bssid",
+    "template_key": "bssid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by BSSID",
+    "aliases": ["-B", "--bssid"]
+  },
+  {
+    "name": "write",
+    "template_key": "write",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write raw packets to file",
+    "aliases": ["-w", "--write"]
+  },
+  {
+    "name": "read",
+    "template_key": "read",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Read from capture file",
+    "aliases": ["-r", "--read"]
+  }
+]

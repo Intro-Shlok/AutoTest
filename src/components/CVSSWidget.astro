@@ -1,0 +1,99 @@
+---
+export interface Props {
+  riskLevel?: "low" | "medium" | "high" | "critical";
+  score?: number;
+  vector?: string;
+}
+
+const { riskLevel, score: explicitScore, vector } = Astro.props;
+
+const CVSS_MAP: Record<string, { min: number; max: number; label: string; color: string }> = {
+  none:     { min: 0.0, max: 0.0, label: "None",     color: "#4ade80" },
+  low:      { min: 0.1, max: 3.9, label: "Low",      color: "#93c5fd" },
+  medium:   { min: 4.0, max: 6.9, label: "Medium",   color: "#fbbf24" },
+  high:     { min: 7.0, max: 8.9, label: "High",     color: "#fb923c" },
+  critical: { min: 9.0, max: 10.0, label: "Critical", color: "#f87171" },
+};
+
+const band = riskLevel ? CVSS_MAP[riskLevel] : null;
+const score = explicitScore ?? (band ? (band.min + band.max) / 2 : null);
+const label = band?.label ?? "N/A";
+const color = band?.color ?? "#64748b";
+const pct = score !== null ? (score / 10) * 100 : 0;
+---
+
+<div class="cvss-widget">
+  <div class="cvss-score" style={`--score-color: ${color};`}>
+    <span class="cvss-value">{score !== null ? score.toFixed(1) : "—"}</span>
+    <span class="cvss-label">{label}</span>
+  </div>
+  <div class="cvss-bar-track">
+    <div class="cvss-bar-fill" style={`width: ${pct}%; background: ${color};`}></div>
+  </div>
+  <div class="cvss-scale">
+    <span>0.0</span>
+    <span style="color: var(--green);">Low</span>
+    <span style="color: var(--amber);">Med</span>
+    <span style="color: #fb923c;">High</span>
+    <span style="color: var(--red);">10.0</span>
+  </div>
+  {vector && <div class="cvss-vector">{vector}</div>}
+</div>
+
+<style>
+  .cvss-widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+  }
+  .cvss-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .cvss-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--score-color);
+    transition: color 0.3s;
+  }
+  .cvss-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--score-color);
+    margin-top: 0.15rem;
+    opacity: 0.85;
+  }
+  .cvss-bar-track {
+    height: 6px;
+    background: var(--bg-secondary);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+  }
+  .cvss-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s ease;
+  }
+  .cvss-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .cvss-vector {
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    word-break: break-all;
+  }
+</style>

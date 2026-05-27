@@ -1,0 +1,83 @@
+[
+  {
+    "name": "config",
+    "template_key": "config",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Path to Kismet configuration file",
+    "aliases": ["-c", "--config"]
+  },
+  {
+    "name": "server",
+    "template_key": "server",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Kismet server hostname/IP",
+    "aliases": ["-s", "--server"]
+  },
+  {
+    "name": "port",
+    "template_key": "port",
+    "type": "integer",
+    "required": false,
+    "default_value": "2501",
+    "description": "Kismet server port",
+    "aliases": ["-p", "--port"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Increase verbosity",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Write logs to file",
+    "aliases": ["-f", "--file"]
+  },
+  {
+    "name": "no-gps",
+    "template_key": "no-gps",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Disable GPS support",
+    "aliases": ["-n", "--no-gps"]
+  },
+  {
+    "name": "logging",
+    "template_key": "logging",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable specific log types",
+    "aliases": ["-l", "--logging"]
+  },
+  {
+    "name": "daemonize",
+    "template_key": "daemonize",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Run as background daemon",
+    "aliases": ["--daemonize"]
+  },
+  {
+    "name": "server-args",
+    "template_key": "server-args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Extra server arguments",
+    "aliases": ["--server-args"]
+  }
+]

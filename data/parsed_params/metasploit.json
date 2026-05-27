@@ -1,0 +1,110 @@
+[
+  {
+    "name": "flag-q",
+    "template_key": "flag-q",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Quiet mode (suppress banner)",
+    "aliases": ["-q", "--quiet"]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Resource file to execute",
+    "aliases": ["-r", "--resource"]
+  },
+  {
+    "name": "flag-x",
+    "template_key": "flag-x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Command to execute",
+    "aliases": ["-x", "--command"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file path",
+    "aliases": ["-o", "--output"]
+  },
+  {
+    "name": "flag-L",
+    "template_key": "flag-L",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Log file path",
+    "aliases": ["-L", "--log"]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Database backend to use",
+    "aliases": ["-d", "--database"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Config file path",
+    "aliases": ["-c", "--config"]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Module path to load",
+    "aliases": ["-m", "--module-path"]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Analyze module",
+    "aliases": ["-a", "--analyze"]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Environment",
+    "aliases": ["-e", "--environment"]
+  },
+  {
+    "name": "flag-h",
+    "template_key": "flag-h",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show help",
+    "aliases": ["-h", "--help"]
+  }
+]

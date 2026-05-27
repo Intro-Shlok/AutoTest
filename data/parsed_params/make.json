@@ -1,0 +1,412 @@
+[
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignored for compatibility",
+    "aliases": [
+      "-b",
+      "-m"
+    ]
+  },
+  {
+    "name": "always-make",
+    "template_key": "always-make",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Unconditionally make all targets",
+    "aliases": [
+      "-B",
+      "--always-make"
+    ]
+  },
+  {
+    "name": "directory",
+    "template_key": "directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Change to DIRECTORY before doing anything",
+    "aliases": [
+      "-C",
+      "--directory"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print lots of debugging information",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print various types of debugging information",
+    "aliases": [
+      "--debug"
+    ]
+  },
+  {
+    "name": "environment-overrides",
+    "template_key": "environment-overrides",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Environment variables override makefiles",
+    "aliases": [
+      "-e",
+      "--environment-overrides"
+    ]
+  },
+  {
+    "name": "eval",
+    "template_key": "eval",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Evaluate STRING as a makefile statement",
+    "aliases": [
+      "-E",
+      "--eval"
+    ]
+  },
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Read FILE as a makefile",
+    "aliases": [
+      "-f",
+      "--file",
+      "--makefile"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print this message and exit",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "ignore-errors",
+    "template_key": "ignore-errors",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore errors from recipes",
+    "aliases": [
+      "-i",
+      "--ignore-errors"
+    ]
+  },
+  {
+    "name": "include-dir",
+    "template_key": "include-dir",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Search DIRECTORY for included makefiles",
+    "aliases": [
+      "-I",
+      "--include-dir"
+    ]
+  },
+  {
+    "name": "jobs",
+    "template_key": "jobs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Allow N jobs at once; infinite jobs with no arg",
+    "aliases": [
+      "-j",
+      "--jobs"
+    ]
+  },
+  {
+    "name": "jobserver-style",
+    "template_key": "jobserver-style",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Select the style of jobserver to use",
+    "aliases": [
+      "--jobserver-style"
+    ]
+  },
+  {
+    "name": "keep-going",
+    "template_key": "keep-going",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Keep going when some targets can't be made",
+    "aliases": [
+      "-k",
+      "--keep-going"
+    ]
+  },
+  {
+    "name": "load-average",
+    "template_key": "load-average",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't start multiple jobs unless load is below N",
+    "aliases": [
+      "-l",
+      "--load-average",
+      "--max-load"
+    ]
+  },
+  {
+    "name": "check-symlink-times",
+    "template_key": "check-symlink-times",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use the latest mtime between symlinks and target",
+    "aliases": [
+      "-L",
+      "--check-symlink-times"
+    ]
+  },
+  {
+    "name": "just-print",
+    "template_key": "just-print",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't actually run any recipe; just print them",
+    "aliases": [
+      "-n",
+      "--just-print",
+      "--dry-run",
+      "--recon"
+    ]
+  },
+  {
+    "name": "old-file",
+    "template_key": "old-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Consider FILE to be very old and don't remake it",
+    "aliases": [
+      "-o",
+      "--old-file",
+      "--assume-old"
+    ]
+  },
+  {
+    "name": "output-sync",
+    "template_key": "output-sync",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Synchronize output of parallel jobs by TYPE",
+    "aliases": [
+      "-O",
+      "--output-sync"
+    ]
+  },
+  {
+    "name": "print-data-base",
+    "template_key": "print-data-base",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print make's internal database",
+    "aliases": [
+      "-p",
+      "--print-data-base"
+    ]
+  },
+  {
+    "name": "question",
+    "template_key": "question",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Run no recipe; exit status says if up to date",
+    "aliases": [
+      "-q",
+      "--question"
+    ]
+  },
+  {
+    "name": "no-builtin-rules",
+    "template_key": "no-builtin-rules",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable the built-in implicit rules",
+    "aliases": [
+      "-r",
+      "--no-builtin-rules"
+    ]
+  },
+  {
+    "name": "no-builtin-variables",
+    "template_key": "no-builtin-variables",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-R",
+      "-i",
+      "--no-builtin-variables"
+    ]
+  },
+  {
+    "name": "shuffle",
+    "template_key": "shuffle",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Perform shuffle of prerequisites and goals",
+    "aliases": [
+      "--shuffle"
+    ]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't echo recipes",
+    "aliases": [
+      "-s",
+      "--silent",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "no-silent",
+    "template_key": "no-silent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Echo recipes (disable --silent mode)",
+    "aliases": [
+      "--no-silent"
+    ]
+  },
+  {
+    "name": "no-keep-going",
+    "template_key": "no-keep-going",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Turns off -k",
+    "aliases": [
+      "-S",
+      "--no-keep-going",
+      "--stop"
+    ]
+  },
+  {
+    "name": "touch",
+    "template_key": "touch",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Touch targets instead of remaking them",
+    "aliases": [
+      "-t",
+      "--touch"
+    ]
+  },
+  {
+    "name": "trace",
+    "template_key": "trace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print tracing information",
+    "aliases": [
+      "--trace"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Print the version number of make and exit",
+    "aliases": [
+      "-v",
+      "--version"
+    ]
+  },
+  {
+    "name": "print-directory",
+    "template_key": "print-directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Print the current directory",
+    "aliases": [
+      "-w",
+      "--print-directory"
+    ]
+  },
+  {
+    "name": "no-print-directory",
+    "template_key": "no-print-directory",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Turn off -w, even if it was turned on implicitly",
+    "aliases": [
+      "--no-print-directory"
+    ]
+  },
+  {
+    "name": "what-if",
+    "template_key": "what-if",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Consider FILE to be infinitely new",
+    "aliases": [
+      "-W",
+      "--what-if",
+      "--new-file",
+      "--assume-new"
+    ]
+  },
+  {
+    "name": "warn-undefined-variables",
+    "template_key": "warn-undefined-variables",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--warn-undefined-variables"
+    ]
+  }
+]

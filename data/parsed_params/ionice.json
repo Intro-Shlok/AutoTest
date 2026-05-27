@@ -1,0 +1,98 @@
+[
+  {
+    "name": "class",
+    "template_key": "class",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "name or number of scheduling class",
+    "aliases": [
+      "-c",
+      "--class <class>"
+    ]
+  },
+  {
+    "name": "classdata",
+    "template_key": "classdata",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "only for the realtime and best-effort classes",
+    "aliases": [
+      "-n",
+      "--classdata <num>"
+    ]
+  },
+  {
+    "name": "pid",
+    "template_key": "pid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "act on these already running processes",
+    "aliases": [
+      "-p",
+      "--pid <pid>"
+    ]
+  },
+  {
+    "name": "pgid",
+    "template_key": "pgid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "act on already running processes in these groups",
+    "aliases": [
+      "-P",
+      "--pgid <pgrp>"
+    ]
+  },
+  {
+    "name": "ignore",
+    "template_key": "ignore",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore failures",
+    "aliases": [
+      "-t",
+      "--ignore"
+    ]
+  },
+  {
+    "name": "uid",
+    "template_key": "uid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "act on already running processes owned by these users",
+    "aliases": [
+      "-u",
+      "--uid <uid>"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display version",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  }
+]

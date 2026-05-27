@@ -1,0 +1,110 @@
+[
+  {
+    "name": "subcommand",
+    "template_key": "subcommand",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Subcommand: client, server, operator",
+    "aliases": []
+  },
+  {
+    "name": "lhost",
+    "template_key": "lhost",
+    "type": "string",
+    "required": false,
+    "default_value": "0.0.0.0",
+    "description": "Listener host/IP",
+    "aliases": ["--lhost"]
+  },
+  {
+    "name": "lport",
+    "template_key": "lport",
+    "type": "integer",
+    "required": false,
+    "default_value": 443,
+    "description": "Listener port",
+    "aliases": ["--lport"]
+  },
+  {
+    "name": "flag-config",
+    "template_key": "flag-config",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Config file path",
+    "aliases": ["--config"]
+  },
+  {
+    "name": "flag-profile",
+    "template_key": "flag-profile",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Implant profile",
+    "aliases": ["--profile"]
+  },
+  {
+    "name": "flag-save",
+    "template_key": "flag-save",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Save output to file",
+    "aliases": ["--save"]
+  },
+  {
+    "name": "flag-mtls",
+    "template_key": "flag-mtls",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "mTLS listener (host:port)",
+    "aliases": ["--mtls"]
+  },
+  {
+    "name": "flag-http",
+    "template_key": "flag-http",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP listener (host:port)",
+    "aliases": ["--http"]
+  },
+  {
+    "name": "flag-https",
+    "template_key": "flag-https",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTPS listener (host:port)",
+    "aliases": ["--https"]
+  },
+  {
+    "name": "flag-dns",
+    "template_key": "flag-dns",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "DNS listener (host:port)",
+    "aliases": ["--dns"]
+  },
+  {
+    "name": "flag-daemon",
+    "template_key": "flag-daemon",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Daemonize server",
+    "aliases": ["--daemon"]
+  },
+  {
+    "name": "flag-armory",
+    "template_key": "flag-armory",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable armory for community extensions",
+    "aliases": ["--armory"]
+  }
+]

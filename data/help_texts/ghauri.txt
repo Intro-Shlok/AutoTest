@@ -1,0 +1,33 @@
+Usage: ghauri [options]
+
+  -u, --url URL                 Target URL with injection point
+  --data DATA                   POST data string
+  --cookie COOKIE               HTTP cookies
+  --random-agent                Use random User-Agent
+  --level LEVEL                 Injection depth (1-5, default: 1)
+  --risk RISK                   Risk level (1-3, default: 1)
+  --dbms DBMS                   Force DBMS (mysql, mssql, postgres, etc.)
+  --technique TECH              Technique(s): B=Boolean, E=Error, U=Union,
+                                S=Stacked, T=Time, Q=Query (default: BEUSTQ)
+  --batch                       Non-interactive mode
+  --dump                        Dump table entries
+  --tables                      Enumerate tables
+  --columns                     Enumerate columns
+  -D DB                         Target database
+  -T TBL                        Target table
+  -C COL                        Target column(s)
+  --threads N                   Concurrent threads (default: 1)
+  --proxy PROXY                 HTTP proxy
+  --headers HDRS                Additional headers
+  --timeout SECS                Request timeout (default: 30)
+  --os-shell                    OS shell
+  --sql-shell                   SQL shell
+  --banner                      DBMS banner
+  --current-user                Current DBMS user
+  --current-db                  Current database
+  --dbs                         Enumerate databases
+
+Examples:
+  ghauri -u "http://target.com/page?id=1" --batch
+  ghauri -u "http://target.com/page?id=1" --dbs --batch
+  ghauri -u "http://target.com/page?id=1" -D mydb -T users --dump --batch

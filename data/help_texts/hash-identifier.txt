@@ -1,0 +1,28 @@
+#########################################################################
+#  Hash Identifier                                                    #
+#  https://github.com/psypanda/hashID                                 #
+#########################################################################
+
+Usage: hash-identifier [hash]
+
+If no arguments are given, starts in interactive mode.
+A hash can be piped via stdin or passed as a command-line argument.
+
+Options:
+  <hash>         Hash string to identify (positional argument)
+  stdin          Pipe hash to stdin
+
+Supported hash types include:
+  MD5, SHA1, SHA256, SHA512, NTLM, LM, MySQL, PostgreSQL,
+  MD4, MD2, SHA224, SHA384, SHA3-256, SHA3-512, RIPEMD160,
+  bcrypt, PBKDF2, scrypt, Argon2, Kerberos 5, MS Cache,
+  Cisco PIX, Cisco Type 7, Juniper, Joomla, vBulletin, IPBoard,
+  Drupal, WordPress, osCommerce, DES/Unix, BSDi, APR1, LMCHASH,
+  MySQL 4.1, MySQL 5, Oracle 10g, Oracle 11g, MSSQL, SHA1(SALT)
+
+Examples:
+  hash-identifier
+  hash-identifier 5d41402abc4b2a76b9719d911017c592
+  echo "5d41402abc4b2a76b9719d911017c592" | hash-identifier
+
+Report bugs to https://github.com/psypanda/hashID

@@ -1,0 +1,57 @@
+YERSINIA(8)                 System Manager's Manual                 YERSINIA(8)
+
+NAME
+       yersinia - Layer 2 network protocol exploitation framework
+
+SYNOPSIS
+       yersinia [ -h ] [ -s ] [ -I iface ] [ -G ] [ -i ] [ -d ]
+                [ -l logfile ] [ protocol attack [attack-args] ]
+
+DESCRIPTION
+       Yersinia is a framework for exploiting weaknesses in layer 2
+       network protocols. It supports STP, CDP, DTP, VTP, HSRP,
+       802.1Q, and 802.1X attacks.
+
+OPTIONS
+       -I iface       Network interface for frame injection.
+       -G             Launch GTK graphical interface.
+       -d             Run in daemon (background) mode.
+       -i             Interactive curses-based text mode.
+       -s             Show available network interfaces.
+       -l logfile     Enable logging to specified file.
+       -v             Enable verbose messages.
+       -h             Display this help and exit.
+
+PROTOCOLS
+       stp            Spanning Tree Protocol attacks
+       cdp            Cisco Discovery Protocol attacks
+       dtp            Dynamic Trunking Protocol attacks
+       vtp            VLAN Trunking Protocol attacks
+       hsrp           Hot Standby Router Protocol attacks
+       8021q          802.1Q VLAN hopping attacks
+       dot1x          802.1X authentication attacks
+
+STP ATTACKS
+       1 - Spanning Tree Protocol Confusion
+       2 - Root Role Attack (become root bridge)
+       3 - BPDU Flooding (denial of service)
+
+CDP ATTACKS
+       1 - CDP table flooding
+       2 - Fake CDP advertisement injection
+
+DTP ATTACKS
+       1 - Enable trunking (VLAN hopping preparation)
+
+VTP ATTACKS
+       1 - VTP domain takeover
+       2 - VTP configuration revision bump
+
+EXAMPLES
+       yersinia -I eth0 -i
+       yersinia stp -attack 2
+       yersinia dtp -attack 1
+       yersinia -I eth0 -d -l /tmp/yersinia.log
+
+SEE ALSO
+       ettercap(8), bettercap(8), macof(8)

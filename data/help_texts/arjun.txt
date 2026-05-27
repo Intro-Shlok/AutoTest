@@ -1,0 +1,25 @@
+Usage: arjun [options]
+
+  -u, --url URL                 Target URL
+  -o, --output FILE             Save output as JSON
+  -oT, --output-text FILE       Save output as text
+  -oB, --output-burp FILE       Burp Suite format output
+  -d, --delay SECS              Delay between requests (default: 0)
+  -t, --threads N               Concurrent threads (default: 2)
+  -w, --wordlist FILE           Custom parameter wordlist
+  -m, --method METHOD           HTTP method (GET/POST, default: GET)
+  -i, --import FILE             Import parameters from file
+  -T, --timeout SECS            Request timeout (default: 15)
+  -c, --chunks N                Parameter chunks (default: 10)
+  --rate-limit N                Max requests per second
+  --headers JSON                Custom HTTP headers
+  --passive                     Passive sources only
+  --include PARAMS              Parameters to include
+  --disable-redirects           No redirects
+  --stable                      No concurrency
+  -q, --quiet                   Suppress banner
+
+Examples:
+  arjun -u http://target.com/api/endpoint
+  arjun -u http://target.com/api/endpoint -t 10 -o params.json
+  arjun -u http://target.com/login -m POST

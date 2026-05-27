@@ -1,0 +1,31 @@
+steghide version 0.5.1
+Steganography tool for JPEG, BMP, WAV, and AU files
+https://steghide.sourceforge.net/
+
+Usage: steghide <subcommand> [options]
+
+Subcommands:
+  embed           Embed data into a cover file
+  extract         Extract data from a stego file
+  info            Display information about a stego file
+
+Global options:
+  -v, --verbose        Verbose output
+  -q, --quiet          Quiet mode
+
+Embed options:
+  -cf FILE, --cover-file FILE    Cover file (JPEG/BMP/WAV/AU)
+  -ef FILE, --embed-file FILE    Data file to embed
+  -p PASS, --passphrase PASS     Passphrase
+  -sf FILE, --stego-file FILE    Output stego file
+  -z N, --compress N             Compression level (1-9)
+  -e ALGO, --encryption ALGO     Encryption algorithm
+  -a ALGO, --algorithm ALGO      Embedding algorithm
+
+Extract options:
+  -sf FILE, --stego-file FILE    Stego file to extract from
+  -p PASS, --passphrase PASS     Passphrase
+  -xf FILE, --extract-file FILE  Output file for extracted data
+
+Info options:
+  --info FILE                    Show embedded data info

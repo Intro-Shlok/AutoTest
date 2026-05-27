@@ -1,0 +1,535 @@
+[
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show this help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show package version",
+    "aliases": [
+      "--version"
+    ]
+  },
+  {
+    "name": "system",
+    "template_key": "system",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Connect to system manager",
+    "aliases": [
+      "--system"
+    ]
+  },
+  {
+    "name": "user",
+    "template_key": "user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Connect to user service manager",
+    "aliases": [
+      "--user"
+    ]
+  },
+  {
+    "name": "capsule",
+    "template_key": "capsule",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Connect to service manager of specified capsule",
+    "aliases": [
+      "-C",
+      "--capsule"
+    ]
+  },
+  {
+    "name": "host",
+    "template_key": "host",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-H",
+      "--host"
+    ]
+  },
+  {
+    "name": "machine",
+    "template_key": "machine",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-M",
+      "--machine"
+    ]
+  },
+  {
+    "name": "type",
+    "template_key": "type",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "List units of a particular type",
+    "aliases": [
+      "-t",
+      "--type"
+    ]
+  },
+  {
+    "name": "state",
+    "template_key": "state",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "List units with particular LOAD or SUB or ACTIVE state",
+    "aliases": [
+      "--state"
+    ]
+  },
+  {
+    "name": "failed",
+    "template_key": "failed",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Shortcut for --state=failed",
+    "aliases": [
+      "--failed"
+    ]
+  },
+  {
+    "name": "property",
+    "template_key": "property",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show only properties by this name",
+    "aliases": [
+      "-p",
+      "--property"
+    ]
+  },
+  {
+    "name": "flag-P",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Equivalent to --value --property=NAME",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show all properties/all units currently in memory",
+    "aliases": [
+      "-a",
+      "--all"
+    ]
+  },
+  {
+    "name": "full",
+    "template_key": "full",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't ellipsize unit names on output",
+    "aliases": [
+      "-l",
+      "--full"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "Show unit list of host and local containers",
+    "aliases": [
+      "-r",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "reverse",
+    "template_key": "reverse",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show reverse dependencies with 'list-dependencies'",
+    "aliases": [
+      "--reverse"
+    ]
+  },
+  {
+    "name": "before",
+    "template_key": "before",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show units ordered before with 'list-dependencies'",
+    "aliases": [
+      "--before"
+    ]
+  },
+  {
+    "name": "after",
+    "template_key": "after",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show units ordered after with 'list-dependencies'",
+    "aliases": [
+      "--after"
+    ]
+  },
+  {
+    "name": "with-dependencies S",
+    "template_key": "with-dependencies-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "'list-units', and 'list-unit-files'. --job-mode=MODE Specify how to deal with already queued jobs, when queueing a new job",
+    "aliases": [
+      "--with-dependencies S"
+    ]
+  },
+  {
+    "name": "show-transaction",
+    "template_key": "show-transaction",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--show-types When showing sockets, explicitly show their type --value When showing properties, only print the value --check-inhibitors=MODE Whether to check inhibitors before shutting down, sleeping, or hibernating",
+    "aliases": [
+      "-T",
+      "--show-transaction"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Shortcut for --check-inhibitors=no",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "signal",
+    "template_key": "signal",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Which signal to send",
+    "aliases": [
+      "-s",
+      "--signal"
+    ]
+  },
+  {
+    "name": "kill-whom",
+    "template_key": "kill-whom",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Whom to send signal to",
+    "aliases": [
+      "--kill-whom"
+    ]
+  },
+  {
+    "name": "kill-value",
+    "template_key": "kill-value",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Signal value to enqueue",
+    "aliases": [
+      "--kill-value"
+    ]
+  },
+  {
+    "name": "kill-subgroup",
+    "template_key": "kill-subgroup",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Send signal to sub-control group only --what=RESOURCES Which types of resources to remove --now Start or stop unit after enabling or disabling it --dry-run Only print what would be done Currently supported by verbs: halt, poweroff, reboot, kexec, soft-reboot, suspend, hibernate, suspend-then-hibernate, hybrid-sleep, default, rescue, emergency, and exit",
+    "aliases": [
+      "--kill-subgroup"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Suppress output",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show unit logs while executing operation",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "no-warn",
+    "template_key": "no-warn",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Suppress several warnings shown by default",
+    "aliases": [
+      "--no-warn"
+    ]
+  },
+  {
+    "name": "wait",
+    "template_key": "wait",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "For (re)start, wait until service stopped again",
+    "aliases": [
+      "--wait"
+    ]
+  },
+  {
+    "name": "no-block",
+    "template_key": "no-block",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not wait until operation finished",
+    "aliases": [
+      "--no-block"
+    ]
+  },
+  {
+    "name": "no-wall",
+    "template_key": "no-wall",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't send wall message before halt/power-off/reboot",
+    "aliases": [
+      "--no-wall"
+    ]
+  },
+  {
+    "name": "message",
+    "template_key": "message",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify human-readable reason for system shutdown",
+    "aliases": [
+      "--message"
+    ]
+  },
+  {
+    "name": "no-reload",
+    "template_key": "no-reload",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't reload daemon after en-/dis-abling unit files",
+    "aliases": [
+      "--no-reload"
+    ]
+  },
+  {
+    "name": "legend",
+    "template_key": "legend",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable/disable the legend (column headers and hints)",
+    "aliases": [
+      "--legend"
+    ]
+  },
+  {
+    "name": "no-pager",
+    "template_key": "no-pager",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not pipe output into a pager",
+    "aliases": [
+      "--no-pager"
+    ]
+  },
+  {
+    "name": "no-ask-password",
+    "template_key": "no-ask-password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not ask for system passwords",
+    "aliases": [
+      "--no-ask-password"
+    ]
+  },
+  {
+    "name": "global",
+    "template_key": "global",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Edit/enable/disable/mask default user unit files",
+    "aliases": [
+      "--global"
+    ]
+  },
+  {
+    "name": "runtime",
+    "template_key": "runtime",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Edit/enable/disable/mask unit files temporarily until",
+    "aliases": [
+      "--runtime"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "When enabling unit files, override existing symlinks",
+    "aliases": [
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "preset-mode",
+    "template_key": "preset-mode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Apply only enable, only disable, or all presets",
+    "aliases": [
+      "--preset-mode"
+    ]
+  },
+  {
+    "name": "root",
+    "template_key": "root",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Edit/enable/disable/mask unit files in the specified",
+    "aliases": [
+      "--root"
+    ]
+  },
+  {
+    "name": "image",
+    "template_key": "image",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Edit/enable/disable/mask unit files in the specified",
+    "aliases": [
+      "--image"
+    ]
+  },
+  {
+    "name": "image-policy",
+    "template_key": "image-policy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify disk image dissection policy",
+    "aliases": [
+      "--image-policy"
+    ]
+  },
+  {
+    "name": "lines",
+    "template_key": "lines",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Number of journal entries to show",
+    "aliases": [
+      "-n",
+      "--lines"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Change journal output mode (short, short-precise",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "firmware-setup",
+    "template_key": "firmware-setup",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Tell the firmware to show the setup menu on next boot",
+    "aliases": [
+      "--firmware-setup"
+    ]
+  },
+  {
+    "name": "boot-loader-menu",
+    "template_key": "boot-loader-menu",
+    "type": "number",
+    "required": false,
+    "default_value": null,
+    "description": "Boot into boot loader menu on next boot --boot-loader-entry=NAME Boot into a specific boot loader entry on next boot --reboot-argument=ARG Specify argument string to pass to reboot() --plain Print unit dependencies as a list instead of a tree --timestamp=FORMAT Change format of printed timestamps (pretty, unix, us, utc, us+utc) --read-only Create read-only bind mount --mkdir Create directory before mounting, if missing --marked Restart/reload previously marked units --drop-in=NAME Edit unit files using the specified drop-in file name --when=TIME Schedule halt/power-off/reboot/kexec action after a certain timestamp --stdin Read new contents of edited file from stdin",
+    "aliases": [
+      "--boot-loader-menu"
+    ]
+  }
+]

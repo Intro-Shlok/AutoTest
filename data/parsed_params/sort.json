@@ -1,0 +1,280 @@
+[
+  {
+    "name": "ignore-leading-blanks",
+    "template_key": "ignore-leading-blanks",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore leading blanks when finding sort keys in each line",
+    "aliases": [
+      "-b",
+      "--ignore-leading-blanks"
+    ]
+  },
+  {
+    "name": "dictionary-order",
+    "template_key": "dictionary-order",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "consider only blanks and alphanumeric characters",
+    "aliases": [
+      "-d",
+      "--dictionary-order"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "fold lower case to upper case characters",
+    "aliases": [
+      "-f",
+      "--ignore-case"
+    ]
+  },
+  {
+    "name": "general-numeric-sort",
+    "template_key": "general-numeric-sort",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "compare according to general numerical value",
+    "aliases": [
+      "-g",
+      "--general-numeric-sort"
+    ]
+  },
+  {
+    "name": "ignore-nonprinting",
+    "template_key": "ignore-nonprinting",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "consider only printable characters",
+    "aliases": [
+      "-i",
+      "--ignore-nonprinting"
+    ]
+  },
+  {
+    "name": "month-sort",
+    "template_key": "month-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compare (unknown) < 'JAN' < ... < 'DEC'",
+    "aliases": [
+      "-M",
+      "--month-sort"
+    ]
+  },
+  {
+    "name": "human-numeric-sort",
+    "template_key": "human-numeric-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compare human readable numbers (e.g., 2K 1G)",
+    "aliases": [
+      "-h",
+      "--human-numeric-sort"
+    ]
+  },
+  {
+    "name": "numeric-sort",
+    "template_key": "numeric-sort",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "compare according to string numerical value; see full documentation for supported strings",
+    "aliases": [
+      "-n",
+      "--numeric-sort"
+    ]
+  },
+  {
+    "name": "random-sort",
+    "template_key": "random-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "shuffle, but group identical keys. See also shuf(1) --random-source=FILE get random bytes from FILE",
+    "aliases": [
+      "-R",
+      "--random-sort"
+    ]
+  },
+  {
+    "name": "reverse",
+    "template_key": "reverse",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "reverse the result of comparisons --sort=WORD sort according to WORD: general-numeric -g, human-numeric -h, month -M, numeric -n, random -R, version -V",
+    "aliases": [
+      "-r",
+      "--reverse"
+    ]
+  },
+  {
+    "name": "version-sort",
+    "template_key": "version-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "natural sort of (version) numbers within text",
+    "aliases": [
+      "-V",
+      "--version-sort"
+    ]
+  },
+  {
+    "name": "batch-size",
+    "template_key": "batch-size",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "merge at most NMERGE inputs at once; for more use temp files",
+    "aliases": [
+      "--batch-size"
+    ]
+  },
+  {
+    "name": "check",
+    "template_key": "check",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "check for sorted input; do not sort",
+    "aliases": [
+      "-c",
+      "-f",
+      "--check",
+      "--check"
+    ]
+  },
+  {
+    "name": "check-2",
+    "template_key": "check-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like -c, but do not report first bad line --compress-program=PROG compress temporaries with PROG; decompress them with PROG -d --debug annotate the part of the line used to sort, and warn about questionable usage to standard error --files0-from=F read input from the files specified by NUL-terminated names in file F; If F is -, read names from standard input",
+    "aliases": [
+      "-C",
+      "--check",
+      "--check"
+    ]
+  },
+  {
+    "name": "key",
+    "template_key": "key",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "sort via a key; KEYDEF gives location and type",
+    "aliases": [
+      "-k",
+      "--key"
+    ]
+  },
+  {
+    "name": "merge",
+    "template_key": "merge",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "merge already sorted files; do not sort",
+    "aliases": [
+      "-m",
+      "--merge"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "write result to FILE instead of standard output",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "stable",
+    "template_key": "stable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "stabilize sort by disabling last-resort comparison",
+    "aliases": [
+      "-s",
+      "--stable"
+    ]
+  },
+  {
+    "name": "buffer-size",
+    "template_key": "buffer-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "use SIZE for main memory buffer",
+    "aliases": [
+      "-S",
+      "--buffer-size"
+    ]
+  },
+  {
+    "name": "field-separator",
+    "template_key": "field-separator",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use SEP instead of non-blank to blank transition",
+    "aliases": [
+      "-t",
+      "--field-separator"
+    ]
+  },
+  {
+    "name": "temporary-directory",
+    "template_key": "temporary-directory",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "use DIR for temporaries, not $TMPDIR or /tmp; multiple options specify multiple directories --parallel=N change the number of sorts run concurrently to N",
+    "aliases": [
+      "-T",
+      "--temporary-directory"
+    ]
+  },
+  {
+    "name": "unique",
+    "template_key": "unique",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output only the first of lines with equal keys; with -c, check for strict ordering",
+    "aliases": [
+      "-u",
+      "--unique"
+    ]
+  },
+  {
+    "name": "zero-terminated",
+    "template_key": "zero-terminated",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "line delimiter is NUL, not newline --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-z",
+      "--zero-terminated"
+    ]
+  }
+]

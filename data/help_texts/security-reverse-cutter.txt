@@ -1,0 +1,23 @@
+Usage: cutter [options] [binary]
+  -A             automatically analyze binary on open
+  -z             do not save project on exit
+  -w             open file in write mode for patching
+  -a <arch>      set architecture (x86, arm, mips)
+  -b <bits>      set cpu bits (32/64)
+  -h             display this help message
+  -v             show version information
+
+Cutter is a Qt-based GUI for radare2. It provides:
+  - Disassembly and graph views
+  - Decompilation via Ghidra/rz-ghidra
+  - Integrated debugger
+  - Hex editor
+  - Python and JavaScript scripting
+
+Examples:
+  cutter /bin/ls              open binary
+  cutter -A /bin/ls           open with auto-analysis
+  cutter -w /bin/ls           open with write mode
+  cutter -a arm -b 32 fw.bin  specify architecture
+
+Use File > Open or drag-and-drop to load binaries.

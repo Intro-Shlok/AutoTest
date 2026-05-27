@@ -1,0 +1,110 @@
+[
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Wireless interface in monitor mode",
+    "aliases": ["-i", "--interface"]
+  },
+  {
+    "name": "bssid",
+    "template_key": "bssid",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target AP BSSID",
+    "aliases": ["-b", "--bssid"]
+  },
+  {
+    "name": "channel",
+    "template_key": "channel",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set the wireless channel",
+    "aliases": ["-c", "--channel"]
+  },
+  {
+    "name": "pin",
+    "template_key": "pin",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "WPS PIN to test",
+    "aliases": ["-p", "--pin"]
+  },
+  {
+    "name": "lock-delay",
+    "template_key": "lock-delay",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Delay after WPS lockout",
+    "aliases": ["-l", "--lock-delay"]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Receive timeout period",
+    "aliases": ["-t", "--timeout"]
+  },
+  {
+    "name": "session-file",
+    "template_key": "session-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Restore session from file",
+    "aliases": ["-s", "--session"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Quiet output",
+    "aliases": ["-q", "--quiet"]
+  },
+  {
+    "name": "auto",
+    "template_key": "auto",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Auto select options",
+    "aliases": ["-a", "--auto"]
+  },
+  {
+    "name": "no-associate",
+    "template_key": "no-associate",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Do not associate with AP",
+    "aliases": ["-A", "--no-associate"]
+  },
+  {
+    "name": "exhaustive",
+    "template_key": "exhaustive",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Exhaustive PIN search",
+    "aliases": ["-X", "--exhaustive"]
+  }
+]

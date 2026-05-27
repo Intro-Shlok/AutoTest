@@ -1,0 +1,92 @@
+[
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Check security on a specific binary file",
+    "aliases": ["--file"]
+  },
+  {
+    "name": "elf",
+    "template_key": "elf",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Check security of a process by PID",
+    "aliases": ["--elf"]
+  },
+  {
+    "name": "proc",
+    "template_key": "proc",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Check /proc/PID/exe security",
+    "aliases": ["--proc"]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable debug output",
+    "aliases": ["--debug"]
+  },
+  {
+    "name": "kernel",
+    "template_key": "kernel",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Check kernel security mitigations",
+    "aliases": ["--kernel"]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write output to file",
+    "aliases": ["--output"]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output format (json or csv)",
+    "aliases": ["--format"]
+  },
+  {
+    "name": "listCheck",
+    "template_key": "listCheck",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "List all available checks",
+    "aliases": ["--list-check"]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show help message",
+    "aliases": ["--help"]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show version information",
+    "aliases": ["--version"]
+  }
+]

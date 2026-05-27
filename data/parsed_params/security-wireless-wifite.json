@@ -1,0 +1,110 @@
+[
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Wireless interface to use",
+    "aliases": ["-i", "--interface"]
+  },
+  {
+    "name": "essid",
+    "template_key": "essid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target network ESSID",
+    "aliases": ["-e", "--essid"]
+  },
+  {
+    "name": "bssid",
+    "template_key": "bssid",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target network BSSID",
+    "aliases": ["-b", "--bssid"]
+  },
+  {
+    "name": "channel",
+    "template_key": "channel",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target channel",
+    "aliases": ["-c", "--channel"]
+  },
+  {
+    "name": "wep",
+    "template_key": "wep",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Attack only WEP networks",
+    "aliases": ["-w", "--wep"]
+  },
+  {
+    "name": "wpa",
+    "template_key": "wpa",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Attack only WPA networks",
+    "aliases": ["-t", "--wpa"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Enable verbose output",
+    "aliases": ["-v", "--verbose"]
+  },
+  {
+    "name": "no-wps",
+    "template_key": "no-wps",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Skip WPS attacks",
+    "aliases": ["--no-wps"]
+  },
+  {
+    "name": "no-deauth",
+    "template_key": "no-deauth",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Skip deauth attacks",
+    "aliases": ["--no-deauth"]
+  },
+  {
+    "name": "pmkid",
+    "template_key": "pmkid",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Use PMKID attack only",
+    "aliases": ["--pmkid"]
+  },
+  {
+    "name": "handshake-dir",
+    "template_key": "handshake-dir",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Save handshakes to directory",
+    "aliases": ["--handshake-dir"]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Dictionary file",
+    "aliases": ["--wordlist"]
+  }
+]

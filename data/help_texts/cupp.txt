@@ -1,0 +1,34 @@
+[*] C U P P -- Common User Passwords Profiler
+
+Usage: python3 cupp.py [options]
+
+Options:
+  -i             Interactive mode (prompts for personal details)
+  -l FILE        Parse username list from file
+  -w FILE        Output wordlist filename (default: cupp.txt)
+  -a URL         Parse all usernames from a web page
+  -q             Quiet mode (hide banner)
+  -v             Verbose mode
+  --name         Target first name
+  --surname      Target surname
+  --nick         Target nickname
+  --birth        Target birth date (DDMMYYYY format)
+  --pet          Target pet name
+  --company      Target company name
+  --partner      Target partner name
+  --kids         Target children names
+  --sports       Target favourite sport
+  --movie        Target favourite movie
+  --music        Target favourite music
+  --color        Target favourite colour
+  --car          Target favourite car
+  --school       Target school name
+  --charset      Custom charset for mutations
+
+Examples:
+  cupp -i
+  cupp -l usernames.txt
+  cupp --name John --surname Doe --birth 01011990
+  cupp -a https://facebook.com/johndoe
+
+Report bugs to https://github.com/Mebus/cupp

@@ -1,0 +1,42 @@
+Social-Engineer Toolkit (SET)
+==============================
+Created by: TrustedSec (https://www.trustedsec.com)
+Version: 8.0+
+
+Select from the menu:
+
+ 1) Social-Engineering Attacks
+ 2) Penetration Testing (Fast-Track)
+ 3) Third Party Modules
+ 4) Update the Social-Engineer Toolkit
+ 5) Update SET configuration
+ 99) Exit
+
+Enter your choice:
+
+Social-Engineering Attacks menu:
+ 1) Spear-Phishing Attack Vectors
+ 2) Website Attack Vectors
+ 3) Infectious Media Generator
+ 4) Create a Payload and Listener
+ 5) Mass Mailer Attack
+ 6) Arduino-Based Attack Vector
+ 7) SMS Spoofing Attack Vector
+ 8) Wireless Access Point Attack Vector
+ 9) QRCode Generator Attack Vector
+ 10) Powershell Attack Vectors
+ 11) Third Party Modules
+ 99) Return to Main Menu
+
+Website Attack Vectors:
+ 1) Java Applet Attack Method
+ 2) Metasploit Browser Exploit Method
+ 3) Credential Harvester Attack Method
+ 4) Tabnabbing Attack Method
+ 5) Web Jacking Attack Method
+ 6) Multi-Attack Method
+ 7) HTA Attack Method
+
+Example:
+  setoolkit
+  (navigate: 1 > 2 > 3 > 2 for site cloner credential harvester)

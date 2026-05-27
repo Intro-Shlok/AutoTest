@@ -1,0 +1,257 @@
+[
+  {
+    "name": "bytes",
+    "template_key": "bytes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in bytes",
+    "aliases": [
+      "-b",
+      "--bytes"
+    ]
+  },
+  {
+    "name": "kilo",
+    "template_key": "kilo",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in kilobytes",
+    "aliases": [
+      "--kilo"
+    ]
+  },
+  {
+    "name": "mega",
+    "template_key": "mega",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in megabytes",
+    "aliases": [
+      "--mega"
+    ]
+  },
+  {
+    "name": "giga",
+    "template_key": "giga",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in gigabytes",
+    "aliases": [
+      "--giga"
+    ]
+  },
+  {
+    "name": "tera",
+    "template_key": "tera",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in terabytes",
+    "aliases": [
+      "--tera"
+    ]
+  },
+  {
+    "name": "peta",
+    "template_key": "peta",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in petabytes",
+    "aliases": [
+      "--peta"
+    ]
+  },
+  {
+    "name": "kibi",
+    "template_key": "kibi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in kibibytes",
+    "aliases": [
+      "-k",
+      "--kibi"
+    ]
+  },
+  {
+    "name": "mebi",
+    "template_key": "mebi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in mebibytes",
+    "aliases": [
+      "-m",
+      "--mebi"
+    ]
+  },
+  {
+    "name": "gibi",
+    "template_key": "gibi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in gibibytes",
+    "aliases": [
+      "-g",
+      "--gibi"
+    ]
+  },
+  {
+    "name": "tebi",
+    "template_key": "tebi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in tebibytes",
+    "aliases": [
+      "--tebi"
+    ]
+  },
+  {
+    "name": "pebi",
+    "template_key": "pebi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output in pebibytes",
+    "aliases": [
+      "--pebi"
+    ]
+  },
+  {
+    "name": "human",
+    "template_key": "human",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show human-readable output",
+    "aliases": [
+      "-h",
+      "--human"
+    ]
+  },
+  {
+    "name": "si",
+    "template_key": "si",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use powers of 1000 not 1024",
+    "aliases": [
+      "--si"
+    ]
+  },
+  {
+    "name": "lohi",
+    "template_key": "lohi",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show detailed low and high memory statistics",
+    "aliases": [
+      "-l",
+      "--lohi"
+    ]
+  },
+  {
+    "name": "line",
+    "template_key": "line",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show output on a single line",
+    "aliases": [
+      "-L",
+      "--line"
+    ]
+  },
+  {
+    "name": "total",
+    "template_key": "total",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show total for RAM + swap",
+    "aliases": [
+      "-t",
+      "--total"
+    ]
+  },
+  {
+    "name": "committed",
+    "template_key": "committed",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show committed memory and commit limit",
+    "aliases": [
+      "-v",
+      "--committed"
+    ]
+  },
+  {
+    "name": "seconds N",
+    "template_key": "seconds-n",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "repeat printing every N seconds",
+    "aliases": [
+      "-s",
+      "--seconds N"
+    ]
+  },
+  {
+    "name": "count N",
+    "template_key": "count-n",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "repeat printing N times, then exit",
+    "aliases": [
+      "-c",
+      "--count N"
+    ]
+  },
+  {
+    "name": "wide",
+    "template_key": "wide",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "wide output",
+    "aliases": [
+      "-w",
+      "--wide"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  }
+]

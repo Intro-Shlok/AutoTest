@@ -1,0 +1,46 @@
+ETTERCAP(8)                 System Manager's Manual                 ETTERCAP(8)
+
+NAME
+       ettercap - ARP poisoning based Man-In-The-Middle attack tool
+
+SYNOPSIS
+       ettercap [OPTIONS] [TARGET1] [TARGET2]
+
+DESCRIPTION
+       Ettercap is a comprehensive suite for man-in-the-middle attacks.
+       It features sniffing of live connections, content filtering, and
+       support for active and passive dissection of many protocols.
+
+TARGET SPECIFICATION
+       MAC/IP/PORT specs are in the form MAC/IPs/PORTs.
+       Use // for any value: /10.0.0.1//80
+
+OPTIONS
+       -T, --text          Use text-only interface.
+       -G, --gtk           Use GTK GUI interface.
+       -i iface            Use specified network interface.
+       -M method:args      MITM attack method (arp/dhcp/port/ndp).
+       -w file             Write captured packets to pcap file.
+       -r file             Read from a pcap dump file.
+       -l logfile          Log all captured traffic.
+       -u                  Unoffensive mode (no packet forwarding).
+       -p plugin           Run a specific ettercap plugin.
+       -P                  List available plugins.
+       -z                  Silent startup (no initial ARP flood).
+       -x                  Display hex dump of packets.
+       -F filter           Load a compiled filter script.
+       -O file             Output captured passwords to file.
+       -s                  Sniff only (no MITM attack).
+       -j file             Log traffic in JSON format.
+       -q                  Quiet mode (no packet display).
+       -v                  Verbose output.
+       -S                  SSL strip (HTTPS downgrade).
+       -N, --no-dns        Do not perform DNS spoofing.
+
+EXAMPLES
+       ettercap -T -i eth0 -M arp:remote /10.0.0.1/ /10.0.0.2/
+       ettercap -T -i eth0 -M dhcp -w capture.pcap
+       ettercap -G
+
+SEE ALSO
+       bettercap(8), tcpdump(8), wireshark(1)

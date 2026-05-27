@@ -1,0 +1,30 @@
+Sliver - Implant-Based C2 Framework
+
+Usage: sliver <subcommand> [options]
+
+Subcommands:
+  client                  Start the Sliver client
+  server                  Start the Sliver server
+  operator                Start in operator mode
+  --help                  Show this help message
+
+Server Options:
+  --daemon                Daemonize the server
+  --config=FILE           Server config file
+  --lhost=ADDR            Listener bind address
+  --lport=PORT            Listener bind port
+  --mtls=HOST:PORT        mTLS listener
+  --http=HOST:PORT        HTTP listener
+  --https=HOST:PORT       HTTPS listener
+  --dns=HOST:PORT         DNS listener
+  --named-pipe=NAME       Named pipe listener
+  --tcp=HOST:PORT         TCP listener
+  --armory                Enable armory extensions
+  -d, --debug             Debug mode
+  -v, --verbose           Verbose output
+
+Example:
+  sliver-server --daemon
+  sliver-client
+  generate --mtls 10.0.0.1:443 --os windows --save implant.exe
+  generate --http 10.0.0.1:80 --os linux --save beacon.elf

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Network interface to use for MITM operations",
+    "aliases": ["-i"]
+  },
+  {
+    "name": "text-mode",
+    "template_key": "text-mode",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use text-only interface (no GUI)",
+    "aliases": ["-T", "--text"]
+  },
+  {
+    "name": "gui-mode",
+    "template_key": "gui-mode",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use GTK graphical interface",
+    "aliases": ["-G", "--gtk"]
+  },
+  {
+    "name": "mitm-method",
+    "template_key": "mitm-method",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "MITM attack method (arp/dhcp/port/ndp)",
+    "aliases": ["-M"]
+  },
+  {
+    "name": "write",
+    "template_key": "write",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Write captured packets to pcap file",
+    "aliases": ["-w"]
+  },
+  {
+    "name": "read",
+    "template_key": "read",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Read packets from pcap dump file",
+    "aliases": ["-r"]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Silent startup (no initial ARP flood)",
+    "aliases": ["-z"]
+  },
+  {
+    "name": "filter",
+    "template_key": "filter",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Load a compiled etterfilter script",
+    "aliases": ["-F"]
+  },
+  {
+    "name": "plugin",
+    "template_key": "plugin",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Run a specific ettercap plugin",
+    "aliases": ["-P"]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable verbose output",
+    "aliases": ["-v"]
+  },
+  {
+    "name": "ssl",
+    "template_key": "ssl",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable SSL stripping (HTTPS downgrade)",
+    "aliases": ["-S"]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Suppress packet display",
+    "aliases": ["-q"]
+  }
+]

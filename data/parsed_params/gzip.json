@@ -1,0 +1,221 @@
+[
+  {
+    "name": "stdout",
+    "template_key": "stdout",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "write on standard output, keep original files unchanged",
+    "aliases": [
+      "-c",
+      "--stdout"
+    ]
+  },
+  {
+    "name": "decompress",
+    "template_key": "decompress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-d",
+      "--decompress"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "force overwrite of output file and compress links",
+    "aliases": [
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "give this help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "keep",
+    "template_key": "keep",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "keep (don't delete) input files",
+    "aliases": [
+      "-k",
+      "--keep"
+    ]
+  },
+  {
+    "name": "list",
+    "template_key": "list",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "list compressed file contents",
+    "aliases": [
+      "-l",
+      "--list"
+    ]
+  },
+  {
+    "name": "license",
+    "template_key": "license",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display software license",
+    "aliases": [
+      "-L",
+      "--license"
+    ]
+  },
+  {
+    "name": "no-name",
+    "template_key": "no-name",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not save or restore the original name and timestamp",
+    "aliases": [
+      "-n",
+      "--no-name"
+    ]
+  },
+  {
+    "name": "name",
+    "template_key": "name",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "save or restore the original name and timestamp",
+    "aliases": [
+      "-N",
+      "--name"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress all warnings",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "operate recursively on directories",
+    "aliases": [
+      "-r",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "rsyncable",
+    "template_key": "rsyncable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make rsync-friendly archive",
+    "aliases": [
+      "--rsyncable"
+    ]
+  },
+  {
+    "name": "suffix",
+    "template_key": "suffix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--synchronous synchronous output (safer if system crashes, but slower)",
+    "aliases": [
+      "-S",
+      "--suffix"
+    ],
+    "enum": [
+      "safer if system crashes",
+      "but slower"
+    ]
+  },
+  {
+    "name": "test",
+    "template_key": "test",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "test compressed file integrity",
+    "aliases": [
+      "-t",
+      "--test"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "verbose mode",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display version number",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "fast",
+    "template_key": "fast",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compress faster",
+    "aliases": [
+      "-1",
+      "--fast"
+    ]
+  },
+  {
+    "name": "best",
+    "template_key": "best",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compress better",
+    "aliases": [
+      "-9",
+      "--best"
+    ]
+  }
+]

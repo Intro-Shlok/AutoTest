@@ -1,0 +1,24 @@
+Foremost version 1.5.7
+File carving tool based on header/footer matching
+https://github.com/korczis/foremost
+
+Usage: foremost [-v|-q|-d] -i <file> [-o <dir>] [-c <config>] [-t <type>] [-s <skip>]
+
+Options:
+  -i FILE, --input FILE     Input file or disk image
+  -o DIR, --output DIR      Output directory for carved files
+  -q, --quiet               Suppress output except errors
+  -v, --verbose             Verbose progress output
+  -b SIZE, --block-size     Block size in bytes (default: 512)
+  -c FILE, --config FILE    Configuration file
+  -t TYPES, --type TYPES    File types to carve (comma-separated)
+  -d, --debug               Debug mode
+  -s BYTES, --skip BYTES    Skip bytes at start of image
+  -k, --keep                Keep temporary files
+  -T SEC, --timeout SEC     Timeout per file type
+  -V, --version             Show version
+  -h, --help                Show this help
+
+Supported file types (built-in):
+  jpg, png, gif, bmp, pdf, doc, docx, xls, xlsx, ppt, pptx, zip,
+  rar, tar, gz, bz2, exe, avi, mp4, mov, mpg, wav, mp3, wmv, html

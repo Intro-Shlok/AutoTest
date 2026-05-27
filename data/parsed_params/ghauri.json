@@ -1,0 +1,137 @@
+[
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL with injection point",
+    "aliases": ["-u", "--url"]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "POST data string for parameter injection",
+    "aliases": ["--data"]
+  },
+  {
+    "name": "cookie",
+    "template_key": "cookie",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP cookies for authenticated requests",
+    "aliases": ["--cookie"]
+  },
+  {
+    "name": "random-agent",
+    "template_key": "random-agent",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use random User-Agent header",
+    "aliases": ["--random-agent"]
+  },
+  {
+    "name": "level",
+    "template_key": "level",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Injection depth level (1-5)",
+    "aliases": ["--level"]
+  },
+  {
+    "name": "risk",
+    "template_key": "risk",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Risk level (1-3)",
+    "aliases": ["--risk"]
+  },
+  {
+    "name": "dbms",
+    "template_key": "dbms",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Force DBMS type (mysql, mssql, postgres, oracle, sqlite)",
+    "aliases": ["--dbms"]
+  },
+  {
+    "name": "technique",
+    "template_key": "technique",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Injection techniques to use (BEUSTQ)",
+    "aliases": ["--technique"]
+  },
+  {
+    "name": "batch",
+    "template_key": "batch",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Non-interactive mode, use default answers",
+    "aliases": ["--batch"]
+  },
+  {
+    "name": "dump",
+    "template_key": "dump",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Dump database table entries",
+    "aliases": ["--dump"]
+  },
+  {
+    "name": "tables",
+    "template_key": "tables",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate database tables",
+    "aliases": ["--tables"]
+  },
+  {
+    "name": "D",
+    "template_key": "D",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specific database name to enumerate",
+    "aliases": ["-D", "--db"]
+  },
+  {
+    "name": "T",
+    "template_key": "T",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specific table name to enumerate",
+    "aliases": ["-T", "--table"]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Number of concurrent threads",
+    "aliases": ["--threads"]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP proxy address",
+    "aliases": ["--proxy"]
+  }
+]

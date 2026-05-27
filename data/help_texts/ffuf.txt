@@ -1,0 +1,39 @@
+ffuf v2.1.0
+Usage: ffuf -u <url> -w <wordlist> [options]
+
+Target:
+  -u, --url <url>                Target URL (with FUZZ keyword)
+  -X, --method <method>          HTTP method (default GET)
+  -H, --headers <header>         Custom HTTP headers
+  -d, --data <data>              POST request body
+
+Wordlist:
+  -w, --wordlist <file>          Path to wordlist file
+  -e, --extension <ext>          File extension to append
+
+Settings:
+  -t, --threads <num>            Number of concurrent threads (default 40)
+  -p, --proxy <url>              Proxy URL
+  -r, --follow-redirect          Follow HTTP redirects
+  -recursion                     Enable recursion
+  -recursion-depth <num>         Maximum recursion depth
+  -ac, --auto-calibration        Auto-calibrate filtering
+  -timeout <secs>                HTTP request timeout
+  -s, --silent                   Silent mode
+  -v, --verbose                  Verbose output
+
+Filtering:
+  -fc, --filter-code <codes>     Filter by HTTP status codes
+  -fs, --filter-size <sizes>     Filter by response size
+  -fw, --filter-words <counts>   Filter by word count
+  -fl, --filter-lines <lines>    Filter by line count
+
+Output:
+  -o, --output <file>            Output file path
+  -of, --output-format <fmt>     Output format (json, csv, html, md)
+
+Examples:
+  ffuf -u https://example.com/FUZZ -w /usr/share/wordlists/dirb/common.txt
+  ffuf -u https://example.com/FUZZ -w wordlist.txt -e .php,.html -fc 404
+  ffuf -u https://example.com -H "Host: FUZZ.example.com" -w vhosts.txt
+  ffuf -u https://example.com/login -X POST -d "user=admin&password=FUZZ" -w passwords.txt

@@ -1,0 +1,38 @@
+impacket-psexec v0.11.0 — Remote Command Execution via SMB
+
+Usage: impacket-psexec [options] <target> [command]
+
+Target Formats:
+  domain/user:password@ip
+  domain/user@ip -hashes LM:NT
+
+Authentication:
+  -hashes LM:NT              NTLM hash for pass-the-hash
+  -k, --kerberos             Use Kerberos authentication
+  --aesKey <key>             AES256/128 key for Kerberos
+  --no-pass                  Do not prompt for password
+  --dc-ip <ip>               Domain controller IP
+  --target-ip <ip>           Target IP address
+
+Execution:
+  <command>                  Single command to execute (optional)
+  --file <path>              Local binary to upload and execute
+  --share <share>            SMB share (default ADMIN$)
+  --service-name <name>      Service name (default BTOBTO)
+
+Output:
+  --codec <encoding>         Output encoding (default utf-8)
+  --nooutput                 Suppress output
+  -ts                        Include timestamps
+
+Debug:
+  --debug                    Enable debug output
+
+Connection:
+  --port <port>              SMB port (default 445)
+  -session <name>            Session name
+
+Examples:
+  impacket-psexec evilcorp.local/administrator:Pass123@10.10.10.1
+  impacket-psexec evilcorp.local/administrator@10.10.10.1 -hashes aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0
+  impacket-psexec evilcorp.local/administrator:Pass123@10.10.10.1 whoami

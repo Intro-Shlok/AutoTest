@@ -1,0 +1,32 @@
+Volatility 3 Framework 2.4.1
+https://github.com/volatilityfoundation/volatility3
+
+Usage: volatility [options] <plugin> [plugin_options]
+
+Options:
+  -f FILE, --file FILE       Memory dump file to analyze
+  -p DIR, --plugin-path DIR  Additional plugin directory
+  -r N, --recursion N        Recursion depth (default: 0)
+  -v N, --verbose N          Verbosity level (default: 1)
+  -q, --quiet                Suppress non-error output
+  -y FILE, --yara FILE       YARA rule file
+  -l, --list-plugins         List available plugins
+  -s ID, --sessions ID       Session management
+  -c FILE, --config FILE     Configuration file
+  -o FMT, --output FMT       Output format (text, json, sqlite)
+  --single-location LOC      Scan single memory location
+  --physical                 Use physical address space
+  --output-dir DIR           Directory for output files
+  -i, --info                 Display dump information
+
+Plugins (select one):
+  windows.info           Show dump metadata and profile
+  windows.pslist         List running processes
+  windows.psscan         Scan for hidden processes
+  windows.netscan        Scan network connections
+  windows.hivelist       Show registry hive list
+  windows.hashdump       Extract password hashes
+  windows.cmdline        Show process command lines
+  linux.bash             Recover bash history
+  linux.pslist           List Linux processes
+  mac.pslist             List macOS processes

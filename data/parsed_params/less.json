@@ -1,0 +1,561 @@
+[
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display help (from command line)",
+    "aliases": [
+      "-?",
+      "--help"
+    ]
+  },
+  {
+    "name": "search-skip-screen",
+    "template_key": "search-skip-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Search skips current screen",
+    "aliases": [
+      "-a",
+      "--search-skip-screen"
+    ]
+  },
+  {
+    "name": "SEARCH-SKIP-SCREEN",
+    "template_key": "search-skip-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Search starts just after target line",
+    "aliases": [
+      "-A",
+      "--SEARCH-SKIP-SCREEN"
+    ]
+  },
+  {
+    "name": "buffers",
+    "template_key": "buffers",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Number of buffers",
+    "aliases": [
+      "-b",
+      "--buffers"
+    ]
+  },
+  {
+    "name": "auto-buffers",
+    "template_key": "auto-buffers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't automatically allocate buffers for pipes",
+    "aliases": [
+      "-B",
+      "--auto-buffers"
+    ]
+  },
+  {
+    "name": "clear-screen",
+    "template_key": "clear-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Repaint by clearing rather than scrolling",
+    "aliases": [
+      "-c",
+      "--clear-screen"
+    ]
+  },
+  {
+    "name": "dumb",
+    "template_key": "dumb",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dumb terminal",
+    "aliases": [
+      "-d",
+      "--dumb"
+    ]
+  },
+  {
+    "name": "color",
+    "template_key": "color",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set screen colors",
+    "aliases": [
+      "-D",
+      "--color"
+    ]
+  },
+  {
+    "name": "quit-at-eof",
+    "template_key": "quit-at-eof",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Quit at end of file",
+    "aliases": [
+      "-e",
+      "-E",
+      "--quit-at-eof",
+      "--QUIT-AT-EOF"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Force open non-regular files",
+    "aliases": [
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "quit-if-one-screen",
+    "template_key": "quit-if-one-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Quit if entire file fits on first screen",
+    "aliases": [
+      "-F",
+      "--quit-if-one-screen"
+    ]
+  },
+  {
+    "name": "hilite-search",
+    "template_key": "hilite-search",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Highlight only last match for searches",
+    "aliases": [
+      "-g",
+      "--hilite-search"
+    ]
+  },
+  {
+    "name": "HILITE-SEARCH",
+    "template_key": "hilite-search",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't highlight any matches for searches",
+    "aliases": [
+      "-G",
+      "--HILITE-SEARCH"
+    ]
+  },
+  {
+    "name": "max-back-scroll",
+    "template_key": "max-back-scroll",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Backward scroll limit",
+    "aliases": [
+      "-h",
+      "--max-back-scroll"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore case in searches that do not contain uppercase",
+    "aliases": [
+      "-i",
+      "--ignore-case"
+    ]
+  },
+  {
+    "name": "IGNORE-CASE",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore case in all searches",
+    "aliases": [
+      "-I",
+      "--IGNORE-CASE"
+    ]
+  },
+  {
+    "name": "jump-target",
+    "template_key": "jump-target",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Screen position of target lines",
+    "aliases": [
+      "-j",
+      "--jump-target"
+    ]
+  },
+  {
+    "name": "status-column",
+    "template_key": "status-column",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display a status column at left edge of screen",
+    "aliases": [
+      "-J",
+      "--status-column"
+    ]
+  },
+  {
+    "name": "lesskey-file",
+    "template_key": "lesskey-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use a compiled lesskey file",
+    "aliases": [
+      "-k",
+      "--lesskey-file"
+    ]
+  },
+  {
+    "name": "quit-on-intr",
+    "template_key": "quit-on-intr",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Exit less in response to ctrl-C",
+    "aliases": [
+      "-K",
+      "--quit-on-intr"
+    ]
+  },
+  {
+    "name": "no-lessopen",
+    "template_key": "no-lessopen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore the LESSOPEN environment variable",
+    "aliases": [
+      "-L",
+      "--no-lessopen"
+    ]
+  },
+  {
+    "name": "long-prompt",
+    "template_key": "long-prompt",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set prompt style",
+    "aliases": [
+      "-m",
+      "-M",
+      "--long-prompt",
+      "--LONG-PROMPT"
+    ]
+  },
+  {
+    "name": "line-numbers",
+    "template_key": "line-numbers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Suppress line numbers in prompts and messages",
+    "aliases": [
+      "-n",
+      "--line-numbers"
+    ]
+  },
+  {
+    "name": "LINE-NUMBERS",
+    "template_key": "line-numbers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display line number at start of each line",
+    "aliases": [
+      "-N",
+      "--LINE-NUMBERS"
+    ]
+  },
+  {
+    "name": "log-file",
+    "template_key": "log-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Copy to log file (standard input only)",
+    "aliases": [
+      "-o",
+      "--log-file"
+    ]
+  },
+  {
+    "name": "LOG-FILE",
+    "template_key": "log-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Copy to log file (unconditionally overwrite)",
+    "aliases": [
+      "-O",
+      "--LOG-FILE"
+    ]
+  },
+  {
+    "name": "pattern",
+    "template_key": "pattern",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Start at pattern (from command line)",
+    "aliases": [
+      "-p",
+      "--pattern"
+    ]
+  },
+  {
+    "name": "flag-P",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--prompt=[prompt]",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Quiet the terminal bell",
+    "aliases": [
+      "-q",
+      "-Q",
+      "--quiet",
+      "--QUIET",
+      "--silent",
+      "--SILENT"
+    ]
+  },
+  {
+    "name": "raw-control-chars",
+    "template_key": "raw-control-chars",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output \"raw\" control characters",
+    "aliases": [
+      "-r",
+      "-R",
+      "--raw-control-chars",
+      "--RAW-CONTROL-CHARS"
+    ]
+  },
+  {
+    "name": "squeeze-blank-lines",
+    "template_key": "squeeze-blank-lines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Squeeze multiple blank lines",
+    "aliases": [
+      "-s",
+      "--squeeze-blank-lines"
+    ]
+  },
+  {
+    "name": "chop-long-lines",
+    "template_key": "chop-long-lines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Chop (truncate) long lines rather than wrapping",
+    "aliases": [
+      "-S",
+      "--chop-long-lines"
+    ]
+  },
+  {
+    "name": "tag",
+    "template_key": "tag",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Find a tag",
+    "aliases": [
+      "-t",
+      "--tag"
+    ]
+  },
+  {
+    "name": "tag-file",
+    "template_key": "tag-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use an alternate tags file",
+    "aliases": [
+      "-T",
+      "--tag-file"
+    ]
+  },
+  {
+    "name": "underline-special",
+    "template_key": "underline-special",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Change handling of backspaces, tabs and carriage returns",
+    "aliases": [
+      "-u",
+      "-U",
+      "--underline-special",
+      "--UNDERLINE-SPECIAL"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Display the version number of \"less\"",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "hilite-unread",
+    "template_key": "hilite-unread",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Highlight first new line after forward-screen",
+    "aliases": [
+      "-w",
+      "--hilite-unread"
+    ]
+  },
+  {
+    "name": "HILITE-UNREAD",
+    "template_key": "hilite-unread",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Highlight first new line after any forward movement",
+    "aliases": [
+      "-W",
+      "--HILITE-UNREAD"
+    ]
+  },
+  {
+    "name": "tabs",
+    "template_key": "tabs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set tab stops",
+    "aliases": [
+      "-x",
+      "--tabs"
+    ]
+  },
+  {
+    "name": "no-init",
+    "template_key": "no-init",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't use termcap init/deinit strings",
+    "aliases": [
+      "-X",
+      "--no-init"
+    ]
+  },
+  {
+    "name": "max-forw-scroll",
+    "template_key": "max-forw-scroll",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Forward scroll limit",
+    "aliases": [
+      "-y",
+      "--max-forw-scroll"
+    ]
+  },
+  {
+    "name": "window",
+    "template_key": "window",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set size of window",
+    "aliases": [
+      "-z",
+      "--window"
+    ]
+  },
+  {
+    "name": "quotes",
+    "template_key": "quotes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set shell quote characters",
+    "aliases": [
+      "--quotes"
+    ]
+  },
+  {
+    "name": "tilde",
+    "template_key": "tilde",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't display tildes after end of file",
+    "aliases": [
+      "--tilde"
+    ]
+  },
+  {
+    "name": "shift",
+    "template_key": "shift",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set horizontal scroll amount (0 = one half screen width)",
+    "aliases": [
+      "--shift"
+    ]
+  },
+  {
+    "name": "exit-follow-on-close",
+    "template_key": "exit-follow-on-close",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Exit F command on a pipe when writer closes pipe. --file-size Automatically determine the size of the input file. --follow-name The F command changes files if the input file is renamed. --header=[L[,C[,N]]] Use L lines (starting at line N) and C columns as headers. --incsearch Search file as each pattern character is typed in. --intr=[C] Use C instead of ^X to interrupt a read. --lesskey-context=text Use lesskey source file contents. --lesskey-src=file Use a lesskey source file. --line-num-width=[N] Set the width of the -N line number field to N characters. --match-shift=[N] Show at least N characters to the left of a search match. --modelines=[N] Read N lines from the input file and look for vim modelines. --mouse Enable mouse input. --no-keypad Don't send termcap keypad init/deinit strings. --no-histdups Remove duplicates from command history. --no-number-headers Don't give line numbers to header lines. --no-search-header-lines Searches do not include header lines. --no-search-header-columns Searches do not include header columns. --no-search-headers Searches do not include header lines or columns. --no-vbell Disable the terminal's visual bell. --redraw-on-quit Redraw final screen when quitting. --rscroll=[C] Set the character used to mark truncated lines. --save-marks Retain marks across invocations of less. --search-options=[EFKNRW-] Set default options for every search. --show-preproc-errors Display a message if preprocessor exits with an error status. --proc-backspace Process backspaces for bold/underline. --PROC-BACKSPACE Treat backspaces as control characters. --proc-return Delete carriage returns before newline. --PROC-RETURN Treat carriage returns as control characters. --proc-tab Expand tabs to spaces. --PROC-TAB Treat tabs as control characters. --status-col-width=[N] Set the width of the -J status column to N characters. --status-line Highlight or color the entire line containing a mark. --use-backslash Subsequent options use backslash as escape char. --use-color Enables colored text. --wheel-lines=[N] Each click of the mouse wheel moves N lines. --wordwrap Wrap lines at spaces",
+    "aliases": [
+      "--exit-follow-on-close"
+    ]
+  }
+]

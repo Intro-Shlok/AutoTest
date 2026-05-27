@@ -1,0 +1,101 @@
+[
+  {
+    "name": "list",
+    "template_key": "list",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "List available shares on target",
+    "aliases": ["-L", "--list"]
+  },
+  {
+    "name": "no-pass",
+    "template_key": "no-pass",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Do not prompt for password (null session)",
+    "aliases": ["-N", "--no-pass"]
+  },
+  {
+    "name": "username",
+    "template_key": "username",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Username for SMB authentication",
+    "aliases": ["-U", "--user", "--username"]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password for SMB authentication",
+    "aliases": ["-P", "--password"]
+  },
+  {
+    "name": "workgroup",
+    "template_key": "workgroup",
+    "type": "string",
+    "required": false,
+    "default_value": "WORKGROUP",
+    "description": "Workgroup or domain name",
+    "aliases": ["-W", "--workgroup"]
+  },
+  {
+    "name": "ip",
+    "template_key": "ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target IP address",
+    "aliases": ["-I", "--ip"]
+  },
+  {
+    "name": "port",
+    "template_key": "port",
+    "type": "integer",
+    "required": false,
+    "default_value": 445,
+    "description": "SMB port number",
+    "aliases": ["-p", "--port"]
+  },
+  {
+    "name": "command",
+    "template_key": "command",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Execute SMB command non-interactively",
+    "aliases": ["-c", "--command"]
+  },
+  {
+    "name": "max-protocol",
+    "template_key": "max-protocol",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum SMB protocol version",
+    "aliases": ["-m", "--max-protocol"]
+  },
+  {
+    "name": "encrypt",
+    "template_key": "encrypt",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Require SMB encryption",
+    "aliases": ["-e", "--encrypt"]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Debug level (0-10)",
+    "aliases": ["-d", "--debug"]
+  }
+]

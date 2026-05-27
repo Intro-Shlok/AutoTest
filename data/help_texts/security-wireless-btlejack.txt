@@ -1,0 +1,32 @@
+btlejack v2.2 - Bluetooth Low Energy Sniffer
+Copyright (c) 2023, Virtualabs
+https://github.com/virtualabs/btlejack
+
+Usage: btlejack [options]
+
+Options:
+  -i, --interface=<hciX>      BLE interface to use
+  -d, --debug                 Enable debug output
+  -s, --sniff                 Sniff BLE connections
+  -f, --follow                Follow a connection
+  -j, --jam                   Jam BLE connections
+  -t, --timeout=<secs>        Sniff timeout
+  -c, --channel=<num>         BLE channel (0-39)
+  -o, --output=<file>         Output file
+  -v, --verbose               Verbose output
+  -a, --advertisements        Sniff advertisements
+  -w, --write=<file>          Write capture to file
+  -r, --read=<file>           Read capture from file
+  
+Sniffing modes:
+  -s       : Passive connection sniffing
+  -f       : Follow existing connection
+  -j       : Jam active connections
+  -a       : Capture advertisements only
+
+Requires: nRF51822 or nRF52840 dongle with
+MicroPython firmware.
+
+Example:
+  btlejack -s
+  btlejack -i hci0 -s -o capture.dump

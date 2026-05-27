@@ -1,0 +1,13 @@
+[
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit --version output version information and exit",
+    "aliases": [
+      "--help"
+    ]
+  }
+]

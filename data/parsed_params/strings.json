@@ -1,0 +1,181 @@
+[
+  {
+    "name": "all",
+    "template_key": "all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Scan the entire file, not just the data section [default]",
+    "aliases": [
+      "-a",
+      "--all"
+    ]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Only scan the data sections in the file",
+    "aliases": [
+      "-d",
+      "--data"
+    ]
+  },
+  {
+    "name": "print-file-name",
+    "template_key": "print-file-name",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the name of the file before each string",
+    "aliases": [
+      "-f",
+      "--print-file-name"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Locate & print any sequence of at least <number>",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "bytes",
+    "template_key": "bytes",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "displayable characters. (The default is 4)",
+    "aliases": [
+      "--bytes"
+    ]
+  },
+  {
+    "name": "radix",
+    "template_key": "radix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the location of the string in base 8, 10 or 16",
+    "aliases": [
+      "-t",
+      "--radix"
+    ]
+  },
+  {
+    "name": "include-all-whitespace I",
+    "template_key": "include-all-whitespace-i",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-w",
+      "--include-all-whitespace I"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "An alias for --radix=o",
+    "aliases": [
+      "-o"
+    ]
+  },
+  {
+    "name": "target",
+    "template_key": "target",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify the binary file format",
+    "aliases": [
+      "-T",
+      "--target"
+    ]
+  },
+  {
+    "name": "encoding",
+    "template_key": "encoding",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "s = 7-bit, S = 8-bit, {b,l} = 16-bit, {B,L} = 32-bit",
+    "aliases": [
+      "-e",
+      "--encoding"
+    ],
+    "enum": [
+      "b,l"
+    ]
+  },
+  {
+    "name": "unicode",
+    "template_key": "unicode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--unicode"
+    ]
+  },
+  {
+    "name": "flag-U",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Specify how to treat UTF-8 encoded unicode characters",
+    "aliases": [
+      "-U"
+    ]
+  },
+  {
+    "name": "output-separator",
+    "template_key": "output-separator",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-s",
+      "--output-separator"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display this information",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the program's version number",
+    "aliases": [
+      "-v",
+      "-V",
+      "--version"
+    ]
+  }
+]

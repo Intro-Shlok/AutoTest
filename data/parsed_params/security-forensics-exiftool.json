@@ -1,0 +1,110 @@
+[
+  {
+    "name": "file",
+    "template_key": "file",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "File(s) to read metadata from (positional)",
+    "aliases": []
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show duplicate tags (all instances)",
+    "aliases": ["-a", "--duplicates"]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Recursively process subdirectories",
+    "aliases": ["-r", "--recurse"]
+  },
+  {
+    "name": "flag-G",
+    "template_key": "flag-G",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Print group name for each tag",
+    "aliases": ["-G", "--group"]
+  },
+  {
+    "name": "flag-j",
+    "template_key": "flag-j",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "JSON output format",
+    "aliases": ["-j", "--json"]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Tab-delimited output format",
+    "aliases": ["-t", "--tab"]
+  },
+  {
+    "name": "flag-csv",
+    "template_key": "flag-csv",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "CSV output format",
+    "aliases": ["-csv", "--csv"]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Short output — omit tag descriptions",
+    "aliases": ["-s", "--short"]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Numeric values instead of descriptions",
+    "aliases": ["-n", "--numeric"]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Ignore minor errors",
+    "aliases": ["-m", "--ignore-minor-errors"]
+  },
+  {
+    "name": "overwrite_original",
+    "template_key": "overwrite_original",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Overwrite original file (backup as .original)",
+    "aliases": ["--overwrite_original"]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file or directory name",
+    "aliases": ["-o", "--output"]
+  }
+]

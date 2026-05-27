@@ -1,0 +1,33 @@
+enum4linux-ng v0.1.3 — SMB/NetBIOS Enumeration Tool
+
+Usage: enum4linux-ng [options] <target>
+
+Target:
+  <target>                  IP address or hostname of target
+
+Enumeration Modules:
+  -A, --all                 Run all enumeration modules
+  -U, --users               Enumerate users
+  -S, --shares              Enumerate shares
+  -P, --password-policy     Enumerate password policy
+  -G, --groups              Enumerate groups and members
+  -R, --recursive-listing   Recursive share listing
+
+Authentication:
+  -u, --username string     Username for authentication
+  -p, --password string     Password for authentication
+  -d, --domain string       Domain name
+  -w, --workgroup string    Workgroup (default WORKGROUP)
+  -N, --no-smb1             Disable SMBv1 protocol
+
+Output:
+  -o, --output string       Output directory for results
+  -v, --verbose             Verbose output
+  -q, --quiet               Quiet mode (suppress banner)
+
+Advanced:
+  --timeout int             Network timeout seconds (default 5)
+
+Examples:
+  enum4linux-ng -A 10.10.10.1
+  enum4linux-ng -U 10.10.10.1 -u jdoe -p Pass123 -d evilcorp.local

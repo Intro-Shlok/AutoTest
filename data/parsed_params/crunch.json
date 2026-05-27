@@ -1,0 +1,110 @@
+[
+  {
+    "name": "min-len",
+    "template_key": "min-len",
+    "type": "integer",
+    "required": true,
+    "default_value": null,
+    "description": "Minimum length of generated words",
+    "aliases": ["min"]
+  },
+  {
+    "name": "max-len",
+    "template_key": "max-len",
+    "type": "integer",
+    "required": true,
+    "default_value": null,
+    "description": "Maximum length of generated words",
+    "aliases": ["max"]
+  },
+  {
+    "name": "charset",
+    "template_key": "charset",
+    "type": "string",
+    "required": false,
+    "default_value": "abcdefghijklmnopqrstuvwxyz",
+    "description": "Character set to use for generation",
+    "aliases": []
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for wordlist",
+    "aliases": ["-o"]
+  },
+  {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Size limit for output (e.g. 50MB)",
+    "aliases": ["-b"]
+  },
+  {
+    "name": "flag-c",
+    "template_key": "flag-c",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Number of words per output file",
+    "aliases": ["-c"]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Limit duplicate characters (e.g. 2@)",
+    "aliases": ["-d"]
+  },
+  {
+    "name": "flag-e",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Stop generating at this word",
+    "aliases": ["-e"]
+  },
+  {
+    "name": "flag-f",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Charset file path and charset name",
+    "aliases": ["-f"]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Generate permutations of specified words",
+    "aliases": ["-p"]
+  },
+  {
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Start word for generation",
+    "aliases": ["-s"]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Pattern with @,%^ placeholders",
+    "aliases": ["-t"]
+  }
+]

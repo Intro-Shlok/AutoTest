@@ -1,0 +1,28 @@
+hcxpcaptool 6.3.3 - Capture to hash converter
+Copyright (c) 2023, ZerBea
+https://github.com/ZerBea/hcxtools
+
+Usage: hcxpcaptool [options] <input file>
+
+Options:
+  -z, --pmkid=<file>          Output PMKID hashes (22000)
+  -o, --output=<file>         Output file path
+  -E, --essid-list=<file>     Extract ESSID list
+  -I, --identity=<file>       Extract identities
+  -U, --username=<file>       Extract usernames
+  -j, --hashcat=<file>        Hashcat format output
+  -J, --john=<file>           John the Ripper output
+  -k, --pmkid-eapol=<file>    PMKID+EAPOL combined
+  -v, --verbose               Verbose output
+  -h, --help                  Show this help
+
+Input formats: pcap, pcapng, cap
+
+Output modes:
+  -z : hashcat -m 22000
+  -j : hashcat -m 22000
+  -J : John the Ripper
+
+Example:
+  hcxpcaptool -z hash.22000 capture.pcapng
+  hcxpcaptool -z hash.22000 -E essids.txt capture.pcapng

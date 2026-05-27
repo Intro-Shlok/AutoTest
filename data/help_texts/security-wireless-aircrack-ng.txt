@@ -1,0 +1,29 @@
+Aircrack-ng 1.7 - (C) 2006-2023 Thomas d'Otreppe
+https://www.aircrack-ng.org
+
+Usage: aircrack-ng [options] <capture files>
+
+Options:
+  -a <mode> : Attack mode (1=WEP, 2=WPA-PSK)
+  -e <essid> : Target network ESSID
+  -b <bssid> : Target network BSSID
+  -p <password> : WPA password to test
+  -w <wordlist> : Path to dictionary file
+  -q : Quiet mode
+  -s : Show known keys from capture
+  -K : KoreK attacks for WEP
+  -S : WEP key strength (40/104)
+  -f <fudge> : PTW fudge factor
+  -j <output> : Output hash in hccapx format
+  -l <file> : Write key to file
+  -z : Use 64-bit WEP attack
+  -t : WEP40/WEP104 selection
+  -n : Use PTW attack
+  -i <index> : WEP key index
+  -g : GUI mode
+  -h : Display help
+
+Examples:
+  aircrack-ng -w wordlist.txt capture.cap
+  aircrack-ng -a 1 -b 00:11:22:33:44:55 wep.cap
+  aircrack-ng -j hash.hccapx handshake.cap

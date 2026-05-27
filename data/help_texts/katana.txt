@@ -1,0 +1,29 @@
+Usage: katana [options]
+
+  -u, --url URL                 Target URL
+  -d, --depth N                 Crawl depth (default: 3)
+  -jc, --js-crawl               JavaScript parsing enabled
+  -em, --extension-match EXT    Extensions to match
+  -ef, --extension-filter EXT   Extensions to filter
+  -kf, --known-files FILE       Known files check
+  -mrs, --max-response-size N   Max response size (default: 5242880)
+  -o, --output FILE             Output file
+  -oJ, --json                   JSON lines output
+  -sc, --status-code CODE       Status code filter
+  -ct, --content-type TYPE      Content type filter
+  -H, --headers HDRS            Custom headers
+  -p, --proxy URL               HTTP proxy
+  -t, --threads N               Threads (default: 10)
+  -rl, --rate-limit N           Rate limit
+  -timeout, --timeout SECS      Timeout (default: 10)
+  -silent, --silent             Silent mode
+  -v, --verbose                 Verbose mode
+  -f, --field FIELD             Output field (default: url)
+  -aff, --automatic-form-fill   Auto-fill forms
+  -k, --insecure                Skip TLS verify
+  -nh, --no-headless            Disable headless
+
+Examples:
+  katana -u http://target.com
+  katana -u http://target.com -d 5 -jc
+  katana -u http://target.com -o endpoints.json -oJ

@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const tools = await getCollection("tools");
+const domains = [...new Set(tools.map((t) => t.data.namespace.split(":")[0]))].sort();
+const capabilities = new Set<string>();
+const edges = new Set<string>();
+for (const t of tools) {
+  for (const c of (t.data.capabilities || [])) capabilities.add(c);
+  for (const p of (t.data.workflow_edges?.produces || [])) edges.add(p);
+  for (const c of (t.data.workflow_edges?.consumes || [])) edges.add(c);
+}
+
+const domainIcons: Record<string, string> = {
+  container: "⬡",
+  internal: "⬢",
+  network: "◎",
+  security: "◈",
+  system: "⚙",
+  text: "◇",
+};
+---
+
+<BaseLayout title="Home" description="Dual-purpose knowledge repository for human study and machine-readable automation">
+  <section class="hero">
+    <h1>AutoTest Knowledge Repository</h1>
+    <p>A dual-purpose repository serving as a comprehensive database for human study and a machine-readable backend for automated execution via MCP.</p>
+    <div class="hero-stats">
+      <span><strong>{tools.length}</strong> tools</span>
+      <span><strong>{domains.length}</strong> domains</span>
+      <span><strong>{capabilities.size}</strong> capabilities</span>
+      <span><strong>{edges.size}</strong> artifact types</span>
+    </div>
+  </section>
+
+  <div class="card-grid cols-4">
+    <div class="stat-card">
+      <div class="stat-value">{tools.length}</div>
+      <div class="stat-label">Tools</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{domains.length}</div>
+      <div class="stat-label">Domains</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{capabilities.size}</div>
+      <div class="stat-label">Capabilities</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{edges.size}</div>
+      <div class="stat-label">Artifact Types</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Domains</h2>
+    <div class="card-grid cols-2">
+      {domains.map((domain) => {
+        const count = tools.filter((t) => t.data.namespace.startsWith(domain)).length;
+        return (
+          <a href={`/tools?domain=${domain}`} class="card" style="text-decoration: none;">
+            <div class="card-icon" style="background: rgba(108,140,255,0.1); color: var(--accent); font-size: 1.4rem;">
+              {domainIcons[domain] || "○"}
+            </div>
+            <div class="card-title" style="text-transform: capitalize;">{domain}</div>
+            <div class="card-desc">{count} tool{count !== 1 ? "s" : ""}</div>
+            <div class="card-meta">
+              <span class="tag tag-domain">{domain}</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Quick Links</h2>
+    <div class="card-grid cols-2">
+      <a href="/tools" class="card" style="text-decoration: none;">
+        <div class="card-icon" style="background: rgba(52,211,153,0.1); color: var(--green);">≡</div>
+        <div class="card-title">Browse All Tools</div>
+        <div class="card-desc">View the complete index of {tools.length} documented tools with capabilities, parameters, and execution templates.</div>
+      </a>
+      <a href="/api/v1/commands.json" class="card" style="text-decoration: none;">
+        <div class="card-icon" style="background: rgba(251,191,36,0.1); color: var(--amber);">{ }</div>
+        <div class="card-title">JSON Static API</div>
+        <div class="card-desc">Machine-readable API with all tool definitions, workflow edges, and capability indexes.</div>
+      </a>
+      <a href="/llms.txt" class="card" style="text-decoration: none;">
+        <div class="card-icon" style="background: rgba(167,139,250,0.1); color: var(--purple);">AI</div>
+        <div class="card-title">LLM Ingestion (llms.txt)</div>
+        <div class="card-desc">Curated index for AI/LLM ingestion with one-shot retrieval corpus at llms-full.txt.</div>
+      </a>
+      <a href="/llms-full.txt" class="card" style="text-decoration: none;">
+        <div class="card-icon" style="background: rgba(96,165,250,0.1); color: var(--blue);">⊞</div>
+        <div class="card-title">Full Corpus (llms-full.txt)</div>
+        <div class="card-desc">Complete tool documentation in a single file for maximum LLM context retrieval.</div>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

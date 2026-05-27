@@ -1,0 +1,29 @@
+kerbrute v1.0.3 — Kerberos Pre-Auth Brute-Force
+
+Usage: kerbrute <subcommand> [options]
+
+Subcommands:
+  userenum       Enumerate valid domain usernames
+  passwordspray  Spray a single password across many users
+  bruteforce     Brute-force passwords for a single user
+
+Options:
+  -d, --domain string       Domain FQDN (required)
+  -u, --user string         Single username (bruteforce only)
+  -U, --userlist string     Path to username wordlist
+  -p, --password string     Single password (passwordspray only)
+  -P, --passwordlist string Path to password wordlist
+  --dc string               Domain controller IP or hostname
+  -t, --threads int         Concurrency (default 10)
+  -o, --output string       Output file for valid results
+  -v, --verbose             Verbose output
+  -s, --safe                Safe mode — stop on lockout
+  --delay int               Milliseconds between requests
+  --timeout int             Seconds before timeout (default 5)
+  --no-save                 Do not save results to file
+  --hash-file string        Save AS-REP hashes to file
+
+Examples:
+  kerbrute userenum -d evilcorp.local -U users.txt --dc 10.10.10.1
+  kerbrute passwordspray -d evilcorp.local -U users.txt -p Password123 --dc 10.10.10.1
+  kerbrute bruteforce -d evilcorp.local -u admin -P passwords.txt --dc 10.10.10.1
