@@ -18,24 +18,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build JSON API (with snapshots + embeddings)
-        run: node src/scripts/build-api.js
-
       - name: Build Astro site
         run: npm run build
 
-      - name: Copy snapshots and API into dist
+      - name: Copy API, llms.txt to dist
         run: |
-          mkdir -p dist/snapshots dist/api dist/.well-known
-          cp -r snapshots/* dist/snapshots/ 2>/dev/null || true
-          cp -r public/api dist/api/ 2>/dev/null || true
-          cp -r llms.txt llms-full.txt dist/ 2>/dev/null || true
-
-      - name: Generate semantic chunk manifest
-        run: node scripts/generate-semantic-chunks.js
-
-      - name: Generate retrieval manifest
-        run: node scripts/generate-retrieval-manifest.js
+          cp -r public/api dist/
+          cp llms.txt llms-full.txt dist/
 
       - name: Commit to main/docs
         run: |
