@@ -10,17 +10,8 @@ on:
       - "package.json"
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages-site"
-  cancel-in-progress: false
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,83 +38,18 @@ jobs:
           cp -r public/api dist/api/ 2>/dev/null || true
           cp -r llms.txt llms-full.txt dist/ 2>/dev/null || true
 
-      - name: Generate semantic chunk manifest (8.8)
-        run: |
-          python3 -c "
-import json
-chunks = []
-for cmd in json.load(open('public/api/v1/commands.json')):
-    ns = cmd.get('namespace', '')
-    chunks.append({
-        'id': cmd.get('id', ''),
-        'namespace': ns,
-        'domain': ns.split(':')[0] if ':' in ns else 'unknown',
-        'name': cmd.get('name', ''),
-        'tokens_est': 200 + len(cmd.get('description', '')) // 4,
-    })
-with open('dist/api/v1/semantic-chunks.json', 'w') as f:
-    json.dump({'total_chunks': len(chunks), 'chunks': chunks}, f, indent=2)
-print(f'Semantic manifest: {len(chunks)} chunks')
-"
-
-      - name: Sign snapshot with Sigstore (8.6)
-        if: github.ref == 'refs/heads/main'
-        env:
-          COSIGN_EXPERIMENTAL: "1"
-        run: |
-          which cosign 2>/dev/null || (echo "Installing cosign..." && \
-            curl -sL https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64 -o /tmp/cosign && \
-            chmod +x /tmp/cosign && sudo mv /tmp/cosign /usr/local/bin/cosign)
-          for snapshot in snapshots/*/; do
-            snapshot_name=$(basename "$snapshot")
-            echo "Signing snapshot: $snapshot_name"
-            cosign sign-blob --yes "$snapshot/commands.json" 2>/dev/null | \
-              sed 's/.*Signature: \(.*\)/\1/' > "dist/snapshots/$snapshot_name/signature.txt" || \
-              echo "WARN: cosign signing failed (expected in local/dev)"
-          done
+      - name: Generate semantic chunk manifest
+        run: node scripts/generate-semantic-chunks.js
 
       - name: Generate retrieval manifest
-        run: |
-          python3 -c "
-import json, os
-manifest = {
-    'version': '1.0.0',
-    'generated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)',
-    'snapshots': sorted(os.listdir('snapshots')) if os.path.isdir('snapshots') else [],
-    'api_endpoints': {
-        'commands': '/api/v1/commands.json',
-        'registry': '/api/v1/registry.json',
-        'by_domain': '/api/v1/by-domain.json',
-        'by_capability': '/api/v1/by-capability.json',
-        'by_workflow': '/api/v1/by-workflow.json',
-        'semantic_chunks': '/api/v1/semantic-chunks.json',
-        'embeddings': '/api/v1/embeddings.jsonl',
-    },
-    'llms': {
-        'llms_txt': '/llms.txt',
-        'llms_full_txt': '/llms-full.txt',
-    },
-}
-with open('dist/manifest.json', 'w') as f:
-    json.dump(manifest, f, indent=2)
-print('Retrieval manifest generated')
-"
+        run: node scripts/generate-retrieval-manifest.js
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages (docs branch)
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: docs
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
