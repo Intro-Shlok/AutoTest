@@ -1,13 +1,6 @@
 name: Astro Site Build & Deploy
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "docs/**/*.md"
-      - "src/**/*"
-      - "astro.config.*"
-      - "package.json"
   workflow_dispatch:
 
 jobs:
@@ -44,12 +37,14 @@ jobs:
       - name: Generate retrieval manifest
         run: node scripts/generate-retrieval-manifest.js
 
-      - name: Deploy to GitHub Pages (docs branch)
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: docs
-          force_orphan: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+      - name: Commit to main/docs
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          rm -rf main/docs
+          mkdir -p main/docs
+          cp -r dist/* main/docs/
+          cd main
+          git add -A
+          git diff --staged --quiet || git commit -m "Build: $(date +'%Y-%m-%d %H:%M:%S')"
+          git push origin main --force
