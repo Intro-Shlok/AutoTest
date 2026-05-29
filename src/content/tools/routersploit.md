@@ -176,6 +176,12 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: git
+      repo_url: "https://github.com/threat9/routersploit.git"
+      commands:
+        - "git clone https://github.com/threat9/routersploit.git"
+        - "cd routersploit && pip install -r requirements.txt"
 ---
 # RouterSploit — Embedded Device Exploitation Framework
 

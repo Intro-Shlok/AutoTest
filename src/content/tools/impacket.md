@@ -155,6 +155,11 @@ attack_types:
   - LateralMovement
   - PrivilegeEscalation
   - Discovery
+install:
+    - method: pip
+      package_name: "impacket"
+      commands:
+        - "pip install impacket"
 ---
 
 # Impacket — AD Exploitation Suite

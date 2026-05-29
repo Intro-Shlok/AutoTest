@@ -170,6 +170,11 @@ items:
 services: []
 attack_types:
   - Discovery
+install:
+    - method: apt
+      package_name: "exploitdb"
+      commands:
+        - "apt-get install -y exploitdb"
 ---
 # SearchSploit — Exploit-DB Command-Line Search Tool
 

@@ -129,6 +129,15 @@ examples:
 related_tools:
   - system-file-cp
   - system-file-rm
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # mv — Move/rename files and directories

@@ -89,6 +89,15 @@ references:
 techniques:
   - command-and-control
   - exfiltration
+install:
+    - method: go
+      repo_url: "github.com/jpillora/chisel"
+      commands:
+        - "go install github.com/jpillora/chisel@latest"
+    - method: brew
+      package_name: "chisel"
+      commands:
+        - "brew install chisel"
 ---
 
 # Chisel — Fast TCP Tunnel over HTTP

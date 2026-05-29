@@ -175,6 +175,11 @@ services:
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: pip
+      package_name: "sslyze"
+      commands:
+        - "pip install sslyze"
 ---
 
 # sslyze — SSL/TLS Scanner

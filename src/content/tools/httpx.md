@@ -194,6 +194,11 @@ services:
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: go
+      repo_url: "github.com/projectdiscovery/httpx/cmd/httpx"
+      commands:
+        - "go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest"
 ---
 
 # httpx — HTTP Probing Toolkit

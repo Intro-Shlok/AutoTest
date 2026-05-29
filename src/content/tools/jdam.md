@@ -145,6 +145,11 @@ services:
   - HTTP
 attack_types:
   - Exploitation
+install:
+    - method: git
+      repo_url: "https://github.com/icebearr/JDAM.git"
+      commands:
+        - "git clone https://github.com/icebearr/JDAM.git"
 ---
 
 # Jdam — JSON Fuzzer

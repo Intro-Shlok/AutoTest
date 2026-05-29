@@ -147,6 +147,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: pip
+      package_name: "ropgadget"
+      commands:
+        - "pip install ropgadget"
 ---
 
 # ROPgadget — ROP Gadget Finder

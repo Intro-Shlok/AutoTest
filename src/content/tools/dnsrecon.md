@@ -174,6 +174,15 @@ services:
 attack_types:
   - Discovery
   - Enumeration
+install:
+    - method: apt
+      package_name: "dnsrecon"
+      commands:
+        - "apt-get install -y dnsrecon"
+    - method: pip
+      package_name: "dnsrecon"
+      commands:
+        - "pip install dnsrecon"
 ---
 
 # dnsrecon — DNS Enumeration Script

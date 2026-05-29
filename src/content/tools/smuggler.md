@@ -112,6 +112,11 @@ services:
   - HTTP
 attack_types:
   - Exploitation
+install:
+    - method: git
+      repo_url: "https://github.com/defparam/smuggler.git"
+      commands:
+        - "git clone https://github.com/defparam/smuggler.git"
 ---
 
 # Smuggler — HTTP Request Smuggling Scanner

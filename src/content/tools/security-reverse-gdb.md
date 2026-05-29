@@ -168,6 +168,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: apt
+      package_name: "gdb"
+      commands:
+        - "apt-get install -y gdb"
 ---
 
 # GDB — GNU Debugger

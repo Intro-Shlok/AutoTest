@@ -187,6 +187,11 @@ examples:
   - description: "Display help message"
     command: "free --help"
 phase: post-exploitation
+install:
+    - method: apt
+      package_name: "procps"
+      commands:
+        - "apt-get install -y procps"
 ---
 
 # free — Display amount of free and used memory

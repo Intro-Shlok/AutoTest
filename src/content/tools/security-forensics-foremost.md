@@ -200,6 +200,11 @@ items:
 services: []
 attack_types:
   - Discovery
+install:
+    - method: apt
+      package_name: "foremost"
+      commands:
+        - "apt-get install -y foremost"
 ---
 # Foremost — File Carving Tool
 

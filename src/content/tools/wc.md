@@ -82,6 +82,15 @@ related_tools:
   - system-file-comm
   - system-file-sort
   - system-file-uniq
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # wc — Print newline, word, and byte counts

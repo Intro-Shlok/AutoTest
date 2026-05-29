@@ -280,6 +280,11 @@ references:
     url: "https://linux.die.net/man/8/ping"
   - label: "ICMP protocol specification"
     url: "https://datatracker.ietf.org/doc/html/rfc792"
+install:
+    - method: apt
+      package_name: "iputils-ping"
+      commands:
+        - "apt-get install -y iputils-ping"
 ---
 
 # ping — Network Reachability Testing

@@ -172,6 +172,11 @@ services:
 attack_types:
   - Exploitation
   - Execution
+install:
+    - method: git
+      repo_url: "https://github.com/epinna/tplmap.git"
+      commands:
+        - "git clone https://github.com/epinna/tplmap.git"
 ---
 
 # Tplmap — Server-Side Template Injection Exploitation

@@ -82,6 +82,15 @@ related_tools:
   - text-process-awk
   - text-process-sed
   - text-search-grep
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # tr — Translate or delete characters

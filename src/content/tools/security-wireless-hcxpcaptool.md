@@ -172,6 +172,11 @@ services: []
 attack_types:
   - Discovery
 features: []
+install:
+    - method: apt
+      package_name: "hcxpcaptool"
+      commands:
+        - "apt-get install -y hcxpcaptool"
 ---
 
 # hcxpcaptool — Capture to Hash Converter

@@ -270,6 +270,11 @@ examples:
     command: "less ${help}"
   - description: "Display help message"
     command: "less --help"
+install:
+    - method: apt
+      package_name: "less"
+      commands:
+        - "apt-get install -y less"
 ---
 
 # less — View file contents page by page

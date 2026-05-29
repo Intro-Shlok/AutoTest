@@ -159,6 +159,11 @@ examples:
 related_tools:
   - system-file-hexdump
   - system-file-od
+install:
+    - method: apt
+      package_name: "xxd"
+      commands:
+        - "apt-get install -y xxd"
 ---
 
 # xxd — Hex dump or reverse hex dump

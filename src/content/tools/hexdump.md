@@ -158,6 +158,11 @@ examples:
 related_tools:
   - system-file-od
   - system-file-xxd
+install:
+    - method: apt
+      package_name: "bsdmainutils"
+      commands:
+        - "apt-get install -y bsdmainutils"
 ---
 
 # hexdump — Display file contents in hexadecimal

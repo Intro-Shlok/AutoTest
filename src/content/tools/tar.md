@@ -433,6 +433,11 @@ detections:
     description: Abnormal processes spawning tar.exe
   - type: ioc
     description: tar.exe interacting with alternate data streams (ADS)
+install:
+    - method: apt
+      package_name: "tar"
+      commands:
+        - "apt-get install -y tar"
 ---
 
 # tar — Tape Archive Utility

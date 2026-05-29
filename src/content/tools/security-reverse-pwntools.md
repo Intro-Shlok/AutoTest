@@ -149,6 +149,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: pip
+      package_name: "pwntools"
+      commands:
+        - "pip install pwntools"
 ---
 
 # pwntools — CTF Exploit Development Framework

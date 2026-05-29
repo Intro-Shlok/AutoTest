@@ -254,6 +254,11 @@ examples:
       a single argument.\n"
     command: file -m/etc/passwd
 phase: enumeration
+install:
+    - method: apt
+      package_name: "file"
+      commands:
+        - "apt-get install -y file"
 ---
 
 # file — Determine file type

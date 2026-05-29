@@ -166,6 +166,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: git
+      repo_url: "https://github.com/NationalSecurityAgency/ghidra.git"
+      commands:
+        - "git clone https://github.com/NationalSecurityAgency/ghidra.git"
 ---
 
 # Ghidra — NSA Reverse Engineering Framework

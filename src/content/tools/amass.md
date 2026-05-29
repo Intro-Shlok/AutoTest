@@ -251,6 +251,15 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "amass"
+      commands:
+        - "apt-get install -y amass"
+    - method: brew
+      package_name: "amass"
+      commands:
+        - "brew install amass"
 ---
 
 # Amass — Attack Surface Mapping & Asset Discovery

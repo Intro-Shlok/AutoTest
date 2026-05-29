@@ -177,6 +177,12 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: git
+      repo_url: "https://github.com/Veil-Framework/Veil.git"
+      commands:
+        - "git clone https://github.com/Veil-Framework/Veil.git"
+        - "cd Veil && ./setup/install.sh"
 ---
 # Veil — Payload Generation Framework
 

@@ -177,6 +177,11 @@ examples:
   - description: "Display help message"
     command: "top --help"
 phase: enumeration
+install:
+    - method: apt
+      package_name: "procps"
+      commands:
+        - "apt-get install -y procps"
 ---
 
 # top — Display Linux processes

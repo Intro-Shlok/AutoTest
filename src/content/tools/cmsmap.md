@@ -218,6 +218,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: pip
+      package_name: "cmsmap"
+      commands:
+        - "pip install cmsmap"
 ---
 
 # CMSMap — CMS Security Scanner

@@ -129,6 +129,11 @@ references:
     url: "https://github.com/fortra/impacket"
   - label: "wmiexec.py Documentation"
     url: "https://www.secureauth.com/blog/impacket-wmiexec/"
+install:
+    - method: pip
+      package_name: "impacket"
+      commands:
+        - "pip install impacket"
 ---
 
 # wmiexec.py — WMI Remote Command Execution

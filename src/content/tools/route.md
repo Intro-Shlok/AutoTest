@@ -86,6 +86,11 @@ examples:
       metric {metric}
   - description: Show the routing table continuously with a delay
     command: watch -n 1 route -n
+install:
+    - method: apt
+      package_name: "net-tools"
+      commands:
+        - "apt-get install -y net-tools"
 ---
 
 # route — Show/manipulate the IP routing table

@@ -231,6 +231,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: pip
+      package_name: "arjun"
+      commands:
+        - "pip install arjun"
 ---
 
 # Arjun — HTTP Parameter Discovery Tool

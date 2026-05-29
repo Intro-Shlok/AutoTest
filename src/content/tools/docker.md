@@ -215,6 +215,15 @@ references:
 techniques:
   - command-and-control
   - lateral-movement
+install:
+    - method: apt
+      package_name: "docker.io"
+      commands:
+        - "apt-get install -y docker.io"
+    - method: brew
+      package_name: "docker"
+      commands:
+        - "brew install docker"
 ---
 
 # Docker — Container Platform

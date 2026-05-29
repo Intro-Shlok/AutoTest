@@ -90,6 +90,11 @@ examples:
       for tests.
     command: stat --format='%a' /boot
 phase: enumeration
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # stat — Display file or filesystem status

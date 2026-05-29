@@ -410,6 +410,15 @@ services:
   - Kerberos
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "nmap"
+      commands:
+        - "apt-get install -y nmap"
+    - method: brew
+      package_name: "nmap"
+      commands:
+        - "brew install nmap"
 ---
 
 # Nmap — Network Mapper

@@ -93,6 +93,11 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: pip
+      package_name: "hash-identifier"
+      commands:
+        - "pip install hash-identifier"
 ---
 
 # Hash-Identifier — Hash Type Detection

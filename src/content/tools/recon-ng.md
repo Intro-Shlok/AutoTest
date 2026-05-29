@@ -148,6 +148,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "recon-ng"
+      commands:
+        - "apt-get install -y recon-ng"
 ---
 
 # Recon-ng — Reconnaissance Framework

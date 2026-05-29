@@ -218,6 +218,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "theharvester"
+      commands:
+        - "apt-get install -y theharvester"
 ---
 
 # theHarvester — OSINT Intelligence Gathering

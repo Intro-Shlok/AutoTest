@@ -130,6 +130,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: pip
+      package_name: "shodan"
+      commands:
+        - "pip install shodan"
 ---
 
 # Shodan CLI — Internet Device Search Engine

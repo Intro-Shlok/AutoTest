@@ -188,6 +188,11 @@ examples:
 references:
   - label: "smbmap GitHub"
     url: "https://github.com/ShawnDEvans/smbmap"
+install:
+    - method: pip
+      package_name: "smbmap"
+      commands:
+        - "pip install smbmap"
 ---
 
 # smbmap — SMB Share Enumeration

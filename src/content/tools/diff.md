@@ -242,6 +242,11 @@ examples:
     command: "diff --help"
 related_tools:
   - system-file-patch
+install:
+    - method: apt
+      package_name: "diffutils"
+      commands:
+        - "apt-get install -y diffutils"
 ---
 
 # diff — Compare files line by line

@@ -198,6 +198,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "bully"
+      commands:
+        - "apt-get install -y bully"
 ---
 
 # Bully — WPS Brute-Force Tool

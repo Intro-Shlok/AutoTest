@@ -219,6 +219,11 @@ features:
   - file-system
 techniques:
   - collection
+install:
+    - method: apt
+      package_name: "dnsutils"
+      commands:
+        - "apt-get install -y dnsutils"
 ---
 
 # dig — DNS Lookup Utility

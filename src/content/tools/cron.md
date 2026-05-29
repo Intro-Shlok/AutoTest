@@ -78,6 +78,11 @@ examples:
     command: "cron ${flag-f}"
   - description: "Display help message"
     command: "cron --help"
+install:
+    - method: apt
+      package_name: "cron"
+      commands:
+        - "apt-get install -y cron"
 ---
 
 # cron — Daemon to execute scheduled commands

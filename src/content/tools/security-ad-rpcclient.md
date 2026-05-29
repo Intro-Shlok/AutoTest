@@ -191,6 +191,11 @@ examples:
 references:
   - label: "Samba rpcclient man page"
     url: "https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html"
+install:
+    - method: apt
+      package_name: "samba-common-bin"
+      commands:
+        - "apt-get install -y samba-common-bin"
 ---
 
 # rpcclient — MS-RPC Client

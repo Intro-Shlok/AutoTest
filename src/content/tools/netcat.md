@@ -299,6 +299,11 @@ mitre_ids:
   - T1187
   - T1197
   - T1208
+install:
+    - method: apt
+      package_name: "netcat-openbsd"
+      commands:
+        - "apt-get install -y netcat-openbsd"
 ---
 
 # Netcat — TCP/IP Swiss Army Knife

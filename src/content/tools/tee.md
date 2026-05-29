@@ -112,6 +112,15 @@ references:
     url: "https://www.gnu.org/software/coreutils/manual/html_node/tee-invocation.html"
 techniques:
   - defense-evasion
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # tee — Duplicate Stream Content

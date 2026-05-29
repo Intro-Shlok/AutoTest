@@ -151,6 +151,11 @@ services: []
 attack_types:
   - Exploitation
   - Execution
+install:
+    - method: git
+      repo_url: "https://github.com/Ne0nd0g/merlin.git"
+      commands:
+        - "git clone https://github.com/Ne0nd0g/merlin.git"
 ---
 
 # Merlin — Go-Based C2 Framework

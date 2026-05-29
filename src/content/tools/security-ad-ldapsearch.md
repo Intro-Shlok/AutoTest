@@ -193,6 +193,11 @@ examples:
 references:
   - label: "OpenLDAP ldapsearch man page"
     url: "https://www.openldap.org/software/man.cgi?query=ldapsearch"
+install:
+    - method: apt
+      package_name: "ldap-utils"
+      commands:
+        - "apt-get install -y ldap-utils"
 ---
 
 # ldapsearch — LDAP Directory Query Tool

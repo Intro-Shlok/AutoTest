@@ -161,6 +161,15 @@ services: []
 attack_types:
   - CredentialAccess
   - Discovery
+install:
+    - method: go
+      repo_url: "github.com/gitleaks/gitleaks"
+      commands:
+        - "go install github.com/gitleaks/gitleaks@latest"
+    - method: brew
+      package_name: "gitleaks"
+      commands:
+        - "brew install gitleaks"
 ---
 
 # gitleaks — Secrets Scanner

@@ -181,6 +181,11 @@ items:
 services: []
 attack_types:
   - Discovery
+install:
+    - method: apt
+      package_name: "autopsy"
+      commands:
+        - "apt-get install -y autopsy"
 ---
 # Autopsy — Digital Forensics Platform
 

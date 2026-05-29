@@ -189,6 +189,11 @@ services:
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: go
+      repo_url: "github.com/projectdiscovery/nuclei/v3/cmd/nuclei"
+      commands:
+        - "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
 ---
 
 # nuclei — Template-Based Vulnerability Scanner

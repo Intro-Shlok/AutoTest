@@ -179,6 +179,11 @@ services:
   - HTTPS
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "slowhttptest"
+      commands:
+        - "apt-get install -y slowhttptest"
 ---
 
 # slowhttptest — Slow HTTP DoS Testing

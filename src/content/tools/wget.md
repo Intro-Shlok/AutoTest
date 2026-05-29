@@ -384,6 +384,15 @@ techniques:
   - collection
   - data-manipulation
   - exfiltration
+install:
+    - method: apt
+      package_name: "wget"
+      commands:
+        - "apt-get install -y wget"
+    - method: brew
+      package_name: "wget"
+      commands:
+        - "brew install wget"
 ---
 
 # Wget — Non-Interactive Download Utility

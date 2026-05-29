@@ -194,6 +194,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: pip
+      package_name: "btlejack"
+      commands:
+        - "pip install btlejack"
 ---
 
 # Btlejack — Bluetooth Low Energy Sniffer

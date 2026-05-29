@@ -136,6 +136,11 @@ examples:
     command: df --total
 related_tools:
   - system-storage-du
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # df — Report filesystem disk space usage

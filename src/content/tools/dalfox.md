@@ -184,6 +184,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: go
+      repo_url: "github.com/hahwul/dalfox/v2"
+      commands:
+        - "go install github.com/hahwul/dalfox/v2@latest"
 ---
 
 # Dalfox — Fast XSS Scanner

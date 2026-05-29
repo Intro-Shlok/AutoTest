@@ -83,6 +83,15 @@ examples:
   - description: "Display help message"
     command: "rm --help"
 phase: exploitation
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # rm — Remove files or directories

@@ -189,6 +189,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "wpscan"
+      commands:
+        - "apt-get install -y wpscan"
 ---
 
 # WPScan — WordPress Vulnerability Scanner

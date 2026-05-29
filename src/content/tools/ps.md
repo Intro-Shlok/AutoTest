@@ -250,6 +250,11 @@ examples:
 phase: enumeration
 related_tools:
   - system-process-kill
+install:
+    - method: apt
+      package_name: "procps"
+      commands:
+        - "apt-get install -y procps"
 ---
 
 # ps — Report process status

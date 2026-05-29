@@ -138,6 +138,11 @@ services:
 attack_types:
   - Exploitation
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "sqlninja"
+      commands:
+        - "apt-get install -y sqlninja"
 ---
 
 # Sqlninja — SQL Server Injection Toolkit

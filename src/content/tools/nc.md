@@ -233,6 +233,15 @@ mitre_ids:
   - T1208
 related_tools:
   - network-socket-socat
+install:
+    - method: apt
+      package_name: "ncat"
+      commands:
+        - "apt-get install -y ncat"
+    - method: brew
+      package_name: "nmap"
+      commands:
+        - "brew install nmap"
 ---
 
 # nc — Netcat - arbitrary TCP/UDP connections and listening

@@ -389,6 +389,15 @@ references:
   - label: "Pro Git book"
     url: "https://git-scm.com/book/en/v2"
 phase: exploitation
+install:
+    - method: apt
+      package_name: "git"
+      commands:
+        - "apt-get install -y git"
+    - method: brew
+      package_name: "git"
+      commands:
+        - "brew install git"
 ---
 
 # Git — Distributed Version Control

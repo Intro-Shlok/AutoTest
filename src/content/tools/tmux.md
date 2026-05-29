@@ -337,6 +337,11 @@ references:
     url: "https://man7.org/linux/man-pages/man1/tmux.1.html"
   - label: "Tmux cheat sheet"
     url: "https://tmuxcheatsheet.com/"
+install:
+    - method: apt
+      package_name: "tmux"
+      commands:
+        - "apt-get install -y tmux"
 ---
 
 # Tmux — Terminal Multiplexer

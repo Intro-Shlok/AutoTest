@@ -93,6 +93,11 @@ examples:
   - description: Create a 1GiB file with nothing but zeros, ready to mkswap(8) it.
     command: dd if=/dev/zero of=/swapfile count=1048576 bs=1024 status=progress
 phase: exploitation
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # dd — Convert and copy a file

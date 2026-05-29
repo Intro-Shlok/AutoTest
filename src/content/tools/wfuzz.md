@@ -188,6 +188,15 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "wfuzz"
+      commands:
+        - "apt-get install -y wfuzz"
+    - method: pip
+      package_name: "wfuzz"
+      commands:
+        - "pip install wfuzz"
 ---
 
 # WFuzz — Web Application Bruteforcer

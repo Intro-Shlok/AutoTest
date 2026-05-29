@@ -137,6 +137,15 @@ examples:
   - description: "Display help message"
     command: "ln --help"
 phase: enumeration
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # ln — Create hard and symbolic links

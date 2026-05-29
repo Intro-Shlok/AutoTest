@@ -108,6 +108,11 @@ services: []
 attack_types:
   - Discovery
   - Enumeration
+install:
+    - method: go
+      repo_url: "github.com/tomnomnom/unfurl"
+      commands:
+        - "go install github.com/tomnomnom/unfurl@latest"
 ---
 
 # Unfurl — URL Extraction and Analysis

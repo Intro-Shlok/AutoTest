@@ -106,6 +106,15 @@ examples:
     command: "tail --help"
 related_tools:
   - system-file-head
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # tail — Output the last part of files

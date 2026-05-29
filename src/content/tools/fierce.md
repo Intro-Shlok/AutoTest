@@ -176,6 +176,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "fierce"
+      commands:
+        - "apt-get install -y fierce"
 ---
 
 # Fierce — DNS Reconnaissance

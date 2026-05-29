@@ -185,6 +185,11 @@ examples:
 references:
   - label: "enum4linux-ng GitHub"
     url: "https://github.com/cddmp/enum4linux-ng"
+install:
+    - method: pip
+      package_name: "enum4linux-ng"
+      commands:
+        - "pip install enum4linux-ng"
 ---
 
 # enum4linux-ng — SMB & NetBIOS Enumeration

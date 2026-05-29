@@ -192,6 +192,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: pip
+      package_name: "dirsearch"
+      commands:
+        - "pip install dirsearch"
 ---
 
 # Dirsearch — Web Path Discovery

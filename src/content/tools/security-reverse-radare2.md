@@ -160,6 +160,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: apt
+      package_name: "radare2"
+      commands:
+        - "apt-get install -y radare2"
 ---
 
 # radare2 — Reverse Engineering Framework

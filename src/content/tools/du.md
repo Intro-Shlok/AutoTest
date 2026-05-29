@@ -209,6 +209,11 @@ examples:
 phase: exploitation
 related_tools:
   - system-storage-df
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # du — Estimate file space usage

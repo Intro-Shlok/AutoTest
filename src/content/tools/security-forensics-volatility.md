@@ -233,6 +233,11 @@ items:
 services: []
 attack_types:
   - Discovery
+install:
+    - method: pip
+      package_name: "volatility3"
+      commands:
+        - "pip install volatility3"
 ---
 # Volatility — Memory Forensics Framework
 

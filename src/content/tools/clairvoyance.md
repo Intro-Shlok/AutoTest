@@ -133,6 +133,11 @@ services:
 attack_types:
   - Discovery
   - Enumeration
+install:
+    - method: git
+      repo_url: "https://github.com/noperator/clairvoyance.git"
+      commands:
+        - "git clone https://github.com/noperator/clairvoyance.git"
 ---
 
 # Clairvoyance — GraphQL Schema Enumeration

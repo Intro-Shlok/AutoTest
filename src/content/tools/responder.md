@@ -90,6 +90,11 @@ services:
   - MDNS
 items:
   - NoCreds
+install:
+    - method: apt
+      package_name: "responder"
+      commands:
+        - "apt-get install -y responder"
 ---
 
 # Responder — LLMNR/NBT-NS/MDNS Poisoner

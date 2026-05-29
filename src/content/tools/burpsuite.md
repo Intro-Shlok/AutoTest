@@ -141,6 +141,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: custom
+      commands:
+        - "wget -O burpsuite.sh https://portswigger.net/burp/releases/download?product=community&type=linux"
+        - "chmod +x burpsuite.sh && ./burpsuite.sh"
 ---
 
 # Burp Suite — Web Application Security Testing Platform

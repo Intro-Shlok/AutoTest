@@ -134,6 +134,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: pip
+      package_name: "checksec"
+      commands:
+        - "pip install checksec"
 ---
 
 # checksec — Binary Security Hardening Checker

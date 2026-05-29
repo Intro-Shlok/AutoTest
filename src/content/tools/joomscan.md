@@ -174,6 +174,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "joomscan"
+      commands:
+        - "apt-get install -y joomscan"
 ---
 
 # Joomscan — Joomla CMS Vulnerability Scanner

@@ -255,6 +255,15 @@ examples:
 phase: enumeration
 related_tools:
   - system-file-xargs
+install:
+    - method: apt
+      package_name: "findutils"
+      commands:
+        - "apt-get install -y findutils"
+    - method: brew
+      package_name: "findutils"
+      commands:
+        - "brew install findutils"
 ---
 
 # find — Search for files in a directory hierarchy

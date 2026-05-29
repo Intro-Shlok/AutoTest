@@ -225,6 +225,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "dnsenum"
+      commands:
+        - "apt-get install -y dnsenum"
 ---
 
 # dnsenum — DNS Enumeration Tool

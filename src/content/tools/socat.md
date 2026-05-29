@@ -145,6 +145,11 @@ references:
     url: "http://www.dest-unreach.org/socat/doc/socat.html"
   - label: "Socat examples"
     url: "http://www.dest-unreach.org/socat/doc/socat-multicast.html"
+install:
+    - method: apt
+      package_name: "socat"
+      commands:
+        - "apt-get install -y socat"
 ---
 
 # Socat — Multipurpose Socket Relay

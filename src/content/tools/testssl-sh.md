@@ -180,6 +180,11 @@ services:
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: git
+      repo_url: "https://github.com/drwetter/testssl.sh.git"
+      commands:
+        - "git clone https://github.com/drwetter/testssl.sh.git"
 ---
 
 # testssl.sh — TLS/SSL Testing Tool

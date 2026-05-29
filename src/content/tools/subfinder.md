@@ -262,6 +262,15 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: go
+      repo_url: "github.com/projectdiscovery/subfinder/v2/cmd/subfinder"
+      commands:
+        - "go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
+    - method: apt
+      package_name: "subfinder"
+      commands:
+        - "apt-get install -y subfinder"
 ---
 
 # Subfinder — Passive Subdomain Discovery

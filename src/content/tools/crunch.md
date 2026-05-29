@@ -185,6 +185,11 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "crunch"
+      commands:
+        - "apt-get install -y crunch"
 ---
 
 # Crunch — Wordlist Generator

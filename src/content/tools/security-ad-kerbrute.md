@@ -178,6 +178,11 @@ examples:
 references:
   - label: "kerbrute GitHub"
     url: "https://github.com/ropnop/kerbrute"
+install:
+    - method: go
+      repo_url: "github.com/ropnop/kerbrute"
+      commands:
+        - "go install github.com/ropnop/kerbrute@latest"
 ---
 
 # kerbrute — Kerberos Pre-Authentication Attacks

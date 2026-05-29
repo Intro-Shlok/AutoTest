@@ -244,6 +244,15 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: go
+      repo_url: "github.com/ffuf/ffuf/v2"
+      commands:
+        - "go install github.com/ffuf/ffuf/v2@latest"
+    - method: apt
+      package_name: "ffuf"
+      commands:
+        - "apt-get install -y ffuf"
 ---
 
 # FFUF — Fast Web Fuzzer

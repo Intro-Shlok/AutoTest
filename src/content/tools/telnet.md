@@ -194,6 +194,11 @@ examples:
   - description: Send special telnet sequence to the host
     command: send set_sequence_name (Enter this within a telnet session to send specific
       sequences such as break)
+install:
+    - method: apt
+      package_name: "telnet"
+      commands:
+        - "apt-get install -y telnet"
 ---
 
 # telnet — Telnet protocol client for remote connections

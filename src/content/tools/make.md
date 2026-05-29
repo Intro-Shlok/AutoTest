@@ -335,6 +335,11 @@ references:
     url: "https://www.gnu.org/software/make/manual/"
   - label: "Makefile tutorial"
     url: "https://makefiletutorial.com/"
+install:
+    - method: apt
+      package_name: "make"
+      commands:
+        - "apt-get install -y make"
 ---
 
 # Make — Build Automation

@@ -259,6 +259,15 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "hydra"
+      commands:
+        - "apt-get install -y hydra"
+    - method: brew
+      package_name: "hydra"
+      commands:
+        - "brew install hydra"
 ---
 
 # THC-Hydra — Network Logon Cracker

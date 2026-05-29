@@ -254,6 +254,11 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "ncrack"
+      commands:
+        - "apt-get install -y ncrack"
 ---
 
 # Ncrack — High-Speed Network Cracker

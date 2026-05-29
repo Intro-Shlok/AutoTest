@@ -131,6 +131,12 @@ services:
 attack_types:
   - Discovery
   - Enumeration
+install:
+    - method: git
+      repo_url: "https://github.com/xnl-h4ck3r/waymore"
+      commands:
+        - "git clone https://github.com/xnl-h4ck3r/waymore.git"
+        - "cd waymore && pip install -r requirements.txt"
 ---
 
 # waymore — Wayback Machine URL Enumerator

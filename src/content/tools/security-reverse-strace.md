@@ -163,6 +163,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: apt
+      package_name: "strace"
+      commands:
+        - "apt-get install -y strace"
 ---
 
 # strace — System Call Tracer

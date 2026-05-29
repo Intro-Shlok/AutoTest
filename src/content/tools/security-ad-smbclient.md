@@ -183,6 +183,11 @@ examples:
 references:
   - label: "Samba smbclient man page"
     url: "https://www.samba.org/samba/docs/current/man-html/smbclient.1.html"
+install:
+    - method: apt
+      package_name: "smbclient"
+      commands:
+        - "apt-get install -y smbclient"
 ---
 
 # smbclient — SMB/CIFS Client

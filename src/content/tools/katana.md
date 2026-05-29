@@ -272,6 +272,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: go
+      repo_url: "github.com/projectdiscovery/katana/cmd/katana"
+      commands:
+        - "go install -v github.com/projectdiscovery/katana/cmd/katana@latest"
 ---
 
 # Katana — Web Crawler and Spider

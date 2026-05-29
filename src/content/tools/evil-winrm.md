@@ -105,6 +105,11 @@ items:
 attack_types:
   - LateralMovement
   - Execution
+install:
+    - method: apt
+      package_name: "evil-winrm"
+      commands:
+        - "apt-get install -y evil-winrm"
 ---
 
 # evil-winrm — WinRM Shell for Pentesting

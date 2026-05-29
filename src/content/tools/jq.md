@@ -368,6 +368,15 @@ references:
     url: "https://jqlang.github.io/jq/manual/"
   - label: "jq playground"
     url: "https://jqplay.org/"
+install:
+    - method: apt
+      package_name: "jq"
+      commands:
+        - "apt-get install -y jq"
+    - method: brew
+      package_name: "jq"
+      commands:
+        - "brew install jq"
 ---
 
 # jq — Command-line JSON Processor

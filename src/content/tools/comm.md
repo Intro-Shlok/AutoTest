@@ -78,6 +78,11 @@ related_tools:
   - system-file-sort
   - system-file-uniq
   - system-file-wc
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # comm — Compare two sorted files line by line

@@ -161,6 +161,11 @@ phase: enumeration
 related_tools:
   - system-file-hexdump
   - system-file-xxd
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # od — Dump files in octal and other formats

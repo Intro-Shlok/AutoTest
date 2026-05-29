@@ -150,6 +150,15 @@ examples:
     command: "strings --help"
 mitre_ids:
   - T1191
+install:
+    - method: apt
+      package_name: "binutils"
+      commands:
+        - "apt-get install -y binutils"
+    - method: brew
+      package_name: "binutils"
+      commands:
+        - "brew install binutils"
 ---
 
 # strings — Find printable strings in binary files

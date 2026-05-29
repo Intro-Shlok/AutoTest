@@ -127,6 +127,11 @@ services: []
 attack_types:
   - Exploitation
   - Execution
+install:
+    - method: git
+      repo_url: "https://github.com/n1nj4sec/pupy.git"
+      commands:
+        - "git clone https://github.com/n1nj4sec/pupy.git"
 ---
 
 # Pupy — Remote Administration C2 Framework

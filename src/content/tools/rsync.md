@@ -304,6 +304,11 @@ references:
     url: "https://rsync.samba.org/documentation.html"
   - label: "Rsync tips and tricks"
     url: "https://linux.die.net/man/1/rsync"
+install:
+    - method: apt
+      package_name: "rsync"
+      commands:
+        - "apt-get install -y rsync"
 ---
 
 # Rsync — File Synchronization

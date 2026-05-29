@@ -232,6 +232,15 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "feroxbuster"
+      commands:
+        - "apt-get install -y feroxbuster"
+    - method: cargo
+      package_name: "feroxbuster"
+      commands:
+        - "cargo install feroxbuster"
 ---
 
 # Feroxbuster — Fast Content Discovery

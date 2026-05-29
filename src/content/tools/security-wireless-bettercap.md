@@ -198,6 +198,15 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "bettercap"
+      commands:
+        - "apt-get install -y bettercap"
+    - method: go
+      repo_url: "github.com/bettercap/bettercap"
+      commands:
+        - "go install github.com/bettercap/bettercap@latest"
 ---
 
 # Bettercap — MITM Framework

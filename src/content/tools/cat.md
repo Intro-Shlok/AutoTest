@@ -137,6 +137,15 @@ related_tools:
   - system-file-sort
   - system-file-uniq
   - system-file-wc
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # cat — Concatenate files and print to standard output

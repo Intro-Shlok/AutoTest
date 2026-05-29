@@ -150,6 +150,12 @@ const toolsCollection = defineCollection({
         description: z.string().optional(),
         rule_id: z.string().optional(),
       })).optional(),
+      install: z.array(z.object({
+        method: z.enum(["apt", "brew", "pip", "pipx", "go", "cargo", "git", "docker", "binary", "npm", "gem", "pacman", "dnf", "choco", "snap", "custom"]),
+        package_name: z.string().optional(),
+        repo_url: z.string().optional(),
+        commands: z.array(z.string()),
+      })).optional(),
     }),
 });
 

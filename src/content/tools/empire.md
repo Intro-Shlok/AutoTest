@@ -185,6 +185,12 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: git
+      repo_url: "https://github.com/BC-SECURITY/Empire.git"
+      commands:
+        - "git clone https://github.com/BC-SECURITY/Empire.git"
+        - "cd Empire && ./setup/install.sh"
 ---
 # Empire — PowerShell Post-Exploitation Framework
 

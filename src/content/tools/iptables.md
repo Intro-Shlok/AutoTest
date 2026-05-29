@@ -208,6 +208,11 @@ examples:
     command: "iptables ${append}"
   - description: "Display help message"
     command: "iptables --help"
+install:
+    - method: apt
+      package_name: "iptables"
+      commands:
+        - "apt-get install -y iptables"
 ---
 
 # iptables — Administration tool for IPv4 firewall rules

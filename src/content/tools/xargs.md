@@ -213,6 +213,15 @@ examples:
     command: printf '%d ' {1..10} | xargs -n 3
 related_tools:
   - system-file-find
+install:
+    - method: apt
+      package_name: "findutils"
+      commands:
+        - "apt-get install -y findutils"
+    - method: brew
+      package_name: "findutils"
+      commands:
+        - "brew install findutils"
 ---
 
 # xargs — Build and execute command lines from standard input

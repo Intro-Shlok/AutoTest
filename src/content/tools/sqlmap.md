@@ -202,6 +202,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "sqlmap"
+      commands:
+        - "apt-get install -y sqlmap"
 ---
 
 # SQLMap — Automatic SQL Injection Tool

@@ -54,6 +54,11 @@ examples:
     command: ifconfig eth0 hw ether 00:11:22:33:44:55
 related_tools:
   - network-config-ip
+install:
+    - method: apt
+      package_name: "net-tools"
+      commands:
+        - "apt-get install -y net-tools"
 ---
 
 # ifconfig — Configure network interfaces

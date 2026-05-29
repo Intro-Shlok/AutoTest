@@ -173,6 +173,11 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "rsmangler"
+      commands:
+        - "apt-get install -y rsmangler"
 ---
 
 # rsmangler — Wordlist Mangling Tool

@@ -349,6 +349,15 @@ references:
     url: "https://www.regular-expressions.info/"
 mitre_ids:
   - T1208
+install:
+    - method: apt
+      package_name: "grep"
+      commands:
+        - "apt-get install -y grep"
+    - method: brew
+      package_name: "grep"
+      commands:
+        - "brew install grep"
 ---
 
 # Grep — Text Pattern Search

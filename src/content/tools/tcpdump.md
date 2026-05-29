@@ -300,6 +300,15 @@ examples:
     command: tcpdump ip6
   - description: Capture packets larger than a specific size
     command: tcpdump greater 1024
+install:
+    - method: apt
+      package_name: "tcpdump"
+      commands:
+        - "apt-get install -y tcpdump"
+    - method: brew
+      package_name: "tcpdump"
+      commands:
+        - "brew install tcpdump"
 ---
 
 # tcpdump — Dump traffic on a network interface

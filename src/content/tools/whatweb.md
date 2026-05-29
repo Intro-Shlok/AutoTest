@@ -185,6 +185,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "whatweb"
+      commands:
+        - "apt-get install -y whatweb"
 ---
 
 # WhatWeb — Web Fingerprinting Tool

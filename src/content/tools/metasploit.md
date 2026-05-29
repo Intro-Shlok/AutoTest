@@ -212,6 +212,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "metasploit-framework"
+      commands:
+        - "curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod +x msfinstall && ./msfinstall"
 ---
 # Metasploit — Exploitation Framework
 

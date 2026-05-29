@@ -224,6 +224,15 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "john"
+      commands:
+        - "apt-get install -y john"
+    - method: brew
+      package_name: "john"
+      commands:
+        - "brew install john"
 ---
 
 # John the Ripper — Password Cracking

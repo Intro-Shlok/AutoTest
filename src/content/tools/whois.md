@@ -234,6 +234,11 @@ references:
     url: "https://datatracker.ietf.org/doc/html/rfc3912"
   - label: "ICANN WHOIS service"
     url: "https://whois.icann.org/"
+install:
+    - method: apt
+      package_name: "whois"
+      commands:
+        - "apt-get install -y whois"
 ---
 
 # Whois — Domain and IP Registration Lookup

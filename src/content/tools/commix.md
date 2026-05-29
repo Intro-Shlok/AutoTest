@@ -186,6 +186,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "commix"
+      commands:
+        - "apt-get install -y commix"
 ---
 
 # Commix — Automated Command Injection

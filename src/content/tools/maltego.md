@@ -136,6 +136,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "maltego"
+      commands:
+        - "apt-get install -y maltego"
 ---
 
 # Maltego — Link Analysis & OSINT

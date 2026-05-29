@@ -166,6 +166,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "zaproxy"
+      commands:
+        - "apt-get install -y zaproxy"
 ---
 
 # OWASP ZAP — Zed Attack Proxy

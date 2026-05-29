@@ -228,6 +228,11 @@ items:
 services: []
 attack_types:
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "cewl"
+      commands:
+        - "apt-get install -y cewl"
 ---
 
 # CeWL — Custom Wordlist Generator

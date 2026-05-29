@@ -134,6 +134,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "set"
+      commands:
+        - "apt-get install -y set"
 ---
 # SET — Social Engineer Toolkit
 

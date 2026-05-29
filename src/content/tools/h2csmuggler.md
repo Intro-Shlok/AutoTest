@@ -111,6 +111,11 @@ services:
   - HTTP
 attack_types:
   - Exploitation
+install:
+    - method: git
+      repo_url: "https://github.com/BishopFox/h2csmuggler.git"
+      commands:
+        - "git clone https://github.com/BishopFox/h2csmuggler.git"
 ---
 
 # h2csmuggler — HTTP/2 Cleartext Smuggling

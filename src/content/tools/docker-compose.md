@@ -176,6 +176,15 @@ references:
     url: "https://docs.docker.com/compose/compose-file/"
 techniques:
   - lateral-movement
+install:
+    - method: apt
+      package_name: "docker-compose"
+      commands:
+        - "apt-get install -y docker-compose"
+    - method: brew
+      package_name: "docker-compose"
+      commands:
+        - "brew install docker-compose"
 ---
 
 # Docker Compose — Multi-Container Orchestration

@@ -168,6 +168,12 @@ services: []
 attack_types:
   - Discovery
   - Enumeration
+install:
+    - method: git
+      repo_url: "https://github.com/Neo23x0/Loki.git"
+      commands:
+        - "git clone https://github.com/Neo23x0/Loki.git"
+        - "cd Loki && pip install -r requirements.txt"
 ---
 
 # Loki — IOC Scanner

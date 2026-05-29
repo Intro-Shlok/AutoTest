@@ -370,6 +370,15 @@ techniques:
   - collection
   - data-manipulation
   - exfiltration
+install:
+    - method: apt
+      package_name: "curl"
+      commands:
+        - "apt-get install -y curl"
+    - method: brew
+      package_name: "curl"
+      commands:
+        - "brew install curl"
 ---
 
 # curl — Data Transfer Client

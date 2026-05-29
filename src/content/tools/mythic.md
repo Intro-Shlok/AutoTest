@@ -130,6 +130,12 @@ services: []
 attack_types:
   - Exploitation
   - Execution
+install:
+    - method: git
+      repo_url: "https://github.com/its-a-feature/Mythic.git"
+      commands:
+        - "git clone https://github.com/its-a-feature/Mythic.git"
+        - "cd Mythic && make"
 ---
 
 # Mythic — Collaborative Red Team C2 Framework

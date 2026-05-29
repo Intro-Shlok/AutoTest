@@ -73,6 +73,11 @@ examples:
 mitre_ids:
   - T1027
   - T1140
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # base64 — Base64 encode/decode data

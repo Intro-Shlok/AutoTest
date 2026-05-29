@@ -198,6 +198,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "nikto"
+      commands:
+        - "apt-get install -y nikto"
 ---
 
 # Nikto — Web Server Scanner

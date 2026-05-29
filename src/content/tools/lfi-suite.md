@@ -134,6 +134,11 @@ services:
 attack_types:
   - Exploitation
   - Execution
+install:
+    - method: git
+      repo_url: "https://github.com/D35m0nd142/LFISuite.git"
+      commands:
+        - "git clone https://github.com/D35m0nd142/LFISuite.git"
 ---
 
 # LFI Suite — Local File Inclusion Exploitation Suite

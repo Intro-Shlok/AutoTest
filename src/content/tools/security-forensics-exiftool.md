@@ -252,6 +252,11 @@ items:
 services: []
 attack_types:
   - Discovery
+install:
+    - method: apt
+      package_name: "libimage-exiftool-perl"
+      commands:
+        - "apt-get install -y libimage-exiftool-perl"
 ---
 # ExifTool — Metadata Reader/Writer
 

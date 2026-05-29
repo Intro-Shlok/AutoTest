@@ -105,6 +105,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: go
+      repo_url: "github.com/tomnomnom/assetfinder"
+      commands:
+        - "go install github.com/tomnomnom/assetfinder@latest"
 ---
 
 # Assetfinder — Domain & Subdomain Discovery

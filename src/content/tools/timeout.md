@@ -68,6 +68,11 @@ execution:
 examples:
   - description: "Display help message"
     command: "timeout --help"
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # timeout — Run a command with a time limit

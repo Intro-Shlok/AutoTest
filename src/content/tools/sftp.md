@@ -267,6 +267,11 @@ related_tools:
   - network-remote-ssh
   - network-transfer-scp
   - system-sync-rsync
+install:
+    - method: apt
+      package_name: "openssh-client"
+      commands:
+        - "apt-get install -y openssh-client"
 ---
 
 # sftp — Secure file transfer over SSH

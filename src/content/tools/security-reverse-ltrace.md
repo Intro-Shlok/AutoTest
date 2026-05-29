@@ -151,6 +151,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: apt
+      package_name: "ltrace"
+      commands:
+        - "apt-get install -y ltrace"
 ---
 
 # ltrace — Library Call Tracer

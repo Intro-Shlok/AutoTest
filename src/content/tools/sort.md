@@ -244,6 +244,15 @@ related_tools:
   - system-file-comm
   - system-file-uniq
   - system-file-wc
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # sort — Sort lines of text files

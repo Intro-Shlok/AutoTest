@@ -134,6 +134,11 @@ services: []
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: pip
+      package_name: "paramspider"
+      commands:
+        - "pip install paramspider"
 ---
 
 # ParamSpider — Web Archive Parameter Mining

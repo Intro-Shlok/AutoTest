@@ -88,6 +88,11 @@ examples:
 phase: enumeration
 related_tools:
   - network-config-ifconfig
+install:
+    - method: apt
+      package_name: "iproute2"
+      commands:
+        - "apt-get install -y iproute2"
 ---
 
 # ip — Show/manipulate routing, devices, policy routing and tunnels

@@ -157,6 +157,11 @@ services:
 attack_types:
   - CredentialAccess
   - Exploitation
+install:
+    - method: apt
+      package_name: "patator"
+      commands:
+        - "apt-get install -y patator"
 ---
 
 # Patator — Multi-Protocol Brute-Forcer

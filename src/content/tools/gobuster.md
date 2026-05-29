@@ -216,6 +216,15 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: go
+      repo_url: "github.com/OJ/gobuster/v3"
+      commands:
+        - "go install github.com/OJ/gobuster/v3@latest"
+    - method: apt
+      package_name: "gobuster"
+      commands:
+        - "apt-get install -y gobuster"
 ---
 
 # Gobuster — Multi-Purpose Brute-Force Tool

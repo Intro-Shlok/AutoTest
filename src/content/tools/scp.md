@@ -173,6 +173,11 @@ related_tools:
   - network-remote-ssh
   - network-transfer-sftp
   - system-sync-rsync
+install:
+    - method: apt
+      package_name: "openssh-client"
+      commands:
+        - "apt-get install -y openssh-client"
 ---
 
 # scp — Secure copy over SSH protocol

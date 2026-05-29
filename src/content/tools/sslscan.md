@@ -173,6 +173,11 @@ services:
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: apt
+      package_name: "sslscan"
+      commands:
+        - "apt-get install -y sslscan"
 ---
 
 # sslscan — TLS/SSL Scanner

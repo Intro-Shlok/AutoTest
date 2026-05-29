@@ -171,6 +171,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: git
+      repo_url: "https://github.com/cobbr/Covenant.git"
+      commands:
+        - "git clone https://github.com/cobbr/Covenant.git"
 ---
 # Covenant — .NET C2 Framework
 

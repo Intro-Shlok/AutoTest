@@ -457,6 +457,11 @@ detections:
     description: Event ID 4624 with process name C:\Windows\System32\OpenSSH\sshd.exe.
   - type: ioc
     description: command line arguments specifying execution.
+install:
+    - method: apt
+      package_name: "openssh-client"
+      commands:
+        - "apt-get install -y openssh-client"
 ---
 
 # SSH — Secure Shell

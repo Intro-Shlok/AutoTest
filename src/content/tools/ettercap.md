@@ -184,6 +184,11 @@ workflow_edges:
 phase: exploitation
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "ettercap-graphical"
+      commands:
+        - "apt-get install -y ettercap-graphical"
 ---
 
 # Ettercap — Comprehensive MITM Toolkit

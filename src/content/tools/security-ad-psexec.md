@@ -178,6 +178,11 @@ examples:
 references:
   - label: "Impacket GitHub"
     url: "https://github.com/fortra/impacket"
+install:
+    - method: pip
+      package_name: "impacket"
+      commands:
+        - "pip install impacket"
 ---
 
 # psexec — Remote Command Execution via SMB

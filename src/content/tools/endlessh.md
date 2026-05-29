@@ -127,6 +127,11 @@ services:
   - SSH
 attack_types:
   - DefenseEvasion
+install:
+    - method: apt
+      package_name: "endlessh"
+      commands:
+        - "apt-get install -y endlessh"
 ---
 
 # endlessh — SSH Tar Pit

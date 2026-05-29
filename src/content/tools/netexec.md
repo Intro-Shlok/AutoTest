@@ -194,6 +194,10 @@ attack_types:
   - Discovery
   - LateralMovement
   - PrivilegeEscalation
+install:
+    - method: pip
+      commands:
+        - "pip install -netexec-formerly-crackmapexec-"
 ---
 
 # NetExec (nxc) — AD Post-Exploitation Framework

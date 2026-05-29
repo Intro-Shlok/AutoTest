@@ -82,6 +82,11 @@ techniques:
 attack_types:
   - CredentialAccess
   - PrivilegeEscalation
+install:
+    - method: git
+      repo_url: "https://github.com/gentilkiwi/mimikatz.git"
+      commands:
+        - "git clone https://github.com/gentilkiwi/mimikatz.git"
 ---
 
 # mimikatz — Windows Credential Extraction

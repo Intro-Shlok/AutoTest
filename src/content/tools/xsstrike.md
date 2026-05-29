@@ -187,6 +187,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: pip
+      package_name: "xsstrike"
+      commands:
+        - "pip install xsstrike"
 ---
 
 # XSStrike — Advanced XSS Detection

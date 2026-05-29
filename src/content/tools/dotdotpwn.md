@@ -172,6 +172,11 @@ services:
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: git
+      repo_url: "https://github.com/wireghoul/dotdotpwn.git"
+      commands:
+        - "git clone https://github.com/wireghoul/dotdotpwn.git"
 ---
 
 # DotDotPwn — Directory Traversal Fuzzer

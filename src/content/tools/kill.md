@@ -57,6 +57,11 @@ examples:
     command: "kill --help"
 related_tools:
   - system-process-ps
+install:
+    - method: apt
+      package_name: "procps"
+      commands:
+        - "apt-get install -y procps"
 ---
 
 # kill — Send signals to processes

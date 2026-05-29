@@ -184,6 +184,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "beef-xss"
+      commands:
+        - "apt-get install -y beef-xss"
 ---
 # BeEF — Browser Exploitation Framework
 

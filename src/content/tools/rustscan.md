@@ -175,6 +175,15 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "rustscan"
+      commands:
+        - "apt-get install -y rustscan"
+    - method: cargo
+      package_name: "rustscan"
+      commands:
+        - "cargo install rustscan"
 ---
 
 # RustScan — Fast Port Scanner with Nmap Integration

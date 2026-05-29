@@ -56,6 +56,11 @@ examples:
     command: "nice --help"
 related_tools:
   - system-process-ionice
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # nice — Run a program with modified scheduling priority

@@ -184,6 +184,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "bluez"
+      commands:
+        - "apt-get install -y bluez"
 ---
 
 # bluetoothctl — Bluetooth Device Controller

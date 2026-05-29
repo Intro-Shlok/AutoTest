@@ -82,6 +82,15 @@ examples:
     command: "head --help"
 related_tools:
   - system-file-tail
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
+    - method: brew
+      package_name: "coreutils"
+      commands:
+        - "brew install coreutils"
 ---
 
 # head — Output the first part of files

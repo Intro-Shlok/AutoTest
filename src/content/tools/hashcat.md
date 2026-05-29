@@ -254,6 +254,15 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "hashcat"
+      commands:
+        - "apt-get install -y hashcat"
+    - method: brew
+      package_name: "hashcat"
+      commands:
+        - "brew install hashcat"
 ---
 
 # Hashcat — GPU-Accelerated Password Recovery

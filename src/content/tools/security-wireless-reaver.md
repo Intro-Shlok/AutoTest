@@ -198,6 +198,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "reaver"
+      commands:
+        - "apt-get install -y reaver"
 ---
 
 # Reaver — WPS PIN Attack Tool

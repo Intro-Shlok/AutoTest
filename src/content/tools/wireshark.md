@@ -178,6 +178,11 @@ workflow_edges:
     - pcap-file
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "wireshark"
+      commands:
+        - "apt-get install -y wireshark"
 ---
 
 # Wireshark — Network Protocol Analyzer

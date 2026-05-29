@@ -196,6 +196,11 @@ items:
 services: []
 attack_types:
   - Discovery
+install:
+    - method: apt
+      package_name: "steghide"
+      commands:
+        - "apt-get install -y steghide"
 ---
 # Steghide — Steganography Tool
 

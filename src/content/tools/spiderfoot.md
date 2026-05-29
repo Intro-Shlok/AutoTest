@@ -211,6 +211,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: pip
+      package_name: "spiderfoot"
+      commands:
+        - "pip install spiderfoot"
 ---
 
 # SpiderFoot — OSINT Automation

@@ -162,6 +162,11 @@ examples:
   - description: NetRunners web/exploitation
     command: python3 git_dumper.py {{URL}} git_dump
 phase: exploitation
+install:
+    - method: apt
+      package_name: "python3"
+      commands:
+        - "apt-get install -y python3"
 ---
 
 # python3 — Python programming language interpreter

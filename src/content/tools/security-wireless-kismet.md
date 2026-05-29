@@ -166,6 +166,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "kismet"
+      commands:
+        - "apt-get install -y kismet"
 ---
 
 # Kismet — Wireless Network Detector

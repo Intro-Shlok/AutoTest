@@ -148,6 +148,11 @@ examples:
     command: "watch ${beep}"
   - description: "Display help message"
     command: "watch --help"
+install:
+    - method: apt
+      package_name: "procps"
+      commands:
+        - "apt-get install -y procps"
 ---
 
 # watch — Execute a program periodically

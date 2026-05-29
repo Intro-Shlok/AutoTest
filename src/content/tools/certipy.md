@@ -111,6 +111,11 @@ items:
 services:
   - ADCS
   - LDAP
+install:
+    - method: pip
+      package_name: "certipy-ad"
+      commands:
+        - "pip install certipy-ad"
 ---
 
 # Certipy — AD CS Exploitation

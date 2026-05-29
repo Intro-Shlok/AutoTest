@@ -439,6 +439,15 @@ references:
     url: "https://www.gnu.org/software/gawk/manual/"
   - label: "Awk one-liners"
     url: "https://awk.info/?tip/oneliner"
+install:
+    - method: apt
+      package_name: "gawk"
+      commands:
+        - "apt-get install -y gawk"
+    - method: brew
+      package_name: "gawk"
+      commands:
+        - "brew install gawk"
 ---
 
 # Awk — Text Processing Language

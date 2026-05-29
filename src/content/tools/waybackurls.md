@@ -110,6 +110,11 @@ services: []
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: go
+      repo_url: "github.com/tomnomnom/waybackurls"
+      commands:
+        - "go install github.com/tomnomnom/waybackurls@latest"
 ---
 
 # waybackurls — Wayback Machine URL Fetcher

@@ -265,6 +265,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: pip
+      package_name: "ghauri"
+      commands:
+        - "pip install ghauri"
 ---
 
 # Ghauri — SQL Injection Detection and Exploitation Tool

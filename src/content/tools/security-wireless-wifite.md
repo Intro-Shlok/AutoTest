@@ -194,6 +194,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "wifite"
+      commands:
+        - "apt-get install -y wifite"
 ---
 
 # Wifite — Automated Wireless Auditor

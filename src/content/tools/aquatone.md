@@ -216,6 +216,11 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: go
+      repo_url: "github.com/michenriksen/aquatone"
+      commands:
+        - "go install github.com/michenriksen/aquatone@latest"
 ---
 
 # Aquatone — Visual Website Inspection Tool

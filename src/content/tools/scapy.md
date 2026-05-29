@@ -140,6 +140,11 @@ services: []
 attack_types:
   - Discovery
   - Exploitation
+install:
+    - method: pip
+      package_name: "scapy"
+      commands:
+        - "pip install scapy"
 ---
 
 # Scapy — Packet Crafting and Network Manipulation

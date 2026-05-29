@@ -254,6 +254,11 @@ examples:
     command: "patch --help"
 related_tools:
   - system-file-diff
+install:
+    - method: apt
+      package_name: "patch"
+      commands:
+        - "apt-get install -y patch"
 ---
 
 # patch — Apply diff patches to files

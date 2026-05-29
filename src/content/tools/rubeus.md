@@ -155,6 +155,11 @@ services:
 attack_types:
   - CredentialAccess
   - Discovery
+install:
+    - method: git
+      repo_url: "https://github.com/GhostPack/Rubeus.git"
+      commands:
+        - "git clone https://github.com/GhostPack/Rubeus.git"
 ---
 
 # Rubeus — Kerberos Abuse Toolkit

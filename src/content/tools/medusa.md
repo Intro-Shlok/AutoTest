@@ -251,6 +251,11 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "medusa"
+      commands:
+        - "apt-get install -y medusa"
 ---
 
 # Medusa — Parallel Network Login Auditor

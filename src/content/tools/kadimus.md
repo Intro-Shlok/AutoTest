@@ -148,6 +148,11 @@ services:
 attack_types:
   - Exploitation
   - Execution
+install:
+    - method: git
+      repo_url: "https://github.com/P0cL4bs/kadimus.git"
+      commands:
+        - "git clone https://github.com/P0cL4bs/kadimus.git"
 ---
 
 # Kadimus — LFI Scanning and Exploitation

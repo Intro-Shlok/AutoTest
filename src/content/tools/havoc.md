@@ -122,6 +122,12 @@ services: []
 attack_types:
   - Exploitation
   - Execution
+install:
+    - method: git
+      repo_url: "https://github.com/HavocFramework/Havoc.git"
+      commands:
+        - "git clone https://github.com/HavocFramework/Havoc.git"
+        - "cd Havoc && make"
 ---
 
 # Havoc — Modern C2 Framework

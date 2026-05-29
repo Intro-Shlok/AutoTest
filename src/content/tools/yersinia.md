@@ -179,6 +179,11 @@ workflow_edges:
 phase: exploitation
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "yersinia"
+      commands:
+        - "apt-get install -y yersinia"
 ---
 
 # Yersinia — Layer 2 Protocol Exploitation Framework

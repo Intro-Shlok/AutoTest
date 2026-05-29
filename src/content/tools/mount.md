@@ -252,6 +252,11 @@ examples:
       will vanish when you reboot, but this can be very useful when working with things
       like bootstrap tarballs or temporary storages for sensitive data.
     command: mount -t tmpfs -o mode=755,size=4096M tmpfs /mnt
+install:
+    - method: apt
+      package_name: "mount"
+      commands:
+        - "apt-get install -y mount"
 ---
 
 # mount — Mount a filesystem

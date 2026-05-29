@@ -219,6 +219,11 @@ detections:
       https://github.com/SigmaHQ/sigma/blob/c04bef2fbbe8beff6c7620d5d7ea6872dbe7acba/rules/windows/process_creation/proc_creation_win_lolbin_ftp.yml
   - type: ioc
     description: cmd /c as child process of ftp.exe
+install:
+    - method: apt
+      package_name: "ftp"
+      commands:
+        - "apt-get install -y ftp"
 ---
 
 # ftp — File transfer protocol client

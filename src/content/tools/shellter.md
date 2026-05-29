@@ -167,6 +167,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: apt
+      package_name: "shellter"
+      commands:
+        - "apt-get install -y shellter"
 ---
 # Shellter — Dynamic Shellcode Injection
 

@@ -88,6 +88,11 @@ examples:
 related_tools:
   - system-file-sha1sum
   - system-file-sha256sum
+install:
+    - method: apt
+      package_name: "coreutils"
+      commands:
+        - "apt-get install -y coreutils"
 ---
 
 # md5sum — Compute and check MD5 message digest

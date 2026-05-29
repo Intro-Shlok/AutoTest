@@ -156,6 +156,11 @@ services:
 attack_types:
   - Discovery
   - Collection
+install:
+    - method: git
+      repo_url: "https://github.com/BloodHoundAD/SharpHound.git"
+      commands:
+        - "git clone https://github.com/BloodHoundAD/SharpHound.git"
 ---
 
 # SharpHound — BloodHound AD Data Collector

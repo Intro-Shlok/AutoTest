@@ -121,6 +121,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: apt
+      package_name: "cutter"
+      commands:
+        - "apt-get install -y cutter"
 ---
 
 # Cutter — radare2 GUI

@@ -163,6 +163,15 @@ items:
 services: []
 attack_types:
   - Discovery
+install:
+    - method: apt
+      package_name: "yara"
+      commands:
+        - "apt-get install -y yara"
+    - method: brew
+      package_name: "yara"
+      commands:
+        - "brew install yara"
 ---
 
 # YARA — Malware Pattern Matching

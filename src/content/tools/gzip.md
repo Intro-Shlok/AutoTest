@@ -230,6 +230,11 @@ references:
 techniques:
   - discovery
   - enumeration
+install:
+    - method: apt
+      package_name: "gzip"
+      commands:
+        - "apt-get install -y gzip"
 ---
 
 # Gzip — File Compression

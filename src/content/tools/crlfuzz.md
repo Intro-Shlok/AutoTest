@@ -122,6 +122,11 @@ services:
   - HTTP
 attack_types:
   - Exploitation
+install:
+    - method: go
+      repo_url: "github.com/dwisiswant0/crlfuzz"
+      commands:
+        - "go install github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest"
 ---
 
 # CRLFuzz — CRLF Injection Scanner

@@ -204,6 +204,16 @@ items:
 services: []
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "masscan"
+      commands:
+        - "apt-get install -y masscan"
+    - method: git
+      repo_url: "https://github.com/robertdavidgraham/masscan"
+      commands:
+        - "git clone https://github.com/robertdavidgraham/masscan.git"
+        - "cd masscan && make && make install"
 ---
 
 # Masscan — High-Speed Port Scanner

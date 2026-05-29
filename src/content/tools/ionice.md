@@ -91,6 +91,11 @@ examples:
     command: "ionice --help"
 related_tools:
   - system-process-nice
+install:
+    - method: apt
+      package_name: "util-linux"
+      commands:
+        - "apt-get install -y util-linux"
 ---
 
 # ionice — Set/get I/O scheduling class and priority

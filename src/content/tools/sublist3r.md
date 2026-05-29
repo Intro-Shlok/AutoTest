@@ -147,6 +147,11 @@ services:
 attack_types:
   - Discovery
   - Enumeration
+install:
+    - method: pip
+      package_name: "sublist3r"
+      commands:
+        - "pip install sublist3r"
 ---
 
 # Sublist3r — Subdomain Enumeration Tool

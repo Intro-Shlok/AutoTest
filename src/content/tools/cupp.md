@@ -172,6 +172,11 @@ services: []
 attack_types:
   - CredentialAccess
   - CredentialAccess
+install:
+    - method: apt
+      package_name: "cupp"
+      commands:
+        - "apt-get install -y cupp"
 ---
 
 # CUPP — Common User Passwords Profiler

@@ -263,6 +263,11 @@ examples:
     command: systemctl status [SERVICE]
 related_tools:
   - system-service-journalctl
+install:
+    - method: apt
+      package_name: "systemd"
+      commands:
+        - "apt-get install -y systemd"
 ---
 
 # systemctl — Control the systemd system and service manager

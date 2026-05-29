@@ -185,6 +185,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "aircrack-ng"
+      commands:
+        - "apt-get install -y aircrack-ng"
 ---
 
 # Aircrack-ng — WiFi Security Suite

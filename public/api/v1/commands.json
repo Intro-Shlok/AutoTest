@@ -114,6 +114,22 @@
     },
     "execution_policy": "enabled",
     "id": "container-orchestrate-compose",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "docker-compose",
+        "commands": [
+          "apt-get install -y docker-compose"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "docker-compose",
+        "commands": [
+          "brew install docker-compose"
+        ]
+      }
+    ],
     "name": "docker-compose",
     "namespace": "container:orchestrate:compose",
     "parameters": [
@@ -455,6 +471,22 @@
       "host": "ip"
     },
     "id": "container-runtime-docker",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "docker.io",
+        "commands": [
+          "apt-get install -y docker.io"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "docker",
+        "commands": [
+          "brew install docker"
+        ]
+      }
+    ],
     "name": "docker",
     "namespace": "container:runtime:docker",
     "parameters": [
@@ -746,6 +778,15 @@
       "process-manip"
     ],
     "id": "dev-build-make",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "make",
+        "commands": [
+          "apt-get install -y make"
+        ]
+      }
+    ],
     "name": "make",
     "namespace": "dev:build:make",
     "parameters": [
@@ -1269,6 +1310,15 @@
       "domain": "domain"
     },
     "id": "dev-runtime-python3",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "python3",
+        "commands": [
+          "apt-get install -y python3"
+        ]
+      }
+    ],
     "name": "python3",
     "namespace": "dev:runtime:python3",
     "parameters": [
@@ -1970,6 +2020,22 @@
       "process-manip"
     ],
     "id": "dev-vcs-git",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "git",
+        "commands": [
+          "apt-get install -y git"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "git",
+        "commands": [
+          "brew install git"
+        ]
+      }
+    ],
     "name": "git",
     "namespace": "dev:vcs:git",
     "parameters": [],
@@ -2152,6 +2218,15 @@
     },
     "execution_policy": "enabled",
     "id": "network-analysis-scapy",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "scapy",
+        "commands": [
+          "pip install scapy"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -2357,6 +2432,22 @@
       "port": "port"
     },
     "id": "network-capture-tcpdump",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "tcpdump",
+        "commands": [
+          "apt-get install -y tcpdump"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "tcpdump",
+        "commands": [
+          "brew install tcpdump"
+        ]
+      }
+    ],
     "name": "tcpdump",
     "namespace": "network:capture:tcpdump",
     "parameters": [
@@ -3121,6 +3212,15 @@
       "requires-root"
     ],
     "id": "network-config-ifconfig",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "net-tools",
+        "commands": [
+          "apt-get install -y net-tools"
+        ]
+      }
+    ],
     "name": "ifconfig",
     "namespace": "network:config:ifconfig",
     "parameters": [],
@@ -3230,6 +3330,15 @@
       "requires-root"
     ],
     "id": "network-config-ip",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "iproute2",
+        "commands": [
+          "apt-get install -y iproute2"
+        ]
+      }
+    ],
     "name": "ip",
     "namespace": "network:config:ip",
     "parameters": [
@@ -3344,6 +3453,15 @@
       "requires-root"
     ],
     "id": "network-config-route",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "net-tools",
+        "commands": [
+          "apt-get install -y net-tools"
+        ]
+      }
+    ],
     "name": "route",
     "namespace": "network:config:route",
     "parameters": [
@@ -3539,6 +3657,15 @@
       "target": "ip"
     },
     "id": "network-diagnostic-ping",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "iputils-ping",
+        "commands": [
+          "apt-get install -y iputils-ping"
+        ]
+      }
+    ],
     "name": "ping",
     "namespace": "network:diagnostic:ping",
     "parameters": [
@@ -4019,6 +4146,15 @@
       "target": "ip"
     },
     "id": "network-diagnostic-traceroute",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "traceroute",
+        "commands": [
+          "apt-get install -y traceroute"
+        ]
+      }
+    ],
     "name": "traceroute",
     "namespace": "network:diagnostic:traceroute",
     "parameters": [
@@ -4600,6 +4736,15 @@
       "domain": "domain"
     },
     "id": "network-dns-dig",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "dnsutils",
+        "commands": [
+          "apt-get install -y dnsutils"
+        ]
+      }
+    ],
     "name": "dig",
     "namespace": "network:dns:dig",
     "parameters": [
@@ -4845,6 +4990,15 @@
       "requires-root"
     ],
     "id": "network-firewall-iptables",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "iptables",
+        "commands": [
+          "apt-get install -y iptables"
+        ]
+      }
+    ],
     "name": "iptables",
     "namespace": "network:firewall:iptables",
     "parameters": [
@@ -5390,6 +5544,22 @@
       "port": "port"
     },
     "id": "network-http-curl",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "curl",
+        "commands": [
+          "apt-get install -y curl"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "curl",
+        "commands": [
+          "brew install curl"
+        ]
+      }
+    ],
     "name": "curl",
     "namespace": "network:http:curl",
     "parameters": [
@@ -8137,6 +8307,22 @@
       "port": "port"
     },
     "id": "network-http-wget",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "wget",
+        "commands": [
+          "apt-get install -y wget"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "wget",
+        "commands": [
+          "brew install wget"
+        ]
+      }
+    ],
     "name": "wget",
     "namespace": "network:http:wget",
     "parameters": [
@@ -10170,6 +10356,15 @@
       "port": "port"
     },
     "id": "network-remote-ssh",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "openssh-client",
+        "commands": [
+          "apt-get install -y openssh-client"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1202"
     ],
@@ -10712,6 +10907,15 @@
       "port": "port"
     },
     "id": "network-remote-telnet",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "telnet",
+        "commands": [
+          "apt-get install -y telnet"
+        ]
+      }
+    ],
     "name": "telnet",
     "namespace": "network:remote:telnet",
     "parameters": [
@@ -11106,6 +11310,22 @@
       "port": "port"
     },
     "id": "network-socket-nc",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "ncat",
+        "commands": [
+          "apt-get install -y ncat"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "nmap",
+        "commands": [
+          "brew install nmap"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1035",
       "T1140",
@@ -11574,6 +11794,15 @@
       "port": "port"
     },
     "id": "network-socket-nc",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "netcat-openbsd",
+        "commands": [
+          "apt-get install -y netcat-openbsd"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1035",
       "T1140",
@@ -12017,6 +12246,15 @@
       "port": "port"
     },
     "id": "network-socket-socat",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "socat",
+        "commands": [
+          "apt-get install -y socat"
+        ]
+      }
+    ],
     "name": "socat",
     "namespace": "network:socket:socat",
     "parameters": [
@@ -12157,6 +12395,15 @@
       "user": "user"
     },
     "id": "network-transfer-ftp",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "ftp",
+        "commands": [
+          "apt-get install -y ftp"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1105",
       "T1202"
@@ -12497,6 +12744,15 @@
       "port": "port"
     },
     "id": "network-transfer-scp",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "openssh-client",
+        "commands": [
+          "apt-get install -y openssh-client"
+        ]
+      }
+    ],
     "name": "scp",
     "namespace": "network:transfer:scp",
     "parameters": [
@@ -12769,6 +13025,15 @@
       "port": "port"
     },
     "id": "network-transfer-sftp",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "openssh-client",
+        "commands": [
+          "apt-get install -y openssh-client"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1202"
     ],
@@ -13217,6 +13482,15 @@
       "username": "user"
     },
     "id": "security-ad-certipy",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "certipy-ad",
+        "commands": [
+          "pip install certipy-ad"
+        ]
+      }
+    ],
     "items": [
       "Password",
       "NoCreds"
@@ -13397,6 +13671,15 @@
       "target": "ip"
     },
     "id": "security-ad-enum4linux-ng",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "enum4linux-ng",
+        "commands": [
+          "pip install enum4linux-ng"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -13660,6 +13943,15 @@
       "dc-ip": "ip"
     },
     "id": "security-ad-kerbrute",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/ropnop/kerbrute",
+        "commands": [
+          "go install github.com/ropnop/kerbrute@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -13928,6 +14220,15 @@
       "base-dn": "string"
     },
     "id": "security-ad-ldapsearch",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "ldap-utils",
+        "commands": [
+          "apt-get install -y ldap-utils"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -14211,6 +14512,15 @@
       "user": "user"
     },
     "id": "security-ad-psexec",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "impacket",
+        "commands": [
+          "pip install impacket"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -14478,6 +14788,15 @@
       "username": "user"
     },
     "id": "security-ad-rpcclient",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "samba-common-bin",
+        "commands": [
+          "apt-get install -y samba-common-bin"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -14757,6 +15076,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-ad-rubeus",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/GhostPack/Rubeus.git",
+        "commands": [
+          "git clone https://github.com/GhostPack/Rubeus.git"
+        ]
+      }
+    ],
     "items": [
       "TGS",
       "TGT",
@@ -15002,6 +15330,15 @@
       "user": "user"
     },
     "id": "security-ad-secretsdump",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "impacket",
+        "commands": [
+          "pip install impacket"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -15281,6 +15618,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-ad-sharphound",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/BloodHoundAD/SharpHound.git",
+        "commands": [
+          "git clone https://github.com/BloodHoundAD/SharpHound.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -15513,6 +15859,15 @@
       "username": "user"
     },
     "id": "security-ad-smbclient",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "smbclient",
+        "commands": [
+          "apt-get install -y smbclient"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -15784,6 +16139,15 @@
       "username": "user"
     },
     "id": "security-ad-smbmap",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "smbmap",
+        "commands": [
+          "pip install smbmap"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -16057,6 +16421,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-ad-wmiexec",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "impacket",
+        "commands": [
+          "pip install impacket"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -16244,6 +16617,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-brute-patator",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "patator",
+        "commands": [
+          "apt-get install -y patator"
+        ]
+      }
+    ],
     "items": [
       "Password",
       "Username"
@@ -16505,6 +16887,15 @@
       "output": "wordlist.txt"
     },
     "id": "security-crack-cewl",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "cewl",
+        "commands": [
+          "apt-get install -y cewl"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -16846,6 +17237,15 @@
       "output": "wordlist.txt"
     },
     "id": "security-crack-crunch",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "crunch",
+        "commands": [
+          "apt-get install -y crunch"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -17130,6 +17530,15 @@
       "output": "cupp-wordlist.txt"
     },
     "id": "security-crack-cupp",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "cupp",
+        "commands": [
+          "apt-get install -y cupp"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -17374,6 +17783,15 @@
     "execution_policy": "enabled",
     "global_vars": {},
     "id": "security-crack-hash-identifier",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "hash-identifier",
+        "commands": [
+          "pip install hash-identifier"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -17571,6 +17989,22 @@
       "wordlist": ""
     },
     "id": "security-crack-hashcat",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "hashcat",
+        "commands": [
+          "apt-get install -y hashcat"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "hashcat",
+        "commands": [
+          "brew install hashcat"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -17934,6 +18368,22 @@
       "service": "ssh"
     },
     "id": "security-crack-hydra",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "hydra",
+        "commands": [
+          "apt-get install -y hydra"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "hydra",
+        "commands": [
+          "brew install hydra"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -18293,6 +18743,22 @@
       "hash-file": ""
     },
     "id": "security-crack-john",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "john",
+        "commands": [
+          "apt-get install -y john"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "john",
+        "commands": [
+          "brew install john"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -18626,6 +19092,15 @@
       "module": "ssh"
     },
     "id": "security-crack-medusa",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "medusa",
+        "commands": [
+          "apt-get install -y medusa"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -18986,6 +19461,15 @@
       "service": "ssh"
     },
     "id": "security-crack-ncrack",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "ncrack",
+        "commands": [
+          "apt-get install -y ncrack"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -19320,6 +19804,15 @@
       "output": "mangled.txt"
     },
     "id": "security-crack-rsmangler",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "rsmangler",
+        "commands": [
+          "apt-get install -y rsmangler"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -19594,6 +20087,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-credential-mimikatz",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/gentilkiwi/mimikatz.git",
+        "commands": [
+          "git clone https://github.com/gentilkiwi/mimikatz.git"
+        ]
+      }
+    ],
     "name": "mimikatz",
     "namespace": "security:credential:mimikatz",
     "parameters": [
@@ -19763,6 +20265,15 @@
       "port": "port"
     },
     "id": "security-crypto-openssl",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "openssl",
+        "commands": [
+          "apt-get install -y openssl"
+        ]
+      }
+    ],
     "name": "openssl",
     "namespace": "security:crypto:openssl",
     "parameters": [],
@@ -19920,6 +20431,22 @@
     },
     "execution_policy": "enabled",
     "id": "security-dns-dnsrecon",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "dnsrecon",
+        "commands": [
+          "apt-get install -y dnsrecon"
+        ]
+      },
+      {
+        "method": "pip",
+        "package_name": "dnsrecon",
+        "commands": [
+          "pip install dnsrecon"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -20168,6 +20695,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-dos-slowhttptest",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "slowhttptest",
+        "commands": [
+          "apt-get install -y slowhttptest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -20419,6 +20955,15 @@
       "username": "user"
     },
     "id": "security-exec-evil-winrm",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "evil-winrm",
+        "commands": [
+          "apt-get install -y evil-winrm"
+        ]
+      }
+    ],
     "items": [
       "Password",
       "Hash"
@@ -20592,6 +21137,15 @@
       "lport": "3000"
     },
     "id": "security-exploit-beef",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "beef-xss",
+        "commands": [
+          "apt-get install -y beef-xss"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -20903,6 +21457,15 @@
       "password": "admin123"
     },
     "id": "security-exploit-covenant",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/cobbr/Covenant.git",
+        "commands": [
+          "git clone https://github.com/cobbr/Covenant.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -21178,6 +21741,16 @@
       "lport": "1337"
     },
     "id": "security-exploit-empire",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/BC-SECURITY/Empire.git",
+        "commands": [
+          "git clone https://github.com/BC-SECURITY/Empire.git",
+          "cd Empire && ./setup/install.sh"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -21456,6 +22029,16 @@
     },
     "execution_policy": "enabled",
     "id": "security-exploit-havoc",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/HavocFramework/Havoc.git",
+        "commands": [
+          "git clone https://github.com/HavocFramework/Havoc.git",
+          "cd Havoc && make"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "Hash"
@@ -21637,6 +22220,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-exploit-merlin",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/Ne0nd0g/merlin.git",
+        "commands": [
+          "git clone https://github.com/Ne0nd0g/merlin.git"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "Hash"
@@ -21902,6 +22494,15 @@
       "command": "use exploit/multi/handler; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST 0.0.0.0; set LPORT 4444; exploit"
     },
     "id": "security-exploit-metasploit",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "metasploit-framework",
+        "commands": [
+          "curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod +x msfinstall && ./msfinstall"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -22201,6 +22802,16 @@
     },
     "execution_policy": "enabled",
     "id": "security-exploit-mythic",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/its-a-feature/Mythic.git",
+        "commands": [
+          "git clone https://github.com/its-a-feature/Mythic.git",
+          "cd Mythic && make"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "Hash"
@@ -22387,6 +22998,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-exploit-pupy",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/n1nj4sec/pupy.git",
+        "commands": [
+          "git clone https://github.com/n1nj4sec/pupy.git"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "Hash"
@@ -22587,6 +23207,16 @@
       "port": "80"
     },
     "id": "security-exploit-routersploit",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/threat9/routersploit.git",
+        "commands": [
+          "git clone https://github.com/threat9/routersploit.git",
+          "cd routersploit && pip install -r requirements.txt"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -22853,6 +23483,15 @@
       "search-term": "eternalblue"
     },
     "id": "security-exploit-searchsploit",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "exploitdb",
+        "commands": [
+          "apt-get install -y exploitdb"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -23147,6 +23786,15 @@
       "lport": "4444"
     },
     "id": "security-exploit-setoolkit",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "set",
+        "commands": [
+          "apt-get install -y set"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -23352,6 +24000,15 @@
       "lport": "4444"
     },
     "id": "security-exploit-shellter",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "shellter",
+        "commands": [
+          "apt-get install -y shellter"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -23627,6 +24284,15 @@
       "lport": "443"
     },
     "id": "security-exploit-sliver",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/BishopFox/sliver",
+        "commands": [
+          "go install github.com/BishopFox/sliver@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -23918,6 +24584,16 @@
       "payload": "cs/meterpreter/rev_https.py"
     },
     "id": "security-exploit-veil",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/Veil-Framework/Veil.git",
+        "commands": [
+          "git clone https://github.com/Veil-Framework/Veil.git",
+          "cd Veil && ./setup/install.sh"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -24220,6 +24896,15 @@
     "execution_policy": "enabled",
     "global_vars": {},
     "id": "security-forensics-autopsy",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "autopsy",
+        "commands": [
+          "apt-get install -y autopsy"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -24494,6 +25179,15 @@
       "file": "image.jpg"
     },
     "id": "security-forensics-exiftool",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "libimage-exiftool-perl",
+        "commands": [
+          "apt-get install -y libimage-exiftool-perl"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -24858,6 +25552,15 @@
       "output-dir": "carved_output"
     },
     "id": "security-forensics-foremost",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "foremost",
+        "commands": [
+          "apt-get install -y foremost"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -25157,6 +25860,15 @@
       "passphrase": ""
     },
     "id": "security-forensics-steghide",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "steghide",
+        "commands": [
+          "apt-get install -y steghide"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -25463,6 +26175,15 @@
       "plugin": "windows.pslist"
     },
     "id": "security-forensics-volatility",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "volatility3",
+        "commands": [
+          "pip install volatility3"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -25849,6 +26570,15 @@
       "target": "ip"
     },
     "id": "security-framework-impacket",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "impacket",
+        "commands": [
+          "pip install impacket"
+        ]
+      }
+    ],
     "items": [
       "Password",
       "Hash",
@@ -26139,6 +26869,14 @@
       "domain": "domain"
     },
     "id": "security-framework-netexec",
+    "install": [
+      {
+        "method": "pip",
+        "commands": [
+          "pip install -netexec-formerly-crackmapexec-"
+        ]
+      }
+    ],
     "items": [
       "Password",
       "Hash",
@@ -26312,6 +27050,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-graphql-clairvoyance",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/noperator/clairvoyance.git",
+        "commands": [
+          "git clone https://github.com/noperator/clairvoyance.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -26502,6 +27249,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-honeypot-endlessh",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "endlessh",
+        "commands": [
+          "apt-get install -y endlessh"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -26712,6 +27468,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-intel-censys",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "censys",
+        "commands": [
+          "pip install censys"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -26970,6 +27735,15 @@
       "args": "8.8.8.8"
     },
     "id": "security-intel-shodan-cli",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "shodan",
+        "commands": [
+          "pip install shodan"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -27157,6 +27931,15 @@
       "port-port": "port"
     },
     "id": "security-intel-whois",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "whois",
+        "commands": [
+          "apt-get install -y whois"
+        ]
+      }
+    ],
     "name": "whois",
     "namespace": "security:intel:whois",
     "parameters": [
@@ -27536,6 +28319,16 @@
     },
     "execution_policy": "enabled",
     "id": "security-ioc-loki",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/Neo23x0/Loki.git",
+        "commands": [
+          "git clone https://github.com/Neo23x0/Loki.git",
+          "cd Loki && pip install -r requirements.txt"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -27785,6 +28578,22 @@
     },
     "execution_policy": "enabled",
     "id": "security-malware-yara",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "yara",
+        "commands": [
+          "apt-get install -y yara"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "yara",
+        "commands": [
+          "brew install yara"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -28033,6 +28842,15 @@
       "target": "remote"
     },
     "id": "security-mitm-ettercap",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "ettercap-graphical",
+        "commands": [
+          "apt-get install -y ettercap-graphical"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -28307,6 +29125,15 @@
       "target": "ip"
     },
     "id": "security-mitm-responder",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "responder",
+        "commands": [
+          "apt-get install -y responder"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -28468,6 +29295,15 @@
       "interface": "eth0"
     },
     "id": "security-mitm-yersinia",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "yersinia",
+        "commands": [
+          "apt-get install -y yersinia"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -28779,6 +29615,22 @@
       "output": "amass-results.txt"
     },
     "id": "security-recon-amass",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "amass",
+        "commands": [
+          "apt-get install -y amass"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "amass",
+        "commands": [
+          "brew install amass"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -29029,6 +29881,15 @@
       "domain": "example.com"
     },
     "id": "security-recon-assetfinder",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/tomnomnom/assetfinder",
+        "commands": [
+          "go install github.com/tomnomnom/assetfinder@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -29199,6 +30060,15 @@
       "nameserver": "ip"
     },
     "id": "security-recon-bloodhound",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "bloodhound",
+        "commands": [
+          "apt-get install -y bloodhound"
+        ]
+      }
+    ],
     "name": "BloodHound",
     "namespace": "security:recon:bloodhound",
     "parameters": [
@@ -29378,6 +30248,15 @@
       "domain": "example.com"
     },
     "id": "security-recon-dnsenum",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "dnsenum",
+        "commands": [
+          "apt-get install -y dnsenum"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -29632,6 +30511,15 @@
       "domain": "example.com"
     },
     "id": "security-recon-fierce",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "fierce",
+        "commands": [
+          "apt-get install -y fierce"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -29892,6 +30780,15 @@
       "domain": "example.com"
     },
     "id": "security-recon-maltego",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "maltego",
+        "commands": [
+          "apt-get install -y maltego"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -30113,6 +31010,23 @@
       "rate": "10000"
     },
     "id": "security-recon-masscan",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "masscan",
+        "commands": [
+          "apt-get install -y masscan"
+        ]
+      },
+      {
+        "method": "git",
+        "repo_url": "https://github.com/robertdavidgraham/masscan",
+        "commands": [
+          "git clone https://github.com/robertdavidgraham/masscan.git",
+          "cd masscan && make && make install"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -30566,6 +31480,22 @@
       "target": "ip"
     },
     "id": "security-recon-nmap",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "nmap",
+        "commands": [
+          "apt-get install -y nmap"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "nmap",
+        "commands": [
+          "brew install nmap"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -31666,6 +32596,15 @@
       "workspace": "default"
     },
     "id": "security-recon-recon-ng",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "recon-ng",
+        "commands": [
+          "apt-get install -y recon-ng"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -31874,6 +32813,22 @@
       "timeout": "1500"
     },
     "id": "security-recon-rustscan",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "rustscan",
+        "commands": [
+          "apt-get install -y rustscan"
+        ]
+      },
+      {
+        "method": "cargo",
+        "package_name": "rustscan",
+        "commands": [
+          "cargo install rustscan"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -32154,6 +33109,15 @@
       "domain": "example.com"
     },
     "id": "security-recon-spiderfoot",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "spiderfoot",
+        "commands": [
+          "pip install spiderfoot"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -32431,6 +33395,22 @@
       "output": "subdomains.txt"
     },
     "id": "security-recon-subfinder",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/projectdiscovery/subfinder/v2/cmd/subfinder",
+        "commands": [
+          "go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
+        ]
+      },
+      {
+        "method": "apt",
+        "package_name": "subfinder",
+        "commands": [
+          "apt-get install -y subfinder"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -32687,6 +33667,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-recon-sublist3r",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "sublist3r",
+        "commands": [
+          "pip install sublist3r"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -32943,6 +33932,15 @@
       "limit": "500"
     },
     "id": "security-recon-theharvester",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "theharvester",
+        "commands": [
+          "apt-get install -y theharvester"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -33174,6 +34172,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-recon-unfurl",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/tomnomnom/unfurl",
+        "commands": [
+          "go install github.com/tomnomnom/unfurl@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -33331,6 +34338,16 @@
     },
     "execution_policy": "enabled",
     "id": "security-recon-waymore",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/xnl-h4ck3r/waymore",
+        "commands": [
+          "git clone https://github.com/xnl-h4ck3r/waymore.git",
+          "cd waymore && pip install -r requirements.txt"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -33534,6 +34551,15 @@
       "firmware-file": ""
     },
     "id": "security-reverse-binwalk",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "binwalk",
+        "commands": [
+          "apt-get install -y binwalk"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -33773,6 +34799,15 @@
       "binary": ""
     },
     "id": "security-reverse-checksec",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "checksec",
+        "commands": [
+          "pip install checksec"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -33970,6 +35005,15 @@
       "binary": ""
     },
     "id": "security-reverse-cutter",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "cutter",
+        "commands": [
+          "apt-get install -y cutter"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -34158,6 +35202,15 @@
       "command": ""
     },
     "id": "security-reverse-gdb",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "gdb",
+        "commands": [
+          "apt-get install -y gdb"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -34404,6 +35457,15 @@
       "output_dir": "./ghidra_out"
     },
     "id": "security-reverse-ghidra",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "commands": [
+          "git clone https://github.com/NationalSecurityAgency/ghidra.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -34651,6 +35713,15 @@
       "binary": ""
     },
     "id": "security-reverse-ltrace",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "ltrace",
+        "commands": [
+          "apt-get install -y ltrace"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -34880,6 +35951,15 @@
       "command": ""
     },
     "id": "security-reverse-pwntools",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "pwntools",
+        "commands": [
+          "pip install pwntools"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -35098,6 +36178,15 @@
       "command": ""
     },
     "id": "security-reverse-radare2",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "radare2",
+        "commands": [
+          "apt-get install -y radare2"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -35327,6 +36416,15 @@
       "binary": ""
     },
     "id": "security-reverse-ropgadget",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "ropgadget",
+        "commands": [
+          "pip install ropgadget"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -35554,6 +36652,15 @@
       "binary": ""
     },
     "id": "security-reverse-strace",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "strace",
+        "commands": [
+          "apt-get install -y strace"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -35802,6 +36909,22 @@
     },
     "execution_policy": "enabled",
     "id": "security-secrets-gitleaks",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/gitleaks/gitleaks",
+        "commands": [
+          "go install github.com/gitleaks/gitleaks@latest"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "gitleaks",
+        "commands": [
+          "brew install gitleaks"
+        ]
+      }
+    ],
     "items": [
       "Password",
       "Hash",
@@ -36040,6 +37163,15 @@
       "interface": "eth0"
     },
     "id": "security-sniff-wireshark",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "wireshark",
+        "commands": [
+          "apt-get install -y wireshark"
+        ]
+      }
+    ],
     "items": [
       "NoCreds",
       "Hash"
@@ -36340,6 +37472,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-sqli-sqlninja",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "sqlninja",
+        "commands": [
+          "apt-get install -y sqlninja"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "Password",
@@ -36529,6 +37670,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-tls-sslscan",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "sslscan",
+        "commands": [
+          "apt-get install -y sslscan"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -36796,6 +37946,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-tls-sslyze",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "sslyze",
+        "commands": [
+          "pip install sslyze"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -37076,6 +38235,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-tls-testssl-sh",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/drwetter/testssl.sh.git",
+        "commands": [
+          "git clone https://github.com/drwetter/testssl.sh.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -37300,6 +38468,22 @@
       "port": "port"
     },
     "id": "security-tunnel-chisel",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/jpillora/chisel",
+        "commands": [
+          "go install github.com/jpillora/chisel@latest"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "chisel",
+        "commands": [
+          "brew install chisel"
+        ]
+      }
+    ],
     "name": "chisel",
     "namespace": "security:tunnel:chisel",
     "parameters": [
@@ -37485,6 +38669,15 @@
       "input-file": "domains.txt"
     },
     "id": "security-web-aquatone",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/michenriksen/aquatone",
+        "commands": [
+          "go install github.com/michenriksen/aquatone@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -37805,6 +38998,15 @@
       "target": "url"
     },
     "id": "security-web-arjun",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "arjun",
+        "commands": [
+          "pip install arjun"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -38138,6 +39340,15 @@
       "target": "url"
     },
     "id": "security-web-burpsuite",
+    "install": [
+      {
+        "method": "custom",
+        "commands": [
+          "wget -O burpsuite.sh https://portswigger.net/burp/releases/download?product=community&type=linux",
+          "chmod +x burpsuite.sh && ./burpsuite.sh"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -38364,6 +39575,15 @@
       "target": "url"
     },
     "id": "security-web-cmsmap",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "cmsmap",
+        "commands": [
+          "pip install cmsmap"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -38692,6 +39912,15 @@
       "target": "url"
     },
     "id": "security-web-commix",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "commix",
+        "commands": [
+          "apt-get install -y commix"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -38984,6 +40213,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-crlfuzz",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/dwisiswant0/crlfuzz",
+        "commands": [
+          "go install github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -39177,6 +40415,15 @@
       "target": "url"
     },
     "id": "security-web-dalfox",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/hahwul/dalfox/v2",
+        "commands": [
+          "go install github.com/hahwul/dalfox/v2@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -39495,6 +40742,15 @@
       "threads": "30"
     },
     "id": "security-web-dirsearch",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "dirsearch",
+        "commands": [
+          "pip install dirsearch"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -39784,6 +41040,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-dotdotpwn",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/wireghoul/dotdotpwn.git",
+        "commands": [
+          "git clone https://github.com/wireghoul/dotdotpwn.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -40054,6 +41319,22 @@
       "extensions": "php,html,js,txt"
     },
     "id": "security-web-feroxbuster",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "feroxbuster",
+        "commands": [
+          "apt-get install -y feroxbuster"
+        ]
+      },
+      {
+        "method": "cargo",
+        "package_name": "feroxbuster",
+        "commands": [
+          "cargo install feroxbuster"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -40384,6 +41665,22 @@
       "threads": "40"
     },
     "id": "security-web-ffuf",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/ffuf/ffuf/v2",
+        "commands": [
+          "go install github.com/ffuf/ffuf/v2@latest"
+        ]
+      },
+      {
+        "method": "apt",
+        "package_name": "ffuf",
+        "commands": [
+          "apt-get install -y ffuf"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -40708,6 +42005,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-gau",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/lc/gau",
+        "commands": [
+          "go install github.com/lc/gau/v2/cmd/gau@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -40932,6 +42238,15 @@
       "target": "url"
     },
     "id": "security-web-ghauri",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "ghauri",
+        "commands": [
+          "pip install ghauri"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -41272,6 +42587,22 @@
       "threads": "10"
     },
     "id": "security-web-gobuster",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/OJ/gobuster/v3",
+        "commands": [
+          "go install github.com/OJ/gobuster/v3@latest"
+        ]
+      },
+      {
+        "method": "apt",
+        "package_name": "gobuster",
+        "commands": [
+          "apt-get install -y gobuster"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -41568,6 +42899,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-h2csmuggler",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/BishopFox/h2csmuggler.git",
+        "commands": [
+          "git clone https://github.com/BishopFox/h2csmuggler.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -41761,6 +43101,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-httpx",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/projectdiscovery/httpx/cmd/httpx",
+        "commands": [
+          "go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -42026,6 +43375,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-jdam",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/icebearr/JDAM.git",
+        "commands": [
+          "git clone https://github.com/icebearr/JDAM.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -42265,6 +43623,15 @@
       "target": "url"
     },
     "id": "security-web-joomscan",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "joomscan",
+        "commands": [
+          "apt-get install -y joomscan"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -42521,6 +43888,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-kadimus",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/P0cL4bs/kadimus.git",
+        "commands": [
+          "git clone https://github.com/P0cL4bs/kadimus.git"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "NoCreds"
@@ -42764,6 +44140,15 @@
       "depth": "3"
     },
     "id": "security-web-katana",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/projectdiscovery/katana/cmd/katana",
+        "commands": [
+          "go install -v github.com/projectdiscovery/katana/cmd/katana@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -43091,6 +44476,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-lfi-suite",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/D35m0nd142/LFISuite.git",
+        "commands": [
+          "git clone https://github.com/D35m0nd142/LFISuite.git"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "NoCreds"
@@ -43314,6 +44708,15 @@
       "port": "80"
     },
     "id": "security-web-nikto",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "nikto",
+        "commands": [
+          "apt-get install -y nikto"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -43635,6 +45038,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-nuclei",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/projectdiscovery/nuclei/v3/cmd/nuclei",
+        "commands": [
+          "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -43894,6 +45306,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-paramspider",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "paramspider",
+        "commands": [
+          "pip install paramspider"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -44084,6 +45505,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-smuggler",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/defparam/smuggler.git",
+        "commands": [
+          "git clone https://github.com/defparam/smuggler.git"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -44279,6 +45709,15 @@
       "risk": "1"
     },
     "id": "security-web-sqlmap",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "sqlmap",
+        "commands": [
+          "apt-get install -y sqlmap"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -44589,6 +46028,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-tplmap",
+    "install": [
+      {
+        "method": "git",
+        "repo_url": "https://github.com/epinna/tplmap.git",
+        "commands": [
+          "git clone https://github.com/epinna/tplmap.git"
+        ]
+      }
+    ],
     "items": [
       "Shell",
       "NoCreds"
@@ -44830,6 +46278,15 @@
     },
     "execution_policy": "enabled",
     "id": "security-web-waybackurls",
+    "install": [
+      {
+        "method": "go",
+        "repo_url": "github.com/tomnomnom/waybackurls",
+        "commands": [
+          "go install github.com/tomnomnom/waybackurls@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -44997,6 +46454,22 @@
       "wordlist": "/usr/share/wordlists/dirb/common.txt"
     },
     "id": "security-web-wfuzz",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "wfuzz",
+        "commands": [
+          "apt-get install -y wfuzz"
+        ]
+      },
+      {
+        "method": "pip",
+        "package_name": "wfuzz",
+        "commands": [
+          "pip install wfuzz"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -45294,6 +46767,15 @@
       "target": "url"
     },
     "id": "security-web-whatweb",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "whatweb",
+        "commands": [
+          "apt-get install -y whatweb"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -45590,6 +47072,15 @@
       "target": "url"
     },
     "id": "security-web-wpscan",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "wpscan",
+        "commands": [
+          "apt-get install -y wpscan"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -45899,6 +47390,15 @@
       "target": "url"
     },
     "id": "security-web-xsstrike",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "xsstrike",
+        "commands": [
+          "pip install xsstrike"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -46217,6 +47717,15 @@
       "host": "127.0.0.1"
     },
     "id": "security-web-owasp-zap",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "zaproxy",
+        "commands": [
+          "apt-get install -y zaproxy"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -46484,6 +47993,15 @@
       "wordlist": "/usr/share/wordlists/rockyou.txt"
     },
     "id": "security-wireless-aircrack-ng",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "aircrack-ng",
+        "commands": [
+          "apt-get install -y aircrack-ng"
+        ]
+      }
+    ],
     "items": [
       "Hash"
     ],
@@ -46764,6 +48282,22 @@
       "interface": "eth0"
     },
     "id": "security-wireless-bettercap",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "bettercap",
+        "commands": [
+          "apt-get install -y bettercap"
+        ]
+      },
+      {
+        "method": "go",
+        "repo_url": "github.com/bettercap/bettercap",
+        "commands": [
+          "go install github.com/bettercap/bettercap@latest"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -47048,6 +48582,15 @@
     ],
     "global_vars": {},
     "id": "security-wireless-bluetoothctl",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "bluez",
+        "commands": [
+          "apt-get install -y bluez"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -47329,6 +48872,15 @@
     ],
     "global_vars": {},
     "id": "security-wireless-btlejack",
+    "install": [
+      {
+        "method": "pip",
+        "package_name": "btlejack",
+        "commands": [
+          "pip install btlejack"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -47625,6 +49177,15 @@
       "bssid": "00:11:22:33:44:55"
     },
     "id": "security-wireless-bully",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "bully",
+        "commands": [
+          "apt-get install -y bully"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -47922,6 +49483,15 @@
       "output": "capture.pcapng"
     },
     "id": "security-wireless-hcxdumptool",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "hcxdumptool",
+        "commands": [
+          "apt-get install -y hcxdumptool"
+        ]
+      }
+    ],
     "items": [
       "Hash"
     ],
@@ -48206,6 +49776,15 @@
       "pmkid-output": "hash.22000"
     },
     "id": "security-wireless-hcxpcaptool",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "hcxpcaptool",
+        "commands": [
+          "apt-get install -y hcxpcaptool"
+        ]
+      }
+    ],
     "items": [
       "Hash"
     ],
@@ -48469,6 +50048,15 @@
     ],
     "global_vars": {},
     "id": "security-wireless-kismet",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "kismet",
+        "commands": [
+          "apt-get install -y kismet"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -48724,6 +50312,15 @@
       "bssid": "00:11:22:33:44:55"
     },
     "id": "security-wireless-reaver",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "reaver",
+        "commands": [
+          "apt-get install -y reaver"
+        ]
+      }
+    ],
     "items": [
       "NoCreds"
     ],
@@ -49019,6 +50616,15 @@
       "interface": "wlan0"
     },
     "id": "security-wireless-wifite",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "wifite",
+        "commands": [
+          "apt-get install -y wifite"
+        ]
+      }
+    ],
     "items": [
       "Hash"
     ],
@@ -49395,6 +51001,15 @@
       "process-manip"
     ],
     "id": "system-archive-tar",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "tar",
+        "commands": [
+          "apt-get install -y tar"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1105",
       "T1564.004"
@@ -50888,6 +52503,15 @@
     },
     "execution_policy": "enabled",
     "id": "system-compress-gzip",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "gzip",
+        "commands": [
+          "apt-get install -y gzip"
+        ]
+      }
+    ],
     "name": "gzip",
     "namespace": "system:compress:gzip",
     "parameters": [
@@ -51198,6 +52822,15 @@
       "batch"
     ],
     "id": "system-file-base64",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1027",
       "T1140"
@@ -51326,6 +52959,22 @@
       "pipes-stdout"
     ],
     "id": "system-file-cat",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "cat",
     "namespace": "system:file:cat",
     "parameters": [
@@ -51563,6 +53212,22 @@
       "file-system"
     ],
     "id": "system-file-chmod",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "chmod",
     "namespace": "system:file:chmod",
     "parameters": [
@@ -51728,6 +53393,22 @@
       "file-system"
     ],
     "id": "system-file-chown",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "chown",
     "namespace": "system:file:chown",
     "parameters": [
@@ -51890,6 +53571,15 @@
       "file-system"
     ],
     "id": "system-file-comm",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "comm",
     "namespace": "system:file:comm",
     "parameters": [
@@ -52007,6 +53697,22 @@
       "file-system"
     ],
     "id": "system-file-cp",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "cp",
     "namespace": "system:file:cp",
     "parameters": [
@@ -52300,6 +54006,22 @@
       "file-system"
     ],
     "id": "system-file-cut",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "cut",
     "namespace": "system:file:cut",
     "parameters": [
@@ -52514,6 +54236,15 @@
       "file-system"
     ],
     "id": "system-file-dd",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "dd",
     "namespace": "system:file:dd",
     "parameters": [
@@ -52583,6 +54314,15 @@
       "file-system"
     ],
     "id": "system-file-diff",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "diffutils",
+        "commands": [
+          "apt-get install -y diffutils"
+        ]
+      }
+    ],
     "name": "diff",
     "namespace": "system:file:diff",
     "parameters": [
@@ -53199,6 +54939,15 @@
       "output-json"
     ],
     "id": "system-file-file",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "file",
+        "commands": [
+          "apt-get install -y file"
+        ]
+      }
+    ],
     "name": "file",
     "namespace": "system:file:file",
     "parameters": [
@@ -53740,6 +55489,22 @@
       "process-manip"
     ],
     "id": "system-file-find",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "findutils",
+        "commands": [
+          "apt-get install -y findutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "findutils",
+        "commands": [
+          "brew install findutils"
+        ]
+      }
+    ],
     "name": "find",
     "namespace": "system:file:find",
     "parameters": [
@@ -53892,6 +55657,22 @@
       "pipes-stdout"
     ],
     "id": "system-file-head",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "head",
     "namespace": "system:file:head",
     "parameters": [
@@ -54028,6 +55809,15 @@
       "file-system"
     ],
     "id": "system-file-hexdump",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "bsdmainutils",
+        "commands": [
+          "apt-get install -y bsdmainutils"
+        ]
+      }
+    ],
     "name": "hexdump",
     "namespace": "system:file:hexdump",
     "parameters": [
@@ -54271,6 +56061,15 @@
       "pipes-stdout"
     ],
     "id": "system-file-less",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "less",
+        "commands": [
+          "apt-get install -y less"
+        ]
+      }
+    ],
     "name": "less",
     "namespace": "system:file:less",
     "parameters": [
@@ -54889,6 +56688,22 @@
       "file-system"
     ],
     "id": "system-file-ln",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "ln",
     "namespace": "system:file:ln",
     "parameters": [
@@ -55113,6 +56928,15 @@
       "batch"
     ],
     "id": "system-file-md5sum",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "md5sum",
     "namespace": "system:file:md5sum",
     "parameters": [
@@ -55242,6 +57066,22 @@
       "file-system"
     ],
     "id": "system-file-mv",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "mv",
     "namespace": "system:file:mv",
     "parameters": [
@@ -55450,6 +57290,15 @@
       "file-system"
     ],
     "id": "system-file-od",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "od",
     "namespace": "system:file:od",
     "parameters": [
@@ -55703,6 +57552,15 @@
       "file-system"
     ],
     "id": "system-file-patch",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "patch",
+        "commands": [
+          "apt-get install -y patch"
+        ]
+      }
+    ],
     "name": "patch",
     "namespace": "system:file:patch",
     "parameters": [
@@ -56216,6 +58074,22 @@
       "file-system"
     ],
     "id": "system-file-rm",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "rm",
     "namespace": "system:file:rm",
     "parameters": [
@@ -56344,6 +58218,15 @@
       "batch"
     ],
     "id": "system-file-sha1sum",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "sha1sum",
     "namespace": "system:file:sha1sum",
     "parameters": [
@@ -56475,6 +58358,15 @@
       "batch"
     ],
     "id": "system-file-sha256sum",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "sha256sum",
     "namespace": "system:file:sha256sum",
     "parameters": [
@@ -56620,6 +58512,22 @@
       "file-system"
     ],
     "id": "system-file-sort",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "sort",
     "namespace": "system:file:sort",
     "parameters": [
@@ -56970,6 +58878,15 @@
       "file-system"
     ],
     "id": "system-file-stat",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "stat",
     "namespace": "system:file:stat",
     "parameters": [
@@ -57096,6 +59013,22 @@
       "file-system"
     ],
     "id": "system-file-strings",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "binutils",
+        "commands": [
+          "apt-get install -y binutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "binutils",
+        "commands": [
+          "brew install binutils"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1191"
     ],
@@ -57340,6 +59273,22 @@
       "pipes-stdout"
     ],
     "id": "system-file-tail",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "tail",
     "namespace": "system:file:tail",
     "parameters": [
@@ -57493,6 +59442,22 @@
       "file-system"
     ],
     "id": "system-file-tr",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "tr",
     "namespace": "system:file:tr",
     "parameters": [
@@ -57611,6 +59576,22 @@
       "file-system"
     ],
     "id": "system-file-uniq",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "uniq",
     "namespace": "system:file:uniq",
     "parameters": [
@@ -57784,6 +59765,22 @@
       "file-system"
     ],
     "id": "system-file-wc",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "wc",
     "namespace": "system:file:wc",
     "parameters": [
@@ -57941,6 +59938,22 @@
       "file-system"
     ],
     "id": "system-file-xargs",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "findutils",
+        "commands": [
+          "apt-get install -y findutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "findutils",
+        "commands": [
+          "brew install findutils"
+        ]
+      }
+    ],
     "name": "xargs",
     "namespace": "system:file:xargs",
     "parameters": [
@@ -58250,6 +60263,15 @@
       "batch"
     ],
     "id": "system-file-xxd",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "xxd",
+        "commands": [
+          "apt-get install -y xxd"
+        ]
+      }
+    ],
     "name": "xxd",
     "namespace": "system:file:xxd",
     "parameters": [
@@ -58580,6 +60602,22 @@
     },
     "execution_policy": "enabled",
     "id": "system-io-tee",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "coreutils",
+        "commands": [
+          "brew install coreutils"
+        ]
+      }
+    ],
     "name": "tee",
     "namespace": "system:io:tee",
     "parameters": [
@@ -58687,6 +60725,15 @@
       "process-manip"
     ],
     "id": "system-process-free",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "procps",
+        "commands": [
+          "apt-get install -y procps"
+        ]
+      }
+    ],
     "name": "free",
     "namespace": "system:process:free",
     "parameters": [
@@ -58995,6 +61042,15 @@
       "process-manip"
     ],
     "id": "system-process-ionice",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "util-linux",
+        "commands": [
+          "apt-get install -y util-linux"
+        ]
+      }
+    ],
     "name": "ionice",
     "namespace": "system:process:ionice",
     "parameters": [
@@ -59146,6 +61202,15 @@
       "process-manip"
     ],
     "id": "system-process-kill",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "procps",
+        "commands": [
+          "apt-get install -y procps"
+        ]
+      }
+    ],
     "name": "kill",
     "namespace": "system:process:kill",
     "parameters": [
@@ -59236,6 +61301,15 @@
       "process-manip"
     ],
     "id": "system-process-nice",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "nice",
     "namespace": "system:process:nice",
     "parameters": [
@@ -59319,6 +61393,15 @@
       "process-manip"
     ],
     "id": "system-process-ps",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "procps",
+        "commands": [
+          "apt-get install -y procps"
+        ]
+      }
+    ],
     "name": "ps",
     "namespace": "system:process:ps",
     "parameters": [
@@ -59747,6 +61830,15 @@
       "process-manip"
     ],
     "id": "system-process-timeout",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "timeout",
     "namespace": "system:process:timeout",
     "parameters": [
@@ -59860,6 +61952,15 @@
       "streaming"
     ],
     "id": "system-process-top",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "procps",
+        "commands": [
+          "apt-get install -y procps"
+        ]
+      }
+    ],
     "name": "top",
     "namespace": "system:process:top",
     "parameters": [
@@ -60148,6 +62249,15 @@
       "streaming"
     ],
     "id": "system-process-watch",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "procps",
+        "commands": [
+          "apt-get install -y procps"
+        ]
+      }
+    ],
     "name": "watch",
     "namespace": "system:process:watch",
     "parameters": [
@@ -60385,6 +62495,15 @@
       "requires-root"
     ],
     "id": "system-scheduler-cron",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "cron",
+        "commands": [
+          "apt-get install -y cron"
+        ]
+      }
+    ],
     "name": "cron",
     "namespace": "system:scheduler:cron",
     "parameters": [
@@ -60501,6 +62620,15 @@
       "requires-root"
     ],
     "id": "system-service-journalctl",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "systemd",
+        "commands": [
+          "apt-get install -y systemd"
+        ]
+      }
+    ],
     "name": "journalctl",
     "namespace": "system:service:journalctl",
     "parameters": [
@@ -61286,6 +63414,15 @@
       "requires-root"
     ],
     "id": "system-service-systemctl",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "systemd",
+        "commands": [
+          "apt-get install -y systemd"
+        ]
+      }
+    ],
     "name": "systemctl",
     "namespace": "system:service:systemctl",
     "parameters": [
@@ -62168,6 +64305,15 @@
       "shell": "shell"
     },
     "id": "system-shell-bash",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "bash",
+        "commands": [
+          "apt-get install -y bash"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1202",
       "T1218"
@@ -62295,6 +64441,15 @@
       "local"
     ],
     "id": "system-storage-df",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "df",
     "namespace": "system:storage:df",
     "parameters": [
@@ -62505,6 +64660,15 @@
       "local"
     ],
     "id": "system-storage-du",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "coreutils",
+        "commands": [
+          "apt-get install -y coreutils"
+        ]
+      }
+    ],
     "name": "du",
     "namespace": "system:storage:du",
     "parameters": [
@@ -62802,6 +64966,15 @@
       "local"
     ],
     "id": "system-storage-mount",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "mount",
+        "commands": [
+          "apt-get install -y mount"
+        ]
+      }
+    ],
     "name": "mount",
     "namespace": "system:storage:mount",
     "parameters": [
@@ -63349,6 +65522,15 @@
       "port": "port"
     },
     "id": "system-sync-rsync",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "rsync",
+        "commands": [
+          "apt-get install -y rsync"
+        ]
+      }
+    ],
     "name": "rsync",
     "namespace": "system:sync:rsync",
     "parameters": [
@@ -65131,6 +67313,15 @@
       "interactive"
     ],
     "id": "system-terminal-tmux",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "tmux",
+        "commands": [
+          "apt-get install -y tmux"
+        ]
+      }
+    ],
     "name": "tmux",
     "namespace": "system:terminal:tmux",
     "parameters": [
@@ -66530,6 +68721,22 @@
       "output-json"
     ],
     "id": "text-process-awk",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "gawk",
+        "commands": [
+          "apt-get install -y gawk"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "gawk",
+        "commands": [
+          "brew install gawk"
+        ]
+      }
+    ],
     "name": "awk",
     "namespace": "text:process:awk",
     "parameters": [
@@ -67126,6 +69333,22 @@
       "output-json"
     ],
     "id": "text-process-jq",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "jq",
+        "commands": [
+          "apt-get install -y jq"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "jq",
+        "commands": [
+          "brew install jq"
+        ]
+      }
+    ],
     "name": "jq",
     "namespace": "text:process:jq",
     "parameters": [
@@ -67635,6 +69858,22 @@
       "process-manip"
     ],
     "id": "text-process-sed",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "sed",
+        "commands": [
+          "apt-get install -y sed"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "gnu-sed",
+        "commands": [
+          "brew install gnu-sed"
+        ]
+      }
+    ],
     "name": "sed",
     "namespace": "text:process:sed",
     "parameters": [
@@ -67961,6 +70200,22 @@
       "batch"
     ],
     "id": "text-search-grep",
+    "install": [
+      {
+        "method": "apt",
+        "package_name": "grep",
+        "commands": [
+          "apt-get install -y grep"
+        ]
+      },
+      {
+        "method": "brew",
+        "package_name": "grep",
+        "commands": [
+          "brew install grep"
+        ]
+      }
+    ],
     "mitre_ids": [
       "T1208"
     ],

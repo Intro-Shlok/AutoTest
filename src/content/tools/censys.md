@@ -156,6 +156,11 @@ services: []
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: pip
+      package_name: "censys"
+      commands:
+        - "pip install censys"
 ---
 
 # Censys — Internet Asset Search Engine

@@ -135,6 +135,11 @@ services: []
 attack_types:
   - Enumeration
   - Discovery
+install:
+    - method: go
+      repo_url: "github.com/lc/gau"
+      commands:
+        - "go install github.com/lc/gau/v2/cmd/gau@latest"
 ---
 
 # gau — Get All URLs

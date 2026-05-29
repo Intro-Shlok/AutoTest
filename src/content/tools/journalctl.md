@@ -232,6 +232,11 @@ examples:
     command: "journalctl --help"
 related_tools:
   - system-service-systemctl
+install:
+    - method: apt
+      package_name: "systemd"
+      commands:
+        - "apt-get install -y systemd"
 ---
 
 # journalctl — Query the systemd journal

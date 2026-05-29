@@ -318,6 +318,11 @@ references:
     url: "https://linux.die.net/man/8/traceroute"
   - label: "RFC 1393 — Traceroute using IP Option"
     url: "https://datatracker.ietf.org/doc/html/rfc1393"
+install:
+    - method: apt
+      package_name: "traceroute"
+      commands:
+        - "apt-get install -y traceroute"
 ---
 
 # traceroute — Network Path Discovery

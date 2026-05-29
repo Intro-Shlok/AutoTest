@@ -125,6 +125,11 @@ references:
     url: "https://www.openssl.org/docs/"
   - label: "OpenSSL Cookbook"
     url: "https://www.feistyduck.com/openssl-cookbook/"
+install:
+    - method: apt
+      package_name: "openssl"
+      commands:
+        - "apt-get install -y openssl"
 ---
 
 # OpenSSL — Cryptographic Toolkit

@@ -166,6 +166,11 @@ services: []
 attack_types:
   - Exploitation
   - Discovery
+install:
+    - method: apt
+      package_name: "binwalk"
+      commands:
+        - "apt-get install -y binwalk"
 ---
 
 # Binwalk — Firmware Analysis Tool

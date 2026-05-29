@@ -193,6 +193,11 @@ attack_types:
   - Discovery
 features:
   - requires-root
+install:
+    - method: apt
+      package_name: "hcxdumptool"
+      commands:
+        - "apt-get install -y hcxdumptool"
 ---
 
 # hcxdumptool — WLAN Capture Tool for PMKID

@@ -180,6 +180,11 @@ items:
 services: []
 attack_types:
   - Exploitation
+install:
+    - method: go
+      repo_url: "github.com/BishopFox/sliver"
+      commands:
+        - "go install github.com/BishopFox/sliver@latest"
 ---
 # Sliver — Implant-Based C2 Framework
 

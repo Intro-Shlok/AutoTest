@@ -233,6 +233,15 @@ references:
     url: "https://www.gnu.org/software/sed/manual/"
   - label: "Sed one-liners"
     url: "https://sed.sourceforge.io/sed1line.txt"
+install:
+    - method: apt
+      package_name: "sed"
+      commands:
+        - "apt-get install -y sed"
+    - method: brew
+      package_name: "gnu-sed"
+      commands:
+        - "brew install gnu-sed"
 ---
 
 # Sed — Stream Editor

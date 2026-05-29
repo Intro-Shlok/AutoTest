@@ -110,6 +110,11 @@ techniques:
   - privilege-escalation
 attack_types:
   - Enumeration
+install:
+    - method: apt
+      package_name: "bloodhound"
+      commands:
+        - "apt-get install -y bloodhound"
 ---
 
 # BloodHound — AD Attack Path Mapping
