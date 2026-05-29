@@ -15,6 +15,7 @@ function uniqVals(key) {
   return [...set].sort();
 }
 
+const base = import.meta.env.BASE_URL;
 const phases = uniqVals("phase");
 const items = uniqVals("items");
 const services = uniqVals("services");
@@ -85,7 +86,7 @@ const attackTypes = uniqVals("attack_types");
       const domain = data.namespace.split(":")[0];
       const riskCls = data.risk_level ? `tag-risk-${data.risk_level}` : "";
       return (
-        <a href={`/tools/${data.id}`} class="card" style="text-decoration: none;"
+        <a href={`${base}tools/${data.id}`} class="card" style="text-decoration: none;"
           data-domain={domain}
           data-phase={data.phase || ""}
           data-items={(data.items || []).join(" ")}
