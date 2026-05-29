@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Tool for automatic visual inspection and screenshot capture of websites across large attack surfaces."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/security-web-aquatone.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="security:web:aquatone"><title>aquatone — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">aquatone</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Tool for automatic visual inspection and screenshot capture of websites across large attack surfaces.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;aquatone -out {output-dir} < {input-file}&#34;,&#34;globalVars&#34;:{&#34;output-dir&#34;:&#34;aquatone&#34;,&#34;input-file&#34;:&#34;domains.txt&#34;},&#34;paramNames&#34;:[&#34;output-dir&#34;,&#34;input-file&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>aquatone -out {output-dir} &lt; {input-file}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="output-dir" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 output-dir → aquatone </code> </span><span class="cmd-placeholder" data-ph="input-file" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 input-file → domains.txt </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>aquatone -out {output-dir} &lt; {input-file}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 600s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-web-aquatone</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:web:aquatone</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">aquatone, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:15c656fd73af79afa834bcbc2c5dfefa71844daa4eee842ff241c4df8c8bdc79</span> </div> <div class="info-row"><span class="info-label">Requires</span><span class="info-value" style="font-size:0.8rem;">NoCreds</span></div>  <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">Enumeration</span></div> <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">discovery, recon</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.discovery.asset</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.screenshot.service</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.fingerprint.http</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.enumeration.subdomain</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>domains</code></td> <td>string</td> <td>No</td> <td>-</td> <td>List of domains to scan (space/comma-separated)</td> <td><code>--domains</code></td> </tr><tr> <td><code>screenshot-timeout</code></td> <td>integer</td> <td>No</td> <td>30</td> <td>Timeout for taking screenshots in seconds</td> <td><code>--screenshot-timeout</code></td> </tr><tr> <td><code>scan-timeout</code></td> <td>integer</td> <td>No</td> <td>10</td> <td>Timeout for HTTP requests in seconds</td> <td><code>--scan-timeout</code></td> </tr><tr> <td><code>resolve-timeout</code></td> <td>integer</td> <td>No</td> <td>5</td> <td>Timeout for DNS resolution in seconds</td> <td><code>--resolve-timeout</code></td> </tr><tr> <td><code>threads</code></td> <td>integer</td> <td>No</td> <td>5</td> <td>Number of concurrent threads</td> <td><code>--threads</code></td> </tr><tr> <td><code>chrome-path</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Path to Chrome/Chromium executable</td> <td><code>--chrome-path</code></td> </tr><tr> <td><code>proxy</code></td> <td>string</td> <td>No</td> <td>-</td> <td>HTTP proxy address</td> <td><code>--proxy</code></td> </tr><tr> <td><code>ports</code></td> <td>string</td> <td>No</td> <td>80,443</td> <td>Ports to scan (comma-separated)</td> <td><code>--ports</code></td> </tr><tr> <td><code>http-port</code></td> <td>string</td> <td>No</td> <td>80</td> <td>HTTP ports to check</td> <td><code>--http-port</code></td> </tr><tr> <td><code>https-port</code></td> <td>string</td> <td>No</td> <td>443</td> <td>HTTPS ports to check</td> <td><code>--https-port</code></td> </tr><tr> <td><code>fallback-http</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Fall back to HTTP when HTTPS fails</td> <td><code>--fallback-http</code></td> </tr><tr> <td><code>output-dir</code></td> <td>string</td> <td>No</td> <td>aquatone</td> <td>Directory to write output files</td> <td><code>--output-dir</code>, <code>-out</code></td> </tr><tr> <td><code>quiet</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Suppress verbose output</td> <td><code>--quiet</code></td> </tr><tr> <td><code>sites</code></td> <td>string</td> <td>No</td> <td>-</td> <td>File containing list of sites (one per line)</td> <td><code>--sites</code></td> </tr><tr> <td><code>version</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Show version information</td> <td><code>--version</code>, <code>-v</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>screenshot.png</code></td><td>Website screenshot</td><td>image/png</td><td>-</td><td>verified</td></tr><tr><td><code>report.json</code></td><td>Scan report as JSON</td><td>application/json</td><td>-</td><td>verified</td></tr><tr><td><code>report.html</code></td><td>Visual HTML report with screenshots</td><td>text/html</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.target.domain</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Target domain or list of domains</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.target.file</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">File containing list of domains/hosts</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.target.ports</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Ports to check for HTTP/HTTPS services</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>screenshot.png</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Website screenshot image</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>report.html</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Visual HTML report</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>report.json</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Scan results as JSON</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">network_trafficprocess_spawn</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">screenshot.png</span><span class="tag" style="margin:0.15rem;">report.html</span><span class="tag" style="margin:0.15rem;">report.json</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">network.target.domain</span><span class="tag" style="margin:0.15rem;">network.target.file</span><span class="tag" style="margin:0.15rem;">network.target.ports</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>medium</td></tr> <tr><td>Memory</td><td>512 MB</td></tr> <tr><td>Network</td><td>medium</td></tr> <tr><td>Disk I/O</td><td>medium</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Take screenshots of domains from file</strong></p> <pre><code>cat domains.txt | aquatone -out screenshots</code></pre> </div><div class="example"> <p><strong>Scan specific ports with custom thread count</strong></p> <pre><code>cat domains.txt | aquatone -ports 80,443,8080,8443 -threads 10</code></pre> </div><div class="example"> <p><strong>Use custom Chrome binary</strong></p> <pre><code>cat domains.txt | aquatone -chrome-path /usr/bin/chromium-browser</code></pre> </div><div class="example"> <p><strong>Scan through HTTP proxy</strong></p> <pre><code>cat domains.txt | aquatone -proxy http://127.0.0.1:8080</code></pre> </div><div class="example"> <p><strong>Screenshot with longer timeout</strong></p> <pre><code>cat domains.txt | aquatone -screenshot-timeout 60</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Aquatone — Visual Website Inspection Tool</h1>
+<p>Aquatone is a tool for automatic visual inspection and screenshot capture of websites across a large number of hosts. It helps identify interesting targets and assess attack surface visually. It also performs HTTP header analysis and provides a beautiful HTML report.</p>
+<h2>Basic Usage</h2>
+<pre><code class="language-bash"># Screenshot domains from a file
+cat domains.txt | aquatone -out screenshots
+
+# Scan with custom ports
+cat domains.txt | aquatone -ports 80,443,8080 -threads 10
+
+# Use custom Chrome path
+cat domains.txt | aquatone -chrome-path /usr/bin/chromium-browser
+
+# Scan through proxy
+cat domains.txt | aquatone -proxy http://127.0.0.1:8080
+</code></pre>
+<h2>Output Structure</h2>
+<table>
+<thead>
+<tr>
+<th>File/Directory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>screenshots/</code></td>
+<td>PNG screenshot files</td>
+</tr>
+<tr>
+<td><code>aquatone_report.html</code></td>
+<td>Visual HTML report</td>
+</tr>
+<tr>
+<td><code>aquatone_session.json</code></td>
+<td>Session data</td>
+</tr>
+<tr>
+<td><code>hosts.json</code></td>
+<td>Host resolution data</td>
+</tr>
+<tr>
+<td><code>urls.txt</code></td>
+<td>List of discovered URLs</td>
+</tr>
+</tbody></table>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">httpx</span><span class="tag" style="margin:0.15rem;">eyewitness</span><span class="tag" style="margin:0.15rem;">gowitness</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://github.com/michenriksen/aquatone" target="_blank">Aquatone GitHub</a></li><li><a href="https://www.kali.org/tools/aquatone/" target="_blank">Aquatone on Kali</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

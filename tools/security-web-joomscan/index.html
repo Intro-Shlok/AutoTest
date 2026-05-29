@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Joomla CMS vulnerability scanner that detects component versions, known vulnerabilities, and security misconfigurations."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/security-web-joomscan.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="security:web:joomscan"><title>joomscan — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-medium">medium</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">joomscan</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Joomla CMS vulnerability scanner that detects component versions, known vulnerabilities, and security misconfigurations.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;joomscan -u {target}&#34;,&#34;globalVars&#34;:{&#34;target&#34;:&#34;url&#34;},&#34;paramNames&#34;:[&#34;target&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>joomscan -u {target}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="target" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 target → url </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>joomscan -u {target}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 300s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #fbbf24;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>5.5</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Medium</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 54.50000000000001%; background: #fbbf24;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-web-joomscan</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:web:joomscan</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-medium">medium</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">joomscan, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:d88f4e5205e4feb0adcdc42d23244393e63ba9b96151a4652f2a70e6ef8c276f</span> </div> <div class="info-row"><span class="info-label">Requires</span><span class="info-value" style="font-size:0.8rem;">NoCreds</span></div>  <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">Enumeration</span></div> <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">recon, enumeration, discovery</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.discovery.asset</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.fingerprint.cms</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.vulnerability.scanner</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>web.enumeration.component</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>url</code></td> <td>string</td> <td>Yes</td> <td>-</td> <td>Target Joomla URL (e.g. http://target.com/joomla)</td> <td><code>-u</code>, <code>--url</code></td> </tr><tr> <td><code>threads</code></td> <td>integer</td> <td>No</td> <td>10</td> <td>Number of threads for concurrent scanning</td> <td><code>-t</code>, <code>--threads</code></td> </tr><tr> <td><code>verbose</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Enable verbose output</td> <td><code>-v</code>, <code>--verbose</code></td> </tr><tr> <td><code>output</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Save scan report to file</td> <td><code>-o</code>, <code>--output</code></td> </tr><tr> <td><code>cookie</code></td> <td>string</td> <td>No</td> <td>-</td> <td>HTTP cookie for authenticated scanning</td> <td><code>--cookie</code></td> </tr><tr> <td><code>user-agent</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Custom User-Agent header</td> <td><code>--user-agent</code></td> </tr><tr> <td><code>proxy</code></td> <td>string</td> <td>No</td> <td>-</td> <td>HTTP proxy address (e.g. http://127.0.0.1:8080)</td> <td><code>--proxy</code></td> </tr><tr> <td><code>timeout</code></td> <td>integer</td> <td>No</td> <td>30</td> <td>Request timeout in seconds</td> <td><code>--timeout</code></td> </tr><tr> <td><code>follow-redirects</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Follow HTTP redirects</td> <td><code>--follow-redirects</code></td> </tr><tr> <td><code>no-check-certificate</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Skip SSL certificate validation</td> <td><code>--no-check-certificate</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>report.json</code></td><td>Scan results as JSON</td><td>application/json</td><td>-</td><td>verified</td></tr><tr><td><code>report.html</code></td><td>HTML-formatted scan report</td><td>text/html</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>web.target.url</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Target Joomla URL to scan</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>web.target.cookie</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Session cookie for authenticated scanning</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.proxy</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">HTTP proxy for routing traffic</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>report.json</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Joomscan scan report as JSON</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>report.html</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Joomscan scan report as HTML</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">network_trafficnetwork_traffic</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">report.json</span><span class="tag" style="margin:0.15rem;">report.html</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">web.target.url</span><span class="tag" style="margin:0.15rem;">web.target.cookie</span><span class="tag" style="margin:0.15rem;">network.proxy</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>low</td></tr> <tr><td>Memory</td><td>128 MB</td></tr> <tr><td>Network</td><td>medium</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Basic Joomla scan</strong></p> <pre><code>joomscan -u http://target.com/joomla</code></pre> </div><div class="example"> <p><strong>Scan with authenticated cookie</strong></p> <pre><code>joomscan -u http://target.com/joomla --cookie &quot;session=abc123&quot;</code></pre> </div><div class="example"> <p><strong>Scan using proxy with verbose output</strong></p> <pre><code>joomscan -u http://target.com/joomla --proxy http://127.0.0.1:8080 -v</code></pre> </div><div class="example"> <p><strong>Save scan report to file</strong></p> <pre><code>joomscan -u http://target.com/joomla -o report.html</code></pre> </div><div class="example"> <p><strong>Multi-threaded scan</strong></p> <pre><code>joomscan -u http://target.com/joomla -t 20</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Joomscan — Joomla CMS Vulnerability Scanner</h1>
+<p>Joomscan is a specialized vulnerability scanner for Joomla CMS that detects the core version, installed components, known vulnerabilities, and security misconfigurations.</p>
+<h2>Basic Usage</h2>
+<pre><code class="language-bash"># Basic scan
+joomscan -u http://target.com/joomla
+
+# Scan with proxy through Burp Suite
+joomscan -u http://target.com/joomla --proxy http://127.0.0.1:8080
+
+# Authenticated scan
+joomscan -u http://target.com/joomla --cookie &quot;session=abc123&quot;
+
+# Save HTML report
+joomscan -u http://target.com/joomla -o report.html
+</code></pre>
+<h2>Key Features</h2>
+<ul>
+<li><strong>Version fingerprinting</strong>: Detects Joomla core and extension versions</li>
+<li><strong>Vulnerability database</strong>: Checks against known CVE database</li>
+<li><strong>Component enumeration</strong>: Lists installed third-party components</li>
+<li><strong>Security checks</strong>: Detects common misconfigurations and sensitive files</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">wpscan</span><span class="tag" style="margin:0.15rem;">cmsmap</span><span class="tag" style="margin:0.15rem;">whatweb</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://github.com/rezasp/joomscan" target="_blank">OWASP Joomla Vulnerability Scanner</a></li><li><a href="https://www.kali.org/tools/joomscan/" target="_blank">Joomscan on Kali</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

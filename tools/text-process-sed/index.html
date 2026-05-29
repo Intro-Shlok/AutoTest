@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Stream editor for parsing and transforming text using pattern matching and substitution operations."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/text-process-sed.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="text:process:sed"><title>sed — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">text</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">sed</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Stream editor for parsing and transforming text using pattern matching and substitution operations.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;sed {quiet} {expression} {file} {follow-symlinks} {in-place}&#34;,&#34;globalVars&#34;:{},&#34;paramNames&#34;:[&#34;quiet&#34;,&#34;expression&#34;,&#34;file&#34;,&#34;follow-symlinks&#34;,&#34;in-place&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>sed {quiet} {expression} {file} {follow-symlinks} {in-place}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="quiet" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 quiet </code> </span><span class="cmd-placeholder" data-ph="expression" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 expression </code> </span><span class="cmd-placeholder" data-ph="file" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 file </code> </span><span class="cmd-placeholder" data-ph="follow-symlinks" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 follow-symlinks </code> </span><span class="cmd-placeholder" data-ph="in-place" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 in-place </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>sed {quiet} {expression} {file} {follow-symlinks} {in-place}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 30s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>text-process-sed</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>text:process:sed</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64, cross-platform</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">sed, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:b578a6eb2bb4153721d232e086f7e0d276e1d1e5623eae417785b72db0387901</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">data-manipulation, analysis</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>text.transform.substitute</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>text.transform.delete</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>text.transform.insert</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>text.transform.append</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>text.filter.line</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>text.process.stream</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>quiet</code></td> <td>string</td> <td>No</td> <td>-</td> <td>suppress automatic printing of pattern space --debug annotate program execution</td> <td><code>-n</code>, <code>--quiet</code>, <code>--silent</code></td> </tr><tr> <td><code>expression</code></td> <td>string</td> <td>No</td> <td>-</td> <td>add the script to the commands to be executed</td> <td><code>-e</code>, <code>--expression</code></td> </tr><tr> <td><code>file</code></td> <td>file</td> <td>No</td> <td>-</td> <td>add the contents of script-file to the commands to be executed</td> <td><code>-f</code>, <code>-f</code>, <code>-f</code>, <code>--file</code></td> </tr><tr> <td><code>follow-symlinks</code></td> <td>string</td> <td>No</td> <td>-</td> <td>follow symlinks when processing in place</td> <td><code>--follow-symlinks</code></td> </tr><tr> <td><code>in-place</code></td> <td>string</td> <td>No</td> <td>-</td> <td>edit files in place (makes backup if SUFFIX supplied)</td> <td><code>-i</code>, <code>--in-place</code></td> </tr><tr> <td><code>line-length</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>specify the desired line-wrap length for the `l&#39; command</td> <td><code>-l</code>, <code>--line-length</code></td> </tr><tr> <td><code>posix</code></td> <td>string</td> <td>No</td> <td>-</td> <td>disable all GNU extensions</td> <td><code>--posix</code></td> </tr><tr> <td><code>regexp-extended</code></td> <td>string</td> <td>No</td> <td>-</td> <td>use extended regular expressions in the script (for portability use POSIX -E)</td> <td><code>-E</code>, <code>-r</code>, <code>--regexp-extended</code></td> </tr><tr> <td><code>separate</code></td> <td>string</td> <td>No</td> <td>-</td> <td>consider files as separate rather than as a single, continuous long stream. --sandbox operate in sandbox mode (disable e/r/w commands)</td> <td><code>-s</code>, <code>--separate</code></td> </tr><tr> <td><code>unbuffered</code></td> <td>file</td> <td>No</td> <td>-</td> <td>load minimal amounts of data from the input files and flush the output buffers more often</td> <td><code>-u</code>, <code>--unbuffered</code></td> </tr><tr> <td><code>null-data</code></td> <td>string</td> <td>No</td> <td>-</td> <td>separate lines by NUL characters --help display this help and exit --version output version information and exit</td> <td><code>-z</code>, <code>--null-data</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>text.transformed</code></td><td>Text after sed transformation</td><td>text/plain</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>text.plain</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Input text stream to transform</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>text.transformed</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Text after applying sed script</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;"></code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">text.transformed</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">text.plain</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>low</td></tr> <tr><td>Memory</td><td>8 MB</td></tr> <tr><td>Network</td><td>none</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Find and replace first occurrence per line</strong></p> <pre><code>sed &#39;s/old/new/&#39; file.txt</code></pre> </div><div class="example"> <p><strong>Global find and replace all occurrences</strong></p> <pre><code>sed &#39;s/old/new/g&#39; file.txt</code></pre> </div><div class="example"> <p><strong>In-place edit with backup</strong></p> <pre><code>sed -i.bak &#39;s/foo/bar/g&#39; config.txt</code></pre> </div><div class="example"> <p><strong>Delete lines matching a pattern</strong></p> <pre><code>sed &#39;/^#/d&#39; config.conf</code></pre> </div><div class="example"> <p><strong>Print lines 10-20</strong></p> <pre><code>sed -n &#39;10,20p&#39; file.txt</code></pre> </div><div class="example"> <p><strong>Delete trailing whitespace</strong></p> <pre><code>sed &#39;s/[[:space:]]*$//&#39; file.txt</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Replace multiple space to one</strong></p> <pre><code>sed -e &#39;s/  */ /g&#39;</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Remove the last char</strong></p> <pre><code>sed &#39;s/.$//&#39;</code></pre> </div><div class="example"> <p><strong>Preview a file edit, via substitution.</strong></p> <pre><code>sudo sed &#39;s/Name=Xfce Session/Name=Xfce_Session/&#39; FILE</code></pre> </div><div class="example"> <p><strong>Replace the same string more than once per line (g flag)</strong></p> <pre><code>sudo sed &#39;s/Name=Xfce Session/Name=Xfce_Session/g&#39; FILE</code></pre> </div><div class="example"> <p><strong>Edit a file (adding -i flag), in-place; changes are made to the file(s).</strong></p> <pre><code>sudo sed -i &#39;s/Name=Xfce Session/Name=Xfce_Session/&#39; FILE</code></pre> </div><div class="example"> <p><strong>It can become necessary to escape special characters in your string.</strong></p> <pre><code>sed -i &#39;s/\/path\/to\/somewhere\//\/path\/to\/anotherplace\//&#39; FILE</code></pre> </div><div class="example"> <p><strong>Change your sed delimiter to a pipe to avoid escaping slashes.</strong></p> <pre><code>sed -i &#39;s|/path/to/somewhere/|/path/to/anotherplace/|&#39; FILE</code></pre> </div><div class="example"> <p><strong>Print 2nd line</strong></p> <pre><code>sed -n &#39;2p&#39; FILE</code></pre> </div><div class="example"> <p><strong>Print lines from 2 till 9</strong></p> <pre><code>sed -n &#39;2,9p&#39; FILE</code></pre> </div><div class="example"> <p><strong>Print lines starting from one having pattern &quot;any&quot; till line number 17</strong></p> <pre><code>sed -n &#39;/any/,17p&#39; FILE</code></pre> </div><div class="example"> <p><strong>Print lines starting from the beginning, quit after printing 3rd line</strong></p> <pre><code>sed -n &#39;p;3q&#39;</code></pre> </div><div class="example"> <p><strong>Print and quit at 5th line</strong></p> <pre><code>sed -n &#39;5{p;q}&#39; FILE</code></pre> </div><div class="example"> <p><strong>Print lines starting from the one having pattern &quot;strstart&quot; till the line having pattern &quot;strend&quot;</strong></p> <pre><code>sed -n &#39;/strstart/,/strend/p&#39; FILE</code></pre> </div><div class="example"> <p><strong>Print the last line</strong></p> <pre><code>sed -n &#39;$p&#39; FILE</code></pre> </div><div class="example"> <p><strong>Replace tabs with 4 spaces (changes are written to file itself)</strong></p> <pre><code>sed -i &#39;s/\t/    /g&#39; FILE</code></pre> </div><div class="example"> <p><strong>Replace CRLF with LF (convert DOS/Windows line endings to Linux line endings)</strong></p> <pre><code>sed -i  &#39;s/\r$//g&#39; FILE</code></pre> </div><div class="example"> <p><strong>Insert CR (carriage return) character before LF (line feed) character (Linux to DOS/Windows line endings conversion)</strong></p> <pre><code>sed -i &#39;s/$/\r/&#39; FILE</code></pre> </div><div class="example"> <p><strong>Remove trailing spaces (changes are written to file itself)</strong></p> <pre><code>sed -i -E &quot;s/\s+$//g&quot; FILE</code></pre> </div><div class="example"> <p><strong>Remove empty lines (changes are written to file itself)</strong></p> <pre><code>sed -i -E &quot;/^\s*$/d&quot; FILE</code></pre> </div><div class="example"> <p><strong>Anonymize original MAC address of an Ethernet device in ifconfig&#39;s output (match 6 pairs of hexadecimal numbers with an optional trailing &quot;:&quot;)</strong></p> <pre><code>ifconfig | sed -E &quot;/ether/ s/([0-9a-f]{2}:{0,1}){6}/00:00:00:00:00:00/g&quot;</code></pre> </div><div class="example"> <p><strong>Rearrange order of %Y,%m,%d in `date`s output by matching groups of characters</strong></p> <pre><code>date &#39;+%Y-%m-%d&#39; | sed -E &quot;s/([0-9]{4})-([0-9]{2})-([0-9]{2})/\3-\2-\1/&quot;</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Sed — Stream Editor</h1>
+<p>Sed is a non-interactive stream editor that performs text transformations on input streams. It&#39;s ideal for automated text processing in scripts and pipelines, particularly find-and-replace operations.</p>
+<h2>Substitution</h2>
+<pre><code class="language-bash"># Basic substitution (first match per line)
+sed &#39;s/pattern/replacement/&#39; file.txt
+
+# Global substitution (all matches)
+sed &#39;s/pattern/replacement/g&#39; file.txt
+
+# Case-insensitive
+sed &#39;s/pattern/replacement/gi&#39; file.txt
+
+# Replace only on specific lines
+sed &#39;3s/pattern/replacement/&#39; file.txt
+sed &#39;10,20s/pattern/replacement/g&#39; file.txt
+</code></pre>
+<h2>Line Operations</h2>
+<pre><code class="language-bash"># Delete lines
+sed &#39;5d&#39; file.txt               # Delete line 5
+sed &#39;/^$/d&#39; file.txt             # Delete empty lines
+sed &#39;/^#/d&#39; file.txt             # Delete comments
+
+# Print specific lines
+sed -n &#39;5p&#39; file.txt             # Print line 5 only
+sed -n &#39;/error/p&#39; file.txt       # Print lines containing &#39;error&#39;
+
+# Insert and append
+sed &#39;2i\inserted line&#39; file.txt  # Insert before line 2
+sed &#39;2a\appended line&#39; file.txt  # Append after line 2
+</code></pre>
+<h2>In-Place Editing</h2>
+<pre><code class="language-bash"># Edit file directly (BSD/macOS requires space)
+sed -i &#39;&#39; &#39;s/foo/bar/g&#39; file.txt     # macOS
+sed -i &#39;s/foo/bar/g&#39; file.txt         # Linux
+
+# Create backup
+sed -i.bak &#39;s/foo/bar/g&#39; file.txt
+</code></pre>
+<h2>Multiple Commands</h2>
+<pre><code class="language-bash"># Chain with -e
+sed -e &#39;s/foo/bar/&#39; -e &#39;/^$/d&#39; file.txt
+
+# Chain with semicolons
+sed &#39;s/foo/bar/; /^$/d&#39; file.txt
+
+# From a script file
+sed -f script.sed file.txt
+</code></pre>
+<h2>Related Tools</h2>
+<ul>
+<li><strong><a href="../process/awk.md">awk</a></strong> — Field-oriented text processing</li>
+<li><strong><a href="../../search/grep.md">grep</a></strong> — Pattern search and filtering</li>
+<li><strong><a href="../../transform/tr.md">tr</a></strong> — Character translation</li>
+<li><strong><a href="../../transform/cut.md">cut</a></strong> — Field extraction</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">cut</span><span class="tag" style="margin:0.15rem;">grep</span><span class="tag" style="margin:0.15rem;">tr</span><span class="tag" style="margin:0.15rem;">awk</span><span class="tag" style="margin:0.15rem;">system-file-tr</span><span class="tag" style="margin:0.15rem;">text-process-awk</span><span class="tag" style="margin:0.15rem;">text-search-grep</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://www.gnu.org/software/sed/manual/" target="_blank">GNU Sed manual</a></li><li><a href="https://sed.sourceforge.io/sed1line.txt" target="_blank">Sed one-liners</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Find printable strings in binary files"><link rel="alternate" type="text/markdown" href="/AutoTest/tools/system-file-strings.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="system:file:strings"><title>strings — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">system</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">strings</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Find printable strings in binary files</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;strings -a {all} -d {data} -f {print-file-name} -n {flag-n} --bytes {bytes}&#34;,&#34;globalVars&#34;:{},&#34;paramNames&#34;:[&#34;all&#34;,&#34;data&#34;,&#34;print-file-name&#34;,&#34;flag-n&#34;,&#34;bytes&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>strings -a {all} -d {data} -f {print-file-name} -n {flag-n} --bytes {bytes}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="all" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 all </code> </span><span class="cmd-placeholder" data-ph="data" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 data </code> </span><span class="cmd-placeholder" data-ph="print-file-name" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 print-file-name </code> </span><span class="cmd-placeholder" data-ph="flag-n" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 flag-n </code> </span><span class="cmd-placeholder" data-ph="bytes" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 bytes </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>strings -a {all} -d {data} -f {print-file-name} -n {flag-n} --bytes {bytes}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 30s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>system-file-strings</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>system:file:strings</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div>  <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:af0dd4cf7345de7e5bd06d3f1dabf4f5ed7f01c1b7242f6932105d9cbf844915</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">collection, data-manipulation, credential-access, defense-evasion, execution, persistence, privilege-escalation, process-manip</span></div> <div class="info-row"><span class="info-label">MITRE IDs</span><span class="info-value" style="font-size:0.8rem;">T1191</span></div> </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.strings</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.search</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.process</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.copy</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.move</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.delete</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>all</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Scan the entire file, not just the data section [default]</td> <td><code>-a</code>, <code>--all</code></td> </tr><tr> <td><code>data</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Only scan the data sections in the file</td> <td><code>-d</code>, <code>--data</code></td> </tr><tr> <td><code>print-file-name</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print the name of the file before each string</td> <td><code>-f</code>, <code>--print-file-name</code></td> </tr><tr> <td><code>flag-n</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Locate &amp; print any sequence of at least &lt;number&gt;</td> <td><code>-n</code></td> </tr><tr> <td><code>bytes</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>displayable characters. (The default is 4)</td> <td><code>--bytes</code></td> </tr><tr> <td><code>radix</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print the location of the string in base 8, 10 or 16</td> <td><code>-t</code>, <code>--radix</code></td> </tr><tr> <td><code>include-all-whitespace I</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the include-all-whitespace I parameter</td> <td><code>-w</code>, <code>--include-all-whitespace I</code></td> </tr><tr> <td><code>flag-o</code></td> <td>string</td> <td>No</td> <td>-</td> <td>An alias for --radix=o</td> <td><code>-o</code></td> </tr><tr> <td><code>target</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Specify the binary file format</td> <td><code>-T</code>, <code>--target</code></td> </tr><tr> <td><code>encoding</code></td> <td>string</td> <td>No</td> <td>-</td> <td>s = 7-bit, S = 8-bit, {b,l} = 16-bit, {B,L} = 32-bit</td> <td><code>-e</code>, <code>--encoding</code></td> </tr><tr> <td><code>unicode</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the unicode parameter</td> <td><code>--unicode</code></td> </tr><tr> <td><code>flag-U</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Specify how to treat UTF-8 encoded unicode characters</td> <td><code>-U</code></td> </tr><tr> <td><code>output-separator</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the output-separator parameter</td> <td><code>-s</code>, <code>--output-separator</code></td> </tr><tr> <td><code>help</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Display this information</td> <td><code>-h</code>, <code>--help</code></td> </tr><tr> <td><code>version</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print the program&#39;s version number</td> <td><code>-v</code>, <code>-V</code>, <code>--version</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Basic usage with all</strong></p> <pre><code>strings ${all}</code></pre> </div><div class="example"> <p><strong>Display help message</strong></p> <pre><code>strings --help</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>strings — Find printable strings in binary files</h1>
+<h2>Overview</h2>
+<p><code>strings</code> is a command-line utility for find printable strings in binary files.</p>
+<h2>Usage</h2>
+<pre><code>strings -a {all} -d {data} -f {print-file-name} -n {flag-n} --bytes {bytes}
+</code></pre>
+</div> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

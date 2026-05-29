@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Execute a program periodically"><link rel="alternate" type="text/markdown" href="/AutoTest/tools/system-process-watch.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="system:process:watch"><title>watch — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">system</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">watch</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Execute a program periodically</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;watch -b {beep} -c {color} -C {no-color} -d {differences} -e {errexit}&#34;,&#34;globalVars&#34;:{},&#34;paramNames&#34;:[&#34;beep&#34;,&#34;color&#34;,&#34;no-color&#34;,&#34;differences&#34;,&#34;errexit&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>watch -b {beep} -c {color} -C {no-color} -d {differences} -e {errexit}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="beep" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 beep </code> </span><span class="cmd-placeholder" data-ph="color" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 color </code> </span><span class="cmd-placeholder" data-ph="no-color" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 no-color </code> </span><span class="cmd-placeholder" data-ph="differences" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 differences </code> </span><span class="cmd-placeholder" data-ph="errexit" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 errexit </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>watch -b {beep} -c {color} -C {no-color} -d {differences} -e {errexit}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 30s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>system-process-watch</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>system:process:watch</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div>  <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:9521b2b8e5b11ab7b5f632a8a2be533e454cf4adb0f6bad2f7dcf23380044658</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">execution, impact, command-and-control, defense-evasion, discovery, enumeration, persistence, privilege-escalation, process-manip</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.process.watch</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.process.list</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.process.signal</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.process.monitor</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>beep</code></td> <td>string</td> <td>No</td> <td>-</td> <td>beep if command has a non-zero exit</td> <td><code>-b</code>, <code>--beep</code></td> </tr><tr> <td><code>color</code></td> <td>string</td> <td>No</td> <td>-</td> <td>interpret ANSI color and style sequences</td> <td><code>-c</code>, <code>--color</code></td> </tr><tr> <td><code>no-color</code></td> <td>string</td> <td>No</td> <td>-</td> <td>do not interpret ANSI color and style sequences</td> <td><code>-C</code>, <code>--no-color</code></td> </tr><tr> <td><code>differences</code></td> <td>string</td> <td>No</td> <td>-</td> <td>highlight changes between updates</td> <td><code>-d</code>, <code>--differences</code></td> </tr><tr> <td><code>errexit</code></td> <td>string</td> <td>No</td> <td>-</td> <td>exit if command has a non-zero exit</td> <td><code>-e</code>, <code>--errexit</code></td> </tr><tr> <td><code>chgexit</code></td> <td>string</td> <td>No</td> <td>-</td> <td>exit when output from command changes</td> <td><code>-g</code>, <code>--chgexit</code></td> </tr><tr> <td><code>equexit</code></td> <td>string</td> <td>No</td> <td>-</td> <td>exit when output from command does not change</td> <td><code>-q</code>, <code>--equexit &lt;cycles&gt;</code></td> </tr><tr> <td><code>interval</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the interval parameter</td> <td><code>-n</code>, <code>--interval &lt;secs&gt;</code></td> </tr><tr> <td><code>precise</code></td> <td>number</td> <td>No</td> <td>-</td> <td>attempt run command in precise intervals</td> <td><code>-p</code>, <code>--precise</code></td> </tr><tr> <td><code>no-rerun</code></td> <td>string</td> <td>No</td> <td>-</td> <td>do not rerun program on window resize</td> <td><code>-r</code>, <code>--no-rerun</code></td> </tr><tr> <td><code>no-title</code></td> <td>string</td> <td>No</td> <td>-</td> <td>turn off header</td> <td><code>-t</code>, <code>--no-title</code></td> </tr><tr> <td><code>no-wrap</code></td> <td>string</td> <td>No</td> <td>-</td> <td>turn off line wrapping</td> <td><code>-w</code>, <code>--no-wrap</code></td> </tr><tr> <td><code>exec</code></td> <td>string</td> <td>No</td> <td>-</td> <td>pass command to exec instead of &quot;sh -c&quot;</td> <td><code>-x</code>, <code>--exec</code></td> </tr><tr> <td><code>help</code></td> <td>string</td> <td>No</td> <td>-</td> <td>display this help and exit</td> <td><code>-h</code>, <code>--help</code></td> </tr><tr> <td><code>version</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the version parameter</td> <td><code>-v</code>, <code>--version</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Basic usage with beep</strong></p> <pre><code>watch ${beep}</code></pre> </div><div class="example"> <p><strong>Display help message</strong></p> <pre><code>watch --help</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>watch — Execute a program periodically</h1>
+<h2>Overview</h2>
+<p><code>watch</code> is a command-line utility for execute a program periodically.</p>
+<h2>Usage</h2>
+<pre><code>watch -b {beep} -c {color} -C {no-color} -d {differences} -e {errexit}
+</code></pre>
+</div> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

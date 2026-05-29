@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Container platform for developing, shipping, and running applications in isolated environments."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/container-runtime-docker.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="container:runtime:docker"><title>docker — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">container</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-medium">medium</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">docker</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Container platform for developing, shipping, and running applications in isolated environments.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;docker {config} {context} {debug} {host} {log-level}&#34;,&#34;globalVars&#34;:{&#34;host&#34;:&#34;ip&#34;},&#34;paramNames&#34;:[&#34;config&#34;,&#34;context&#34;,&#34;debug&#34;,&#34;host&#34;,&#34;log-level&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>docker {config} {context} {debug} {host} {log-level}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="config" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 config </code> </span><span class="cmd-placeholder" data-ph="context" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 context </code> </span><span class="cmd-placeholder" data-ph="debug" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 debug </code> </span><span class="cmd-placeholder" data-ph="host" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 host → ip </code> </span><span class="cmd-placeholder" data-ph="log-level" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 log-level </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>docker {config} {context} {debug} {host} {log-level}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: docker &middot; Timeout: 300s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #fbbf24;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>5.5</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Medium</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 54.50000000000001%; background: #fbbf24;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>container-runtime-docker</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>container:runtime:docker</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-medium">medium</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, windows</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">docker, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:83e0c10967cfd95e680178df0d48fc51d93c898e32388029a9d217055f3b37a8</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">command-and-control, lateral-movement</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.runtime.execute</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.image.build</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.image.publish</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.orchestration.compose</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.storage.volume</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.network.manage</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>config</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Location of client config files (default</td> <td><code>--config</code></td> </tr><tr> <td><code>context</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Name of the context to use to connect to the</td> <td><code>-c</code>, <code>--context</code></td> </tr><tr> <td><code>debug</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Enable debug mode</td> <td><code>-D</code>, <code>--debug</code></td> </tr><tr> <td><code>host</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Daemon socket to connect to</td> <td><code>-H</code>, <code>--host</code></td> </tr><tr> <td><code>log-level</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the logging level (&quot;debug&quot;, &quot;info&quot;</td> <td><code>-l</code>, <code>--log-level</code></td> </tr><tr> <td><code>tls</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Use TLS; implied by --tlsverify</td> <td><code>--tls</code></td> </tr><tr> <td><code>tlscacert</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Trust certs signed only by this CA (default</td> <td><code>--tlscacert</code></td> </tr><tr> <td><code>tlscert</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Path to TLS certificate file (default</td> <td><code>--tlscert</code></td> </tr><tr> <td><code>tlskey</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Path to TLS key file (default</td> <td><code>--tlskey</code></td> </tr><tr> <td><code>tlsverify</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Use TLS and verify the remote</td> <td><code>--tlsverify</code></td> </tr><tr> <td><code>version</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print version information and quit</td> <td><code>-v</code>, <code>--version</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>container.image.oci</code></td><td>Built or pulled OCI container image</td><td>application/vnd.oci.image.manifest.v1+json</td><td>1.0.0</td><td>verified</td></tr><tr><td><code>container.runtime.logs</code></td><td>Log output from container execution</td><td>text/plain</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.image.dockerfile</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Dockerfile for image build</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.image.oci</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Base container image</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.image.oci</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Built or pulled container image</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.runtime.logs</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Container execution logs</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">network_trafficfilesystem_writeprocess_spawn</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">container.image.oci</span><span class="tag" style="margin:0.15rem;">container.runtime.logs</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">container.image.dockerfile</span><span class="tag" style="margin:0.15rem;">container.image.oci</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>high</td></tr> <tr><td>Memory</td><td>1024 MB</td></tr> <tr><td>Network</td><td>high</td></tr> <tr><td>Disk I/O</td><td>high</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Run an interactive container</strong></p> <pre><code>docker run -it --rm ubuntu:latest bash</code></pre> </div><div class="example"> <p><strong>Build an image from Dockerfile</strong></p> <pre><code>docker build -t myapp:latest .</code></pre> </div><div class="example"> <p><strong>Run a web server with port mapping</strong></p> <pre><code>docker run -d -p 80:80 --name web nginx:alpine</code></pre> </div><div class="example"> <p><strong>Execute command in running container</strong></p> <pre><code>docker exec -it mycontainer ps aux</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Remove docker image</strong></p> <pre><code>docker image rm [image_id]</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Delete an image from the local image store</strong></p> <pre><code>docker rmi [image_id]</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: List all images that are locally stored with the Docker Engine</strong></p> <pre><code>docker images</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: List all containers that are locally stored with the Docker Engine</strong></p> <pre><code>docker ps -a</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: List all containers that are currently running</strong></p> <pre><code>docker ps -q</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Stop a running container</strong></p> <pre><code>docker stop [container_id]</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Stop all running containers</strong></p> <pre><code>docker stop $(docker ps -a -q)</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Build an image from the Dockerfile in the current directory and tag the image</strong></p> <pre><code>docker build -t [image_name] .</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Pull an image from a registry</strong></p> <pre><code>docker pull [image_name]:[tag]</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Create a new bash process inside the container and connect it to the terminal</strong></p> <pre><code>docker exec -it [container_id] bash</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Print the last lines of a container’s logs</strong></p> <pre><code>docker logs --tail 100 [container_id] | less</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Print the last lines of a container’s logs and follow</strong></p> <pre><code>docker logs -f --tail 100 [container_id]</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Create new network</strong></p> <pre><code>docker network create [network_name]</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: List all networks</strong></p> <pre><code>docker network ls</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Builds, (re)creates, starts, and attaches to containers for all services</strong></p> <pre><code>docker-compose up</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Builds, (re)creates, starts, and dettaches to containers for all services</strong></p> <pre><code>docker-compose up -d</code></pre> </div><div class="example"> <p><strong>Darkiros UTILS: Stops containers and removes containers, networks, volumes, and images created by up</strong></p> <pre><code>docker-compose down</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Docker — Container Platform</h1>
+<p>Docker is the industry-standard container platform that enables developers to package applications and their dependencies into lightweight, portable containers that run consistently across any environment.</p>
+<h2>Core Architecture</h2>
+<p>Docker uses a client-server architecture:</p>
+<ul>
+<li><strong>Docker Daemon</strong> (<code>dockerd</code>): Background service managing containers, images, networks, and volumes</li>
+<li><strong>Docker CLI</strong> (<code>docker</code>): Command-line interface that communicates with the daemon via REST API</li>
+<li><strong>Docker Registry</strong>: Storage and distribution system for container images (default: Docker Hub)</li>
+</ul>
+<h2>Container Lifecycle</h2>
+<pre><code class="language-mermaid">flowchart LR
+    A[Dockerfile] --&gt;|docker build| B[Image]
+    B --&gt;|docker push| C[Registry]
+    C --&gt;|docker pull| B
+    B --&gt;|docker run| D[Container]
+    D --&gt;|docker stop| E[Stopped]
+    E --&gt;|docker start| D
+    E --&gt;|docker rm| F[Removed]
+</code></pre>
+<h2>Docker Compose</h2>
+<p>For multi-container applications, <code>docker compose</code> defines services, networks, and volumes in a YAML file:</p>
+<pre><code class="language-yaml"># docker-compose.yml
+version: &quot;3.9&quot;
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - &quot;80:80&quot;
+  database:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
+</code></pre>
+<pre><code class="language-bash"># Start all services
+docker compose up -d
+
+# View logs
+docker compose logs -f
+
+# Tear down
+docker compose down -v
+</code></pre>
+<h2>Security Best Practices</h2>
+<ul>
+<li>Never run containers with <code>--privileged</code> in production</li>
+<li>Use read-only root filesystems (<code>--read-only</code>)</li>
+<li>Drop unnecessary Linux capabilities (<code>--cap-drop ALL</code>)</li>
+<li>Scan images for vulnerabilities (<code>docker scan</code> or Trivy)</li>
+<li>Use distroless or scratch base images to reduce attack surface</li>
+</ul>
+<h2>Related Tools</h2>
+<ul>
+<li><strong><a href="../../container/image/podman.md">podman</a></strong> — Daemonless container engine (drop-in Docker replacement)</li>
+<li><strong><a href="../../container/orchestration/kubernetes.md">kubernetes</a></strong> — Container orchestration platform</li>
+<li><strong><a href="../../container/orchestration/docker-compose.md">docker-compose</a></strong> — Multi-container application definition</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">podman</span><span class="tag" style="margin:0.15rem;">containerd</span><span class="tag" style="margin:0.15rem;">nerdctl</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://docs.docker.com/" target="_blank">Docker documentation</a></li><li><a href="https://docs.docker.com/engine/reference/builder/" target="_blank">Dockerfile reference</a></li><li><a href="https://docs.docker.com/engine/reference/commandline/cli/" target="_blank">Docker CLI reference</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

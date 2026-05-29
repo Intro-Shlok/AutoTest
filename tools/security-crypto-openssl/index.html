@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Comprehensive cryptographic toolkit for SSL/TLS, certificate management, encryption, hashing, and key generation."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/security-crypto-openssl.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="security:crypto:openssl"><title>openssl — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">openssl</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Comprehensive cryptographic toolkit for SSL/TLS, certificate management, encryption, hashing, and key generation.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;openssl {action} {algorithm} {input} {output}&#34;,&#34;globalVars&#34;:{&#34;target&#34;:&#34;ip&#34;,&#34;port&#34;:&#34;port&#34;},&#34;paramNames&#34;:[&#34;action&#34;,&#34;algorithm&#34;,&#34;input&#34;,&#34;output&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>openssl {action} {algorithm} {input} {output}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="action" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 action </code> </span><span class="cmd-placeholder" data-ph="algorithm" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 algorithm </code> </span><span class="cmd-placeholder" data-ph="input" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 input </code> </span><span class="cmd-placeholder" data-ph="output" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 output </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>openssl {action} {algorithm} {input} {output}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 60s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-crypto-openssl</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:crypto:openssl</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64, cross-platform</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">openssl, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:cd2771130623db46cc7ff9a3bbeacffdbceac0f28d9ed8542cbbe0adcb4ed28f</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">credential-access, encryption, privilege-escalation</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.hash</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.encrypt</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.decrypt</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.sign</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.verify</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.keygen</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.certificate</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.crypto.csr</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.tls.connect</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.tls.inspect</code> </div> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>security.certificate.pem</code></td><td>X.509 certificate (PEM or DER)</td><td>application/x-pem-file</td><td>1.0.0</td><td>verified</td></tr><tr><td><code>security.key.private</code></td><td>Private key</td><td>application/x-pem-file</td><td>-</td><td>verified</td></tr><tr><td><code>security.key.public</code></td><td>Public key</td><td>application/x-pem-file</td><td>-</td><td>verified</td></tr><tr><td><code>security.certificate.csr</code></td><td>Certificate Signing Request</td><td>application/x-pem-file</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>data.raw</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Input data for hashing, encryption, or signing</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>security.key.private</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Private key for signing or decryption</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>data.hashed</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Hash or digest output</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>data.encrypted</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Encrypted data</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>security.certificate.pem</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Generated X.509 certificate</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">filesystem_write</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">data.hashed</span><span class="tag" style="margin:0.15rem;">data.encrypted</span><span class="tag" style="margin:0.15rem;">security.certificate.pem</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">data.raw</span><span class="tag" style="margin:0.15rem;">security.key.private</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>medium</td></tr> <tr><td>Memory</td><td>32 MB</td></tr> <tr><td>Network</td><td>none</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Generate an RSA private key</strong></p> <pre><code>openssl genrsa -out private.pem 2048</code></pre> </div><div class="example"> <p><strong>Generate a self-signed certificate</strong></p> <pre><code>openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes</code></pre> </div><div class="example"> <p><strong>Compute SHA-256 hash of a file</strong></p> <pre><code>openssl dgst -sha256 file.txt</code></pre> </div><div class="example"> <p><strong>Encrypt a file with AES-256</strong></p> <pre><code>openssl enc -aes-256-cbc -salt -in plain.txt -out encrypted.enc</code></pre> </div><div class="example"> <p><strong>Connect to an HTTPS server and inspect certificate</strong></p> <pre><code>openssl s_client -connect example.com:443 -showcerts</code></pre> </div><div class="example"> <p><strong>View certificate details</strong></p> <pre><code>openssl x509 -in cert.pem -text -noout</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>OpenSSL — Cryptographic Toolkit</h1>
+<p>OpenSSL is the industry-standard cryptographic library that provides tools for SSL/TLS, certificate management, encryption, and hashing. It&#39;s essential for secure communications and data protection.</p>
+<h2>Certificate Management</h2>
+<h3>Generate Certificate Authority</h3>
+<pre><code class="language-bash"># Generate CA private key
+openssl genrsa -out ca-key.pem 4096
+
+# Generate CA certificate
+openssl req -x509 -new -key ca-key.pem -out ca-cert.pem -days 3650
+</code></pre>
+<h3>Generate Server Certificate</h3>
+<pre><code class="language-bash"># Generate server private key
+openssl genrsa -out server-key.pem 2048
+
+# Generate CSR
+openssl req -new -key server-key.pem -out server.csr
+
+# Sign with CA
+openssl x509 -req -in server.csr -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -days 365
+</code></pre>
+<h2>Encryption &amp; Decryption</h2>
+<pre><code class="language-bash"># Encrypt a file with password
+openssl enc -aes-256-cbc -salt -in secret.txt -out secret.enc -pbkdf2
+
+# Decrypt
+openssl enc -d -aes-256-cbc -in secret.enc -out secret.txt -pbkdf2
+
+# Encrypt with key file
+openssl rsautl -encrypt -pubin -inkey public.pem -in plain.txt -out encrypted.bin
+</code></pre>
+<h2>TLS Connection Testing</h2>
+<pre><code class="language-bash"># Test HTTPS connection
+openssl s_client -connect example.com:443 -servername example.com
+
+# Show certificate chain
+openssl s_client -connect example.com:443 -showcerts &lt;/dev/null
+
+# Test TLS version support
+openssl s_client -tls1_2 -connect example.com:443
+</code></pre>
+<h2>Hashing</h2>
+<pre><code class="language-bash"># Compute hash of a file
+openssl dgst -sha256 file.txt
+openssl sha256 file.txt
+
+# HMAC
+echo -n &quot;data&quot; | openssl dgst -sha256 -hmac &quot;key&quot;
+</code></pre>
+<h2>Related Tools</h2>
+<ul>
+<li><strong><a href="../../crypto/certbot.md">certbot</a></strong> — Let&#39;s Encrypt certificate automation</li>
+<li><strong><a href="../../crypto/cfssl.md">cfssl</a></strong> — CloudFlare&#39;s PKI toolkit</li>
+<li><strong><a href="../../crypto/easyrsa.md">easyrsa</a></strong> — Simple CA management</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">gnutls</span><span class="tag" style="margin:0.15rem;">certbot</span><span class="tag" style="margin:0.15rem;">cfssl</span><span class="tag" style="margin:0.15rem;">easyrsa</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://www.openssl.org/docs/" target="_blank">OpenSSL documentation</a></li><li><a href="https://www.feistyduck.com/openssl-cookbook/" target="_blank">OpenSSL Cookbook</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

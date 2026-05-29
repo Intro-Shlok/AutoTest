@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Python CTF framework and exploit development library for binary exploitation, shellcode generation, and ROP chain building."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/security-reverse-pwntools.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="security:reverse:pwntools"><title>pwntools — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-medium">medium</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">pwntools</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Python CTF framework and exploit development library for binary exploitation, shellcode generation, and ROP chain building.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;python3 -c \&#34;from pwn import *; {command}\&#34;&#34;,&#34;globalVars&#34;:{&#34;binary&#34;:&#34;&#34;,&#34;command&#34;:&#34;&#34;},&#34;paramNames&#34;:[&#34;command&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>python3 -c &quot;from pwn import *; {command}&quot;</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="command" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 command →  </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>python3 -c &quot;from pwn import *; {command}&quot;</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 120s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #fbbf24;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>5.5</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Medium</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 54.50000000000001%; background: #fbbf24;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-reverse-pwntools</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:reverse:pwntools</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-medium">medium</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">python3, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:c397944b6b16bcf2850310ee2cbcccbc3b7f47c6c310fda74b6d5e0ce68d1239</span> </div> <div class="info-row"><span class="info-label">Requires</span><span class="info-value" style="font-size:0.8rem;">NoCreds</span></div>  <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">Exploitation, Discovery</span></div> <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">discovery, execution</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>exploit.development</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>shellcode.generation</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>rop.chain</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>binary.analysis</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>reverse.patching</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>checksec</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Check binary security hardening (via checksec script)</td> <td><code>checksec</code></td> </tr><tr> <td><code>asm</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Assemble instructions to bytes</td> <td><code>asm</code></td> </tr><tr> <td><code>disasm</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Disassemble bytes to instructions</td> <td><code>disasm</code></td> </tr><tr> <td><code>cyclic</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>Generate cyclic pattern of given length</td> <td><code>cyclic</code></td> </tr><tr> <td><code>hex</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Convert bytes to hex string</td> <td><code>hex</code></td> </tr><tr> <td><code>unhex</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Convert hex string to bytes</td> <td><code>unhex</code></td> </tr><tr> <td><code>constgrep</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Search for constants by regex</td> <td><code>constgrep</code></td> </tr><tr> <td><code>errno</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Look up errno values</td> <td><code>errno</code></td> </tr><tr> <td><code>update</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Update pwntools to the latest version</td> <td><code>update</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>file.binary</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Binary to analyze</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>exploit.script</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Python exploit script</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>exploit.shellcode</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Generated shellcode bytes</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">process_spawnnetwork_traffic</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">exploit.script</span><span class="tag" style="margin:0.15rem;">exploit.shellcode</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">file.binary</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>medium</td></tr> <tr><td>Memory</td><td>256 MB</td></tr> <tr><td>Network</td><td>low</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Check binary security mitigations</strong></p> <pre><code>python3 -m pwn checksec /bin/ls</code></pre> </div><div class="example"> <p><strong>Generate cyclic pattern</strong></p> <pre><code>python3 -c &quot;from pwn import *; print(cyclic(100))&quot;</code></pre> </div><div class="example"> <p><strong>Disassemble bytes</strong></p> <pre><code>python3 -c &quot;from pwn import *; print(disasm(b&#39;\\x90\\x90&#39;))&quot;</code></pre> </div><div class="example"> <p><strong>Assemble instructions</strong></p> <pre><code>python3 -c &quot;from pwn import *; print(asm(&#39;nop&#39;))&quot;</code></pre> </div><div class="example"> <p><strong>Convert hex to bytes and back</strong></p> <pre><code>python3 -c &quot;from pwn import *; print(unhex(&#39;48656c6c6f&#39;)); print(hex(b&#39;Hello&#39;))&quot;</code></pre> </div><div class="example"> <p><strong>Build and send a ROP chain</strong></p> <pre><code>python3 exploit.py</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>pwntools — CTF Exploit Development Framework</h1>
+<p>pwntools is a Python library designed for CTF (Capture The Flag) binary exploitation. It streamlines common tasks such as assembling shellcode, building ROP chains, connecting to remote services, and debugging exploits locally.</p>
+<h2>Key Modules</h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>pwn.asm</code></td>
+<td>Assemble and disassemble instructions</td>
+</tr>
+<tr>
+<td><code>pwn.elf</code></td>
+<td>ELF binary parsing and patching</td>
+</tr>
+<tr>
+<td><code>pwn.rop</code></td>
+<td>Automatic ROP chain building</td>
+</tr>
+<tr>
+<td><code>pwn.shellcraft</code></td>
+<td>Shellcode template generation</td>
+</tr>
+<tr>
+<td><code>pwn.cyclic</code></td>
+<td>Pattern generation for offset discovery</td>
+</tr>
+</tbody></table>
+<h2>Common Pattern</h2>
+<pre><code class="language-python">from pwn import *
+
+elf = ELF(&#39;./vuln&#39;)
+rop = ROP(elf)
+rop.call(&#39;system&#39;, [next(elf.search(b&#39;/bin/sh&#39;))])
+io = process(&#39;./vuln&#39;)
+io.sendline(rop.chain())
+io.interactive()
+</code></pre>
+</div> </div><div class="section"> <h2>Dependencies</h2> <span class="tag" style="margin:0.15rem;">python3</span> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">gdb</span><span class="tag" style="margin:0.15rem;">ropgadget</span><span class="tag" style="margin:0.15rem;">checksec</span><span class="tag" style="margin:0.15rem;">pwndbg</span> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

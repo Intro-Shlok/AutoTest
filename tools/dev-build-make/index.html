@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Build automation tool for compiling and managing project dependencies using Makefile-based rule definitions."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/dev-build-make.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="dev:build:make"><title>make — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">dev</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">make</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Build automation tool for compiling and managing project dependencies using Makefile-based rule definitions.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;make {flag-b} {always-make} {directory} {flag-d} {debug}&#34;,&#34;globalVars&#34;:{},&#34;paramNames&#34;:[&#34;flag-b&#34;,&#34;always-make&#34;,&#34;directory&#34;,&#34;flag-d&#34;,&#34;debug&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>make {flag-b} {always-make} {directory} {flag-d} {debug}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="flag-b" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 flag-b </code> </span><span class="cmd-placeholder" data-ph="always-make" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 always-make </code> </span><span class="cmd-placeholder" data-ph="directory" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 directory </code> </span><span class="cmd-placeholder" data-ph="flag-d" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 flag-d </code> </span><span class="cmd-placeholder" data-ph="debug" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 debug </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>make {flag-b} {always-make} {directory} {flag-d} {debug}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 600s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>dev-build-make</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>dev:build:make</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64, cross-platform</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">make, gmake, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:d41456026dafeb76393de3016123333fad175604ca8bf8584721c508bcb753c6</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">execution, analysis, command-and-control, credential-access, defense-evasion, lateral-movement, persistence, privilege-escalation, process-manip</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>dev.build.dependency</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>dev.build.compile</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>dev.build.clean</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>dev.build.automate</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>dev.build.test</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>dev.build.target</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.privilege-escalation.shell</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>flag-b</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Ignored for compatibility</td> <td><code>-b</code>, <code>-m</code></td> </tr><tr> <td><code>always-make</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Unconditionally make all targets</td> <td><code>-B</code>, <code>--always-make</code></td> </tr><tr> <td><code>directory</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Change to DIRECTORY before doing anything</td> <td><code>-C</code>, <code>--directory</code></td> </tr><tr> <td><code>flag-d</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print lots of debugging information</td> <td><code>-d</code></td> </tr><tr> <td><code>debug</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print various types of debugging information</td> <td><code>--debug</code></td> </tr><tr> <td><code>environment-overrides</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Environment variables override makefiles</td> <td><code>-e</code>, <code>--environment-overrides</code></td> </tr><tr> <td><code>eval</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Evaluate STRING as a makefile statement</td> <td><code>-E</code>, <code>--eval</code></td> </tr><tr> <td><code>file</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Read FILE as a makefile</td> <td><code>-f</code>, <code>--file</code>, <code>--makefile</code></td> </tr><tr> <td><code>help</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print this message and exit</td> <td><code>-h</code>, <code>--help</code></td> </tr><tr> <td><code>ignore-errors</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Ignore errors from recipes</td> <td><code>-i</code>, <code>--ignore-errors</code></td> </tr><tr> <td><code>include-dir</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Search DIRECTORY for included makefiles</td> <td><code>-I</code>, <code>--include-dir</code></td> </tr><tr> <td><code>jobs</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Allow N jobs at once; infinite jobs with no arg</td> <td><code>-j</code>, <code>--jobs</code></td> </tr><tr> <td><code>jobserver-style</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Select the style of jobserver to use</td> <td><code>--jobserver-style</code></td> </tr><tr> <td><code>keep-going</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Keep going when some targets can&#39;t be made</td> <td><code>-k</code>, <code>--keep-going</code></td> </tr><tr> <td><code>load-average</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Don&#39;t start multiple jobs unless load is below N</td> <td><code>-l</code>, <code>--load-average</code>, <code>--max-load</code></td> </tr><tr> <td><code>check-symlink-times</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Use the latest mtime between symlinks and target</td> <td><code>-L</code>, <code>--check-symlink-times</code></td> </tr><tr> <td><code>just-print</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Don&#39;t actually run any recipe; just print them</td> <td><code>-n</code>, <code>--just-print</code>, <code>--dry-run</code>, <code>--recon</code></td> </tr><tr> <td><code>old-file</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Consider FILE to be very old and don&#39;t remake it</td> <td><code>-o</code>, <code>--old-file</code>, <code>--assume-old</code></td> </tr><tr> <td><code>output-sync</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Synchronize output of parallel jobs by TYPE</td> <td><code>-O</code>, <code>--output-sync</code></td> </tr><tr> <td><code>print-data-base</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print make&#39;s internal database</td> <td><code>-p</code>, <code>--print-data-base</code></td> </tr><tr> <td><code>question</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Run no recipe; exit status says if up to date</td> <td><code>-q</code>, <code>--question</code></td> </tr><tr> <td><code>no-builtin-rules</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Disable the built-in implicit rules</td> <td><code>-r</code>, <code>--no-builtin-rules</code></td> </tr><tr> <td><code>no-builtin-variables</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the no-builtin-variables parameter</td> <td><code>-R</code>, <code>-i</code>, <code>--no-builtin-variables</code></td> </tr><tr> <td><code>shuffle</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Perform shuffle of prerequisites and goals</td> <td><code>--shuffle</code></td> </tr><tr> <td><code>silent</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Don&#39;t echo recipes</td> <td><code>-s</code>, <code>--silent</code>, <code>--quiet</code></td> </tr><tr> <td><code>no-silent</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Echo recipes (disable --silent mode)</td> <td><code>--no-silent</code></td> </tr><tr> <td><code>no-keep-going</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Turns off -k</td> <td><code>-S</code>, <code>--no-keep-going</code>, <code>--stop</code></td> </tr><tr> <td><code>touch</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Touch targets instead of remaking them</td> <td><code>-t</code>, <code>--touch</code></td> </tr><tr> <td><code>trace</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Print tracing information</td> <td><code>--trace</code></td> </tr><tr> <td><code>version</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>Print the version number of make and exit</td> <td><code>-v</code>, <code>--version</code></td> </tr><tr> <td><code>eval-expression</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Evaluate arbitrary make expression via $(shell cmd)</td> <td>-</td> </tr><tr> <td><code>include-file</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Include an arbitrary file into the Makefile parse</td> <td>-</td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>dev.build.artifact</code></td><td>Built artifact (binary, library, or output)</td><td>-</td><td>-</td><td>verified</td></tr><tr><td><code>dev.build.log</code></td><td>Build output log</td><td>text/plain</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>dev.build.makefile</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Makefile with build rules</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>dev.source.code</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Source code to compile</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>dev.build.artifact</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Compiled binary or build artifact</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">filesystem_write</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">dev.build.artifact</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">dev.build.makefile</span><span class="tag" style="margin:0.15rem;">dev.source.code</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>high</td></tr> <tr><td>Memory</td><td>128 MB</td></tr> <tr><td>Network</td><td>none</td></tr> <tr><td>Disk I/O</td><td>high</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Build default target</strong></p> <pre><code>make</code></pre> </div><div class="example"> <p><strong>Build a specific target</strong></p> <pre><code>make clean build</code></pre> </div><div class="example"> <p><strong>Build with parallel jobs</strong></p> <pre><code>make -j$(nproc)</code></pre> </div><div class="example"> <p><strong>Build in a subdirectory</strong></p> <pre><code>make -C src/</code></pre> </div><div class="example"> <p><strong>Dry run to see what would be built</strong></p> <pre><code>make -n</code></pre> </div><div class="example"> <p><strong>Override compiler variable</strong></p> <pre><code>make CC=clang CFLAGS=-O3</code></pre> </div><div class="example"> <p><strong>Can be used to execute arbitrary commands on a system and spawn shells either indirectly</strong></p> <pre><code>make -s --eval=$&#39;x:\n\t-&#39;&quot;/bin/sh&quot;
+</code></pre> </div><div class="example"> <p><strong>Argument injection: spawn interactive shell: Can be used to execute arbitrary commands on a system and spawn shells either indirectly</strong></p> <pre><code>make -s --eval=$&#39;x:\n\t-&#39;&quot;/bin/sh&quot;</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Make — Build Automation</h1>
+<p>Make is one of the oldest and most widely used build automation tools. It reads a Makefile that specifies how to derive the target program from source files using rules with dependency tracking.</p>
+<h2>Makefile Structure</h2>
+<pre><code class="language-makefile"># Variables
+CC     = gcc
+CFLAGS = -Wall -O2
+TARGET = myapp
+
+# Default target
+all: $(TARGET)
+
+# Link target
+$(TARGET): main.o util.o
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Compile source files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+
+# Clean build artifacts
+clean:
+	rm -f *.o $(TARGET)
+
+# Phony targets
+.PHONY: all clean
+</code></pre>
+<h2>Common Patterns</h2>
+<h3>Phony Targets Convention</h3>
+<pre><code class="language-makefile">.PHONY: all clean install test lint format
+
+all: build
+
+build:
+	go build -o bin/app .
+
+test:
+	go test ./...
+
+lint:
+	golangci-lint run
+
+install:
+	cp bin/app /usr/local/bin/
+
+clean:
+	rm -rf bin/
+</code></pre>
+<h3>Automatic Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$@</code></td>
+<td>Target name</td>
+</tr>
+<tr>
+<td><code>$&lt;</code></td>
+<td>First prerequisite</td>
+</tr>
+<tr>
+<td><code>$^</code></td>
+<td>All prerequisites</td>
+</tr>
+<tr>
+<td><code>$*</code></td>
+<td>Stem of the pattern match</td>
+</tr>
+<tr>
+<td><code>$?</code></td>
+<td>Changed prerequisites</td>
+</tr>
+</tbody></table>
+<h3>Conditional Builds</h3>
+<pre><code class="language-makefile">DEBUG ?= 0
+ifeq ($(DEBUG), 1)
+	CFLAGS += -g -DDEBUG
+else
+	CFLAGS += -O3
+endif
+</code></pre>
+<h2>Related Tools</h2>
+<ul>
+<li><strong><a href="../../build/cmake.md">cmake</a></strong> — Cross-platform build system generator</li>
+<li><strong><a href="../../build/ninja.md">ninja</a></strong> — Fast, small build system (often used with cmake)</li>
+<li><strong><a href="../../build/meson.md">meson</a></strong> — Modern build system</li>
+<li><strong><a href="../../build/just.md">just</a></strong> — Command runner (simpler alternative)</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">cmake</span><span class="tag" style="margin:0.15rem;">ninja</span><span class="tag" style="margin:0.15rem;">meson</span><span class="tag" style="margin:0.15rem;">just</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://www.gnu.org/software/make/manual/" target="_blank">GNU Make manual</a></li><li><a href="https://makefiletutorial.com/" target="_blank">Makefile tutorial</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

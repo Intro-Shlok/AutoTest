@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Domain registration and IP address lookup service for querying WHOIS databases for ownership and metadata."><link rel="alternate" type="text/markdown" href="/AutoTest/tools/security-intel-whois.md"><link rel="alternate" type="application/json" href="/AutoTest/api/v1/commands.json"><meta name="tool-namespace" content="security:intel:whois"><title>whois — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/AutoTest/_astro/index.8jcQzCs_.css">
+<link rel="stylesheet" href="/AutoTest/_astro/_id_.CIRgCC12.css"><script type="module" src="/AutoTest/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/AutoTest/" class="nav-brand">AutoTest</a> <a href="/AutoTest/">Home</a> <a href="/AutoTest/tools">All Tools</a> <a href="/AutoTest/capabilities">Capabilities</a> <a href="/AutoTest/artifacts">Artifacts</a> <a href="/AutoTest/payloads">Payloads</a> <a href="/AutoTest/api/v1/commands.json">API (JSON)</a> <a href="/AutoTest/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">community</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">whois</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Domain registration and IP address lookup service for querying WHOIS databases for ownership and metadata.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;whois {host-host} {port-port} {verbose} {no-recursion} {help}&#34;,&#34;globalVars&#34;:{&#34;host-host&#34;:&#34;ip&#34;,&#34;port-port&#34;:&#34;port&#34;},&#34;paramNames&#34;:[&#34;host-host&#34;,&#34;port-port&#34;,&#34;verbose&#34;,&#34;no-recursion&#34;,&#34;help&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>whois {host-host} {port-port} {verbose} {no-recursion} {help}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="host-host" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 host-host → ip </code> </span><span class="cmd-placeholder" data-ph="port-port" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 port-port → port </code> </span><span class="cmd-placeholder" data-ph="verbose" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 verbose </code> </span><span class="cmd-placeholder" data-ph="no-recursion" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 no-recursion </code> </span><span class="cmd-placeholder" data-ph="help" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 help </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>whois {host-host} {port-port} {verbose} {no-recursion} {help}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 30s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-intel-whois</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:intel:whois</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">community</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64, cross-platform</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">whois, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:f6029d64518b086f2c11e787d46d3a28e5b00ece149124c4495f59b1dc034f7d</span> </div>      </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.intel.whois</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.intel.domain</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.intel.ip</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.recon.passive</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>network.dns.lookup</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>host HOST</code></td> <td>string</td> <td>No</td> <td>-</td> <td>connect to server HOST</td> <td><code>-h</code>, <code>--host HOST</code></td> </tr><tr> <td><code>port PORT</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>connect to PORT</td> <td><code>-p</code>, <code>--port PORT</code></td> </tr><tr> <td><code>verbose</code></td> <td>string</td> <td>No</td> <td>-</td> <td>explain what is being done</td> <td><code>--verbose</code></td> </tr><tr> <td><code>no-recursion</code></td> <td>string</td> <td>No</td> <td>-</td> <td>disable recursion from registry to registrar servers</td> <td><code>--no-recursion</code></td> </tr><tr> <td><code>help</code></td> <td>string</td> <td>No</td> <td>-</td> <td>display this help and exit</td> <td><code>--help</code></td> </tr><tr> <td><code>version</code></td> <td>string</td> <td>No</td> <td>-</td> <td>output version information and exit</td> <td><code>--version</code></td> </tr><tr> <td><code>flag-l</code></td> <td>string</td> <td>No</td> <td>-</td> <td>find the one level less specific match</td> <td><code>-l</code></td> </tr><tr> <td><code>flag-m</code></td> <td>string</td> <td>No</td> <td>-</td> <td>find all one level more specific matches</td> <td><code>-m</code></td> </tr><tr> <td><code>flag-c</code></td> <td>string</td> <td>No</td> <td>-</td> <td>find the smallest match containing a mnt-irt attribute</td> <td><code>-c</code></td> </tr><tr> <td><code>flag-x</code></td> <td>string</td> <td>No</td> <td>-</td> <td>exact match</td> <td><code>-x</code></td> </tr><tr> <td><code>flag-b</code></td> <td>string</td> <td>No</td> <td>-</td> <td>return brief IP address ranges with abuse contact</td> <td><code>-b</code></td> </tr><tr> <td><code>flag-d</code></td> <td>string</td> <td>No</td> <td>-</td> <td>return DNS reverse delegation objects too</td> <td><code>-d</code></td> </tr><tr> <td><code>flag-i</code></td> <td>string</td> <td>No</td> <td>-</td> <td>do an inverse look-up for specified ATTRibutes</td> <td><code>-i</code></td> </tr><tr> <td><code>flag-T</code></td> <td>string</td> <td>No</td> <td>-</td> <td>only look for objects of TYPE</td> <td><code>-T</code></td> </tr><tr> <td><code>flag-r</code></td> <td>string</td> <td>No</td> <td>-</td> <td>turn off recursive look-ups for contact information</td> <td><code>-r</code></td> </tr><tr> <td><code>flag-a</code></td> <td>string</td> <td>No</td> <td>-</td> <td>also search all the mirrored databases</td> <td><code>-a</code></td> </tr><tr> <td><code>flag-s</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the flag-s parameter</td> <td><code>-s</code></td> </tr><tr> <td><code>flag-g</code></td> <td>string</td> <td>No</td> <td>-</td> <td>find updates from SOURCE from serial FIRST to LAST</td> <td><code>-g</code>, <code>-L</code></td> </tr><tr> <td><code>flag-t</code></td> <td>string</td> <td>No</td> <td>-</td> <td>request template for object of TYPE</td> <td><code>-t</code></td> </tr><tr> <td><code>flag-v</code></td> <td>string</td> <td>No</td> <td>-</td> <td>request verbose template for object of TYPE</td> <td><code>-v</code></td> </tr><tr> <td><code>flag-q</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the flag-q parameter</td> <td><code>-q</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>security.intel.whois.record</code></td><td>WHOIS record data for domain or IP</td><td>text/plain</td><td>-</td><td>community</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.target.domain</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Domain name to query</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.target.ip</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">IP address to query</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>security.intel.whois.record</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Domain or IP registration details</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">network_traffic</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">security.intel.whois.record</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">network.target.domain</span><span class="tag" style="margin:0.15rem;">network.target.ip</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>low</td></tr> <tr><td>Memory</td><td>8 MB</td></tr> <tr><td>Network</td><td>low</td></tr> <tr><td>Disk I/O</td><td>none</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Query domain registration information</strong></p> <pre><code>whois example.com</code></pre> </div><div class="example"> <p><strong>Query IP address ownership</strong></p> <pre><code>whois 8.8.8.8</code></pre> </div><div class="example"> <p><strong>Query a specific WHOIS server</strong></p> <pre><code>whois -h whois.verisign-grs.com example.com</code></pre> </div><div class="example"> <p><strong>Get raw server response</strong></p> <pre><code>whois -v example.com</code></pre> </div><div class="example"> <p><strong>Retrieve registration details of an IP address</strong></p> <pre><code>whois 192.0.2.1</code></pre> </div><div class="example"> <p><strong>Query a specific WHOIS server for domain information</strong></p> <pre><code>whois -h whois.nic.xyz example.xyz</code></pre> </div><div class="example"> <p><strong>Display command usage information in case of errors or unsure use</strong></p> <pre><code>whois -h</code></pre> </div><div class="example"> <p><strong>Use specific WHOIS server on a non-standard port</strong></p> <pre><code>whois -h whois.example.com -p 43 example.com</code></pre> </div><div class="example"> <p><strong>Format output to be more readable by human</strong></p> <pre><code>whois -H example.com</code></pre> </div><div class="example"> <p><strong>Display help and additional options</strong></p> <pre><code>whois --help</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Whois — Domain and IP Registration Lookup</h1>
+<p>WHOIS is a query and response protocol for querying databases that store registered users or assignees of domain names and IP address blocks. It&#39;s an essential tool for passive reconnaissance and domain research.</p>
+<h2>Key Information Retrieved</h2>
+<table>
+<thead>
+<tr>
+<th>Data Point</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Registrar</strong></td>
+<td>Company where domain was registered</td>
+</tr>
+<tr>
+<td><strong>Registrant</strong></td>
+<td>Domain owner name and organization</td>
+</tr>
+<tr>
+<td><strong>Creation Date</strong></td>
+<td>When the domain was registered</td>
+</tr>
+<tr>
+<td><strong>Expiration Date</strong></td>
+<td>When registration expires</td>
+</tr>
+<tr>
+<td><strong>Name Servers</strong></td>
+<td>DNS servers for the domain</td>
+</tr>
+<tr>
+<td><strong>Admin/Tech Contacts</strong></td>
+<td>Administrative and technical contacts</td>
+</tr>
+</tbody></table>
+<h2>Use Cases</h2>
+<h3>Security Research</h3>
+<ul>
+<li>Identify domain ownership for threat intelligence</li>
+<li>Discover related domains via shared registrant info</li>
+<li>Verify domain age and legitimacy</li>
+</ul>
+<h3>Network Administration</h3>
+<ul>
+<li>Find contact info for abuse reporting</li>
+<li>Identify IP address block ownership</li>
+<li>Check domain expiration for renewal planning</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>WHOIS privacy services often mask registrant details</li>
+<li>Rate-limited by many WHOIS servers</li>
+<li>Different TLDs use different WHOIS servers</li>
+<li>GDPR has reduced WHOIS data availability in Europe</li>
+</ul>
+<h2>Related Tools</h2>
+<ul>
+<li><strong><a href="../../dns/dig.md">dig</a></strong> — DNS record lookup</li>
+<li><strong><a href="../../recon/dnsrecon.md">dnsrecon</a></strong> — Automated DNS enumeration</li>
+<li><strong><a href="../../recon/theHarvester.md">theHarvester</a></strong> — Email and subdomain discovery</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">dig</span><span class="tag" style="margin:0.15rem;">host</span><span class="tag" style="margin:0.15rem;">dnsrecon</span><span class="tag" style="margin:0.15rem;">theHarvester</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://datatracker.ietf.org/doc/html/rfc3912" target="_blank">WHOIS protocol specification</a></li><li><a href="https://whois.icann.org/" target="_blank">ICANN WHOIS service</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>
