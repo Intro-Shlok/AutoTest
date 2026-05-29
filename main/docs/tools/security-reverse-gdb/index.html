@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="GNU Project debugger for analyzing program execution, reverse engineering binaries, and debugging crashes."><link rel="alternate" type="text/markdown" href="/tools/security-reverse-gdb.md"><link rel="alternate" type="application/json" href="/api/v1/commands.json"><meta name="tool-namespace" content="security:reverse:gdb"><title>gdb — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/_astro/_id_.CIRgCC12.css"><script type="module" src="/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/" class="nav-brand">AutoTest</a> <a href="/">Home</a> <a href="/tools">All Tools</a> <a href="/capabilities">Capabilities</a> <a href="/artifacts">Artifacts</a> <a href="/payloads">Payloads</a> <a href="/api/v1/commands.json">API (JSON)</a> <a href="/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">gdb</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>GNU Project debugger for analyzing program execution, reverse engineering binaries, and debugging crashes.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;gdb -q -ex \&#34;{command}\&#34; {binary}&#34;,&#34;globalVars&#34;:{&#34;binary&#34;:&#34;&#34;,&#34;command&#34;:&#34;&#34;},&#34;paramNames&#34;:[&#34;command&#34;,&#34;binary&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>gdb -q -ex &quot;{command}&quot; {binary}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="command" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 command →  </code> </span><span class="cmd-placeholder" data-ph="binary" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 binary →  </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>gdb -q -ex &quot;{command}&quot; {binary}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 300s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-reverse-gdb</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:reverse:gdb</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">gdb, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:c208b4a2adb6f826e7e9cd28a0d421d2f198b1e0ea3c7b6d9cbad7bfc49a1c76</span> </div> <div class="info-row"><span class="info-label">Requires</span><span class="info-value" style="font-size:0.8rem;">NoCreds</span></div>  <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">Exploitation, Discovery</span></div> <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">discovery, execution</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>reverse.debugging</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>reverse.disassembly</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>reverse.analysis</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>debug.memory.inspect</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>debug.register.inspect</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>quiet</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Suppress introductory banner and warnings</td> <td><code>-q</code></td> </tr><tr> <td><code>ex</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Execute a single GDB command</td> <td><code>-ex</code></td> </tr><tr> <td><code>x</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Execute GDB commands from file</td> <td><code>-x</code></td> </tr><tr> <td><code>pid</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>Attach to a running process by PID</td> <td><code>-p</code></td> </tr><tr> <td><code>batch</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Run in batch mode (no interactive shell)</td> <td><code>-batch</code></td> </tr><tr> <td><code>symbols</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Read symbol table from file</td> <td><code>-s</code>, <code>--symbols</code></td> </tr><tr> <td><code>exec</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Use specified file as the executable</td> <td><code>--exec</code></td> </tr><tr> <td><code>core</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Use specified file as the core dump</td> <td><code>--core</code></td> </tr><tr> <td><code>cd</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Change to directory before starting</td> <td><code>--cd</code></td> </tr><tr> <td><code>nx</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Do not read .gdbinit file</td> <td><code>-nx</code></td> </tr><tr> <td><code>nh</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Do not read .gdbearlyinit file</td> <td><code>-nh</code></td> </tr><tr> <td><code>tty</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the terminal for GDB I/O</td> <td><code>--tty</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>file.binary</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Binary to debug</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>file.core</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Core dump file for post-mortem analysis</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>debug.backtrace</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Stack backtrace</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>debug.disassembly</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Disassembled code</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">process_spawn</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">debug.backtrace</span><span class="tag" style="margin:0.15rem;">debug.disassembly</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">file.binary</span><span class="tag" style="margin:0.15rem;">file.core</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>medium</td></tr> <tr><td>Memory</td><td>128 MB</td></tr> <tr><td>Network</td><td>low</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Attach to a running process</strong></p> <pre><code>gdb -p 1234</code></pre> </div><div class="example"> <p><strong>Analyze a core dump</strong></p> <pre><code>gdb /bin/ls core.dump -batch -ex bt</code></pre> </div><div class="example"> <p><strong>Disassemble main function in batch mode</strong></p> <pre><code>gdb -q -batch -ex &quot;disassemble main&quot; /bin/ls</code></pre> </div><div class="example"> <p><strong>Run with commands from a file</strong></p> <pre><code>gdb -x commands.gdb /bin/ls</code></pre> </div><div class="example"> <p><strong>Inspect registers and memory</strong></p> <pre><code>gdb -q -ex &quot;info registers&quot; -ex &quot;x/16xw \$rsp&quot; -batch /bin/ls</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>GDB — GNU Debugger</h1>
+<p>GDB is the standard debugger for compiled Unix programs, supporting C, C++, Rust, Go, and many other languages. It enables instruction-level debugging, memory/register inspection, disassembly, and reverse engineering.</p>
+<h2>Common Debugging Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>disassemble main</code></td>
+<td>Disassemble the main function</td>
+</tr>
+<tr>
+<td><code>info registers</code></td>
+<td>Show CPU register values</td>
+</tr>
+<tr>
+<td><code>x/16xw $rsp</code></td>
+<td>Examine 16 words on the stack</td>
+</tr>
+<tr>
+<td><code>bt</code></td>
+<td>Print backtrace</td>
+</tr>
+<tr>
+<td><code>break *0x400510</code></td>
+<td>Set breakpoint at address</td>
+</tr>
+<tr>
+<td><code>ni</code></td>
+<td>Execute next instruction</td>
+</tr>
+<tr>
+<td><code>si</code></td>
+<td>Step into instruction</td>
+</tr>
+</tbody></table>
+<h2>Batch Analysis</h2>
+<pre><code class="language-bash">gdb -q -batch -ex &quot;file /bin/ls&quot; -ex &quot;disassemble main&quot; -ex &quot;info functions&quot;
+</code></pre>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">radare2</span><span class="tag" style="margin:0.15rem;">ltrace</span><span class="tag" style="margin:0.15rem;">strace</span><span class="tag" style="margin:0.15rem;">pwndbg</span><span class="tag" style="margin:0.15rem;">pwntools</span> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

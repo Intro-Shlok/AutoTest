@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Multi-container orchestration tool for defining and running complex Docker application stacks."><link rel="alternate" type="text/markdown" href="/tools/container-orchestrate-compose.md"><link rel="alternate" type="application/json" href="/api/v1/commands.json"><meta name="tool-namespace" content="container:orchestrate:compose"><title>docker-compose — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/_astro/_id_.CIRgCC12.css"><script type="module" src="/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/" class="nav-brand">AutoTest</a> <a href="/">Home</a> <a href="/tools">All Tools</a> <a href="/capabilities">Capabilities</a> <a href="/artifacts">Artifacts</a> <a href="/payloads">Payloads</a> <a href="/api/v1/commands.json">API (JSON)</a> <a href="/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">container</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">docker-compose</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Multi-container orchestration tool for defining and running complex Docker application stacks.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;docker-compose {all-resources} {ansi} {compatibility} {dry-run} {env-file}&#34;,&#34;globalVars&#34;:{},&#34;paramNames&#34;:[&#34;all-resources&#34;,&#34;ansi&#34;,&#34;compatibility&#34;,&#34;dry-run&#34;,&#34;env-file&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>docker-compose {all-resources} {ansi} {compatibility} {dry-run} {env-file}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="all-resources" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 all-resources </code> </span><span class="cmd-placeholder" data-ph="ansi" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 ansi </code> </span><span class="cmd-placeholder" data-ph="compatibility" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 compatibility </code> </span><span class="cmd-placeholder" data-ph="dry-run" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 dry-run </code> </span><span class="cmd-placeholder" data-ph="env-file" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 env-file </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>docker-compose {all-resources} {ansi} {compatibility} {dry-run} {env-file}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 300s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>container-orchestrate-compose</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>container:orchestrate:compose</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, windows</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">docker-compose, docker compose, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:ff3563dd14da87f06f79a719e45e03ca14ab8164aca8a8f133538bc0ecc811d9</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">lateral-movement</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.orchestrate.compose</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.orchestrate.stack</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.service.manage</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.network.multi</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.storage.volume</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>container.logs.tail</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>all-resources</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Include all resources, even those not</td> <td><code>--all-resources</code></td> </tr><tr> <td><code>ansi</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Control when to print ANSI control</td> <td><code>--ansi</code></td> </tr><tr> <td><code>compatibility</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Run compose in backward compatibility mode</td> <td><code>--compatibility</code></td> </tr><tr> <td><code>dry-run</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Execute command in dry run mode</td> <td><code>--dry-run</code></td> </tr><tr> <td><code>env-file</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Specify an alternate environment file</td> <td><code>--env-file</code></td> </tr><tr> <td><code>file</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Compose configuration files</td> <td><code>-f</code>, <code>--file</code></td> </tr><tr> <td><code>parallel</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Control max parallelism, -1 for</td> <td><code>--parallel</code></td> </tr><tr> <td><code>profile</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Specify a profile to enable</td> <td><code>--profile</code></td> </tr><tr> <td><code>progress</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set type of progress output (auto</td> <td><code>--progress</code></td> </tr><tr> <td><code>project-directory</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Specify an alternate working directory</td> <td><code>--project-directory</code></td> </tr><tr> <td><code>project-name</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Project name</td> <td><code>-p</code>, <code>--project-name</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>container.image.oci</code></td><td>Built container image</td><td>application/vnd.oci.image.manifest.v1+json</td><td>-</td><td>verified</td></tr><tr><td><code>container.runtime.logs</code></td><td>Container service logs</td><td>text/plain</td><td>-</td><td>verified</td></tr><tr><td><code>container.stack.config</code></td><td>Docker Compose stack configuration</td><td>application/x-yaml</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.stack.composefile</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Docker Compose YAML file</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.image.oci</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Container images to use in the stack</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.stack.running</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Running container stack</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>container.runtime.logs</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Aggregated service logs</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">network_trafficfilesystem_writeprocess_spawn</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">container.stack.running</span><span class="tag" style="margin:0.15rem;">container.runtime.logs</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">container.stack.composefile</span><span class="tag" style="margin:0.15rem;">container.image.oci</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>medium</td></tr> <tr><td>Memory</td><td>128 MB</td></tr> <tr><td>Network</td><td>medium</td></tr> <tr><td>Disk I/O</td><td>medium</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Start all services in background</strong></p> <pre><code>docker-compose up -d</code></pre> </div><div class="example"> <p><strong>Build and start services</strong></p> <pre><code>docker-compose up -d --build</code></pre> </div><div class="example"> <p><strong>View running services</strong></p> <pre><code>docker-compose ps</code></pre> </div><div class="example"> <p><strong>Tail logs from all services</strong></p> <pre><code>docker-compose logs -f</code></pre> </div><div class="example"> <p><strong>Execute command in a running service</strong></p> <pre><code>docker-compose exec web bash</code></pre> </div><div class="example"> <p><strong>Stop and remove all resources</strong></p> <pre><code>docker-compose down -v</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Docker Compose — Multi-Container Orchestration</h1>
+<p>Docker Compose is a tool for defining and running multi-container Docker applications. Using a YAML file, you configure all services, networks, and volumes, then start everything with a single command.</p>
+<h2>Compose File Structure</h2>
+<pre><code class="language-yaml">version: &quot;3.8&quot;
+services:
+  web:
+    build: .
+    ports:
+      - &quot;8080:80&quot;
+    depends_on:
+      - db
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+</code></pre>
+<h2>Common Workflows</h2>
+<h3>Development</h3>
+<pre><code class="language-bash"># Start development stack
+docker-compose up -d
+
+# Rebuild specific service
+docker-compose build web
+
+# View logs during development
+docker-compose logs -f web
+
+# Run one-off commands
+docker-compose exec web pytest
+</code></pre>
+<h3>Production</h3>
+<pre><code class="language-bash"># Pull latest images
+docker-compose pull
+
+# Graceful restart
+docker-compose restart -t 30
+
+# Scale a service
+docker-compose up -d --scale worker=3
+</code></pre>
+<h3>Cleanup</h3>
+<pre><code class="language-bash"># Stop containers
+docker-compose stop
+
+# Stop and remove everything
+docker-compose down
+
+# Remove everything including volumes
+docker-compose down -v --rmi all
+</code></pre>
+<h2>Related Tools</h2>
+<ul>
+<li><strong><a href="../../runtime/docker.md">docker</a></strong> — Container runtime</li>
+<li><strong><a href="../../orchestrate/kubernetes.md">kubernetes</a></strong> — Production container orchestration</li>
+<li><strong><a href="../../orchestrate/podman-compose.md">podman-compose</a></strong> — Rootless compose alternative</li>
+</ul>
+</div> </div><div class="section"> <h2>Dependencies</h2> <span class="tag" style="margin:0.15rem;">docker</span> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">docker</span><span class="tag" style="margin:0.15rem;">docker-swarm</span><span class="tag" style="margin:0.15rem;">kubernetes</span><span class="tag" style="margin:0.15rem;">podman-compose</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://docs.docker.com/compose/" target="_blank">Docker Compose documentation</a></li><li><a href="https://docs.docker.com/compose/compose-file/" target="_blank">Compose file reference</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

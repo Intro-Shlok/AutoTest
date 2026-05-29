@@ -1,0 +1,34 @@
+# AutoTest Knowledge Repository — LLM Index
+> A dual-purpose knowledge repository for human study and machine-readable automation.
+> Base URL: https://autotest.repo
+
+## Tools by Domain
+
+### network
+- [curl](docs/network/http/curl.md): Transfers data from or to a server using supported protocols.
+- [dig](docs/network/dns/dig.md): DNS lookup utility for querying DNS name servers.
+- [nc](docs/network/socket/nc.md): TCP/UDP socket utility for networking debugging.
+- [tshark](docs/network/traffic/tshark.md): Network traffic analysis and packet capture tool.
+
+### system
+- [tar](docs/system/archive/tar.md): Tape archive utility for creating and extracting archives.
+- [ps](docs/system/process/ps.md): Report running process information.
+- [grep](docs/system/text/grep.md): Pattern search utility using regular expressions.
+- [find](docs/system/file/find.md): Search for files in directory hierarchies.
+
+### security
+- [nmap](docs/security/recon/nmap.md): Network discovery and security auditing scanner.
+- [metasploit](docs/security/exploit/metasploit.md): Exploitation and vulnerability validation framework.
+- [volatility](docs/security/forensics/volatility.md): Memory forensics analysis framework.
+
+### container
+- [docker](docs/container/runtime/docker.md): Container platform for developing and shipping applications.
+
+## API Endpoints
+- [JSON API](api/v1/commands.json): Complete structured tool database.
+- [Registry](api/v1/registry.json): Tool registry with metadata.
+- [By Domain](api/v1/by-domain.json): Tools grouped by domain namespace.
+
+## Schema Files
+- [Command Schema](schemas/command-schema.json): JSON Schema for tool frontmatter validation.
+- [Category Schema](schemas/category-schema.json): JSON Schema for category index files.

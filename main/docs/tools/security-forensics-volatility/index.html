@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Advanced memory forensics framework for analyzing RAM dumps, extracting processes, network connections, registry hives, and artifacts."><link rel="alternate" type="text/markdown" href="/tools/security-forensics-volatility.md"><link rel="alternate" type="application/json" href="/api/v1/commands.json"><meta name="tool-namespace" content="security:forensics:volatility"><title>volatility — AutoTest Knowledge Repository</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/_astro/_id_.CIRgCC12.css"><script type="module" src="/_astro/hoisted.DLmBDdUQ.js"></script></head> <body> <div class="wrapper"> <nav> <a href="/" class="nav-brand">AutoTest</a> <a href="/">Home</a> <a href="/tools">All Tools</a> <a href="/capabilities">Capabilities</a> <a href="/artifacts">Artifacts</a> <a href="/payloads">Payloads</a> <a href="/api/v1/commands.json">API (JSON)</a> <a href="/llms.txt">llms.txt</a> </nav>  <div class="two-col"> <div> <div class="meta-bar"> <span class="tag tag-domain">security</span> <span class="tag">enabled</span> <span class="tag tag-trust">verified</span> <span class="tag tag-risk-low">low</span> <span class="tag">v1.0.0</span> </div> <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">volatility</h1> <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem;"><em>Advanced memory forensics framework for analyzing RAM dumps, extracting processes, network connections, registry hives, and artifacts.</em></p> <div id="cosmos-bar" class="cosmos-bar" data-astro-cid-slm2pk6o> <button class="cosmos-toggle" onclick="toggleCosmos()" aria-label="Toggle cosmos config" data-astro-cid-slm2pk6o> <span class="cosmos-icon" data-astro-cid-slm2pk6o>&#9881;</span> <span class="cosmos-label" data-astro-cid-slm2pk6o>Cosmos</span> <span class="cosmos-badge" id="cosmos-badge" data-astro-cid-slm2pk6o>10.10.10.10:9001</span> <span class="cosmos-arrow" id="cosmos-arrow" data-astro-cid-slm2pk6o>&#9660;</span> </button> <div class="cosmos-panel" id="cosmos-panel" data-astro-cid-slm2pk6o> <div class="cosmos-fields" id="cosmos-fields" data-astro-cid-slm2pk6o> <!-- populated by cosmos.js --> </div> <div class="cosmos-actions" data-astro-cid-slm2pk6o> <button class="cosmos-btn" onclick="Cosmos.reset()" data-astro-cid-slm2pk6o>Reset to defaults</button> </div> </div> </div> <script>(function(){const defaultExpandedStr = "false";
+
+  const EXPANDED_KEY = "cosmos-expanded";
+  const defaultExpanded = defaultExpandedStr;
+
+  window.toggleCosmos = function () {
+    const bar = document.getElementById("cosmos-bar");
+    const panel = document.getElementById("cosmos-panel");
+    const arrow = document.getElementById("cosmos-arrow");
+    const isExpanded = bar.classList.toggle("expanded");
+    panel.style.display = isExpanded ? "block" : "none";
+    arrow.innerHTML = isExpanded ? "&#9660;" : "&#9660;";
+    try { localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0"); } catch (_) {}
+  };
+
+  (function initCosmosBar() {
+    const panel = document.getElementById("cosmos-panel");
+    const fields = document.getElementById("cosmos-fields");
+    const badge = document.getElementById("cosmos-badge");
+    const bar = document.getElementById("cosmos-bar");
+
+    try {
+      const saved = localStorage.getItem(EXPANDED_KEY);
+      if (saved === "1" || (saved === null && defaultExpanded === "true")) {
+        bar.classList.add("expanded");
+        if (panel) panel.style.display = "block";
+      }
+    } catch (_) {}
+
+    function render() {
+      if (!window.Cosmos) { setTimeout(render, 10); return; }
+      var config = window.Cosmos.getConfig();
+      if (!fields) return;
+      fields.innerHTML = config.map(function (c) {
+        var val = window.Cosmos.get(c.key);
+        var esc = function (s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); };
+        return '<div class="cosmos-field">' +
+          '<label for="cosmos-' + esc(c.key) + '">' + esc(c.label) + '</label>' +
+          '<input id="cosmos-' + esc(c.key) + '" type="' + (c.type === "number" ? "number" : "text") + '" ' +
+            'value="' + esc(val) + '" ' +
+            'placeholder="' + esc(c.placeholder || "") + '" ' +
+            'data-cosmos-key="' + esc(c.key) + '" ' +
+            'oninput="onCosmosInput(this)" />' +
+          '</div>';
+      }).join("");
+      updateBadge();
+    }
+
+    window.onCosmosInput = function (el) {
+      var key = el.getAttribute("data-cosmos-key");
+      if (window.Cosmos) window.Cosmos.set(key, el.value);
+    };
+
+    function updateBadge() {
+      if (!badge) return;
+      var ip = window.Cosmos ? window.Cosmos.get("ip") || "?" : "?";
+      var port = window.Cosmos ? window.Cosmos.get("port") || "?" : "?";
+      badge.textContent = ip + ":" + port;
+    }
+
+    if (window.Cosmos) {
+      window.Cosmos.onChange(function () { updateBadge(); });
+    }
+    render();
+  })();
+})();</script>  <div class="cmd-preview cosmos-preview" data-preview="{&#34;template&#34;:&#34;volatility -f {memory-dump} {plugin}&#34;,&#34;globalVars&#34;:{&#34;memory-dump&#34;:&#34;memory.raw&#34;,&#34;plugin&#34;:&#34;windows.pslist&#34;},&#34;paramNames&#34;:[&#34;memory-dump&#34;,&#34;plugin&#34;]}" data-astro-cid-wofrsxkc> <div class="cmd-preview-header" data-astro-cid-wofrsxkc> <span class="cmd-preview-label" data-astro-cid-wofrsxkc>&#128203; Live Preview</span> <button class="cmd-preview-copy" onclick="copyPreviewCommand(this)" title="Copy command" data-astro-cid-wofrsxkc>&#128203; Copy</button> </div> <pre class="cmd-preview-output" id="cmd-preview-output" data-astro-cid-wofrsxkc><code data-astro-cid-wofrsxkc>volatility -f {memory-dump} {plugin}</code></pre> <div class="cmd-preview-params" id="cmd-preview-params" data-astro-cid-wofrsxkc> <span class="cmd-placeholder" data-ph="memory-dump" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 memory-dump → memory.raw </code> </span><span class="cmd-placeholder" data-ph="plugin" data-astro-cid-wofrsxkc> <code class="ph-tag ph-global" data-astro-cid-wofrsxkc> 🌍 plugin → windows.pslist </code> </span> </div> </div>   <div style="margin-bottom: 1.5rem;"> <pre><code>volatility -f {memory-dump} {plugin}</code></pre> <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+Sandbox: execFile &middot; Timeout: 600s
+ </p> </div> </div> <aside class="sidebar-info"> <div class="cvss-widget" data-astro-cid-qmhzttxy> <div class="cvss-score" style="--score-color: #93c5fd;" data-astro-cid-qmhzttxy> <span class="cvss-value" data-astro-cid-qmhzttxy>2.0</span> <span class="cvss-label" data-astro-cid-qmhzttxy>Low</span> </div> <div class="cvss-bar-track" data-astro-cid-qmhzttxy> <div class="cvss-bar-fill" style="width: 20%; background: #93c5fd;" data-astro-cid-qmhzttxy></div> </div> <div class="cvss-scale" data-astro-cid-qmhzttxy> <span data-astro-cid-qmhzttxy>0.0</span> <span style="color: var(--green);" data-astro-cid-qmhzttxy>Low</span> <span style="color: var(--amber);" data-astro-cid-qmhzttxy>Med</span> <span style="color: #fb923c;" data-astro-cid-qmhzttxy>High</span> <span style="color: var(--red);" data-astro-cid-qmhzttxy>10.0</span> </div>  </div>  <div style="font-weight:600;margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;">Info</div> <div class="info-row"><span class="info-label">ID</span><span class="info-value"><code>security-forensics-volatility</code></span></div> <div class="info-row"><span class="info-label">Namespace</span><span class="info-value" style="font-size:0.8rem;"><code>security:forensics:volatility</code></span></div> <div class="info-row"><span class="info-label">Version</span><span class="info-value">1.0.0</span></div> <div class="info-row"><span class="info-label">Risk</span><span class="info-value tag-risk-low">low</span></div> <div class="info-row"><span class="info-label">Trust</span><span class="info-value">verified</span></div> <div class="info-row"><span class="info-label">Policy</span><span class="info-value">enabled</span></div> <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" style="font-size:0.8rem;">linux, macos, windows, cross-platform</span></div> <div class="info-row"><span class="info-label">Arch</span><span class="info-value" style="font-size:0.8rem;">amd64, arm64</span></div> <div class="info-row"><span class="info-label">Allowed Tools</span><span class="info-value" style="font-size:0.8rem;">volatility, Bash, execFile</span></div> <div class="info-row" style="flex-direction:column;gap:0.25rem;padding:0.6rem 0;"> <span class="info-label">Integrity</span> <span class="info-value" style="font-size:0.65rem;font-family:var(--font-mono);word-break:break-all;line-height:1.4;">sha256:0e137e1e814fa49f1638e31908dcecfe38eb3a5b80b1441787da4aa3feef1ca1</span> </div> <div class="info-row"><span class="info-label">Requires</span><span class="info-value" style="font-size:0.8rem;">NoCreds</span></div>  <div class="info-row"><span class="info-label">Attack Types</span><span class="info-value" style="font-size:0.8rem;">Discovery</span></div> <div class="info-row"><span class="info-label">Techniques</span><span class="info-value" style="font-size:0.8rem;">discovery</span></div>  </aside> </div> <div class="section"> <h2>Capabilities</h2> <div class="card-grid cols-2" style="margin-bottom:0;"> <div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>memory.analysis.process</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>memory.analysis.network</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>memory.analysis.registry</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>memory.analysis.dump</code> </div><div class="card" style="padding:0.75rem 1rem;animation:none;"> <code>forensics.memory.acquisition</code> </div> </div> </div><div class="section"> <h2>Parameters</h2> <div class="table-wrap"> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Required</th> <th>Default</th> <th>Description</th> <th>Aliases</th> </tr> </thead> <tbody> <tr> <td><code>flag-f</code></td> <td>file</td> <td>Yes</td> <td>-</td> <td>Memory dump file to analyze</td> <td><code>-f</code>, <code>--file</code></td> </tr><tr> <td><code>flag-p</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Additional plugin directory path</td> <td><code>-p</code>, <code>--plugin-path</code></td> </tr><tr> <td><code>flag-r</code></td> <td>integer</td> <td>No</td> <td>0</td> <td>Recursion depth for layered plugins</td> <td><code>-r</code>, <code>--recursion</code></td> </tr><tr> <td><code>flag-v</code></td> <td>integer</td> <td>No</td> <td>1</td> <td>Verbosity level (1-5)</td> <td><code>-v</code>, <code>--verbose</code></td> </tr><tr> <td><code>flag-q</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Quiet mode — suppress output except errors</td> <td><code>-q</code>, <code>--quiet</code></td> </tr><tr> <td><code>flag-y</code></td> <td>string</td> <td>No</td> <td>-</td> <td>YARA rule file for scanning</td> <td><code>-y</code>, <code>--yara</code></td> </tr><tr> <td><code>flag-l</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>List all available plugins</td> <td><code>-l</code>, <code>--list-plugins</code></td> </tr><tr> <td><code>flag-s</code></td> <td>integer</td> <td>No</td> <td>-</td> <td>Session ID to resume or manage</td> <td><code>-s</code>, <code>--sessions</code></td> </tr><tr> <td><code>flag-c</code></td> <td>file</td> <td>No</td> <td>-</td> <td>Configuration file path</td> <td><code>-c</code>, <code>--config</code></td> </tr><tr> <td><code>flag-o</code></td> <td>string</td> <td>No</td> <td>text</td> <td>Output format (text, json, sqlite)</td> <td><code>-o</code>, <code>--output</code></td> </tr><tr> <td><code>single-location</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Single memory location to scan</td> <td><code>--single-location</code></td> </tr><tr> <td><code>physical</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Use physical address space</td> <td><code>--physical</code></td> </tr><tr> <td><code>output-dir</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Directory for output files</td> <td><code>--output-dir</code></td> </tr><tr> <td><code>flag-i</code></td> <td>boolean</td> <td>No</td> <td>-</td> <td>Display information about the memory dump</td> <td><code>-i</code>, <code>--info</code></td> </tr><tr> <td><code>plugin</code></td> <td>string</td> <td>No</td> <td>-</td> <td>Plugin to run (e.g. windows.pslist, windows.netscan)</td> <td><code>windows.info</code>, <code>windows.pslist</code>, <code>windows.netscan</code>, <code>windows.hivelist</code>, <code>windows.hashdump</code>, <code>linux.bash</code>, <code>linux.pslist</code>, <code>mac.pslist</code></td> </tr> </tbody> </table> </div> </div><div class="section"> <h2>Artifacts</h2> <div class="table-wrap"> <table> <thead> <tr><th>Type</th><th>Description</th><th>MIME</th><th>Schema</th><th>Trust</th></tr> </thead> <tbody> <tr><td><code>memory.dump.raw</code></td><td>Raw memory dump file</td><td>application/octet-stream</td><td>-</td><td>verified</td></tr><tr><td><code>forensics.report.json</code></td><td>Volatility analysis results in JSON</td><td>application/json</td><td>-</td><td>verified</td></tr><tr><td><code>forensics.report.text</code></td><td>Volatility analysis results in text</td><td>text/plain</td><td>-</td><td>verified</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Contract</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Inputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>memory.dump.file</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Path to the memory dump file</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>forensics.plugin</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Volatility plugin to execute (e.g. windows.pslist)</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>directory.path</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Path to additional plugin directory</p> </div> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Outputs</p> <div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>forensics.report.text</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Plugin output as plain text</p> </div><div class="card" style="padding:0.65rem 0.85rem;margin-bottom:0.5rem;animation:none;"> <code>forensics.report.json</code> <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">Plugin output as JSON</p> </div> </div> </div> <div class="card" style="margin-top:0.75rem;animation:none;"> <span style="font-size:0.85rem;color:var(--text-muted);">Side effects: </span> <code style="font-size:0.8rem;">filesystem_writefilesystem_write</code> </div> </div><div class="section"> <h2>Workflow Edges</h2> <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Produces</p> <span class="tag" style="margin:0.15rem;">forensics.report.text</span><span class="tag" style="margin:0.15rem;">forensics.report.json</span> </div> <div> <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Consumes</p> <span class="tag" style="margin:0.15rem;">memory.dump.file</span><span class="tag" style="margin:0.15rem;">forensics.plugin</span><span class="tag" style="margin:0.15rem;">directory.path</span> </div> </div> </div><div class="section"> <h2>Resource Profile</h2> <div class="table-wrap" style="max-width:400px;"> <table> <thead><tr><th>Resource</th><th>Value</th></tr></thead> <tbody> <tr><td>CPU</td><td>high</td></tr> <tr><td>Memory</td><td>2048 MB</td></tr> <tr><td>Network</td><td>none</td></tr> <tr><td>Disk I/O</td><td>high</td></tr> </tbody> </table> </div> </div><div class="section"> <h2>Examples</h2> <div class="example"> <p><strong>List running processes from a Windows memory dump</strong></p> <pre><code>volatility -f memory.raw windows.pslist</code></pre> </div><div class="example"> <p><strong>Scan network connections from a memory dump</strong></p> <pre><code>volatility -f memory.raw windows.netscan</code></pre> </div><div class="example"> <p><strong>Dump registry hives from a memory dump</strong></p> <pre><code>volatility -f memory.raw windows.hivelist</code></pre> </div><div class="example"> <p><strong>Extract password hashes from a memory dump</strong></p> <pre><code>volatility -f memory.raw windows.hashdump</code></pre> </div><div class="example"> <p><strong>List available plugins</strong></p> <pre><code>volatility -l</code></pre> </div><div class="example"> <p><strong>Show memory dump info and profile suggestion</strong></p> <pre><code>volatility -f memory.raw windows.info</code></pre> </div><div class="example"> <p><strong>List bash history from a Linux memory dump</strong></p> <pre><code>volatility -f linux.mem linux.bash</code></pre> </div><div class="example"> <p><strong>Use custom plugin directory</strong></p> <pre><code>volatility -f memory.raw -p /opt/volatility_plugins windows.pslist</code></pre> </div> </div><div class="section"> <h2>Documentation</h2> <div class="body-content"><h1>Volatility — Memory Forensics Framework</h1>
+<p>Volatility is an advanced open-source memory forensics framework written in Python. It analyzes RAM dumps from Windows, Linux, and macOS systems to extract running processes, open network connections, loaded kernel modules, registry hives, and other critical forensic artifacts.</p>
+<h2>Key Features</h2>
+<ul>
+<li><strong>Cross-platform</strong>: Supports Windows, Linux, and macOS memory dumps</li>
+<li><strong>Plugin architecture</strong>: Dozens of analysis plugins included</li>
+<li><strong>No dependency on live system</strong>: Works entirely from a memory capture</li>
+<li><strong>Extensible</strong>: Custom plugins can be written in Python</li>
+</ul>
+<h2>Common Plugins</h2>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>windows.pslist</code></td>
+<td>List running processes</td>
+</tr>
+<tr>
+<td><code>windows.netscan</code></td>
+<td>Scan network connections</td>
+</tr>
+<tr>
+<td><code>windows.hivelist</code></td>
+<td>Show registry hives</td>
+</tr>
+<tr>
+<td><code>windows.hashdump</code></td>
+<td>Extract password hashes</td>
+</tr>
+<tr>
+<td><code>windows.info</code></td>
+<td>Show dump metadata</td>
+</tr>
+<tr>
+<td><code>linux.bash</code></td>
+<td>Recover bash history</td>
+</tr>
+<tr>
+<td><code>mac.pslist</code></td>
+<td>List macOS processes</td>
+</tr>
+</tbody></table>
+</div> </div><div class="section"> <h2>Dependencies</h2> <span class="tag" style="margin:0.15rem;">python3</span> </div><div class="section"> <h2>Related Tools</h2> <span class="tag" style="margin:0.15rem;">autopsy</span><span class="tag" style="margin:0.15rem;">binwalk</span><span class="tag" style="margin:0.15rem;">foremost</span> </div><div class="section"> <h2>References</h2> <ul> <li><a href="https://github.com/volatilityfoundation/volatility3" target="_blank">Volatility 3 GitHub</a></li><li><a href="https://volatility3.readthedocs.io/" target="_blank">Volatility Documentation</a></li> </ul> </div> <footer> <p>AutoTest Knowledge Repository — Dual-Purpose Human / Machine Reference</p> <p>90 tools · 7 domains · 274 capabilities · 87 workflow edges · 135 payloads</p> </footer> </div>  </body> </html>
