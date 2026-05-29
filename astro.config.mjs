@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 
 export default defineConfig({
   site: "https://intro-shlok.github.io/AutoTest",
-  base: "/",
+  base: "/AutoTest/",
   output: "static",
   integrations: [mdx()],
   markdown: {

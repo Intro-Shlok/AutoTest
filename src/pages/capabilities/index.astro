@@ -28,6 +28,7 @@ const filtered = domainFilter
 
 const totalCaps = sortedCaps.length;
 const totalTools = tools.length;
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Capabilities" description="Complete index of capabilities across all tools">
@@ -37,9 +38,9 @@ const totalTools = tools.length;
   </section>
 
   <div class="filter-bar">
-    <a href="/capabilities" aria-current={!domainFilter ? "page" : undefined}>All</a>
+    <a href={`${base}capabilities`} aria-current={!domainFilter ? "page" : undefined}>All</a>
     {capDomains.map((d) => (
-      <a href={`/capabilities?domain=${d}`} aria-current={domainFilter === d ? "page" : undefined}>{d}</a>
+      <a href={`${base}capabilities?domain=${d}`} aria-current={domainFilter === d ? "page" : undefined}>{d}</a>
     ))}
   </div>
 
