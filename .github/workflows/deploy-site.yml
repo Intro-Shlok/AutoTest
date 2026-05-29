@@ -5,16 +5,12 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,12 +29,12 @@ jobs:
           cp -r public/api dist/
           cp llms.txt llms-full.txt dist/
 
-      - name: Commit to main/docs
-        run: |
-          rm -rf main/docs
-          mkdir -p main/docs
-          cp -r dist/* main/docs/
-          cd main
-          git add -A
-          git diff --staged --quiet || git commit -m "Build: $(date +'%Y-%m-%d %H:%M:%S')"
-          git push origin main --force
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
